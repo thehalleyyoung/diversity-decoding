@@ -5,13 +5,12 @@
 ## 30-Second Quickstart
 
 ```bash
-cd implementation
 python3 -m pytest tests/test_pathb.py tests/test_distributional.py tests/test_property_invariants.py -q
 # 83 passed in ~6s
 ```
 
 ```python
-from implementation.src.unified_selector import get_selector
+from src.unified_selector import get_selector
 import numpy as np
 
 # Select 10 diverse items from 200 candidates
@@ -24,7 +23,7 @@ print(f"Selected {len(indices)} diverse items")
 
 ```python
 # Bias-corrected entropy analysis
-from implementation.src.entropy_correction import corrected_info_theory_analysis
+from src.entropy_correction import corrected_info_theory_analysis
 results = corrected_info_theory_analysis(high_div_texts, low_div_texts)
 print(f"H_MM = {results['shannon_entropy']['high_diversity']['miller_madow']}")
 # H_MM = 9.8146
@@ -34,7 +33,7 @@ print(f"KL (Laplace) = {results['kl_divergence']['laplace_smoothed']}")
 
 ```python
 # Berry-Esseen convergence rate for Kendall τ
-from implementation.src.distributional_analysis import berry_esseen_kendall_tau
+from src.distributional_analysis import berry_esseen_kendall_tau
 result = berry_esseen_kendall_tau(n=13)
 print(result['interpretation'])
 # For n=13 items, the CDF of standardized τ̂ deviates from Gaussian by at most 0.1317.
@@ -65,7 +64,7 @@ print(result['interpretation'])
 
 ## Contents
 
-- `implementation/src/` — Full DivFlow toolkit
+- `src/` — Full DivFlow toolkit
   - `src/unified_selector.py` — Unified selector API (DPP, MMR, Submodular, FarthestPoint, Clustering)
   - `src/text_diversity_toolkit.py` — Text diversity analysis (D-n, Self-BLEU, TF-IDF, NMF)
   - `src/fair_diversity.py` — Fairness-aware selection with group constraints
@@ -75,22 +74,20 @@ print(result['interpretation'])
   - `src/metric_lattice.py` — Lattice structure, Hasse diagrams, Betti numbers
   - `src/failure_taxonomy.py` — 13-mode failure taxonomy with detector
   - `src/distributional_analysis.py` — Metric algebra, NMI/VI, Berry-Esseen, submodularity
-- `implementation/experiments/` — Reproducible experiment scripts
+- `experiments/` — Reproducible experiment scripts
   - `experiments/run_pathb_experiments.py` — PATH B experiment runner
-  - `experiments/pathb_results/` — All PATH B result artifacts
-- `implementation/tests/` — 83 tests
-  - `test_property_invariants.py` — 18 metric invariant tests
-  - `test_distributional.py` — 12 distributional analysis tests
-  - `test_pathb.py` — 53 PATH B tests (SMT, entropy, cross-model, lattice, taxonomy, IT baselines)
+  - `experiments/experiments/pathb_results/` — All PATH B result artifacts
+- `tests/` — Test suite
+  - `tests/test_property_invariants.py` — 18 metric invariant tests
+  - `tests/test_distributional.py` — 12 distributional analysis tests
+  - `tests/test_pathb.py` — 53 PATH B tests (SMT, entropy, cross-model, lattice, taxonomy, IT baselines)
 - `theory/tool_paper.tex` — Paper (25 pages, compiles with `pdflatex`)
+- `docs/` — Reviews, meta documents, and grounding artifacts
 - `API.md` — API reference
-- `grounding.json` — Every claim → artifact mapping
 
 ## Running
 
 ```bash
-cd implementation
-
 # Run all tests (83 tests, ~6s)
 python3 -m pytest tests/test_property_invariants.py tests/test_distributional.py tests/test_pathb.py -v
 
@@ -98,7 +95,7 @@ python3 -m pytest tests/test_property_invariants.py tests/test_distributional.py
 PYTHONPATH=. python3 experiments/run_pathb_experiments.py
 
 # Compile paper
-cd ../theory && pdflatex tool_paper.tex && pdflatex tool_paper.tex
+cd theory && pdflatex tool_paper.tex && pdflatex tool_paper.tex
 ```
 
 ## Requirements
