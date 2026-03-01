@@ -1,0 +1,1661 @@
+{
+  "metadata": {
+    "n_metrics": 10,
+    "metric_names": [
+      "distinct_2",
+      "self_bleu",
+      "entropy",
+      "epd",
+      "vendi",
+      "jaccard",
+      "ptd",
+      "crd",
+      "usr",
+      "sed"
+    ],
+    "new_metrics": [
+      "crd",
+      "usr",
+      "sed"
+    ],
+    "n_configs": 13,
+    "n_prompts": 20,
+    "n_seeds": 3,
+    "total_groups": 780,
+    "total_generations": 7800,
+    "embedding_model": "text-embedding-3-small",
+    "embedding_time_s": 53.1,
+    "metric_computation_time_s": 19.3
+  },
+  "kendall_tau_per_prompt": {
+    "distinct_2_vs_self_bleu": {
+      "mean_tau": -0.9289,
+      "std_tau": 0.0946,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_entropy": {
+      "mean_tau": 0.9363,
+      "std_tau": 0.0587,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_epd": {
+      "mean_tau": 0.531,
+      "std_tau": 0.3481,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_vendi": {
+      "mean_tau": 0.8988,
+      "std_tau": 0.08,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_jaccard": {
+      "mean_tau": 0.9476,
+      "std_tau": 0.0526,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_ptd": {
+      "mean_tau": 0.7542,
+      "std_tau": 0.1427,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_crd": {
+      "mean_tau": 0.9692,
+      "std_tau": 0.0281,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_usr": {
+      "mean_tau": 0.731,
+      "std_tau": 0.1588,
+      "n_replicates": 60
+    },
+    "distinct_2_vs_sed": {
+      "mean_tau": 0.8967,
+      "std_tau": 0.077,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_entropy": {
+      "mean_tau": -0.8839,
+      "std_tau": 0.1124,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_epd": {
+      "mean_tau": -0.5063,
+      "std_tau": 0.3786,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_vendi": {
+      "mean_tau": -0.8706,
+      "std_tau": 0.1144,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_jaccard": {
+      "mean_tau": -0.8942,
+      "std_tau": 0.1153,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_ptd": {
+      "mean_tau": -0.7208,
+      "std_tau": 0.1387,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_crd": {
+      "mean_tau": -0.9211,
+      "std_tau": 0.0928,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_usr": {
+      "mean_tau": -0.7078,
+      "std_tau": 0.1523,
+      "n_replicates": 60
+    },
+    "self_bleu_vs_sed": {
+      "mean_tau": -0.8529,
+      "std_tau": 0.1098,
+      "n_replicates": 60
+    },
+    "entropy_vs_epd": {
+      "mean_tau": 0.5052,
+      "std_tau": 0.3249,
+      "n_replicates": 60
+    },
+    "entropy_vs_vendi": {
+      "mean_tau": 0.869,
+      "std_tau": 0.0888,
+      "n_replicates": 60
+    },
+    "entropy_vs_jaccard": {
+      "mean_tau": 0.9336,
+      "std_tau": 0.0679,
+      "n_replicates": 60
+    },
+    "entropy_vs_ptd": {
+      "mean_tau": 0.774,
+      "std_tau": 0.1407,
+      "n_replicates": 60
+    },
+    "entropy_vs_crd": {
+      "mean_tau": 0.9279,
+      "std_tau": 0.0621,
+      "n_replicates": 60
+    },
+    "entropy_vs_usr": {
+      "mean_tau": 0.7343,
+      "std_tau": 0.1546,
+      "n_replicates": 60
+    },
+    "entropy_vs_sed": {
+      "mean_tau": 0.8744,
+      "std_tau": 0.0997,
+      "n_replicates": 60
+    },
+    "epd_vs_vendi": {
+      "mean_tau": 0.5689,
+      "std_tau": 0.3468,
+      "n_replicates": 60
+    },
+    "epd_vs_jaccard": {
+      "mean_tau": 0.5184,
+      "std_tau": 0.3387,
+      "n_replicates": 60
+    },
+    "epd_vs_ptd": {
+      "mean_tau": 0.347,
+      "std_tau": 0.2952,
+      "n_replicates": 60
+    },
+    "epd_vs_crd": {
+      "mean_tau": 0.5326,
+      "std_tau": 0.3549,
+      "n_replicates": 60
+    },
+    "epd_vs_usr": {
+      "mean_tau": 0.325,
+      "std_tau": 0.3263,
+      "n_replicates": 60
+    },
+    "epd_vs_sed": {
+      "mean_tau": 0.4912,
+      "std_tau": 0.3332,
+      "n_replicates": 60
+    },
+    "vendi_vs_jaccard": {
+      "mean_tau": 0.8886,
+      "std_tau": 0.0809,
+      "n_replicates": 60
+    },
+    "vendi_vs_ptd": {
+      "mean_tau": 0.7146,
+      "std_tau": 0.1583,
+      "n_replicates": 60
+    },
+    "vendi_vs_crd": {
+      "mean_tau": 0.9,
+      "std_tau": 0.0815,
+      "n_replicates": 60
+    },
+    "vendi_vs_usr": {
+      "mean_tau": 0.7475,
+      "std_tau": 0.1542,
+      "n_replicates": 60
+    },
+    "vendi_vs_sed": {
+      "mean_tau": 0.8504,
+      "std_tau": 0.1058,
+      "n_replicates": 60
+    },
+    "jaccard_vs_ptd": {
+      "mean_tau": 0.763,
+      "std_tau": 0.1422,
+      "n_replicates": 60
+    },
+    "jaccard_vs_crd": {
+      "mean_tau": 0.9464,
+      "std_tau": 0.0531,
+      "n_replicates": 60
+    },
+    "jaccard_vs_usr": {
+      "mean_tau": 0.7328,
+      "std_tau": 0.1579,
+      "n_replicates": 60
+    },
+    "jaccard_vs_sed": {
+      "mean_tau": 0.9113,
+      "std_tau": 0.0701,
+      "n_replicates": 60
+    },
+    "ptd_vs_crd": {
+      "mean_tau": 0.7515,
+      "std_tau": 0.1453,
+      "n_replicates": 60
+    },
+    "ptd_vs_usr": {
+      "mean_tau": 0.6947,
+      "std_tau": 0.1749,
+      "n_replicates": 60
+    },
+    "ptd_vs_sed": {
+      "mean_tau": 0.733,
+      "std_tau": 0.1593,
+      "n_replicates": 60
+    },
+    "crd_vs_usr": {
+      "mean_tau": 0.7288,
+      "std_tau": 0.152,
+      "n_replicates": 60
+    },
+    "crd_vs_sed": {
+      "mean_tau": 0.9021,
+      "std_tau": 0.0722,
+      "n_replicates": 60
+    },
+    "usr_vs_sed": {
+      "mean_tau": 0.7206,
+      "std_tau": 0.1593,
+      "n_replicates": 60
+    }
+  },
+  "spearman_rho_per_prompt": {
+    "distinct_2_vs_self_bleu": {
+      "mean_rho": -0.9706,
+      "std_rho": 0.0617
+    },
+    "distinct_2_vs_entropy": {
+      "mean_rho": 0.9772,
+      "std_rho": 0.0303
+    },
+    "distinct_2_vs_epd": {
+      "mean_rho": 0.4736,
+      "std_rho": 0.4636
+    },
+    "distinct_2_vs_vendi": {
+      "mean_rho": 0.9614,
+      "std_rho": 0.0406
+    },
+    "distinct_2_vs_jaccard": {
+      "mean_rho": 0.9839,
+      "std_rho": 0.02
+    },
+    "distinct_2_vs_ptd": {
+      "mean_rho": 0.8217,
+      "std_rho": 0.1326
+    },
+    "distinct_2_vs_crd": {
+      "mean_rho": 0.9922,
+      "std_rho": 0.0079
+    },
+    "distinct_2_vs_usr": {
+      "mean_rho": 0.8124,
+      "std_rho": 0.1395
+    },
+    "distinct_2_vs_sed": {
+      "mean_rho": 0.9613,
+      "std_rho": 0.0398
+    },
+    "self_bleu_vs_entropy": {
+      "mean_rho": -0.9497,
+      "std_rho": 0.0823
+    },
+    "self_bleu_vs_epd": {
+      "mean_rho": -0.4661,
+      "std_rho": 0.4779
+    },
+    "self_bleu_vs_vendi": {
+      "mean_rho": -0.9448,
+      "std_rho": 0.0824
+    },
+    "self_bleu_vs_jaccard": {
+      "mean_rho": -0.9542,
+      "std_rho": 0.0843
+    },
+    "self_bleu_vs_ptd": {
+      "mean_rho": -0.8017,
+      "std_rho": 0.1366
+    },
+    "self_bleu_vs_crd": {
+      "mean_rho": -0.9683,
+      "std_rho": 0.0552
+    },
+    "self_bleu_vs_usr": {
+      "mean_rho": -0.7983,
+      "std_rho": 0.1375
+    },
+    "self_bleu_vs_sed": {
+      "mean_rho": -0.9337,
+      "std_rho": 0.0799
+    },
+    "entropy_vs_epd": {
+      "mean_rho": 0.4593,
+      "std_rho": 0.4494
+    },
+    "entropy_vs_vendi": {
+      "mean_rho": 0.9466,
+      "std_rho": 0.0477
+    },
+    "entropy_vs_jaccard": {
+      "mean_rho": 0.9768,
+      "std_rho": 0.0328
+    },
+    "entropy_vs_ptd": {
+      "mean_rho": 0.8516,
+      "std_rho": 0.1176
+    },
+    "entropy_vs_crd": {
+      "mean_rho": 0.9738,
+      "std_rho": 0.033
+    },
+    "entropy_vs_usr": {
+      "mean_rho": 0.8152,
+      "std_rho": 0.1377
+    },
+    "entropy_vs_sed": {
+      "mean_rho": 0.9485,
+      "std_rho": 0.0597
+    },
+    "epd_vs_vendi": {
+      "mean_rho": 0.4916,
+      "std_rho": 0.464
+    },
+    "epd_vs_jaccard": {
+      "mean_rho": 0.4678,
+      "std_rho": 0.4569
+    },
+    "epd_vs_ptd": {
+      "mean_rho": 0.31,
+      "std_rho": 0.3973
+    },
+    "epd_vs_crd": {
+      "mean_rho": 0.4743,
+      "std_rho": 0.4678
+    },
+    "epd_vs_usr": {
+      "mean_rho": 0.2939,
+      "std_rho": 0.4237
+    },
+    "epd_vs_sed": {
+      "mean_rho": 0.4525,
+      "std_rho": 0.4559
+    },
+    "vendi_vs_jaccard": {
+      "mean_rho": 0.9556,
+      "std_rho": 0.0449
+    },
+    "vendi_vs_ptd": {
+      "mean_rho": 0.7982,
+      "std_rho": 0.1476
+    },
+    "vendi_vs_crd": {
+      "mean_rho": 0.9609,
+      "std_rho": 0.0475
+    },
+    "vendi_vs_usr": {
+      "mean_rho": 0.8253,
+      "std_rho": 0.1349
+    },
+    "vendi_vs_sed": {
+      "mean_rho": 0.9335,
+      "std_rho": 0.0725
+    },
+    "jaccard_vs_ptd": {
+      "mean_rho": 0.8252,
+      "std_rho": 0.1323
+    },
+    "jaccard_vs_crd": {
+      "mean_rho": 0.9828,
+      "std_rho": 0.025
+    },
+    "jaccard_vs_usr": {
+      "mean_rho": 0.8145,
+      "std_rho": 0.1425
+    },
+    "jaccard_vs_sed": {
+      "mean_rho": 0.9683,
+      "std_rho": 0.0344
+    },
+    "ptd_vs_crd": {
+      "mean_rho": 0.8202,
+      "std_rho": 0.1341
+    },
+    "ptd_vs_usr": {
+      "mean_rho": 0.7774,
+      "std_rho": 0.1629
+    },
+    "ptd_vs_sed": {
+      "mean_rho": 0.8067,
+      "std_rho": 0.1467
+    },
+    "crd_vs_usr": {
+      "mean_rho": 0.8115,
+      "std_rho": 0.1348
+    },
+    "crd_vs_sed": {
+      "mean_rho": 0.9649,
+      "std_rho": 0.0375
+    },
+    "usr_vs_sed": {
+      "mean_rho": 0.8066,
+      "std_rho": 0.1448
+    }
+  },
+  "domain_results": {
+    "creative_writing": {
+      "distinct_2_vs_self_bleu": {
+        "mean_tau": -0.9595,
+        "std_tau": 0.0754
+      },
+      "distinct_2_vs_entropy": {
+        "mean_tau": 0.954,
+        "std_tau": 0.0269
+      },
+      "distinct_2_vs_epd": {
+        "mean_tau": 0.5076,
+        "std_tau": 0.4691
+      },
+      "distinct_2_vs_vendi": {
+        "mean_tau": 0.9122,
+        "std_tau": 0.0783
+      },
+      "distinct_2_vs_jaccard": {
+        "mean_tau": 0.9651,
+        "std_tau": 0.0345
+      },
+      "distinct_2_vs_ptd": {
+        "mean_tau": 0.7471,
+        "std_tau": 0.1519
+      },
+      "distinct_2_vs_crd": {
+        "mean_tau": 0.9807,
+        "std_tau": 0.0186
+      },
+      "distinct_2_vs_usr": {
+        "mean_tau": 0.6648,
+        "std_tau": 0.1706
+      },
+      "distinct_2_vs_sed": {
+        "mean_tau": 0.9111,
+        "std_tau": 0.0561
+      },
+      "self_bleu_vs_entropy": {
+        "mean_tau": -0.9177,
+        "std_tau": 0.0906
+      },
+      "self_bleu_vs_epd": {
+        "mean_tau": -0.4898,
+        "std_tau": 0.4862
+      },
+      "self_bleu_vs_vendi": {
+        "mean_tau": -0.8888,
+        "std_tau": 0.0825
+      },
+      "self_bleu_vs_jaccard": {
+        "mean_tau": -0.9288,
+        "std_tau": 0.0963
+      },
+      "self_bleu_vs_ptd": {
+        "mean_tau": -0.7109,
+        "std_tau": 0.1399
+      },
+      "self_bleu_vs_crd": {
+        "mean_tau": -0.9574,
+        "std_tau": 0.0753
+      },
+      "self_bleu_vs_usr": {
+        "mean_tau": -0.6627,
+        "std_tau": 0.1642
+      },
+      "self_bleu_vs_sed": {
+        "mean_tau": -0.8876,
+        "std_tau": 0.0938
+      },
+      "entropy_vs_epd": {
+        "mean_tau": 0.4894,
+        "std_tau": 0.4434
+      },
+      "entropy_vs_vendi": {
+        "mean_tau": 0.8705,
+        "std_tau": 0.084
+      },
+      "entropy_vs_jaccard": {
+        "mean_tau": 0.9504,
+        "std_tau": 0.0371
+      },
+      "entropy_vs_ptd": {
+        "mean_tau": 0.7619,
+        "std_tau": 0.1437
+      },
+      "entropy_vs_crd": {
+        "mean_tau": 0.939,
+        "std_tau": 0.0323
+      },
+      "entropy_vs_usr": {
+        "mean_tau": 0.6707,
+        "std_tau": 0.1647
+      },
+      "entropy_vs_sed": {
+        "mean_tau": 0.8929,
+        "std_tau": 0.0773
+      },
+      "epd_vs_vendi": {
+        "mean_tau": 0.5355,
+        "std_tau": 0.4803
+      },
+      "epd_vs_jaccard": {
+        "mean_tau": 0.5126,
+        "std_tau": 0.4601
+      },
+      "epd_vs_ptd": {
+        "mean_tau": 0.2981,
+        "std_tau": 0.37
+      },
+      "epd_vs_crd": {
+        "mean_tau": 0.5141,
+        "std_tau": 0.4704
+      },
+      "epd_vs_usr": {
+        "mean_tau": 0.1953,
+        "std_tau": 0.454
+      },
+      "epd_vs_sed": {
+        "mean_tau": 0.4936,
+        "std_tau": 0.4526
+      },
+      "vendi_vs_jaccard": {
+        "mean_tau": 0.903,
+        "std_tau": 0.0679
+      },
+      "vendi_vs_ptd": {
+        "mean_tau": 0.6892,
+        "std_tau": 0.186
+      },
+      "vendi_vs_crd": {
+        "mean_tau": 0.9186,
+        "std_tau": 0.0718
+      },
+      "vendi_vs_usr": {
+        "mean_tau": 0.6798,
+        "std_tau": 0.1639
+      },
+      "vendi_vs_sed": {
+        "mean_tau": 0.8704,
+        "std_tau": 0.0849
+      },
+      "jaccard_vs_ptd": {
+        "mean_tau": 0.7336,
+        "std_tau": 0.1466
+      },
+      "jaccard_vs_crd": {
+        "mean_tau": 0.963,
+        "std_tau": 0.0377
+      },
+      "jaccard_vs_usr": {
+        "mean_tau": 0.6618,
+        "std_tau": 0.1755
+      },
+      "jaccard_vs_sed": {
+        "mean_tau": 0.9246,
+        "std_tau": 0.0476
+      },
+      "ptd_vs_crd": {
+        "mean_tau": 0.7449,
+        "std_tau": 0.1555
+      },
+      "ptd_vs_usr": {
+        "mean_tau": 0.6439,
+        "std_tau": 0.1737
+      },
+      "ptd_vs_sed": {
+        "mean_tau": 0.719,
+        "std_tau": 0.1688
+      },
+      "crd_vs_usr": {
+        "mean_tau": 0.6707,
+        "std_tau": 0.1647
+      },
+      "crd_vs_sed": {
+        "mean_tau": 0.909,
+        "std_tau": 0.0538
+      },
+      "usr_vs_sed": {
+        "mean_tau": 0.6445,
+        "std_tau": 0.1809
+      }
+    },
+    "code_generation": {
+      "distinct_2_vs_self_bleu": {
+        "mean_tau": -0.8707,
+        "std_tau": 0.1491
+      },
+      "distinct_2_vs_entropy": {
+        "mean_tau": 0.9143,
+        "std_tau": 0.063
+      },
+      "distinct_2_vs_epd": {
+        "mean_tau": 0.3521,
+        "std_tau": 0.2786
+      },
+      "distinct_2_vs_vendi": {
+        "mean_tau": 0.8559,
+        "std_tau": 0.1045
+      },
+      "distinct_2_vs_jaccard": {
+        "mean_tau": 0.9167,
+        "std_tau": 0.0772
+      },
+      "distinct_2_vs_ptd": {
+        "mean_tau": 0.766,
+        "std_tau": 0.1354
+      },
+      "distinct_2_vs_crd": {
+        "mean_tau": 0.9535,
+        "std_tau": 0.0319
+      },
+      "distinct_2_vs_usr": {
+        "mean_tau": 0.7802,
+        "std_tau": 0.1496
+      },
+      "distinct_2_vs_sed": {
+        "mean_tau": 0.8557,
+        "std_tau": 0.0931
+      },
+      "self_bleu_vs_entropy": {
+        "mean_tau": -0.8286,
+        "std_tau": 0.1798
+      },
+      "self_bleu_vs_epd": {
+        "mean_tau": -0.2914,
+        "std_tau": 0.3518
+      },
+      "self_bleu_vs_vendi": {
+        "mean_tau": -0.8221,
+        "std_tau": 0.1987
+      },
+      "self_bleu_vs_jaccard": {
+        "mean_tau": -0.8265,
+        "std_tau": 0.1916
+      },
+      "self_bleu_vs_ptd": {
+        "mean_tau": -0.7193,
+        "std_tau": 0.184
+      },
+      "self_bleu_vs_crd": {
+        "mean_tau": -0.872,
+        "std_tau": 0.1436
+      },
+      "self_bleu_vs_usr": {
+        "mean_tau": -0.748,
+        "std_tau": 0.1947
+      },
+      "self_bleu_vs_sed": {
+        "mean_tau": -0.7876,
+        "std_tau": 0.161
+      },
+      "entropy_vs_epd": {
+        "mean_tau": 0.3564,
+        "std_tau": 0.254
+      },
+      "entropy_vs_vendi": {
+        "mean_tau": 0.8595,
+        "std_tau": 0.0874
+      },
+      "entropy_vs_jaccard": {
+        "mean_tau": 0.9417,
+        "std_tau": 0.0607
+      },
+      "entropy_vs_ptd": {
+        "mean_tau": 0.7716,
+        "std_tau": 0.1473
+      },
+      "entropy_vs_crd": {
+        "mean_tau": 0.9112,
+        "std_tau": 0.0674
+      },
+      "entropy_vs_usr": {
+        "mean_tau": 0.7976,
+        "std_tau": 0.1527
+      },
+      "entropy_vs_sed": {
+        "mean_tau": 0.857,
+        "std_tau": 0.0929
+      },
+      "epd_vs_vendi": {
+        "mean_tau": 0.4217,
+        "std_tau": 0.2953
+      },
+      "epd_vs_jaccard": {
+        "mean_tau": 0.3484,
+        "std_tau": 0.2623
+      },
+      "epd_vs_ptd": {
+        "mean_tau": 0.1876,
+        "std_tau": 0.2696
+      },
+      "epd_vs_crd": {
+        "mean_tau": 0.3453,
+        "std_tau": 0.2886
+      },
+      "epd_vs_usr": {
+        "mean_tau": 0.2413,
+        "std_tau": 0.2326
+      },
+      "epd_vs_sed": {
+        "mean_tau": 0.2934,
+        "std_tau": 0.2651
+      },
+      "vendi_vs_jaccard": {
+        "mean_tau": 0.8617,
+        "std_tau": 0.1122
+      },
+      "vendi_vs_ptd": {
+        "mean_tau": 0.7086,
+        "std_tau": 0.1674
+      },
+      "vendi_vs_crd": {
+        "mean_tau": 0.8526,
+        "std_tau": 0.119
+      },
+      "vendi_vs_usr": {
+        "mean_tau": 0.8274,
+        "std_tau": 0.1416
+      },
+      "vendi_vs_sed": {
+        "mean_tau": 0.8094,
+        "std_tau": 0.1427
+      },
+      "jaccard_vs_ptd": {
+        "mean_tau": 0.7997,
+        "std_tau": 0.125
+      },
+      "jaccard_vs_crd": {
+        "mean_tau": 0.9222,
+        "std_tau": 0.0819
+      },
+      "jaccard_vs_usr": {
+        "mean_tau": 0.7969,
+        "std_tau": 0.1618
+      },
+      "jaccard_vs_sed": {
+        "mean_tau": 0.8786,
+        "std_tau": 0.0787
+      },
+      "ptd_vs_crd": {
+        "mean_tau": 0.7587,
+        "std_tau": 0.1405
+      },
+      "ptd_vs_usr": {
+        "mean_tau": 0.7195,
+        "std_tau": 0.1856
+      },
+      "ptd_vs_sed": {
+        "mean_tau": 0.7735,
+        "std_tau": 0.1379
+      },
+      "crd_vs_usr": {
+        "mean_tau": 0.7749,
+        "std_tau": 0.1437
+      },
+      "crd_vs_sed": {
+        "mean_tau": 0.8634,
+        "std_tau": 0.0896
+      },
+      "usr_vs_sed": {
+        "mean_tau": 0.7583,
+        "std_tau": 0.1651
+      }
+    },
+    "science": {
+      "distinct_2_vs_self_bleu": {
+        "mean_tau": -0.9302,
+        "std_tau": 0.0829
+      },
+      "distinct_2_vs_entropy": {
+        "mean_tau": 0.9692,
+        "std_tau": 0.0305
+      },
+      "distinct_2_vs_epd": {
+        "mean_tau": 0.6057,
+        "std_tau": 0.24
+      },
+      "distinct_2_vs_vendi": {
+        "mean_tau": 0.924,
+        "std_tau": 0.0759
+      },
+      "distinct_2_vs_jaccard": {
+        "mean_tau": 0.9653,
+        "std_tau": 0.0328
+      },
+      "distinct_2_vs_ptd": {
+        "mean_tau": 0.8036,
+        "std_tau": 0.1495
+      },
+      "distinct_2_vs_crd": {
+        "mean_tau": 0.9746,
+        "std_tau": 0.0337
+      },
+      "distinct_2_vs_usr": {
+        "mean_tau": 0.7492,
+        "std_tau": 0.1537
+      },
+      "distinct_2_vs_sed": {
+        "mean_tau": 0.9273,
+        "std_tau": 0.0525
+      },
+      "self_bleu_vs_entropy": {
+        "mean_tau": -0.9255,
+        "std_tau": 0.0758
+      },
+      "self_bleu_vs_epd": {
+        "mean_tau": -0.5766,
+        "std_tau": 0.2808
+      },
+      "self_bleu_vs_vendi": {
+        "mean_tau": -0.88,
+        "std_tau": 0.0992
+      },
+      "self_bleu_vs_jaccard": {
+        "mean_tau": -0.913,
+        "std_tau": 0.0898
+      },
+      "self_bleu_vs_ptd": {
+        "mean_tau": -0.7858,
+        "std_tau": 0.1322
+      },
+      "self_bleu_vs_crd": {
+        "mean_tau": -0.9224,
+        "std_tau": 0.0806
+      },
+      "self_bleu_vs_usr": {
+        "mean_tau": -0.7182,
+        "std_tau": 0.1233
+      },
+      "self_bleu_vs_sed": {
+        "mean_tau": -0.8794,
+        "std_tau": 0.0908
+      },
+      "entropy_vs_epd": {
+        "mean_tau": 0.5969,
+        "std_tau": 0.2441
+      },
+      "entropy_vs_vendi": {
+        "mean_tau": 0.9105,
+        "std_tau": 0.0742
+      },
+      "entropy_vs_jaccard": {
+        "mean_tau": 0.9562,
+        "std_tau": 0.0381
+      },
+      "entropy_vs_ptd": {
+        "mean_tau": 0.8205,
+        "std_tau": 0.1485
+      },
+      "entropy_vs_crd": {
+        "mean_tau": 0.9622,
+        "std_tau": 0.0364
+      },
+      "entropy_vs_usr": {
+        "mean_tau": 0.7516,
+        "std_tau": 0.1421
+      },
+      "entropy_vs_sed": {
+        "mean_tau": 0.9085,
+        "std_tau": 0.058
+      },
+      "epd_vs_vendi": {
+        "mean_tau": 0.6389,
+        "std_tau": 0.2483
+      },
+      "epd_vs_jaccard": {
+        "mean_tau": 0.5883,
+        "std_tau": 0.251
+      },
+      "epd_vs_ptd": {
+        "mean_tau": 0.4697,
+        "std_tau": 0.2123
+      },
+      "epd_vs_crd": {
+        "mean_tau": 0.6034,
+        "std_tau": 0.2562
+      },
+      "epd_vs_usr": {
+        "mean_tau": 0.4202,
+        "std_tau": 0.2878
+      },
+      "epd_vs_sed": {
+        "mean_tau": 0.5797,
+        "std_tau": 0.2343
+      },
+      "vendi_vs_jaccard": {
+        "mean_tau": 0.9109,
+        "std_tau": 0.0687
+      },
+      "vendi_vs_ptd": {
+        "mean_tau": 0.7839,
+        "std_tau": 0.1232
+      },
+      "vendi_vs_crd": {
+        "mean_tau": 0.9256,
+        "std_tau": 0.0591
+      },
+      "vendi_vs_usr": {
+        "mean_tau": 0.7497,
+        "std_tau": 0.1354
+      },
+      "vendi_vs_sed": {
+        "mean_tau": 0.8847,
+        "std_tau": 0.0738
+      },
+      "jaccard_vs_ptd": {
+        "mean_tau": 0.795,
+        "std_tau": 0.1585
+      },
+      "jaccard_vs_crd": {
+        "mean_tau": 0.9659,
+        "std_tau": 0.0305
+      },
+      "jaccard_vs_usr": {
+        "mean_tau": 0.7471,
+        "std_tau": 0.1361
+      },
+      "jaccard_vs_sed": {
+        "mean_tau": 0.9402,
+        "std_tau": 0.0446
+      },
+      "ptd_vs_crd": {
+        "mean_tau": 0.8045,
+        "std_tau": 0.151
+      },
+      "ptd_vs_usr": {
+        "mean_tau": 0.7266,
+        "std_tau": 0.1652
+      },
+      "ptd_vs_sed": {
+        "mean_tau": 0.7702,
+        "std_tau": 0.1639
+      },
+      "crd_vs_usr": {
+        "mean_tau": 0.7508,
+        "std_tau": 0.1425
+      },
+      "crd_vs_sed": {
+        "mean_tau": 0.927,
+        "std_tau": 0.0504
+      },
+      "usr_vs_sed": {
+        "mean_tau": 0.7404,
+        "std_tau": 0.1488
+      }
+    },
+    "business": {
+      "distinct_2_vs_self_bleu": {
+        "mean_tau": -0.9742,
+        "std_tau": 0.0235
+      },
+      "distinct_2_vs_entropy": {
+        "mean_tau": 0.925,
+        "std_tau": 0.0701
+      },
+      "distinct_2_vs_epd": {
+        "mean_tau": 0.6737,
+        "std_tau": 0.2244
+      },
+      "distinct_2_vs_vendi": {
+        "mean_tau": 0.9047,
+        "std_tau": 0.0452
+      },
+      "distinct_2_vs_jaccard": {
+        "mean_tau": 0.9439,
+        "std_tau": 0.0466
+      },
+      "distinct_2_vs_ptd": {
+        "mean_tau": 0.7017,
+        "std_tau": 0.1022
+      },
+      "distinct_2_vs_crd": {
+        "mean_tau": 0.9716,
+        "std_tau": 0.0221
+      },
+      "distinct_2_vs_usr": {
+        "mean_tau": 0.6704,
+        "std_tau": 0.073
+      },
+      "distinct_2_vs_sed": {
+        "mean_tau": 0.8988,
+        "std_tau": 0.0634
+      },
+      "self_bleu_vs_entropy": {
+        "mean_tau": -0.9035,
+        "std_tau": 0.0624
+      },
+      "self_bleu_vs_epd": {
+        "mean_tau": -0.6779,
+        "std_tau": 0.2372
+      },
+      "self_bleu_vs_vendi": {
+        "mean_tau": -0.9004,
+        "std_tau": 0.0432
+      },
+      "self_bleu_vs_jaccard": {
+        "mean_tau": -0.9353,
+        "std_tau": 0.0325
+      },
+      "self_bleu_vs_ptd": {
+        "mean_tau": -0.706,
+        "std_tau": 0.0969
+      },
+      "self_bleu_vs_crd": {
+        "mean_tau": -0.963,
+        "std_tau": 0.0271
+      },
+      "self_bleu_vs_usr": {
+        "mean_tau": -0.6646,
+        "std_tau": 0.0816
+      },
+      "self_bleu_vs_sed": {
+        "mean_tau": -0.8945,
+        "std_tau": 0.0576
+      },
+      "entropy_vs_epd": {
+        "mean_tau": 0.6157,
+        "std_tau": 0.236
+      },
+      "entropy_vs_vendi": {
+        "mean_tau": 0.8511,
+        "std_tau": 0.0785
+      },
+      "entropy_vs_jaccard": {
+        "mean_tau": 0.9074,
+        "std_tau": 0.0847
+      },
+      "entropy_vs_ptd": {
+        "mean_tau": 0.7509,
+        "std_tau": 0.0877
+      },
+      "entropy_vs_crd": {
+        "mean_tau": 0.9181,
+        "std_tau": 0.072
+      },
+      "entropy_vs_usr": {
+        "mean_tau": 0.6687,
+        "std_tau": 0.0735
+      },
+      "entropy_vs_sed": {
+        "mean_tau": 0.8495,
+        "std_tau": 0.102
+      },
+      "epd_vs_vendi": {
+        "mean_tau": 0.7005,
+        "std_tau": 0.2192
+      },
+      "epd_vs_jaccard": {
+        "mean_tau": 0.6517,
+        "std_tau": 0.2295
+      },
+      "epd_vs_ptd": {
+        "mean_tau": 0.4524,
+        "std_tau": 0.235
+      },
+      "epd_vs_crd": {
+        "mean_tau": 0.6839,
+        "std_tau": 0.2219
+      },
+      "epd_vs_usr": {
+        "mean_tau": 0.3802,
+        "std_tau": 0.285
+      },
+      "epd_vs_sed": {
+        "mean_tau": 0.6239,
+        "std_tau": 0.228
+      },
+      "vendi_vs_jaccard": {
+        "mean_tau": 0.8817,
+        "std_tau": 0.0565
+      },
+      "vendi_vs_ptd": {
+        "mean_tau": 0.6782,
+        "std_tau": 0.1188
+      },
+      "vendi_vs_crd": {
+        "mean_tau": 0.9117,
+        "std_tau": 0.052
+      },
+      "vendi_vs_usr": {
+        "mean_tau": 0.6908,
+        "std_tau": 0.083
+      },
+      "vendi_vs_sed": {
+        "mean_tau": 0.8582,
+        "std_tau": 0.0713
+      },
+      "jaccard_vs_ptd": {
+        "mean_tau": 0.7323,
+        "std_tau": 0.0922
+      },
+      "jaccard_vs_crd": {
+        "mean_tau": 0.9444,
+        "std_tau": 0.0403
+      },
+      "jaccard_vs_usr": {
+        "mean_tau": 0.6748,
+        "std_tau": 0.078
+      },
+      "jaccard_vs_sed": {
+        "mean_tau": 0.908,
+        "std_tau": 0.0605
+      },
+      "ptd_vs_crd": {
+        "mean_tau": 0.7024,
+        "std_tau": 0.0914
+      },
+      "ptd_vs_usr": {
+        "mean_tau": 0.6419,
+        "std_tau": 0.1477
+      },
+      "ptd_vs_sed": {
+        "mean_tau": 0.6918,
+        "std_tau": 0.0922
+      },
+      "crd_vs_usr": {
+        "mean_tau": 0.665,
+        "std_tau": 0.0777
+      },
+      "crd_vs_sed": {
+        "mean_tau": 0.908,
+        "std_tau": 0.0657
+      },
+      "usr_vs_sed": {
+        "mean_tau": 0.6792,
+        "std_tau": 0.0689
+      }
+    },
+    "dialogue": {
+      "distinct_2_vs_self_bleu": {
+        "mean_tau": -0.9098,
+        "std_tau": 0.0514
+      },
+      "distinct_2_vs_entropy": {
+        "mean_tau": 0.9191,
+        "std_tau": 0.0664
+      },
+      "distinct_2_vs_epd": {
+        "mean_tau": 0.516,
+        "std_tau": 0.3762
+      },
+      "distinct_2_vs_vendi": {
+        "mean_tau": 0.8972,
+        "std_tau": 0.0668
+      },
+      "distinct_2_vs_jaccard": {
+        "mean_tau": 0.9471,
+        "std_tau": 0.0429
+      },
+      "distinct_2_vs_ptd": {
+        "mean_tau": 0.7527,
+        "std_tau": 0.1491
+      },
+      "distinct_2_vs_crd": {
+        "mean_tau": 0.9655,
+        "std_tau": 0.0233
+      },
+      "distinct_2_vs_usr": {
+        "mean_tau": 0.7907,
+        "std_tau": 0.1769
+      },
+      "distinct_2_vs_sed": {
+        "mean_tau": 0.8907,
+        "std_tau": 0.0905
+      },
+      "self_bleu_vs_entropy": {
+        "mean_tau": -0.8443,
+        "std_tau": 0.0719
+      },
+      "self_bleu_vs_epd": {
+        "mean_tau": -0.4959,
+        "std_tau": 0.3745
+      },
+      "self_bleu_vs_vendi": {
+        "mean_tau": -0.8615,
+        "std_tau": 0.0605
+      },
+      "self_bleu_vs_jaccard": {
+        "mean_tau": -0.8675,
+        "std_tau": 0.0534
+      },
+      "self_bleu_vs_ptd": {
+        "mean_tau": -0.6821,
+        "std_tau": 0.0991
+      },
+      "self_bleu_vs_crd": {
+        "mean_tau": -0.8909,
+        "std_tau": 0.0563
+      },
+      "self_bleu_vs_usr": {
+        "mean_tau": -0.7454,
+        "std_tau": 0.149
+      },
+      "self_bleu_vs_sed": {
+        "mean_tau": -0.8156,
+        "std_tau": 0.0686
+      },
+      "entropy_vs_epd": {
+        "mean_tau": 0.4676,
+        "std_tau": 0.3272
+      },
+      "entropy_vs_vendi": {
+        "mean_tau": 0.8536,
+        "std_tau": 0.1034
+      },
+      "entropy_vs_jaccard": {
+        "mean_tau": 0.9121,
+        "std_tau": 0.0858
+      },
+      "entropy_vs_ptd": {
+        "mean_tau": 0.765,
+        "std_tau": 0.1547
+      },
+      "entropy_vs_crd": {
+        "mean_tau": 0.9089,
+        "std_tau": 0.0718
+      },
+      "entropy_vs_usr": {
+        "mean_tau": 0.7829,
+        "std_tau": 0.1688
+      },
+      "entropy_vs_sed": {
+        "mean_tau": 0.8641,
+        "std_tau": 0.1372
+      },
+      "epd_vs_vendi": {
+        "mean_tau": 0.5477,
+        "std_tau": 0.3581
+      },
+      "epd_vs_jaccard": {
+        "mean_tau": 0.4912,
+        "std_tau": 0.3538
+      },
+      "epd_vs_ptd": {
+        "mean_tau": 0.3271,
+        "std_tau": 0.2675
+      },
+      "epd_vs_crd": {
+        "mean_tau": 0.5164,
+        "std_tau": 0.383
+      },
+      "epd_vs_usr": {
+        "mean_tau": 0.388,
+        "std_tau": 0.2609
+      },
+      "epd_vs_sed": {
+        "mean_tau": 0.4653,
+        "std_tau": 0.3285
+      },
+      "vendi_vs_jaccard": {
+        "mean_tau": 0.8857,
+        "std_tau": 0.078
+      },
+      "vendi_vs_ptd": {
+        "mean_tau": 0.713,
+        "std_tau": 0.1629
+      },
+      "vendi_vs_crd": {
+        "mean_tau": 0.8913,
+        "std_tau": 0.0654
+      },
+      "vendi_vs_usr": {
+        "mean_tau": 0.7899,
+        "std_tau": 0.1753
+      },
+      "vendi_vs_sed": {
+        "mean_tau": 0.8294,
+        "std_tau": 0.1189
+      },
+      "jaccard_vs_ptd": {
+        "mean_tau": 0.7542,
+        "std_tau": 0.1615
+      },
+      "jaccard_vs_crd": {
+        "mean_tau": 0.9366,
+        "std_tau": 0.0454
+      },
+      "jaccard_vs_usr": {
+        "mean_tau": 0.7833,
+        "std_tau": 0.1667
+      },
+      "jaccard_vs_sed": {
+        "mean_tau": 0.9049,
+        "std_tau": 0.0912
+      },
+      "ptd_vs_crd": {
+        "mean_tau": 0.7471,
+        "std_tau": 0.1588
+      },
+      "ptd_vs_usr": {
+        "mean_tau": 0.7415,
+        "std_tau": 0.1732
+      },
+      "ptd_vs_sed": {
+        "mean_tau": 0.7105,
+        "std_tau": 0.1966
+      },
+      "crd_vs_usr": {
+        "mean_tau": 0.7824,
+        "std_tau": 0.1686
+      },
+      "crd_vs_sed": {
+        "mean_tau": 0.9029,
+        "std_tau": 0.0779
+      },
+      "usr_vs_sed": {
+        "mean_tau": 0.7805,
+        "std_tau": 0.1644
+      }
+    }
+  },
+  "clusters_at_0.7": [
+    [
+      "distinct_2",
+      "self_bleu",
+      "entropy",
+      "vendi",
+      "jaccard",
+      "ptd",
+      "crd",
+      "usr",
+      "sed"
+    ],
+    [
+      "epd"
+    ]
+  ],
+  "mean_tau_matrix": {
+    "metric_names": [
+      "distinct_2",
+      "self_bleu",
+      "entropy",
+      "epd",
+      "vendi",
+      "jaccard",
+      "ptd",
+      "crd",
+      "usr",
+      "sed"
+    ],
+    "matrix": [
+      [
+        1.0,
+        -0.9289,
+        0.9363,
+        0.531,
+        0.8988,
+        0.9476,
+        0.7542,
+        0.9692,
+        0.731,
+        0.8967
+      ],
+      [
+        -0.9289,
+        1.0,
+        -0.8839,
+        -0.5063,
+        -0.8706,
+        -0.8942,
+        -0.7208,
+        -0.9211,
+        -0.7078,
+        -0.8529
+      ],
+      [
+        0.9363,
+        -0.8839,
+        1.0,
+        0.5052,
+        0.869,
+        0.9336,
+        0.774,
+        0.9279,
+        0.7343,
+        0.8744
+      ],
+      [
+        0.531,
+        -0.5063,
+        0.5052,
+        1.0,
+        0.5689,
+        0.5184,
+        0.347,
+        0.5326,
+        0.325,
+        0.4912
+      ],
+      [
+        0.8988,
+        -0.8706,
+        0.869,
+        0.5689,
+        1.0,
+        0.8886,
+        0.7146,
+        0.9,
+        0.7475,
+        0.8504
+      ],
+      [
+        0.9476,
+        -0.8942,
+        0.9336,
+        0.5184,
+        0.8886,
+        1.0,
+        0.763,
+        0.9464,
+        0.7328,
+        0.9113
+      ],
+      [
+        0.7542,
+        -0.7208,
+        0.774,
+        0.347,
+        0.7146,
+        0.763,
+        1.0,
+        0.7515,
+        0.6947,
+        0.733
+      ],
+      [
+        0.9692,
+        -0.9211,
+        0.9279,
+        0.5326,
+        0.9,
+        0.9464,
+        0.7515,
+        1.0,
+        0.7288,
+        0.9021
+      ],
+      [
+        0.731,
+        -0.7078,
+        0.7343,
+        0.325,
+        0.7475,
+        0.7328,
+        0.6947,
+        0.7288,
+        1.0,
+        0.7206
+      ],
+      [
+        0.8967,
+        -0.8529,
+        0.8744,
+        0.4912,
+        0.8504,
+        0.9113,
+        0.733,
+        0.9021,
+        0.7206,
+        1.0
+      ]
+    ]
+  },
+  "config_means": {
+    "nucleus_0.3": {
+      "distinct_2": 0.1501,
+      "self_bleu": 0.9583,
+      "entropy": 5.4653,
+      "epd": 0.676,
+      "vendi": 1.7033,
+      "jaccard": 0.134,
+      "ptd": 0.085,
+      "crd": 0.1529,
+      "usr": 0.2033,
+      "sed": 0.0305
+    },
+    "nucleus_0.5": {
+      "distinct_2": 0.2576,
+      "self_bleu": 0.872,
+      "entropy": 6.021,
+      "epd": 0.8149,
+      "vendi": 4.3574,
+      "jaccard": 0.3355,
+      "ptd": 0.2105,
+      "crd": 0.2306,
+      "usr": 0.4967,
+      "sed": 0.078
+    },
+    "nucleus_0.7": {
+      "distinct_2": 0.4261,
+      "self_bleu": 0.6777,
+      "entropy": 6.8115,
+      "epd": 0.8216,
+      "vendi": 7.0624,
+      "jaccard": 0.5505,
+      "ptd": 0.3654,
+      "crd": 0.3426,
+      "usr": 0.7733,
+      "sed": 0.1408
+    },
+    "nucleus_0.9": {
+      "distinct_2": 0.5063,
+      "self_bleu": 0.5703,
+      "entropy": 7.1249,
+      "epd": 0.8563,
+      "vendi": 8.0493,
+      "jaccard": 0.6325,
+      "ptd": 0.4145,
+      "crd": 0.3949,
+      "usr": 0.8517,
+      "sed": 0.19
+    },
+    "nucleus_0.95": {
+      "distinct_2": 0.5231,
+      "self_bleu": 0.5546,
+      "entropy": 7.1807,
+      "epd": 0.8611,
+      "vendi": 8.2093,
+      "jaccard": 0.6408,
+      "ptd": 0.4217,
+      "crd": 0.4054,
+      "usr": 0.8533,
+      "sed": 0.1898
+    },
+    "temp_0.0": {
+      "distinct_2": 0.1241,
+      "self_bleu": 0.9647,
+      "entropy": 5.2764,
+      "epd": 0.5733,
+      "vendi": 1.2049,
+      "jaccard": 0.0506,
+      "ptd": 0.0341,
+      "crd": 0.1321,
+      "usr": 0.1533,
+      "sed": 0.0101
+    },
+    "temp_0.3": {
+      "distinct_2": 0.3437,
+      "self_bleu": 0.7679,
+      "entropy": 6.4259,
+      "epd": 0.7471,
+      "vendi": 5.9509,
+      "jaccard": 0.4589,
+      "ptd": 0.3005,
+      "crd": 0.2899,
+      "usr": 0.6833,
+      "sed": 0.1116
+    },
+    "temp_0.5": {
+      "distinct_2": 0.4162,
+      "self_bleu": 0.6898,
+      "entropy": 6.7441,
+      "epd": 0.8107,
+      "vendi": 7.12,
+      "jaccard": 0.5488,
+      "ptd": 0.3631,
+      "crd": 0.337,
+      "usr": 0.7717,
+      "sed": 0.1424
+    },
+    "temp_0.7": {
+      "distinct_2": 0.4813,
+      "self_bleu": 0.6128,
+      "entropy": 7.0069,
+      "epd": 0.8478,
+      "vendi": 7.827,
+      "jaccard": 0.608,
+      "ptd": 0.4044,
+      "crd": 0.377,
+      "usr": 0.8233,
+      "sed": 0.171
+    },
+    "temp_1.0": {
+      "distinct_2": 0.5575,
+      "self_bleu": 0.5019,
+      "entropy": 7.305,
+      "epd": 0.8774,
+      "vendi": 8.4957,
+      "jaccard": 0.6749,
+      "ptd": 0.4423,
+      "crd": 0.4286,
+      "usr": 0.89,
+      "sed": 0.2151
+    },
+    "temp_1.2": {
+      "distinct_2": 0.5981,
+      "self_bleu": 0.4505,
+      "entropy": 7.4366,
+      "epd": 0.8926,
+      "vendi": 8.7852,
+      "jaccard": 0.7041,
+      "ptd": 0.4607,
+      "crd": 0.4529,
+      "usr": 0.9067,
+      "sed": 0.2389
+    },
+    "temp_1.5": {
+      "distinct_2": 0.6699,
+      "self_bleu": 0.3561,
+      "entropy": 7.6555,
+      "epd": 0.909,
+      "vendi": 9.0664,
+      "jaccard": 0.7568,
+      "ptd": 0.4907,
+      "crd": 0.5179,
+      "usr": 0.9367,
+      "sed": 0.3002
+    },
+    "temp_2.0": {
+      "distinct_2": 0.9229,
+      "self_bleu": 0.0781,
+      "entropy": 8.1769,
+      "epd": 0.9809,
+      "vendi": 9.8211,
+      "jaccard": 0.9566,
+      "ptd": 0.4044,
+      "crd": 0.792,
+      "usr": 0.9917,
+      "sed": 0.5922
+    }
+  }
+}

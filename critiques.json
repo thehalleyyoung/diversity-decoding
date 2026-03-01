@@ -1,0 +1,56 @@
+{
+  "project": "diversity-decoding-arena",
+  "title": "DivFlow: Diversity Decoding Arena \u2014 Metric Taxonomy and Systematic Comparison",
+  "synthesis_date": "2026-02-27",
+  "weighted_average_score": 6.9,
+  "score_range": [
+    5,
+    8
+  ],
+  "reviewers": [
+    {
+      "name": "Elena Vasquez",
+      "persona": "formal_methods_verification_expert",
+      "affiliation": "MIT",
+      "score": 5,
+      "weight": 0.3,
+      "review_file": "review_elena_vasquez.md"
+    },
+    {
+      "name": "Marcus Chen",
+      "persona": "machine_learning_statistical_theory",
+      "affiliation": "Stanford",
+      "score": 8,
+      "weight": 0.9,
+      "review_file": "review_marcus_chen.md"
+    },
+    {
+      "name": "Anya Petrov",
+      "persona": "applied_mathematics_computational_science",
+      "affiliation": "ETH Z\u00fcrich",
+      "score": 6,
+      "weight": 0.5,
+      "review_file": "review_anya_petrov.md"
+    }
+  ],
+  "consensus_strengths": [
+    "Metric correlation taxonomy answering which diversity metrics agree is a reference result with lasting citation value.",
+    "Bayesian statistical framework (sign test with ROPE, bootstrap CIs, Bradley-Terry ranking) is a significant improvement over p-value-based NLP evaluation.",
+    "SVD and QD-BS are creative algorithmic innovations from particle methods and evolutionary computation applied to text generation.",
+    "1.4M sequence dataset release is a lasting community contribution enabling future re-analysis without re-running inference.",
+    "Comprehensive experimental design (10 algorithms \u00d7 4 configs \u00d7 6 tasks \u00d7 100 prompts \u00d7 20 samples \u00d7 3 seeds) supports robust statistical analysis."
+  ],
+  "consensus_weaknesses": [
+    "GPT-2 124M as sole model is a significant limitation \u2014 diversity-quality tradeoffs may differ fundamentally on larger, more capable models.",
+    "SVD sacrifices SVGD's convergence guarantees in the discrete-to-continuous lifting via embedding-space kernels \u2014 theoretical properties are unclear.",
+    "SMT-based exact diversity optimization is mentioned but underspecified: encoding, solver choice, scalability are all unaddressed.",
+    "No human evaluation prevents assessment of whether diversity improvements are perceptually meaningful.",
+    "Score-function approximation using next-token logits as proxy for \u2207_x log p(x) lacks theoretical justification."
+  ],
+  "actionable_recommendations": [
+    "Specify the SMT-based optimization component concretely: theory, encoding, solver, and scalability analysis.",
+    "Add at least one larger model (e.g., Llama 2 7B via quantized CPU inference) to test whether findings generalize beyond GPT-2.",
+    "Provide theoretical analysis of SVD's properties in the discrete embedding-space setting \u2014 at minimum, characterize when it reduces to post-hoc reranking.",
+    "Report which combinations of metrics provide maximal non-redundant coverage \u2014 the practical takeaway from the correlation taxonomy."
+  ]
+}

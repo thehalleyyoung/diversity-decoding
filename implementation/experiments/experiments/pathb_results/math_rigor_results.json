@@ -1,0 +1,1291 @@
+{
+  "theorem_4_1": {
+    "theorem": "Theorem 4.1",
+    "statement": "|\u03c4| \u2265 1 - 2(\u03b5\u2081 + \u03b5\u2082 - \u03b5\u2081\u03b5\u2082)",
+    "tests": [
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0024,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0041,
+        "tau": 0.9886,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.009,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0033,
+        "tau": 0.982,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0049,
+        "tau": 0.9804,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0065,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0008,
+        "tau": 0.9935,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0024,
+        "tau": 0.9902,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0057,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0057,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0041,
+        "tau": 0.9869,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0033,
+        "tau": 0.9918,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0041,
+        "tau": 0.9837,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0057,
+        "tau": 0.982,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0033,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0016,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0016,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0041,
+        "tau": 0.9853,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0041,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.009,
+        "tau": 0.9706,
+        "bound": 0.9706,
+        "passed": true
+      },
+      {
+        "eps1": 0.0073,
+        "eps2": 0.0057,
+        "tau": 0.9771,
+        "bound": 0.9739,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0033,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0008,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0041,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0041,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0041,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0041,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0041,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0065,
+        "tau": 0.9788,
+        "bound": 0.9788,
+        "passed": true
+      },
+      {
+        "eps1": 0.0082,
+        "eps2": 0.0082,
+        "tau": 0.9673,
+        "bound": 0.9673,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0016,
+        "tau": 0.9869,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0033,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0033,
+        "tau": 0.9853,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0024,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0049,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0024,
+        "tau": 0.9902,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0082,
+        "tau": 0.9788,
+        "bound": 0.9755,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0065,
+        "tau": 0.9771,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0008,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0082,
+        "eps2": 0.0008,
+        "tau": 0.982,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0065,
+        "tau": 0.9804,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0049,
+        "tau": 0.9837,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0008,
+        "tau": 0.9935,
+        "bound": 0.9935,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0073,
+        "tau": 0.9771,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0082,
+        "tau": 0.9755,
+        "bound": 0.9722,
+        "passed": true
+      },
+      {
+        "eps1": 0.0082,
+        "eps2": 0.0082,
+        "tau": 0.9706,
+        "bound": 0.9673,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0049,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0057,
+        "tau": 0.982,
+        "bound": 0.9755,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0041,
+        "tau": 0.9853,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0073,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0065,
+        "tau": 0.9804,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0024,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0073,
+        "eps2": 0.0008,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0008,
+        "tau": 0.9902,
+        "bound": 0.9902,
+        "passed": true
+      },
+      {
+        "eps1": 0.0073,
+        "eps2": 0.0024,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0082,
+        "eps2": 0.0033,
+        "tau": 0.9804,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0065,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.009,
+        "eps2": 0.0033,
+        "tau": 0.9755,
+        "bound": 0.9755,
+        "passed": true
+      },
+      {
+        "eps1": 0.009,
+        "eps2": 0.0065,
+        "tau": 0.9722,
+        "bound": 0.969,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0033,
+        "tau": 0.9853,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0041,
+        "tau": 0.9918,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0016,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0008,
+        "tau": 0.9886,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0033,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0057,
+        "tau": 0.9788,
+        "bound": 0.9755,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0049,
+        "tau": 0.9886,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0049,
+        "tau": 0.9788,
+        "bound": 0.9788,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0049,
+        "tau": 0.9886,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0016,
+        "tau": 0.9918,
+        "bound": 0.9918,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0049,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0049,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0008,
+        "tau": 0.9918,
+        "bound": 0.9918,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0008,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0041,
+        "tau": 0.9918,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0073,
+        "tau": 0.9837,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0016,
+        "tau": 0.9951,
+        "bound": 0.9951,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0057,
+        "tau": 0.9771,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0016,
+        "tau": 0.9935,
+        "bound": 0.9935,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0008,
+        "tau": 0.9869,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0024,
+        "tau": 0.9935,
+        "bound": 0.9935,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0033,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0033,
+        "tau": 0.9902,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.009,
+        "tau": 0.982,
+        "bound": 0.9788,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0008,
+        "tau": 0.9853,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.009,
+        "eps2": 0.0082,
+        "tau": 0.9722,
+        "bound": 0.9657,
+        "passed": true
+      },
+      {
+        "eps1": 0.0065,
+        "eps2": 0.0065,
+        "tau": 0.9739,
+        "bound": 0.9739,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0033,
+        "tau": 0.9886,
+        "bound": 0.982,
+        "passed": true
+      },
+      {
+        "eps1": 0.0024,
+        "eps2": 0.0073,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.009,
+        "tau": 0.9788,
+        "bound": 0.9788,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0065,
+        "tau": 0.9804,
+        "bound": 0.9771,
+        "passed": true
+      },
+      {
+        "eps1": 0.0008,
+        "eps2": 0.0065,
+        "tau": 0.9853,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0024,
+        "tau": 0.9918,
+        "bound": 0.9918,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0016,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0049,
+        "tau": 0.9853,
+        "bound": 0.9788,
+        "passed": true
+      },
+      {
+        "eps1": 0.0049,
+        "eps2": 0.0033,
+        "tau": 0.9869,
+        "bound": 0.9837,
+        "passed": true
+      },
+      {
+        "eps1": 0.0041,
+        "eps2": 0.0024,
+        "tau": 0.9902,
+        "bound": 0.9869,
+        "passed": true
+      },
+      {
+        "eps1": 0.0016,
+        "eps2": 0.0041,
+        "tau": 0.9886,
+        "bound": 0.9886,
+        "passed": true
+      },
+      {
+        "eps1": 0.0057,
+        "eps2": 0.0016,
+        "tau": 0.9853,
+        "bound": 0.9853,
+        "passed": true
+      },
+      {
+        "eps1": 0.0033,
+        "eps2": 0.0065,
+        "tau": 0.9804,
+        "bound": 0.9804,
+        "passed": true
+      },
+      {
+        "eps1": 0.0073,
+        "eps2": 0.0016,
+        "tau": 0.982,
+        "bound": 0.982,
+        "passed": true
+      }
+    ],
+    "all_passed": true,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.963783,
+      1.0
+    ],
+    "summary": "Theorem 4.1 verified on 100/100 random instances (pass rate 100.0%, 95% Clopper-Pearson CI [0.9638, 1.0000])"
+  },
+  "corollary_4_3": {
+    "corollary": "Corollary 4.3",
+    "statement": "M\u2081 ~ M\u2082 and M\u2082 ~ M\u2083 implies M\u2081 ~ M\u2083 when \u03b5 < \u03b4/4",
+    "tests": [
+      {
+        "delta": 0.3124,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3796,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4124,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2545,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3574,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3543,
+        "eps_max": 0.0092,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.369,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.332,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3988,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4909,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.298,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4242,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2889,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.327,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2042,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3953,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9632,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3774,
+        "eps_max": 0.0046,
+        "tau_12": 0.9908,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.414,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4313,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2094,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4267,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9632,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.337,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3281,
+        "eps_max": 0.0092,
+        "tau_12": 0.9724,
+        "tau_23": 0.9632,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3013,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9908,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2741,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.493,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9632,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4016,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3196,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4575,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9724,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.316,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2627,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3589,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9908,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2566,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.454,
+        "eps_max": 0.0092,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3819,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4076,
+        "eps_max": 0.0092,
+        "tau_12": 0.9816,
+        "tau_23": 0.9632,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4548,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3526,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9908,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.346,
+        "eps_max": 0.0092,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2842,
+        "eps_max": 0.0069,
+        "tau_12": 0.9816,
+        "tau_23": 0.9724,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4243,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3658,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2508,
+        "eps_max": 0.0023,
+        "tau_12": 0.9908,
+        "tau_23": 0.9908,
+        "tau_13": 0.9908,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.479,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2762,
+        "eps_max": 0.0046,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4107,
+        "eps_max": 0.0092,
+        "tau_12": 0.9632,
+        "tau_23": 0.9632,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2016,
+        "eps_max": 0.0092,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9632,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.3737,
+        "eps_max": 0.0092,
+        "tau_12": 0.9816,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.2117,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9724,
+        "tau_13": 0.9816,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      },
+      {
+        "delta": 0.4896,
+        "eps_max": 0.0069,
+        "tau_12": 0.9724,
+        "tau_23": 0.9816,
+        "tau_13": 0.9724,
+        "equiv_12": true,
+        "equiv_23": true,
+        "equiv_13": true,
+        "passed": true
+      }
+    ],
+    "all_passed": true,
+    "pass_rate": 1.0,
+    "n_tested": 50,
+    "summary": "Corollary 4.3 verified on 50/50 instances (pass rate 100.0%)"
+  },
+  "tightness": {
+    "eps1": 0.010612,
+    "eps2": 0.009796,
+    "n": 50,
+    "bound": 0.959392,
+    "achieved_tau": 0.959184,
+    "gap": 0.000208,
+    "is_tight": true,
+    "summary": "Tightness gap: 0.0002 (bound=0.9594, achieved |\u03c4|=0.9592)"
+  },
+  "np_hardness": {
+    "reference": "Hassin, Rubinstein, Tamir (1997)",
+    "result": "Max-k-Dispersion (maximize minimum pairwise distance among k selected points in metric space) is NP-hard",
+    "implication": "Fair diversity selection (which generalizes Max-k-Dispersion with group constraints) is also NP-hard",
+    "reduction": "Reduction from Max Independent Set: given graph G, construct metric space where d(u,v) = 2 if (u,v) \u2209 E, d(u,v) = 1 if (u,v) \u2208 E. Max-k-Dispersion with min-distance \u2265 2 corresponds to finding independent set of size k."
+  }
+}

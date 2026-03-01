@@ -1,0 +1,1011 @@
+{
+  "title": "The Diversity Decoding Arena: A Metric Taxonomy, Systematic Comparison, and Novel Algorithms for Diversity-Promoting Text Generation",
+  "abstract": "Diverse text generation\u2014producing a set of outputs that are collectively varied while individually high-quality\u2014is a fundamental requirement across creative writing assistants, multi-candidate code generation, brainstorming agents, and any system where monoculture in outputs constitutes a failure mode. Despite the proliferation of over a dozen decoding algorithms claiming to promote diversity\u2014including nucleus sampling, typical decoding, contrastive search, diverse beam search, DPP reranking, and MBR-based diversity methods\u2014each has been evaluated in isolation, on idiosyncratic tasks, with hand-picked metrics, against incomplete baselines. No published work provides a controlled comparison across the full space of algorithmically distinct decoding families under unified conditions. This work presents the Diversity Decoding Arena, a comprehensive evaluation framework that makes three ordered contributions. Our primary contribution is a diversity metric correlation taxonomy: the first systematic empirical study of whether diversity metrics agree or fracture, computing Kendall tau correlations across all metric pairs conditioned on task type. This answers the foundational question 'which diversity metrics measure the same thing?' and provides a reference result analogous to how the machine translation community transitioned from BLEU to COMET based on correlation studies. Our methodological contribution is a controlled evaluation framework comprising faithful, unified implementations of 10 algorithmically distinct decoding families, evaluated across 6 task domains on 7 diversity metrics and 3 quality metrics, analyzed through Pareto frontier analysis, Bayesian statistical comparison, and hypervolume indicators. The framework supports extensibility: new algorithms slot in via a single class implementation and are immediately compared against the full baseline suite. Our algorithmic contribution introduces two novel decoding algorithms. Stein Variational Decoding (SVD) adapts repulsive particle dynamics inspired by Stein Variational Gradient Descent to autoregressive generation, maintaining particle sequences simultaneously attracted to high-probability regions and repelled from each other in embedding space. Quality-Diversity Beam Search (QD-BS) integrates MAP-Elites-style archive management into beam search using behavior descriptors over partial sequences. Both algorithms stress-test the arena's evaluation methodology and demonstrate that new algorithmic ideas can be rigorously validated by systematic comparison. The entire system operates on laptop CPU using GPT-2 124M with ONNX Runtime INT8 quantization, enabling exhaustive hyperparameter sweeps and full statistical replication within two weeks on a single consumer laptop. All approximately 1.4 million generated sequences are released as a first-class artifact, forming an 'ImageNet of diversity decoding' that enables future researchers to compute new metrics without re-running inference. Our theoretical framework formalizes the relationships between kernel-based repulsive dynamics, quality-diversity optimization, and traditional decoding theory, establishing convergence bounds for particle-based methods in discrete sequence spaces and providing correctness guarantees for archive-based beam search variants.",
+  "core_thesis": "The diversity decoding literature suffers from three fundamental gaps: (1) no consensus on what 'diversity' means operationally, with metrics used interchangeably despite potentially measuring different constructs; (2) no controlled comparison across the full space of decoding families under unified conditions; and (3) no principled integration of repulsive particle dynamics or quality-diversity optimization into autoregressive generation. We address all three through a metric taxonomy that empirically establishes which metrics are redundant versus orthogonal, a unified evaluation framework that enables fair comparison, and two novel algorithms\u2014Stein Variational Decoding and Quality-Diversity Beam Search\u2014that introduce new algorithmic primitives from particle physics and evolutionary computation respectively into the text generation pipeline.",
+  "mathematical_framework": {
+    "definitions": [
+      {
+        "name": "Diversity Metric Space",
+        "formal": "Let G = {y_1, ..., y_n} be a generation set from prompt x. A diversity metric is a function D: P(Y)^n -> R+ that is invariant to permutation of its arguments and satisfies D({y}) = 0 for singleton sets.",
+        "intuition": "Diversity metrics operate on sets of generated sequences and produce non-negative real values, with zero indicating no diversity (identical outputs)."
+      },
+      {
+        "name": "Self-BLEU",
+        "formal": "SelfBLEU(G) = (1/n) sum_{i=1}^{n} BLEU(y_i, G \\ {y_i}), where BLEU(y, R) is the corpus BLEU score of hypothesis y against reference set R. Lower values indicate higher diversity.",
+        "intuition": "Measures how similar each generated sequence is to all others using n-gram overlap. When all sequences share many n-grams, Self-BLEU is high (low diversity)."
+      },
+      {
+        "name": "Distinct-n",
+        "formal": "Distinct_n(G) = |{g : g is a unique n-gram in union(G)}| / |{g : g is any n-gram in union(G)}|, the ratio of unique n-grams to total n-grams across all generations.",
+        "intuition": "Captures lexical diversity at the n-gram level. A value of 1 means every n-gram appears exactly once."
+      },
+      {
+        "name": "Embedding Pairwise Distance",
+        "formal": "EPD(G) = (2 / n(n-1)) sum_{i<j} d(e(y_i), e(y_j)), where e: Y -> R^d is a sentence embedding function and d is a distance metric (typically cosine distance).",
+        "intuition": "Measures diversity in continuous semantic space by averaging pairwise distances between sentence embeddings."
+      },
+      {
+        "name": "Vendi Score",
+        "formal": "VS(G) = exp(-sum_{i=1}^{n} lambda_i log lambda_i) where lambda_i are eigenvalues of the normalized kernel matrix K_ij = k(y_i, y_j) / sqrt(k(y_i, y_i) k(y_j, y_j)).",
+        "intuition": "The effective number of distinct items, generalizing species diversity indices to arbitrary kernel-defined similarity. Equal to n when all items are orthogonal."
+      },
+      {
+        "name": "Parse-Tree Edit Distance Diversity",
+        "formal": "PTED(G) = (2 / n(n-1)) sum_{i<j} TED(T(y_i), T(y_j)) / max(|T(y_i)|, |T(y_j)|), where T(y) is the dependency parse tree and TED is tree edit distance.",
+        "intuition": "Captures syntactic structural diversity independent of lexical content."
+      },
+      {
+        "name": "N-gram Entropy",
+        "formal": "H_n(G) = -sum_{g in V_n} p(g) log p(g), where p(g) = count(g, G) / sum_{g'} count(g', G) is the empirical n-gram distribution over the generation set.",
+        "intuition": "Shannon entropy of the n-gram distribution; higher entropy indicates more uniform spread across different n-grams."
+      },
+      {
+        "name": "Behavioral Diversity",
+        "formal": "BD(G) = det(K_beta) where K_beta is the kernel matrix defined over behavior descriptor vectors beta(y_i) in R^d, with beta capturing task-specific functional properties.",
+        "intuition": "Volume spanned by behavior descriptors in feature space, measuring functional rather than surface-level diversity."
+      },
+      {
+        "name": "Kernel Function for SVD",
+        "formal": "k(y_{1:t}, y'_{1:t}) = exp(-||e(y_{1:t}) - e(y'_{1:t})||^2 / (2h)), where e(.) is a frozen sentence-transformer embedding and h is the bandwidth parameter.",
+        "intuition": "RBF kernel operating in sentence embedding space, providing a smooth measure of similarity between partial sequences."
+      },
+      {
+        "name": "Behavior Descriptor Function",
+        "formal": "beta: Y* -> R^d maps partial or complete sequences to behavior descriptor vectors. For partial sequences y_{1:t}, beta(y_{1:t}) = [POS_dist(y_{1:t}), ngram_freq(y_{1:t}), TTR(y_{1:t})].",
+        "intuition": "Lightweight feature extractor that characterizes the functional behavior of a sequence, used for archive indexing in QD-BS."
+      },
+      {
+        "name": "LogitSource Abstraction",
+        "formal": "A LogitSource L is an interface satisfying: L.get_logits(x, y_{1:t}) -> R^|V| returns the logit vector for position t+1 given prompt x and prefix y_{1:t}. Implementations include LiveLogitSource (model inference), CachedLogitSource (content-addressed cache), and FileLogitSource (pre-computed).",
+        "intuition": "Abstracts away the source of logit distributions, enabling algorithms to be agnostic to whether they consume live model output or cached computations."
+      },
+      {
+        "name": "Pareto Dominance",
+        "formal": "For objective vectors u, v in R^m, u Pareto-dominates v (u >_P v) iff u_i >= v_i for all i and u_j > v_j for at least one j. The Pareto frontier F(S) = {u in S : not exists v in S, v >_P u}.",
+        "intuition": "An algorithm configuration is Pareto-optimal if no other configuration improves on all objectives simultaneously."
+      },
+      {
+        "name": "Hypervolume Indicator",
+        "formal": "HV(S, r) = Lambda({q in R^m : exists s in S, s_i >= q_i >= r_i for all i}), where Lambda is the Lebesgue measure and r is a reference point.",
+        "intuition": "The volume of objective space dominated by the Pareto frontier, providing a single scalar summary of multi-objective performance."
+      },
+      {
+        "name": "ROPE (Region of Practical Equivalence)",
+        "formal": "Given paired observations (d_1, ..., d_n) of metric differences, ROPE_epsilon = [-epsilon, epsilon]. The Bayesian sign test computes P(mu in ROPE), P(mu > epsilon), P(mu < -epsilon) using a Dirichlet-Multinomial model.",
+        "intuition": "Determines whether two algorithms are practically equivalent (difference within epsilon) or one is meaningfully better."
+      }
+    ],
+    "theorems": [
+      {
+        "name": "Metric Correlation Structure Theorem",
+        "statement": "For any finite set of diversity metrics D_1, ..., D_k and generation sets drawn from a fixed model under varying decoding configurations, the Kendall tau correlation matrix T with T_ij = tau(D_i, D_j) admits a block-diagonal structure (up to permutation) where blocks correspond to diversity 'constructs' measuring fundamentally similar properties.",
+        "proof_sketch": "The proof proceeds by showing that metrics operating on the same representation space (e.g., n-gram statistics) induce similar orderings over generation sets. Formally, if D_i and D_j both depend on the empirical n-gram distribution P_n(G), then their orderings are related through the monotone transformation between their respective functionals of P_n. The block structure is established by spectral analysis of T, identifying eigenvalue gaps that separate metric clusters. Cross-block correlations are bounded by the information-theoretic distance between the underlying representations.",
+        "significance": "Provides the theoretical foundation for the metric taxonomy: within a block, metrics are redundant and one representative suffices; across blocks, metrics capture genuinely different aspects of diversity."
+      },
+      {
+        "name": "SVD Repulsive Dynamics Convergence (Informal)",
+        "statement": "Under the continuous relaxation where sequences are replaced by their embedding representations, the SVD update rule phi*(x) = (1/n) sum_j [k(x_j, x) nabla_xj log p(x_j) + nabla_xj k(x_j, x)] drives the empirical measure mu_n = (1/n) sum delta_{x_i} toward a distribution that balances density under the target p and coverage in embedding space, in the sense that KL(mu_n || p) decreases while the kernel Stein discrepancy KSD(mu_n, p) converges to zero at rate O(1/sqrt(n)).",
+        "proof_sketch": "In the continuous case, this follows from the original SVGD convergence analysis of Liu & Wang (2016). The key insight is that the optimal perturbation phi* in the unit ball of the RKHS H_k minimizes KL(T_phi# mu || p) where T_phi(x) = x + epsilon*phi(x). The discrete adaptation breaks this formal guarantee because (a) sequences are discrete, (b) the embedding map is not injective, and (c) the score function is approximated. However, the repulsive kernel term nabla_xj k(x_j, x) retains its effect of spreading particles in embedding space regardless of these approximations, providing an empirically effective diversity mechanism.",
+        "significance": "Establishes that SVD inherits SVGD's theoretical motivation even though formal convergence guarantees do not transfer to the discrete setting. The theorem justifies the algorithmic design while being honest about the gap between theory and practice."
+      },
+      {
+        "name": "QD-BS Archive Completeness",
+        "statement": "Given a tessellation of behavior space into C cells and a beam width B >= C, QD-BS with MAP-Elites archive updates produces a final archive where every reachable cell contains the highest-scoring sequence among all sequences whose behavior descriptor falls in that cell, assuming the beam search explores all relevant prefixes.",
+        "proof_sketch": "The proof is by induction on the number of beam steps. At each step, candidates are generated by extending all active beams. The archive update rule retains, for each cell, the candidate with the highest quality score. Since B >= C, the beam can maintain at least one representative per cell. The assumption that beam search explores all relevant prefixes is strong but can be relaxed to a coverage condition: for each cell c, there exists at least one beam step where a candidate with behavior descriptor in c is generated.",
+        "significance": "Guarantees that QD-BS produces a diverse set spanning the behavior space, with quality optimized within each behavioral niche."
+      },
+      {
+        "name": "Pareto Frontier Consistency",
+        "statement": "As the number of evaluation prompts N -> infinity, the empirical Pareto frontier F_N converges to the true Pareto frontier F* in Hausdorff distance: d_H(F_N, F*) -> 0 almost surely, under mild regularity conditions on the metric distributions.",
+        "proof_sketch": "Each point on the empirical frontier is a sample average of per-prompt metrics. By the strong law of large numbers, these converge to their expectations. The Hausdorff convergence follows from the continuity of the non-dominated sorting operator with respect to the metric topology on objective vectors.",
+        "significance": "Ensures that the evaluation results are statistically meaningful and converge to ground truth with sufficient data."
+      },
+      {
+        "name": "Hypervolume Monotonicity",
+        "statement": "For Pareto frontiers F subset F', HV(F, r) <= HV(F', r) for any reference point r dominated by all points in F. Furthermore, HV is strictly monotone: if F' contains a point not dominated by any point in F, then HV(F, r) < HV(F', r).",
+        "proof_sketch": "Direct from the definition of hypervolume as Lebesgue measure of the dominated region. Adding a non-dominated point strictly increases the dominated volume.",
+        "significance": "Justifies hypervolume as a quality indicator for comparing Pareto frontiers: a frontier with higher hypervolume is unambiguously better."
+      },
+      {
+        "name": "Bayesian Sign Test Consistency",
+        "statement": "The Bayesian sign test with Dirichlet prior Dir(1,1,1) on (P_left, P_rope, P_right) produces posterior probabilities that converge to the true probabilities as the number of paired observations n -> infinity. Specifically, the posterior concentrates on the correct comparison outcome at rate O(1/sqrt(n)).",
+        "proof_sketch": "Standard Bayesian consistency result for the Dirichlet-Multinomial model. The posterior is Dir(1 + n_left, 1 + n_rope, 1 + n_right), which concentrates around (n_left/n, n_rope/n, n_right/n) by the law of large numbers.",
+        "significance": "Ensures the statistical comparison framework produces reliable algorithm rankings."
+      },
+      {
+        "name": "Kernel Bandwidth Selection Optimality",
+        "statement": "The median heuristic h = median(||e_i - e_j||^2) / log(n) minimizes the asymptotic mean integrated squared error of the kernel density estimate in the embedding space, under the assumption of Gaussian-distributed embeddings.",
+        "proof_sketch": "Under Gaussian assumptions, the optimal bandwidth scales as n^{-1/(d+4)} times the variance. The median of squared distances provides a robust estimate of the variance. The log(n) correction adapts to the number of particles, preventing over-smoothing in high-particle regimes.",
+        "significance": "Provides a principled default for SVD's kernel bandwidth parameter."
+      },
+      {
+        "name": "Diversity-Quality Tradeoff Lower Bound",
+        "statement": "For any decoding algorithm A operating on a language model with vocabulary V and producing n sequences of length T, there exists a constant c > 0 such that max_config [D(A(config)) * Q(A(config))] <= c * sqrt(T * log|V|), where D is any normalized diversity metric and Q is the average log-probability quality metric.",
+        "proof_sketch": "The proof uses an information-theoretic argument. High diversity requires spreading probability mass across many distinct sequences, which necessarily reduces the average probability assigned to each sequence. The bound follows from the finite entropy of the model's distribution and the pigeonhole principle applied to the diversity metric.",
+        "significance": "Establishes that the diversity-quality tradeoff is fundamental, not an artifact of algorithmic limitations. No algorithm can simultaneously maximize both objectives beyond a certain bound."
+      }
+    ],
+    "proofs_sketch": [
+      {
+        "theorem": "Metric Correlation Structure Theorem",
+        "detailed_proof": "Step 1: Define the representation space R(D) for each metric D as the sufficient statistic of the generation set G that D depends on. For n-gram based metrics (Self-BLEU, distinct-n, n-gram entropy), R(D) = P_n(G), the empirical n-gram distribution. For embedding-based metrics (EPD, Vendi Score), R(D) = {e(y_i)}_{i=1}^n, the set of embeddings. Step 2: Show that metrics sharing a representation space have tau correlations bounded below: if D_i and D_j both depend on R, then tau(D_i, D_j) >= 1 - H(D_i | R) - H(D_j | R), where H denotes conditional entropy. Step 3: Apply spectral clustering to the tau matrix to identify blocks. The eigenvalue gap theorem guarantees that k well-separated clusters exist if the k-th and (k+1)-th eigenvalues of the normalized Laplacian have a gap exceeding 2/sqrt(n). Step 4: Show that cross-block correlations are bounded by the mutual information between representation spaces: |tau(D_i, D_j)| <= sqrt(2 * I(R(D_i); R(D_j))) for metrics in different blocks."
+      },
+      {
+        "theorem": "SVD Convergence (Continuous Case)",
+        "detailed_proof": "Step 1: Define the functional J(phi) = -d/depsilon KL(T_phi# mu || p)|_{epsilon=0} where T_phi(x) = x + epsilon * phi(x). Step 2: Compute J(phi) = E_mu[phi(x) . nabla_x log p(x) + nabla_x . phi(x)] using the change-of-variables formula and the chain rule for KL divergence. Step 3: By the reproducing property of H_k, the optimal phi* maximizing J over the unit ball of H_k is phi*(.) = E_mu[k(x, .) nabla_x log p(x) + nabla_x k(x, .)]. Step 4: The empirical approximation replaces E_mu with the particle average (1/n) sum_j. Step 5: The convergence rate follows from the approximation error of the empirical mean (O(1/sqrt(n))) and the smoothness of the RKHS (Lipschitz continuity of phi* in x)."
+      },
+      {
+        "theorem": "QD-BS Archive Completeness",
+        "detailed_proof": "Step 1 (Base case): At beam step t=1, generate |V| candidates from the prompt. Compute behavior descriptors beta(y_1) for each single-token extension. The archive A_1 contains the highest-scoring candidate for each occupied cell. Step 2 (Inductive step): Assume A_t contains optimal candidates for all reachable cells at step t. At step t+1, extend each of the B active beams by all possible tokens. For each resulting candidate y_{1:t+1}, compute beta(y_{1:t+1}). Update A_{t+1}: for each cell c, retain max(A_t[c].score, max_{y in candidates, beta(y) in c} score(y)). Step 3: Since B >= C, every cell with a candidate at any step maintains a representative in the beam. Step 4: At the final step T, A_T contains the optimal candidate per cell over all sequences explored by the beam."
+      }
+    ],
+    "key_equations": [
+      {
+        "name": "SVGD Update Rule",
+        "equation": "x_i <- x_i + epsilon * (1/n) * sum_j [k(x_j, x_i) * nabla_{x_j} log p(x_j) + nabla_{x_j} k(x_j, x_i)]",
+        "description": "The core update for Stein Variational Gradient Descent: first term attracts particles to high-probability regions, second term repels particles from each other."
+      },
+      {
+        "name": "SVD Logit Modification",
+        "equation": "logits_i(v) = log p(v | y^i_{1:t}) + alpha * sum_{j != i} nabla_{e_i} k(e_i, e_j) . (e(v) - e_i)",
+        "description": "Modified logits for particle i at step t, incorporating repulsive gradient from other particles projected onto token embedding directions."
+      },
+      {
+        "name": "QD-BS Archive Update",
+        "equation": "A[c] = argmax_{y in {A[c]} union {y' : beta(y') in c}} score(y), for each cell c in the tessellation",
+        "description": "MAP-Elites style update: retain the highest-quality candidate per behavior cell."
+      },
+      {
+        "name": "Vendi Score",
+        "equation": "VS(G) = exp(H(lambda)) = exp(-sum_i lambda_i log lambda_i), where lambda are eigenvalues of the normalized kernel matrix",
+        "description": "Effective number of distinct items based on kernel eigenspectrum entropy."
+      },
+      {
+        "name": "Bayesian Sign Test Posterior",
+        "equation": "P(left, rope, right) ~ Dir(1 + n_L, 1 + n_R_ope, 1 + n_R), where n_L = |{i : d_i < -epsilon}|, n_ROPE = |{i : |d_i| <= epsilon}|, n_R = |{i : d_i > epsilon}|",
+        "description": "Posterior distribution over comparison outcomes given paired metric differences."
+      },
+      {
+        "name": "Monte Carlo Hypervolume",
+        "equation": "HV(F, r) approx (Vol(B) / N) * sum_{i=1}^{N} I[exists s in F : s dominates q_i], where q_i ~ Uniform(B) and B is the bounding box",
+        "description": "Monte Carlo approximation to the hypervolume indicator using random sampling in the objective space."
+      },
+      {
+        "name": "Kendall Tau",
+        "equation": "tau(D_i, D_j) = (n_c - n_d) / (n_c + n_d), where n_c and n_d are concordant and discordant pairs",
+        "description": "Rank correlation coefficient between two diversity metrics across algorithm configurations."
+      },
+      {
+        "name": "Kernel Stein Discrepancy",
+        "equation": "KSD(mu, p) = sqrt(E_{x,x'~mu}[u_p(x, x')]), where u_p(x, x') = nabla_x log p(x)^T k(x, x') nabla_{x'} log p(x') + ...",
+        "description": "Measures discrepancy between the particle distribution and the target, used to monitor SVD convergence."
+      },
+      {
+        "name": "Bradley-Terry Model",
+        "equation": "P(A_i beats A_j) = pi_i / (pi_i + pi_j), where pi_i > 0 are algorithm strength parameters estimated via MLE",
+        "description": "Probabilistic model for ranking algorithms from pairwise comparison outcomes."
+      },
+      {
+        "name": "Cliff's Delta Effect Size",
+        "equation": "delta = (|{(i,j) : x_i > y_j}| - |{(i,j) : x_i < y_j}|) / (n_x * n_y)",
+        "description": "Non-parametric effect size for comparing two groups, bounded in [-1, 1]."
+      }
+    ]
+  },
+  "algorithmic_contributions": [
+    {
+      "name": "Stein Variational Decoding (SVD)",
+      "description": "Adapts Stein Variational Gradient Descent to autoregressive text generation. Maintains n particle sequences that are simultaneously attracted to high-probability regions of the language model distribution and repelled from each other in sentence embedding space. At each generation step, computes a repulsive kernel gradient between all particle pairs and projects this gradient onto the token vocabulary to modify the next-token logits. This produces online diversification during generation rather than post-hoc selection, allowing particle trajectories to diverge early in the generation process.",
+      "pseudocode": "FUNCTION SVD_Generate(prompt, model, n_particles, T, kernel_bandwidth, alpha):\n  particles = [prompt] * n_particles  // Initialize all particles with the prompt\n  embedder = load_sentence_transformer()  // Frozen embedding model\n  FOR t = 1 TO T:\n    embeddings = [embedder(p) for p in particles]  // Embed current particles\n    h = median_heuristic(embeddings)  // Adaptive bandwidth\n    FOR i = 1 TO n_particles:\n      base_logits = model.get_logits(particles[i])  // Standard LM logits\n      repulsive_grad = zeros(|V|)  // Repulsive gradient in vocab space\n      FOR j = 1 TO n_particles WHERE j != i:\n        k_ij = rbf_kernel(embeddings[i], embeddings[j], h)\n        grad_k = kernel_gradient(embeddings[i], embeddings[j], h)\n        // Project embedding gradient onto token embedding directions\n        FOR v IN top_k_tokens(base_logits, K):\n          token_emb = embedder.token_embedding(v)\n          repulsive_grad[v] += dot(grad_k, token_emb - embeddings[i])\n      modified_logits = base_logits + alpha * repulsive_grad\n      next_token = sample(softmax(modified_logits))\n      particles[i] = particles[i] + [next_token]\n  RETURN particles",
+      "complexity": "Time: O(T * n^2 * (K * d + C_embed)), where T is sequence length, n is number of particles, K is top-k size, d is embedding dimension, and C_embed is embedding computation cost. The n^2 factor comes from pairwise kernel computations. Space: O(n * T * |V| + n * d) for storing particle sequences and embeddings. With K=50 and n=20, the overhead is approximately 50-100% compared to independent sampling, dominated by the embedding computations.",
+      "correctness_argument": "In the continuous limit where sequences are replaced by their embeddings and the vocabulary is continuous, SVD reduces to standard SVGD with convergence guarantees from Liu & Wang (2016). In the discrete setting, we lose formal convergence but retain the key property: the repulsive kernel term nabla_xj k(x_j, x_i) pushes particles apart in embedding space, while the score term k(x_j, x_i) nabla log p(x_j) maintains attraction to high-probability regions. The balance between these terms, controlled by alpha and h, determines the diversity-quality tradeoff. We validate empirically that: (1) increasing alpha increases embedding pairwise distance, (2) the quality degradation is monotonic in alpha, and (3) the Pareto frontier of SVD includes points not dominated by post-hoc selection methods."
+    },
+    {
+      "name": "Quality-Diversity Beam Search (QD-BS)",
+      "description": "Integrates MAP-Elites-style archive management into the beam search loop. Instead of maintaining a single beam of B highest-scoring candidates, QD-BS maintains an archive indexed by behavior descriptors computed over partial sequences. At each step, candidates are generated by extending all active sequences, scored by the language model, and inserted into the archive based on their behavior descriptor. The archive retains the highest-scoring candidate per behavior cell, ensuring both quality and behavioral diversity.",
+      "pseudocode": "FUNCTION QDBS_Generate(prompt, model, B, T, n_cells, descriptor_fn):\n  // Initialize tessellation of behavior space\n  archive = VoronoiArchive(n_cells, descriptor_fn.dim)\n  active_beams = [(prompt, 0.0)]  // (sequence, log_prob)\n  FOR t = 1 TO T:\n    candidates = []\n    FOR (seq, score) IN active_beams:\n      logits = model.get_logits(seq)\n      top_tokens = top_k(logits, B)  // Expand each beam\n      FOR v IN top_tokens:\n        new_seq = seq + [v]\n        new_score = score + log_softmax(logits)[v]\n        beta = descriptor_fn(new_seq)  // Behavior descriptor\n        candidates.append((new_seq, new_score, beta))\n    // Archive update: MAP-Elites style\n    FOR (seq, score, beta) IN candidates:\n      cell = archive.find_cell(beta)\n      IF archive[cell] is empty OR score > archive[cell].score:\n        archive[cell] = (seq, score, beta)\n    // Select active beams from archive\n    active_beams = archive.get_top_B(B)  // B highest-scoring entries\n  RETURN archive.get_all_entries()",
+      "complexity": "Time: O(T * B * |V_top| * (C_desc + log(C))), where T is sequence length, B is beam width, |V_top| is the number of top tokens considered, C_desc is the descriptor computation cost, and C is the number of archive cells (log factor for cell lookup). Space: O(C * T + B * T) for the archive and active beams. With B=50, C=100, and a lightweight descriptor, the overhead compared to standard beam search is approximately 2-3x, dominated by descriptor computation.",
+      "correctness_argument": "QD-BS guarantees that the output archive contains at most one entry per behavior cell, and that entry has the highest score among all candidates whose behavior descriptor falls in that cell (conditioned on beam search exploration). This follows from the MAP-Elites archive update rule, which is a simple maximum operation per cell. The diversity guarantee follows from the tessellation: if n_cells cells are occupied, the output contains n_cells sequences whose behavior descriptors are in distinct regions of behavior space. The quality guarantee is per-cell optimality, analogous to the optimality of standard beam search within each beam."
+    },
+    {
+      "name": "Temperature Scaling",
+      "description": "The simplest diversity-promoting method: divides logits by temperature T before softmax. T>1 flattens the distribution, increasing randomness and diversity. T<1 sharpens the distribution toward greedy decoding.",
+      "pseudocode": "FUNCTION Temperature_Sample(prompt, model, T, n_samples, max_len):\n  results = []\n  FOR i = 1 TO n_samples:\n    seq = prompt\n    FOR t = 1 TO max_len:\n      logits = model.get_logits(seq)\n      scaled_logits = logits / T\n      next_token = sample(softmax(scaled_logits))\n      seq = seq + [next_token]\n      IF next_token == EOS: BREAK\n    results.append(seq)\n  RETURN results",
+      "complexity": "Time: O(n * T * C_model), Space: O(n * T). Linear in number of samples.",
+      "correctness_argument": "Each sample is drawn independently from the temperature-scaled distribution p_T(y) proportional to p(y)^{1/T}. For T=1, recovers ancestral sampling. As T->0, converges to greedy (argmax). As T->infinity, converges to uniform."
+    },
+    {
+      "name": "Nucleus (Top-p) Sampling",
+      "description": "Truncates the vocabulary to the smallest set whose cumulative probability exceeds threshold p, then renormalizes and samples. Adapts the effective vocabulary size to the model's confidence at each step.",
+      "pseudocode": "FUNCTION Nucleus_Sample(prompt, model, p, n_samples, max_len):\n  results = []\n  FOR i = 1 TO n_samples:\n    seq = prompt\n    FOR t = 1 TO max_len:\n      logits = model.get_logits(seq)\n      probs = softmax(logits)\n      sorted_probs, sorted_indices = sort_descending(probs)\n      cumulative = cumsum(sorted_probs)\n      cutoff = min(k : cumulative[k] >= p)\n      nucleus = sorted_indices[:cutoff+1]\n      nucleus_probs = normalize(probs[nucleus])\n      next_token = sample(nucleus, nucleus_probs)\n      seq = seq + [next_token]\n      IF next_token == EOS: BREAK\n    results.append(seq)\n  RETURN results",
+      "complexity": "Time: O(n * T * (C_model + |V| log |V|)) due to sorting. Space: O(n * T + |V|).",
+      "correctness_argument": "Nucleus sampling defines an adaptive vocabulary V_p(x_{<t}) at each step. Within this vocabulary, sampling is proportional to the original model probabilities. The key property is that V_p adapts to model confidence: when the model is certain, V_p is small; when uncertain, V_p is large."
+    },
+    {
+      "name": "Top-k Sampling",
+      "description": "Restricts sampling to the k most probable tokens at each step, renormalizing probabilities within this fixed-size set.",
+      "pseudocode": "FUNCTION TopK_Sample(prompt, model, k, n_samples, max_len):\n  results = []\n  FOR i = 1 TO n_samples:\n    seq = prompt\n    FOR t = 1 TO max_len:\n      logits = model.get_logits(seq)\n      top_k_indices = argtop_k(logits, k)\n      top_k_probs = normalize(softmax(logits[top_k_indices]))\n      next_token = sample(top_k_indices, top_k_probs)\n      seq = seq + [next_token]\n      IF next_token == EOS: BREAK\n    results.append(seq)\n  RETURN results",
+      "complexity": "Time: O(n * T * (C_model + |V|)). Space: O(n * T).",
+      "correctness_argument": "Unlike nucleus sampling, top-k uses a fixed vocabulary size regardless of model confidence. This can be suboptimal when the model is very confident (k tokens may include very low-probability options) or very uncertain (k may exclude reasonable options)."
+    },
+    {
+      "name": "Typical Sampling",
+      "description": "Selects tokens whose information content (negative log probability) is close to the expected information content (entropy), filtering out both very high and very low probability tokens.",
+      "pseudocode": "FUNCTION Typical_Sample(prompt, model, tau, n_samples, max_len):\n  results = []\n  FOR i = 1 TO n_samples:\n    seq = prompt\n    FOR t = 1 TO max_len:\n      logits = model.get_logits(seq)\n      probs = softmax(logits)\n      entropy = -sum(probs * log(probs))\n      info_content = -log(probs)  // Per-token information\n      deviation = |info_content - entropy|  // Distance from typical\n      sorted_dev, sorted_idx = sort_ascending(deviation)\n      cumulative = cumsum(probs[sorted_idx])\n      cutoff = min(k : cumulative[k] >= tau)\n      typical_set = sorted_idx[:cutoff+1]\n      typical_probs = normalize(probs[typical_set])\n      next_token = sample(typical_set, typical_probs)\n      seq = seq + [next_token]\n      IF next_token == EOS: BREAK\n    results.append(seq)\n  RETURN results",
+      "complexity": "Time: O(n * T * (C_model + |V| log |V|)). Space: O(n * T + |V|).",
+      "correctness_argument": "Typical sampling is motivated by the AEP (Asymptotic Equipartition Property): for long sequences from an ergodic source, almost all probability mass concentrates on sequences whose per-symbol information rate equals the entropy. Typical sampling enforces this property locally at each step, selecting tokens whose information content is near the conditional entropy."
+    },
+    {
+      "name": "Diverse Beam Search (DBS)",
+      "description": "Partitions the beam into G groups and adds a diversity penalty at each step that penalizes n-gram overlap between groups. Each group runs standard beam search but with a dissimilarity term added to the scores of previously-selected groups.",
+      "pseudocode": "FUNCTION DBS_Generate(prompt, model, B, G, T, lambda, delta):\n  // B = total beam width, G = number of groups, B_g = B/G per group\n  B_g = B / G\n  groups = [[prompt]] * G  // Initialize each group\n  FOR t = 1 TO T:\n    FOR g = 1 TO G:\n      candidates = []\n      FOR seq IN groups[g]:\n        logits = model.get_logits(seq)\n        FOR v IN top_tokens(logits, 2*B_g):\n          new_seq = seq + [v]\n          score = seq.score + log_softmax(logits)[v]\n          // Diversity penalty from previous groups\n          penalty = 0\n          FOR g' = 1 TO g-1:\n            FOR seq' IN groups[g']:\n              penalty += lambda * delta(new_seq, seq')  // Hamming or n-gram\n          score -= penalty\n          candidates.append((new_seq, score))\n      groups[g] = top_B_g(candidates)  // Keep top B_g candidates\n  RETURN flatten(groups)",
+      "complexity": "Time: O(T * G * B_g * |V_top| * G * B_g) for the penalty computation. Space: O(B * T).",
+      "correctness_argument": "DBS encourages diversity between groups through the penalty term. Within each group, standard beam search optimality applies. The diversity guarantee depends on the penalty strength lambda and the dissimilarity function delta."
+    },
+    {
+      "name": "Contrastive Search",
+      "description": "Selects the next token by balancing model confidence (probability) against a degeneration penalty that measures similarity to previously generated tokens in the hidden state space.",
+      "pseudocode": "FUNCTION Contrastive_Search(prompt, model, k, alpha, max_len):\n  seq = prompt\n  FOR t = 1 TO max_len:\n    logits, hidden = model.get_logits_and_hidden(seq)\n    top_k_tokens = argtop_k(logits, k)\n    best_token, best_score = None, -inf\n    FOR v IN top_k_tokens:\n      prob_score = (1 - alpha) * softmax(logits)[v]\n      // Degeneration penalty: max cosine similarity to previous hidden states\n      v_hidden = model.get_hidden(seq + [v])  // Hidden state of new token\n      degen_penalty = alpha * max_{h in previous_hiddens} cosine_sim(v_hidden, h)\n      score = prob_score - degen_penalty\n      IF score > best_score:\n        best_token, best_score = v, score\n    seq = seq + [best_token]\n    previous_hiddens.append(model.last_hidden(seq))\n    IF best_token == EOS: BREAK\n  RETURN seq",
+      "complexity": "Time: O(T * k * (C_model + T * d)) where d is hidden dimension. Space: O(T * d) for hidden state cache.",
+      "correctness_argument": "Contrastive search is deterministic given the model. It trades off probability (quality) against hidden-state similarity (repetition avoidance). Note: this produces a single sequence; diversity comes from applying it with different k/alpha or combining with sampling."
+    },
+    {
+      "name": "Stochastic Beam Search",
+      "description": "Applies the Gumbel-top-k trick to beam search, sampling beams without replacement from the model distribution while maintaining beam search's structure.",
+      "pseudocode": "FUNCTION Stochastic_BS(prompt, model, B, T):\n  beams = [(prompt, 0.0)]  // (sequence, perturbed_score)\n  FOR t = 1 TO T:\n    candidates = []\n    FOR (seq, score) IN beams:\n      logits = model.get_logits(seq)\n      // Gumbel perturbation for sampling without replacement\n      gumbel_noise = -log(-log(uniform(0, 1, |V|)))\n      perturbed = logits + gumbel_noise\n      top_tokens = argtop_k(perturbed, B)\n      FOR v IN top_tokens:\n        new_score = score + perturbed[v]\n        candidates.append((seq + [v], new_score))\n    beams = top_B(candidates)  // Keep top B by perturbed score\n  RETURN [seq for (seq, _) in beams]",
+      "complexity": "Time: O(T * B * (C_model + |V|)). Space: O(B * T).",
+      "correctness_argument": "The Gumbel-top-k trick ensures that the B selected beams are an unbiased sample without replacement from the model distribution. This provides exact sampling guarantees that standard beam search lacks."
+    },
+    {
+      "name": "DPP Reranking",
+      "description": "Generates a large candidate set using a base sampling method, then selects a diverse subset using a Determinantal Point Process kernel that balances quality and diversity.",
+      "pseudocode": "FUNCTION DPP_Rerank(candidates, embedder, quality_scores, k):\n  // candidates: list of generated sequences\n  // quality_scores: per-candidate quality (e.g., log prob)\n  N = len(candidates)\n  embeddings = [embedder(c) for c in candidates]\n  // Construct L-ensemble kernel: L_ij = q_i * k(e_i, e_j) * q_j\n  K = kernel_matrix(embeddings)  // Similarity matrix\n  Q = diag(exp(quality_scores / temperature))  // Quality weights\n  L = Q @ K @ Q  // L-ensemble matrix\n  // Greedy MAP inference for DPP (exact is NP-hard)\n  selected = []\n  FOR i = 1 TO k:\n    best = argmax_{j not in selected} log det(L[selected + [j], selected + [j]])\n    selected.append(best)\n  RETURN [candidates[i] for i in selected]",
+      "complexity": "Time: O(N * C_embed + k * N * k^2) for greedy selection. Space: O(N^2 + N * d).",
+      "correctness_argument": "DPP reranking selects a subset that maximizes the determinant of the L-ensemble matrix, which corresponds to selecting items that are both high-quality (large diagonal entries) and diverse (small off-diagonal entries / low pairwise similarity). The greedy algorithm provides a (1-1/e) approximation to the MAP DPP."
+    },
+    {
+      "name": "MMR Reranking",
+      "description": "Maximal Marginal Relevance iteratively selects candidates that maximize a weighted combination of quality and novelty relative to already-selected items.",
+      "pseudocode": "FUNCTION MMR_Rerank(candidates, embedder, quality_scores, k, lambda):\n  embeddings = [embedder(c) for c in candidates]\n  selected = [argmax(quality_scores)]  // Start with highest quality\n  FOR i = 2 TO k:\n    best, best_score = None, -inf\n    FOR j NOT IN selected:\n      quality = lambda * quality_scores[j]\n      max_sim = max_{s in selected} cosine_sim(embeddings[j], embeddings[s])\n      novelty = (1 - lambda) * (1 - max_sim)\n      mmr_score = quality + novelty\n      IF mmr_score > best_score:\n        best, best_score = j, mmr_score\n    selected.append(best)\n  RETURN [candidates[i] for i in selected]",
+      "complexity": "Time: O(N * C_embed + k * N * k) for iterative selection. Space: O(N * d).",
+      "correctness_argument": "MMR provides a greedy approximation to the diversity-quality tradeoff. The lambda parameter directly controls the tradeoff: lambda=1 selects by quality alone, lambda=0 selects by novelty alone. The iterative selection ensures diversity by penalizing similarity to already-selected items."
+    },
+    {
+      "name": "MBR Diversity Decoding",
+      "description": "Adapts Minimum Bayes Risk decoding to optimize for diversity by using a utility function that rewards both quality and pairwise dissimilarity among selected sequences.",
+      "pseudocode": "FUNCTION MBR_Diversity(candidates, utility_fn, diversity_fn, k, alpha):\n  // Generate candidate set and compute utilities\n  N = len(candidates)\n  utilities = [utility_fn(c) for c in candidates]\n  // Greedy selection with diversity bonus\n  selected = []\n  FOR i = 1 TO k:\n    best, best_score = None, -inf\n    FOR j NOT IN selected:\n      quality = utilities[j]\n      div_bonus = 0\n      IF len(selected) > 0:\n        div_bonus = alpha * mean([diversity_fn(candidates[j], candidates[s]) for s in selected])\n      score = quality + div_bonus\n      IF score > best_score:\n        best, best_score = j, score\n    selected.append(best)\n  RETURN [candidates[i] for i in selected]",
+      "complexity": "Time: O(N * C_utility + k * N * k * C_diversity). Space: O(N).",
+      "correctness_argument": "MBR diversity decoding extends the MBR framework by adding a diversity term to the utility. The selection is greedy and provides no formal optimality guarantees, but empirically produces well-diversified sets."
+    }
+  ],
+  "architecture": {
+    "subsystems": [
+      {
+        "name": "LogitSource",
+        "description": "Abstract interface for obtaining logit distributions from language models. Supports live inference, cached logits, and pre-computed logit files. All decoding algorithms consume LogitSource rather than model objects directly.",
+        "components": [
+          "LiveLogitSource",
+          "CachedLogitSource",
+          "FileLogitSource",
+          "LogitCache"
+        ],
+        "interfaces": [
+          "get_logits(prompt, prefix) -> logits",
+          "get_logits_batch(prompts, prefixes) -> [logits]",
+          "supports_hidden_states() -> bool",
+          "get_hidden_states(prompt, prefix) -> hidden"
+        ]
+      },
+      {
+        "name": "DecodingAlgorithm",
+        "description": "Base class for all decoding algorithms. Defines the interface for generating a set of sequences from a prompt using a LogitSource. Each algorithm implements the generate() method with algorithm-specific parameters.",
+        "components": [
+          "TemperatureSampling",
+          "NucleusSampling",
+          "TopKSampling",
+          "TypicalSampling",
+          "DiverseBeamSearch",
+          "StochasticBeamSearch",
+          "ContrastiveSearch",
+          "DPPReranking",
+          "MMRReranking",
+          "SVD",
+          "QDBS",
+          "MBRDiversity"
+        ],
+        "interfaces": [
+          "generate(prompt, logit_source, config) -> [sequences]",
+          "get_hyperparameter_grid() -> [configs]",
+          "name() -> str",
+          "requires_hidden_states() -> bool"
+        ]
+      },
+      {
+        "name": "MetricEngine",
+        "description": "Computes diversity and quality metrics over generation sets. Supports both per-set metrics (diversity) and per-sequence metrics (quality) with aggregation.",
+        "components": [
+          "SelfBLEU",
+          "DistinctN",
+          "EmbeddingPairwiseDistance",
+          "VendiScore",
+          "ParseTreeDiversity",
+          "NGramEntropy",
+          "BehavioralDiversity",
+          "Perplexity",
+          "NLICoherence",
+          "ConstraintSatisfaction"
+        ],
+        "interfaces": [
+          "compute(generation_set) -> float",
+          "compute_batch(generation_sets) -> [float]",
+          "name() -> str",
+          "higher_is_better() -> bool"
+        ]
+      },
+      {
+        "name": "StatisticalFramework",
+        "description": "Performs statistical analysis on metric results: Pareto frontier computation, Bayesian comparison, Bradley-Terry ranking, and metric correlation analysis.",
+        "components": [
+          "ParetoFrontier",
+          "BayesianSignTest",
+          "BradleyTerry",
+          "BootstrapCI",
+          "CliffsDelta",
+          "HypervolumeIndicator",
+          "KendallTauMatrix"
+        ],
+        "interfaces": [
+          "compute_pareto(results) -> frontier",
+          "compare_pairwise(A, B, metric) -> comparison",
+          "rank_algorithms(results) -> ranking",
+          "correlation_matrix(metrics) -> tau_matrix"
+        ]
+      },
+      {
+        "name": "TaskManager",
+        "description": "Manages dataset loading, prompt preparation, and task-specific configuration for the 6 evaluation tasks.",
+        "components": [
+          "StoryContinuation",
+          "DialogueResponse",
+          "ParaphraseGeneration",
+          "OpenDomainQA",
+          "InstructionFollowing",
+          "ArgumentGeneration"
+        ],
+        "interfaces": [
+          "load_prompts(task, n) -> [prompts]",
+          "format_prompt(prompt) -> str",
+          "get_constraints(task) -> constraints",
+          "task_name() -> str"
+        ]
+      },
+      {
+        "name": "InferencePipeline",
+        "description": "Orchestrates the end-to-end generation pipeline: task loading, algorithm execution, metric computation, and result aggregation with checkpoint/resume support.",
+        "components": [
+          "PipelineRunner",
+          "CheckpointManager",
+          "ResultAggregator",
+          "ProgressTracker"
+        ],
+        "interfaces": [
+          "run(config) -> results",
+          "resume(checkpoint) -> results",
+          "get_progress() -> (completed, total)",
+          "save_checkpoint() -> path"
+        ]
+      }
+    ],
+    "data_flow": [
+      {
+        "stage": "Input",
+        "description": "TaskManager loads prompts from dataset files, formats them for the model, and produces a list of (task, prompt) pairs.",
+        "input": "Dataset files (JSON/CSV)",
+        "output": "List of formatted prompts with task metadata"
+      },
+      {
+        "stage": "Logit Computation",
+        "description": "LogitSource computes or retrieves logit distributions for each prompt-prefix pair. Content-addressed caching ensures shared computation across algorithms using the same prompt.",
+        "input": "Prompt + prefix tokens",
+        "output": "Logit vectors (R^|V|) with optional hidden states"
+      },
+      {
+        "stage": "Generation",
+        "description": "DecodingAlgorithm instances consume logits and produce generation sets. Each algorithm-configuration pair generates n_samples sequences per prompt.",
+        "input": "LogitSource + algorithm configuration",
+        "output": "Generation sets: {(algorithm, config, task, prompt, [sequences])}"
+      },
+      {
+        "stage": "Metric Computation",
+        "description": "MetricEngine computes all diversity and quality metrics over each generation set. Metrics are computed in batch for efficiency.",
+        "input": "Generation sets",
+        "output": "Metric results: {(algorithm, config, task, prompt, {metric: value})}"
+      },
+      {
+        "stage": "Statistical Analysis",
+        "description": "StatisticalFramework performs Pareto analysis, pairwise comparisons, ranking, and metric correlation computation over aggregated results.",
+        "input": "Metric results across all conditions",
+        "output": "Pareto frontiers, comparison tables, rankings, correlation matrices"
+      },
+      {
+        "stage": "Visualization",
+        "description": "Generates publication-ready figures: Pareto plots, heatmaps, radar charts, box plots, and statistical comparison tables.",
+        "input": "Statistical analysis results",
+        "output": "PDF/PNG figures and LaTeX tables"
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "Algorithm Registration API",
+        "description": "New algorithms register via a decorator: @register_algorithm('name'). The decorator adds the class to the algorithm registry and validates that it implements the required interface (generate, get_hyperparameter_grid, name).",
+        "protocol": "Python decorator pattern with runtime type checking"
+      },
+      {
+        "name": "Metric Registration API",
+        "description": "New metrics register via @register_metric('name', higher_is_better=True/False). Metrics must implement compute(generation_set) -> float.",
+        "protocol": "Python decorator pattern with interface validation"
+      },
+      {
+        "name": "LogitSource Protocol",
+        "description": "Structural subtyping (Python Protocol) defining get_logits and optional get_hidden_states. Algorithms type-check LogitSource support at registration time.",
+        "protocol": "Python Protocol (PEP 544) with runtime checking"
+      },
+      {
+        "name": "Result Serialization",
+        "description": "All results are serialized as JSON Lines (one JSON object per generation-set evaluation). Schema: {algorithm, config, task, prompt_id, sequences, metrics, metadata}.",
+        "protocol": "JSON Lines with schema validation via Pydantic"
+      },
+      {
+        "name": "Checkpoint Protocol",
+        "description": "Checkpoint files contain the pipeline state: completed (algorithm, config, task, prompt) tuples and partial metric results. Resume reads the checkpoint and skips completed work.",
+        "protocol": "JSON checkpoint files with atomic write (write-rename pattern)"
+      }
+    ]
+  },
+  "theoretical_foundations": {
+    "prior_work": [
+      {
+        "area": "Stein Variational Gradient Descent (SVGD)",
+        "key_references": [
+          "Liu & Wang 2016",
+          "Liu 2017",
+          "Wang & Liu 2019"
+        ],
+        "summary": "SVGD provides a deterministic, kernel-based method for approximate Bayesian inference by iteratively transporting particles to approximate a target distribution. The update rule balances attraction to high-probability regions (score function term) with repulsion between particles (kernel gradient term). Convergence guarantees exist for continuous distributions with smooth kernels.",
+        "relevance": "SVD adapts SVGD's repulsive dynamics to discrete autoregressive generation, replacing the continuous gradient with a logit-space projection."
+      },
+      {
+        "area": "Quality-Diversity Optimization",
+        "key_references": [
+          "Mouret & Clune 2015",
+          "Cully et al. 2015",
+          "Pugh et al. 2016",
+          "Steels 2025",
+          "Zammit et al. 2024"
+        ],
+        "summary": "Quality-Diversity (QD) algorithms like MAP-Elites maintain an archive of high-performing solutions indexed by behavior descriptors, seeking to fill the behavior space with diverse, high-quality solutions. Recent work has applied QD to NLP text generation, but not within autoregressive beam search loops.",
+        "relevance": "QD-BS integrates MAP-Elites archive management into beam search, requiring novel solutions for partial-sequence behavior descriptors and archive-beam interaction."
+      },
+      {
+        "area": "Diverse Decoding Methods",
+        "key_references": [
+          "Holtzman et al. 2020",
+          "Su et al. 2022",
+          "Vijayakumar et al. 2018",
+          "Meister et al. 2023",
+          "Jinnai et al. 2024"
+        ],
+        "summary": "The landscape of diverse decoding includes sampling-based methods (nucleus, typical), search-based methods (diverse beam search, contrastive search), and post-hoc methods (DPP/MMR reranking). Each has been evaluated on different tasks with different metrics, preventing systematic comparison.",
+        "relevance": "The arena provides the first unified comparison across all these families."
+      },
+      {
+        "area": "Determinantal Point Processes",
+        "key_references": [
+          "Kulesza & Taskar 2012",
+          "Celis et al. 2018",
+          "Zhang et al. 2022"
+        ],
+        "summary": "DPPs provide a probabilistic model over subsets that favors diverse selections. The probability of selecting a subset S is proportional to det(L_S), where L is a positive semidefinite kernel matrix. DPPs have been applied to text summarization, recommendation, and post-hoc reranking of generated text.",
+        "relevance": "DPP reranking is one of the baseline algorithms in the arena. The DPP kernel structure relates to SVD's repulsive kernel."
+      },
+      {
+        "area": "Evaluation Methodology for NLG",
+        "key_references": [
+          "Celikyilmaz et al. 2020",
+          "Hashimoto et al. 2019",
+          "Tevet & Berant 2021"
+        ],
+        "summary": "NLG evaluation is notoriously difficult, with metrics often disagreeing with human judgments. Recent work has moved toward multi-dimensional evaluation, Pareto analysis, and statistical rigor. The arena extends this by focusing specifically on diversity metrics and their inter-relationships.",
+        "relevance": "The metric correlation taxonomy directly addresses the metric disagreement problem in diversity evaluation."
+      },
+      {
+        "area": "Information-Theoretic Decoding",
+        "key_references": [
+          "Meister et al. 2020",
+          "Pillutla et al. 2021",
+          "Basu et al. 2021"
+        ],
+        "summary": "Information-theoretic perspectives on decoding connect typical sampling to the Asymptotic Equipartition Property, nucleus sampling to entropy-based truncation, and contrastive methods to mutual information maximization. These perspectives provide theoretical grounding for empirically successful methods.",
+        "relevance": "The mathematical framework section formalizes these connections and extends them to SVD and QD-BS."
+      }
+    ],
+    "novel_extensions": [
+      {
+        "name": "Discrete SVGD via Embedding-Space Kernels",
+        "description": "We extend SVGD to discrete sequences by defining kernels in embedding space rather than sequence space. This sidesteps the non-differentiability of discrete tokens while preserving repulsive dynamics. The key insight is that the kernel gradient in embedding space can be projected back onto the token vocabulary via inner products with token embeddings, providing a continuous relaxation of the discrete repulsion problem.",
+        "theoretical_contribution": "Formalizes the relationship between continuous repulsive dynamics and discrete token selection, establishes bounds on the approximation error introduced by the embedding projection, and identifies conditions under which the embedding-space kernel provides meaningful repulsion in token space."
+      },
+      {
+        "name": "Partial-Sequence Behavior Descriptors for QD",
+        "description": "We introduce behavior descriptors that operate on incomplete sequences, enabling QD optimization within the autoregressive generation loop. The descriptors must be (a) cheap to compute at every beam step, (b) approximately stable as the sequence grows, and (c) predictive of the final-sequence behavior descriptor.",
+        "theoretical_contribution": "Defines stability and predictiveness conditions for partial-sequence behavior descriptors, proves that POS-distribution and lexical-diversity descriptors satisfy these conditions under mild assumptions, and establishes bounds on the approximation error of partial-sequence archive quality relative to the full-sequence optimum."
+      },
+      {
+        "name": "Metric Correlation Taxonomy",
+        "description": "We provide the first systematic empirical study of inter-metric correlations in diversity evaluation, establishing which metrics measure the same construct and which capture genuinely orthogonal dimensions. The taxonomy is conditioned on task type, revealing task-dependent correlation structures.",
+        "theoretical_contribution": "Establishes the Metric Correlation Structure Theorem, which predicts block-diagonal structure in the correlation matrix based on the representation spaces underlying each metric. Provides a formal framework for determining metric redundancy and independent information content."
+      },
+      {
+        "name": "Hypervolume-Based Frontier Comparison",
+        "description": "We adapt hypervolume indicators from multi-objective optimization to compare diversity-quality Pareto frontiers across algorithms. This provides a single scalar summary that captures both the extent and distribution of the frontier.",
+        "theoretical_contribution": "Proves monotonicity and consistency properties of the hypervolume indicator in the diversity-quality setting, and establishes sample complexity bounds for reliable hypervolume estimation via Monte Carlo approximation."
+      }
+    ],
+    "open_problems": [
+      {
+        "problem": "Formal convergence of discrete SVGD",
+        "description": "SVD's convergence guarantees are informal, relying on the continuous SVGD analysis applied to the embedding-space relaxation. A formal convergence proof for discrete sequences would require either (a) a discrete Stein operator theory or (b) quantitative bounds on the approximation error of the embedding projection. Both are open problems in the kernel methods literature.",
+        "difficulty": "Hard - requires advances in discrete kernel theory"
+      },
+      {
+        "problem": "Optimal behavior descriptor design",
+        "description": "QD-BS's behavior descriptors are hand-designed for each task type. An adaptive or learned descriptor that automatically discovers meaningful behavioral dimensions would significantly improve the generality of QD-BS. This connects to the open problem of unsupervised feature discovery in quality-diversity optimization.",
+        "difficulty": "Medium - could be addressed with meta-learning or representation learning"
+      },
+      {
+        "problem": "Theoretical relationship between diversity metrics",
+        "description": "While the metric taxonomy provides empirical correlations, a theoretical framework explaining why certain metrics correlate and others do not is lacking. This requires formalizing the information-theoretic content of each metric and establishing functional relationships between them.",
+        "difficulty": "Medium-Hard - requires information-theoretic analysis of metric functionals"
+      },
+      {
+        "problem": "Scaling laws for diversity decoding",
+        "description": "How do the relative performance rankings of decoding algorithms change as model scale increases? The arena uses GPT-2 124M; results may not transfer to larger models where the base distribution has different properties (sharper, more calibrated). Establishing scaling laws for diversity would require experiments at multiple model sizes.",
+        "difficulty": "Medium - primarily empirical, but computationally expensive"
+      },
+      {
+        "problem": "Diversity-quality Pareto optimality certificates",
+        "description": "Given a set of algorithm configurations, can we certify that the empirical Pareto frontier is close to the true Pareto frontier? This requires either (a) lower bounds on achievable diversity at a given quality level, or (b) constructive proofs that certain algorithm classes cannot be dominated.",
+        "difficulty": "Hard - requires algorithmic lower bounds in a complex search space"
+      }
+    ]
+  },
+  "implementation_mapping": {
+    "theory_to_code": [
+      {
+        "theory_component": "SVD repulsive kernel update",
+        "code_module": "algorithms/svd.py::SVDGenerator.compute_repulsive_gradient()",
+        "mapping": "The repulsive gradient sum_j nabla_xj k(x_j, x_i) is computed by iterating over all particle pairs, computing the RBF kernel and its gradient in embedding space, and projecting onto token embeddings via dot products. The alpha parameter controls the repulsion strength.",
+        "considerations": "Vectorized over particles for efficiency. Token embedding projection uses batched matrix multiplication. Embedding computation is cached across steps when possible."
+      },
+      {
+        "theory_component": "QD-BS archive management",
+        "code_module": "algorithms/qdbs.py::QDBSGenerator.update_archive()",
+        "mapping": "The Voronoi tessellation is implemented as a KD-tree over behavior descriptor centroids. Archive update is a simple argmax per cell, implemented as a dictionary mapping cell IDs to (sequence, score) tuples. The B >= C constraint is enforced at initialization.",
+        "considerations": "KD-tree construction is O(C log C) and query is O(log C). Archive occupancy is tracked for early termination when all cells are filled."
+      },
+      {
+        "theory_component": "Vendi Score computation",
+        "code_module": "metrics/vendi_score.py::compute_vendi_score()",
+        "mapping": "Constructs the normalized kernel matrix K from sentence embeddings, computes eigenvalues via numpy.linalg.eigvalsh, and applies the exponential entropy formula. Eigenvalues below a numerical threshold (1e-10) are clipped to avoid log(0).",
+        "considerations": "For large generation sets (n > 100), uses truncated eigendecomposition via scipy.sparse.linalg.eigsh for efficiency."
+      },
+      {
+        "theory_component": "Bayesian sign test",
+        "code_module": "stats/bayesian_sign_test.py::bayesian_sign_test()",
+        "mapping": "Computes paired differences, categorizes into (left, rope, right) based on epsilon threshold, fits Dirichlet posterior, and reports posterior probabilities via scipy.stats.dirichlet. ROPE width epsilon is set per-metric based on practical significance thresholds.",
+        "considerations": "Uses Monte Carlo sampling from the Dirichlet posterior (10,000 samples) rather than analytic computation for flexibility in reporting credible intervals."
+      },
+      {
+        "theory_component": "Pareto frontier computation",
+        "code_module": "stats/pareto.py::compute_pareto_frontier()",
+        "mapping": "Implements non-dominated sorting via the fast algorithm of Deb et al. (NSGA-II). Points are represented as numpy arrays of objective values. The frontier is returned as indices into the original point set.",
+        "considerations": "For more than 3 objectives, uses the efficient non-dominated sorting algorithm with O(n log^{m-1} n) complexity."
+      },
+      {
+        "theory_component": "Content-addressed logit cache",
+        "code_module": "inference/logit_cache.py::LogitCache",
+        "mapping": "Cache keys are SHA-256 hashes of (prompt_tokens, prefix_tokens) tuples. Values are quantized logit vectors (top-k logits and indices stored as int16/float16). Cache is backed by an on-disk SQLite database with LRU eviction.",
+        "considerations": "Top-k caching (storing only top-100 logits) reduces cache size by ~50x compared to full vocabulary storage. Reconstruction uses the cached top-k with a uniform floor for uncached tokens."
+      }
+    ],
+    "critical_paths": [
+      {
+        "path": "Generation throughput",
+        "bottleneck": "Language model forward pass",
+        "optimization": "ONNX Runtime INT8 quantization reduces GPT-2 inference to ~100 tok/s. Prefix caching shares computation across algorithms using the same prompt. Batch processing of independent samples where memory permits.",
+        "target": "~16M tokens in 2 days"
+      },
+      {
+        "path": "SVD embedding computation",
+        "bottleneck": "Sentence-transformer forward pass for each particle at each step",
+        "optimization": "Frozen sentence-transformer (~30M params) runs at ~500 embeddings/s on CPU. Embeddings are cached incrementally: only the delta from the new token needs recomputation (using mean-pooling approximation). Batch embedding of all particles simultaneously.",
+        "target": "50-100% overhead relative to base generation"
+      },
+      {
+        "path": "Metric computation",
+        "bottleneck": "Parse-tree diversity (dependency parsing is slow) and NLI coherence (DistilBERT forward pass)",
+        "optimization": "Parse-tree diversity uses spaCy with the small model for speed (~1000 sentences/s). NLI coherence batches sequences through DistilBERT NLI at ~200 seq/s. Both metrics are embarrassingly parallel across generation sets.",
+        "target": "2-3 days for all metrics on 1.4M sequences"
+      },
+      {
+        "path": "Statistical analysis",
+        "bottleneck": "Bootstrap resampling (10,000 resamples per metric per condition)",
+        "optimization": "Vectorized bootstrap using numpy array operations. Pre-computed metric matrices avoid redundant computation. Parallelized across metrics using Python multiprocessing.",
+        "target": "< 1 hour for full analysis"
+      }
+    ],
+    "optimization_strategies": [
+      {
+        "strategy": "Content-addressed logit caching",
+        "description": "All algorithms consuming the same prompt share cached logit computations. The cache is keyed by the hash of input tokens, enabling cross-algorithm sharing without coordination. Expected cache hit rate: >80% for identical prompts across algorithm families.",
+        "expected_speedup": "3-5x reduction in total model forward passes"
+      },
+      {
+        "strategy": "Incremental embedding computation",
+        "description": "For SVD, approximate the embedding of y_{1:t+1} by a weighted combination of e(y_{1:t}) and the token embedding of y_{t+1}, avoiding a full sentence-transformer forward pass at each step. Periodically recompute exact embeddings (every 5 steps) to bound approximation error.",
+        "expected_speedup": "3-5x reduction in SVD embedding overhead"
+      },
+      {
+        "strategy": "Batched metric computation",
+        "description": "Group generation sets by size and compute metrics in batch. For embedding-based metrics, embed all sequences in a generation set simultaneously. For n-gram metrics, use shared vocabulary structures across sets from the same task.",
+        "expected_speedup": "2-3x reduction in metric computation time"
+      },
+      {
+        "strategy": "Lazy metric evaluation",
+        "description": "Compute expensive metrics (parse-tree diversity, NLI coherence) only after cheap metrics are available. If cheap metrics show clear Pareto dominance, skip expensive metric computation for dominated configurations.",
+        "expected_speedup": "Up to 50% reduction in metric computation for clearly dominated configurations"
+      },
+      {
+        "strategy": "Memory-mapped generation storage",
+        "description": "Store generated sequences on disk as memory-mapped arrays (numpy memmap) to avoid loading all 1.4M sequences into RAM simultaneously. Metrics compute over memory-mapped slices.",
+        "expected_speedup": "Enables full experiment on 16GB machines without OOM"
+      }
+    ]
+  },
+  "failure_modes": [
+    {
+      "mode": "SVD mode collapse",
+      "cause": "Repulsive kernel bandwidth h is too large, causing all particles to be repelled equally regardless of actual similarity. Or alpha is too small, making repulsion negligible.",
+      "detection": "Monitor embedding pairwise distance at each generation step. If EPD plateaus early or decreases, mode collapse is occurring. Also check if all particles converge to the same sequence.",
+      "mitigation": "Adaptive bandwidth via the median heuristic. Minimum alpha threshold. Fallback to post-hoc repulsive selection if online repulsion fails to produce diversity above a threshold.",
+      "severity": "High - defeats the purpose of SVD"
+    },
+    {
+      "mode": "SVD quality degradation",
+      "cause": "Repulsive gradient overwhelms the score function term, pushing particles to low-probability regions of the language model distribution.",
+      "detection": "Monitor per-particle perplexity during generation. If perplexity exceeds a threshold (e.g., 2x the base model perplexity), repulsion is too strong.",
+      "mitigation": "Adaptive alpha that decreases when perplexity rises. Clamp the repulsive gradient to a maximum norm. Quality-gated repulsion: only apply repulsion when the current token's probability exceeds a floor.",
+      "severity": "High - produces incoherent text"
+    },
+    {
+      "mode": "QD-BS archive sparsity",
+      "cause": "Behavior descriptor space is too high-dimensional or too finely tessellated, resulting in most cells being empty. The archive becomes equivalent to standard beam search.",
+      "detection": "Track archive occupancy (fraction of cells containing an entry) at each beam step. If occupancy < 10% at the final step, the tessellation is too fine.",
+      "mitigation": "Adaptive tessellation that merges sparse regions. Start with coarse tessellation and refine only in occupied regions. Reduce descriptor dimensionality via PCA if occupancy is low.",
+      "severity": "Medium - reduces to standard beam search, not harmful but not novel"
+    },
+    {
+      "mode": "Metric computation out of memory",
+      "cause": "Computing pairwise distance matrices for large generation sets (n=20) with high-dimensional embeddings. Matrix size: 20 * 20 * 768 * 4 bytes per set, times number of sets.",
+      "detection": "Memory monitoring during metric computation. Python memory_profiler integration.",
+      "mitigation": "Compute pairwise distances incrementally (online algorithm). For Vendi Score, use truncated eigendecomposition. Process generation sets in batches with garbage collection between batches.",
+      "severity": "Medium - can cause OOM on 16GB machines if not managed"
+    },
+    {
+      "mode": "Logit cache corruption",
+      "cause": "Concurrent writes to the SQLite cache database from multiple processes. Or disk full during cache write.",
+      "detection": "Cache integrity check: recompute logits for a random sample of cached entries and compare. SQLite journal mode WAL for crash safety.",
+      "mitigation": "Single-writer architecture: only one process writes to the cache, others read. Atomic write operations with write-ahead logging. Disk space monitoring with early warning.",
+      "severity": "Medium - corrupted cache produces wrong results silently"
+    },
+    {
+      "mode": "Statistical comparison unreliability",
+      "cause": "Insufficient number of prompts per task (100 may be too few for some tasks), high variance in per-prompt metrics, or violation of independence assumptions in the Bayesian sign test.",
+      "detection": "Wide confidence intervals (>50% of the metric range). Bayesian sign test producing inconclusive results (P(ROPE) > 0.5) for most comparisons. Power analysis suggesting inadequate sample size.",
+      "mitigation": "Increase number of prompts for high-variance tasks. Use blocked resampling in bootstrap to account for within-task correlation. Report effect sizes (Cliff's delta) alongside statistical tests.",
+      "severity": "Medium - weakens the strength of conclusions"
+    },
+    {
+      "mode": "Metric disagreement exceeds expected structure",
+      "cause": "The metric correlation taxonomy may not reveal clean block structure if metrics capture complex, overlapping constructs. The Metric Correlation Structure Theorem's assumptions may not hold in practice.",
+      "detection": "Spectral analysis of the correlation matrix shows no clear eigenvalue gap. Cluster stability analysis (e.g., bootstrap clustering) shows inconsistent cluster assignments.",
+      "mitigation": "Report the raw correlation matrix alongside any clustering. Use soft clustering (factor analysis) rather than hard clustering. Acknowledge limitations in the taxonomy if clean structure does not emerge.",
+      "severity": "Low-Medium - weakens the primary contribution but honest reporting is valuable"
+    },
+    {
+      "mode": "GPT-2 incoherence floor",
+      "cause": "GPT-2 124M produces low-quality text for some tasks (e.g., complex instructions), making diversity metrics measure variation in noise rather than meaningful diversity.",
+      "detection": "Baseline quality metrics (perplexity, coherence) below task-specific thresholds. Human spot-check of generated samples.",
+      "mitigation": "Exclude tasks where GPT-2 cannot produce minimally coherent output. Report quality baselines prominently. Frame results as 'diversity of the model's distribution' rather than 'diversity of meaningful text.'",
+      "severity": "Low - addressed by task selection (excluding code, math, summarization)"
+    },
+    {
+      "mode": "Checkpoint/resume inconsistency",
+      "cause": "Random seed state is not perfectly reproduced across checkpoint boundaries, leading to slightly different results when resuming from a checkpoint versus running end-to-end.",
+      "detection": "Run a small experiment (1 task, 2 algorithms, 10 prompts) both end-to-end and with a checkpoint in the middle. Compare results.",
+      "mitigation": "Save and restore full random state (Python, NumPy, PyTorch) in checkpoints. Use deterministic operations where possible. Document any non-determinism in the reproducibility notes.",
+      "severity": "Low - affects exact reproducibility but not statistical conclusions"
+    },
+    {
+      "mode": "Parse-tree diversity computation bottleneck",
+      "cause": "Dependency parsing 1.4M sequences with spaCy is slow (~1 day) and can fail on malformed or very long sequences.",
+      "detection": "Progress tracking with estimated completion time. Error rate monitoring for parsing failures.",
+      "mitigation": "Use spaCy's small model for speed. Skip sequences that fail to parse (record as missing data). Parallelize parsing across cores. Consider using a faster constituency parser as a fallback.",
+      "severity": "Low - affects one metric, others compensate"
+    }
+  ],
+  "experimental_design": {
+    "hypotheses": [
+      {
+        "id": "H1",
+        "statement": "Diversity metrics cluster into 3-4 groups when measured by Kendall tau correlation, with n-gram-based metrics (Self-BLEU, distinct-n, n-gram entropy) forming one cluster, embedding-based metrics (EPD, Vendi Score) forming another, and structural metrics (parse-tree diversity) forming a third.",
+        "rationale": "Metrics operating on similar representations (n-gram statistics vs. embeddings vs. parse trees) should produce similar orderings over algorithm configurations.",
+        "test": "Spectral clustering of the Kendall tau matrix with gap statistic for cluster number selection. Bootstrap stability analysis of cluster assignments."
+      },
+      {
+        "id": "H2",
+        "statement": "SVD produces Pareto-optimal configurations (not dominated by any other algorithm) on at least 4 of 6 tasks, with the Pareto-optimal configurations having higher embedding pairwise distance than the best post-hoc reranking methods (DPP, MMR) at equivalent quality levels.",
+        "rationale": "Online repulsion during generation should allow particle trajectories to explore regions of sequence space unreachable by post-hoc selection from independently generated candidates.",
+        "test": "Pareto dominance analysis on the diversity-quality plane. Pairwise comparison of SVD vs. DPP/MMR at matched quality levels using Bayesian sign test."
+      },
+      {
+        "id": "H3",
+        "statement": "QD-BS achieves higher behavioral diversity than diverse beam search while maintaining comparable or higher quality, with the advantage being largest on tasks with multi-modal behavior spaces (story continuation, argument generation).",
+        "rationale": "QD-BS's archive management explicitly optimizes for behavior-space coverage, which diverse beam search only approximates through n-gram penalties.",
+        "test": "Pairwise comparison on behavioral diversity metric using Bayesian sign test, conditioned on task type. Cliff's delta for effect size."
+      },
+      {
+        "id": "H4",
+        "statement": "Temperature scaling with T in [1.0, 1.3] is Pareto-optimal on at least 50% of tasks when measured by n-gram diversity metrics, making it the strongest simple baseline.",
+        "rationale": "Temperature scaling adjusts the entire distribution uniformly, which may be sufficient for n-gram diversity. More complex methods should show advantages primarily on semantic/structural diversity metrics.",
+        "test": "Pareto frontier analysis. Percentage of tasks where temperature scaling configurations appear on the frontier."
+      },
+      {
+        "id": "H5",
+        "statement": "The metric correlation structure is task-dependent: correlations between n-gram and embedding metrics are stronger for constrained tasks (paraphrase, QA) than for open-ended tasks (story, argument).",
+        "rationale": "Constrained tasks have narrower output spaces where lexical and semantic diversity are more tightly coupled. Open-ended tasks allow semantic diversity through different lexical realizations.",
+        "test": "Task-conditioned Kendall tau matrices. Fisher z-test for difference in correlations across task groups."
+      },
+      {
+        "id": "H6",
+        "statement": "Contrastive search, which uses hidden states rather than just logits, produces distinctly different diversity-quality tradeoffs compared to pure logit-based methods, occupying a unique region of the Pareto frontier.",
+        "rationale": "Hidden state information provides a richer signal for degeneration avoidance than logit statistics alone.",
+        "test": "Pareto frontier analysis. Distance of contrastive search configurations from the nearest logit-based configuration on the frontier."
+      }
+    ],
+    "protocols": [
+      {
+        "name": "Generation Protocol",
+        "steps": [
+          "1. Load dataset and extract 100 prompts per task (stratified by prompt length and difficulty where applicable).",
+          "2. For each (algorithm, configuration) pair, generate 20 sequences per prompt with 3 random seeds.",
+          "3. Store sequences with metadata: algorithm, config, task, prompt_id, seed, sequence, log_probability, generation_time.",
+          "4. Checkpoint every 100 prompts (per algorithm-task pair).",
+          "5. Validate generation: check for empty sequences, degenerate repetition, and excessive length."
+        ],
+        "controls": "Fixed model (GPT-2 124M ONNX INT8), fixed maximum sequence length (128 tokens), fixed prompt format per task, fixed random seeds (42, 137, 256)."
+      },
+      {
+        "name": "Metric Computation Protocol",
+        "steps": [
+          "1. Group sequences by (algorithm, config, task, prompt_id, seed) to form generation sets of 20 sequences.",
+          "2. Compute all 7 diversity metrics and 3 quality metrics per generation set.",
+          "3. Average metrics across seeds to produce per-prompt metric values.",
+          "4. Store raw per-seed and averaged per-prompt metrics.",
+          "5. Validate: check for NaN/inf values, metric range violations, and suspiciously constant values."
+        ],
+        "controls": "Fixed tokenizer (GPT-2), fixed embedding model (all-MiniLM-L6-v2), fixed NLI model (DistilBERT NLI), fixed spaCy model (en_core_web_sm)."
+      },
+      {
+        "name": "Statistical Analysis Protocol",
+        "steps": [
+          "1. Compute Kendall tau correlation matrix across all metric pairs, per task and aggregated.",
+          "2. Apply spectral clustering to identify metric clusters. Bootstrap cluster stability.",
+          "3. Compute Pareto frontiers per task on the (best_diversity, quality) plane for each diversity metric.",
+          "4. Bayesian sign test for all algorithm pairs on each metric. Report P(left), P(rope), P(right).",
+          "5. Bradley-Terry ranking across all algorithms per metric.",
+          "6. Monte Carlo hypervolume computation for Pareto frontier comparison.",
+          "7. Bootstrap 95% CIs on all reported metrics (10,000 resamples).",
+          "8. Cliff's delta for standardized effect sizes on all pairwise comparisons."
+        ],
+        "controls": "ROPE width epsilon = 0.01 (standardized metric scale). Bootstrap resamples = 10,000. Hypervolume MC samples = 100,000. Significance level alpha = 0.05 for frequentist tests (used alongside Bayesian analysis)."
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Self-BLEU",
+        "type": "diversity",
+        "direction": "lower_is_better",
+        "range": "[0, 1]",
+        "description": "Average BLEU score of each sequence against all others. Measures n-gram overlap."
+      },
+      {
+        "name": "Distinct-1",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Ratio of unique unigrams to total unigrams."
+      },
+      {
+        "name": "Distinct-2",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Ratio of unique bigrams to total bigrams."
+      },
+      {
+        "name": "Distinct-3",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Ratio of unique trigrams to total trigrams."
+      },
+      {
+        "name": "Embedding Pairwise Distance",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, 2]",
+        "description": "Average cosine distance between sentence embedding pairs."
+      },
+      {
+        "name": "Vendi Score",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[1, n]",
+        "description": "Effective number of distinct items based on kernel eigenspectrum."
+      },
+      {
+        "name": "Parse-Tree Edit Distance",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Normalized tree edit distance between dependency parse trees."
+      },
+      {
+        "name": "N-gram Entropy",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, inf)",
+        "description": "Shannon entropy of the empirical n-gram distribution."
+      },
+      {
+        "name": "Behavioral Diversity",
+        "type": "diversity",
+        "direction": "higher_is_better",
+        "range": "[0, inf)",
+        "description": "Determinant of kernel matrix over behavior descriptors."
+      },
+      {
+        "name": "Perplexity",
+        "type": "quality",
+        "direction": "lower_is_better",
+        "range": "[1, inf)",
+        "description": "Exponentiated average negative log-likelihood under the model."
+      },
+      {
+        "name": "NLI Coherence",
+        "type": "quality",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Fraction of consecutive sentence pairs classified as entailment by NLI model."
+      },
+      {
+        "name": "Constraint Satisfaction",
+        "type": "quality",
+        "direction": "higher_is_better",
+        "range": "[0, 1]",
+        "description": "Fraction of task-specific constraints satisfied by generated sequences."
+      }
+    ],
+    "baselines": [
+      {
+        "name": "Greedy Decoding",
+        "description": "Argmax at each step. Produces deterministic output with no diversity. Serves as the quality upper-bound / diversity lower-bound."
+      },
+      {
+        "name": "Ancestral Sampling (T=1)",
+        "description": "Standard sampling from the unmodified model distribution. The natural baseline for any diversity-promoting method."
+      },
+      {
+        "name": "Independent Sampling (T=1, n=20)",
+        "description": "Drawing 20 independent samples. Tests whether diversity-promoting methods provide value beyond simply generating more samples."
+      },
+      {
+        "name": "Random Baseline",
+        "description": "Uniform random token selection. Provides the diversity upper-bound / quality lower-bound."
+      }
+    ],
+    "statistical_methodology": {
+      "primary": "Bayesian sign test with ROPE for pairwise algorithm comparison. Provides posterior probabilities for three outcomes: algorithm A wins, practical equivalence, algorithm B wins.",
+      "secondary": "Bradley-Terry ranking model for global algorithm ordering. Bootstrap confidence intervals for all point estimates. Cliff's delta for standardized effect sizes.",
+      "multiple_testing": "We do not apply Bonferroni correction because the Bayesian sign test already provides calibrated posterior probabilities. Instead, we report all pairwise comparisons and use the Bradley-Terry model for overall ranking.",
+      "pareto_analysis": "Non-dominated sorting identifies Pareto-optimal configurations. Monte Carlo hypervolume provides a scalar summary for frontier comparison. Pareto frontiers are computed per-task and aggregated.",
+      "correlation_analysis": "Kendall tau between all metric pairs, computed per-task and aggregated. Spectral clustering of the tau matrix identifies metric groups. Bootstrap stability analysis validates cluster assignments."
+    }
+  },
+  "convergence_analysis": {
+    "guarantees": [
+      {
+        "algorithm": "SVD",
+        "guarantee": "In the continuous embedding-space relaxation, the particle distribution converges to a local minimum of KL(mu || p) + lambda * RepulsionPenalty(mu) at rate O(1/sqrt(T)) where T is the number of SVGD iterations (generation steps). In the discrete setting, this guarantee is informal and serves as motivation rather than a provable bound.",
+        "conditions": "Requires smooth RBF kernel, Lipschitz-continuous embedding map, and step size epsilon < 1 / L where L is the Lipschitz constant of the SVGD update. The discrete adaptation violates all three conditions.",
+        "evidence": "Empirical convergence curves showing EPD stabilizing after ~20 generation steps across multiple random seeds and tasks."
+      },
+      {
+        "algorithm": "QD-BS",
+        "guarantee": "With beam width B >= C (number of archive cells), QD-BS explores at least as many behavioral niches as there are reachable cells in the behavior space tessellation. Per-cell quality is monotonically non-decreasing across beam steps.",
+        "conditions": "Requires that the behavior descriptor is computable on partial sequences and that the tessellation is fixed throughout generation. Adaptive tessellation requires additional analysis.",
+        "evidence": "Archive occupancy curves showing monotonic increase across beam steps. Per-cell quality curves showing non-decreasing scores."
+      },
+      {
+        "algorithm": "Pareto Frontier Estimation",
+        "guarantee": "The empirical Pareto frontier converges to the true frontier in Hausdorff distance at rate O(1/sqrt(N)) where N is the number of evaluation prompts, under sub-Gaussian assumptions on the metric distributions.",
+        "conditions": "Requires that per-prompt metrics have finite variance and that the set of algorithm configurations is fixed (not adaptively chosen).",
+        "evidence": "Convergence plots showing Hausdorff distance between partial-data and full-data frontiers as a function of N."
+      }
+    ],
+    "bounds": [
+      {
+        "quantity": "SVD embedding pairwise distance",
+        "lower_bound": "EPD >= (alpha * h) / (1 + alpha * h) * EPD_uniform, where EPD_uniform is the expected pairwise distance under uniform embedding distribution",
+        "upper_bound": "EPD <= EPD_uniform (achieved when repulsion completely dominates attraction)",
+        "tightness": "Loose - bounds ignore the discrete structure and approximation errors"
+      },
+      {
+        "quantity": "QD-BS archive occupancy",
+        "lower_bound": "occupancy >= min(B, C) / C after T steps, assuming at least one candidate per cell is generated",
+        "upper_bound": "occupancy <= 1 (all cells filled)",
+        "tightness": "Tight in the limit of infinite beam width"
+      },
+      {
+        "quantity": "Hypervolume estimation error",
+        "lower_bound": "N/A",
+        "upper_bound": "|HV_MC - HV_true| <= O(1/sqrt(M)) where M is the number of Monte Carlo samples, with constant depending on the dimensionality of the objective space",
+        "tightness": "Standard Monte Carlo rate, tight up to constants"
+      },
+      {
+        "quantity": "Bootstrap CI coverage",
+        "lower_bound": "Coverage >= 1 - alpha - O(1/sqrt(n)) for the basic percentile bootstrap",
+        "upper_bound": "N/A",
+        "tightness": "Standard bootstrap theory; BCa bootstrap provides second-order accuracy O(1/n)"
+      }
+    ],
+    "empirical_expectations": [
+      {
+        "metric": "SVD diversity improvement over independent sampling",
+        "expected_range": "10-30% increase in EPD at matched perplexity, based on analogous improvements seen in DPP reranking literature",
+        "basis": "Extrapolation from DPP reranking results (Zhang et al. 2022) and SVGD convergence rates in continuous settings"
+      },
+      {
+        "metric": "QD-BS behavioral diversity vs. diverse beam search",
+        "expected_range": "20-50% increase in behavioral diversity, with the gap being largest on tasks with multi-modal behavior spaces",
+        "basis": "MAP-Elites typically achieves 2-5x better behavior space coverage than uniform sampling in robotics benchmarks (Mouret & Clune 2015)"
+      },
+      {
+        "metric": "Metric correlation structure",
+        "expected_range": "3-4 metric clusters with within-cluster tau > 0.6 and between-cluster tau < 0.3",
+        "basis": "Similar cluster structures observed in MT metric correlation studies (Freitag et al. 2022)"
+      },
+      {
+        "metric": "Temperature scaling Pareto optimality",
+        "expected_range": "Pareto-optimal on 50-70% of tasks for n-gram diversity metrics, but not for embedding or structural metrics",
+        "basis": "Temperature scaling only adjusts the sampling distribution uniformly, which primarily affects n-gram statistics"
+      },
+      {
+        "metric": "Total generation time",
+        "expected_range": "5-7 days on a 16GB M1 MacBook Pro",
+        "basis": "100 tok/s for GPT-2 124M ONNX INT8, ~16M total tokens, plus metric computation overhead"
+      }
+    ]
+  }
+}

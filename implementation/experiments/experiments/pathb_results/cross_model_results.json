@@ -1,0 +1,492 @@
+{
+  "n_models": 10,
+  "n_model_pairs": 45,
+  "n_metrics": 8,
+  "n_configs": 5,
+  "n_prompts": 20,
+  "meta_tau": 0.3317,
+  "meta_tau_ci": [
+    0.3226,
+    0.3407
+  ],
+  "meta_tau_p": 0.0,
+  "power": {
+    "n_model_pairs": 45,
+    "target_tau": 0.3316558876641597,
+    "alpha": 0.05,
+    "power": 0.6079,
+    "n_pairs_for_80pct_power": 70,
+    "effect_size_z": 0.3447,
+    "adequate_power": false
+  },
+  "bayesian": {
+    "posterior_mean": 0.3312,
+    "posterior_std": 0.0156,
+    "credible_interval_95": [
+      0.3006,
+      0.3618
+    ],
+    "p_positive": 1.0,
+    "n_model_pairs": 45,
+    "bayes_factor_positive": 10000000000.0
+  },
+  "model_families": [
+    {
+      "name": "gpt-4.1-nano",
+      "family": "GPT-4.1",
+      "size": "nano"
+    },
+    {
+      "name": "gpt-4.1-mini",
+      "family": "GPT-4.1",
+      "size": "mini"
+    },
+    {
+      "name": "llama-3-8b",
+      "family": "Llama-3",
+      "size": "8B"
+    },
+    {
+      "name": "mistral-7b",
+      "family": "Mistral",
+      "size": "7B"
+    },
+    {
+      "name": "phi-3-mini",
+      "family": "Phi-3",
+      "size": "3.8B"
+    },
+    {
+      "name": "gpt-2",
+      "family": "GPT-2",
+      "size": "124M"
+    },
+    {
+      "name": "claude-3-haiku",
+      "family": "Claude-3",
+      "size": "Haiku"
+    },
+    {
+      "name": "gemma-2-2b",
+      "family": "Gemma-2",
+      "size": "2B"
+    },
+    {
+      "name": "qwen-2-7b",
+      "family": "Qwen-2",
+      "size": "7B"
+    },
+    {
+      "name": "yi-1.5-6b",
+      "family": "Yi-1.5",
+      "size": "6B"
+    }
+  ],
+  "pairwise_taus": [
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "gemma-2-2b",
+      "tau": 0.3456,
+      "ci": [
+        0.1705,
+        0.5275
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "gpt-2",
+      "tau": 0.3438,
+      "ci": [
+        0.1745,
+        0.5115
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "gpt-4.1-mini",
+      "tau": 0.3464,
+      "ci": [
+        0.1544,
+        0.5244
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "gpt-4.1-nano",
+      "tau": 0.3313,
+      "ci": [
+        0.1545,
+        0.5371
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "llama-3-8b",
+      "tau": 0.3331,
+      "ci": [
+        0.1269,
+        0.533
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "mistral-7b",
+      "tau": 0.3529,
+      "ci": [
+        0.17,
+        0.5358
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "phi-3-mini",
+      "tau": 0.3547,
+      "ci": [
+        0.1717,
+        0.5294
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "qwen-2-7b",
+      "tau": 0.3727,
+      "ci": [
+        0.1907,
+        0.5571
+      ]
+    },
+    {
+      "model_a": "claude-3-haiku",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.3563,
+      "ci": [
+        0.1452,
+        0.5332
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "gpt-2",
+      "tau": 0.3552,
+      "ci": [
+        0.135,
+        0.5359
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "gpt-4.1-mini",
+      "tau": 0.3728,
+      "ci": [
+        0.2293,
+        0.5148
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "gpt-4.1-nano",
+      "tau": 0.3332,
+      "ci": [
+        0.1371,
+        0.5277
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "llama-3-8b",
+      "tau": 0.322,
+      "ci": [
+        0.1498,
+        0.4972
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "mistral-7b",
+      "tau": 0.312,
+      "ci": [
+        0.1402,
+        0.4932
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "phi-3-mini",
+      "tau": 0.2964,
+      "ci": [
+        0.1226,
+        0.4794
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "qwen-2-7b",
+      "tau": 0.2834,
+      "ci": [
+        0.122,
+        0.4721
+      ]
+    },
+    {
+      "model_a": "gemma-2-2b",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.3708,
+      "ci": [
+        0.2127,
+        0.5272
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "gpt-4.1-mini",
+      "tau": 0.3149,
+      "ci": [
+        0.1626,
+        0.4864
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "gpt-4.1-nano",
+      "tau": 0.3156,
+      "ci": [
+        0.1085,
+        0.5237
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "llama-3-8b",
+      "tau": 0.321,
+      "ci": [
+        0.1591,
+        0.4984
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "mistral-7b",
+      "tau": 0.3087,
+      "ci": [
+        0.1473,
+        0.4867
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "phi-3-mini",
+      "tau": 0.2805,
+      "ci": [
+        0.1172,
+        0.4449
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "qwen-2-7b",
+      "tau": 0.2914,
+      "ci": [
+        0.1188,
+        0.4619
+      ]
+    },
+    {
+      "model_a": "gpt-2",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.2982,
+      "ci": [
+        0.1351,
+        0.4698
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "gpt-4.1-nano",
+      "tau": 0.3327,
+      "ci": [
+        0.1313,
+        0.5504
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "llama-3-8b",
+      "tau": 0.374,
+      "ci": [
+        0.2223,
+        0.534
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "mistral-7b",
+      "tau": 0.3882,
+      "ci": [
+        0.2238,
+        0.5521
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "phi-3-mini",
+      "tau": 0.3626,
+      "ci": [
+        0.1846,
+        0.5253
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "qwen-2-7b",
+      "tau": 0.3933,
+      "ci": [
+        0.2358,
+        0.5544
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-mini",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.4034,
+      "ci": [
+        0.2468,
+        0.548
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-nano",
+      "model_b": "llama-3-8b",
+      "tau": 0.3143,
+      "ci": [
+        0.1535,
+        0.4819
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-nano",
+      "model_b": "mistral-7b",
+      "tau": 0.3279,
+      "ci": [
+        0.1037,
+        0.57
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-nano",
+      "model_b": "phi-3-mini",
+      "tau": 0.3473,
+      "ci": [
+        0.1523,
+        0.5423
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-nano",
+      "model_b": "qwen-2-7b",
+      "tau": 0.3401,
+      "ci": [
+        0.1444,
+        0.5617
+      ]
+    },
+    {
+      "model_a": "gpt-4.1-nano",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.3354,
+      "ci": [
+        0.119,
+        0.5351
+      ]
+    },
+    {
+      "model_a": "llama-3-8b",
+      "model_b": "mistral-7b",
+      "tau": 0.3409,
+      "ci": [
+        0.1656,
+        0.5129
+      ]
+    },
+    {
+      "model_a": "llama-3-8b",
+      "model_b": "phi-3-mini",
+      "tau": 0.3014,
+      "ci": [
+        0.1418,
+        0.4791
+      ]
+    },
+    {
+      "model_a": "llama-3-8b",
+      "model_b": "qwen-2-7b",
+      "tau": 0.3152,
+      "ci": [
+        0.136,
+        0.4928
+      ]
+    },
+    {
+      "model_a": "llama-3-8b",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.2847,
+      "ci": [
+        0.0967,
+        0.4609
+      ]
+    },
+    {
+      "model_a": "mistral-7b",
+      "model_b": "phi-3-mini",
+      "tau": 0.3044,
+      "ci": [
+        0.1393,
+        0.4835
+      ]
+    },
+    {
+      "model_a": "mistral-7b",
+      "model_b": "qwen-2-7b",
+      "tau": 0.2942,
+      "ci": [
+        0.1136,
+        0.4999
+      ]
+    },
+    {
+      "model_a": "mistral-7b",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.2841,
+      "ci": [
+        0.0789,
+        0.4918
+      ]
+    },
+    {
+      "model_a": "phi-3-mini",
+      "model_b": "qwen-2-7b",
+      "tau": 0.3181,
+      "ci": [
+        0.1263,
+        0.5018
+      ]
+    },
+    {
+      "model_a": "phi-3-mini",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.3307,
+      "ci": [
+        0.1395,
+        0.5129
+      ]
+    },
+    {
+      "model_a": "qwen-2-7b",
+      "model_b": "yi-1.5-6b",
+      "tau": 0.3027,
+      "ci": [
+        0.1188,
+        0.484
+      ]
+    }
+  ]
+}

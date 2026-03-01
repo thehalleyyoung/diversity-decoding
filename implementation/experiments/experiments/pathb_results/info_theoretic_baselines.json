@@ -1,0 +1,192 @@
+{
+  "metrics": [
+    "D-2",
+    "D-3",
+    "Entropy",
+    "Self-BLEU",
+    "TTR",
+    "USR"
+  ],
+  "comparisons": [
+    {
+      "pair": "D-2_vs_D-3",
+      "kendall_tau": 0.3571,
+      "nmi": 0.4969,
+      "vi": 1.8794,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_Entropy",
+      "kendall_tau": 0.3766,
+      "nmi": 0.8227,
+      "vi": 0.7993,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": true
+    },
+    {
+      "pair": "D-2_vs_Self-BLEU",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 1.8543,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_TTR",
+      "kendall_tau": 0.7922,
+      "nmi": 0.7107,
+      "vi": 1.3846,
+      "tau_indicates_redundant": true,
+      "nmi_indicates_redundant": true
+    },
+    {
+      "pair": "D-2_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 1.8543,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_Entropy",
+      "kendall_tau": 0.3333,
+      "nmi": 0.5292,
+      "vi": 2.1347,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": true
+    },
+    {
+      "pair": "D-3_vs_Self-BLEU",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 1.8811,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_TTR",
+      "kendall_tau": 0.1579,
+      "nmi": 0.526,
+      "vi": 2.2809,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": true
+    },
+    {
+      "pair": "D-3_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 1.8811,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_Self-BLEU",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.6535,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_TTR",
+      "kendall_tau": 0.3077,
+      "nmi": 0.8952,
+      "vi": 0.5854,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": true
+    },
+    {
+      "pair": "Entropy_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.6535,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Self-BLEU_vs_TTR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.9312,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Self-BLEU_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": -0.0,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "TTR_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.9312,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    }
+  ],
+  "nmi_matrix": {
+    "D-2_vs_D-3": 0.4969,
+    "D-2_vs_Entropy": 0.8227,
+    "D-2_vs_Self-BLEU": 0.0,
+    "D-2_vs_TTR": 0.7107,
+    "D-2_vs_USR": 0.0,
+    "D-3_vs_Entropy": 0.5292,
+    "D-3_vs_Self-BLEU": 0.0,
+    "D-3_vs_TTR": 0.526,
+    "D-3_vs_USR": 0.0,
+    "Entropy_vs_Self-BLEU": 0.0,
+    "Entropy_vs_TTR": 0.8952,
+    "Entropy_vs_USR": 0.0,
+    "Self-BLEU_vs_TTR": 0.0,
+    "Self-BLEU_vs_USR": 0.0,
+    "TTR_vs_USR": 0.0
+  },
+  "vi_matrix": {
+    "D-2_vs_D-3": 1.8794,
+    "D-2_vs_Entropy": 0.7993,
+    "D-2_vs_Self-BLEU": 1.8543,
+    "D-2_vs_TTR": 1.3846,
+    "D-2_vs_USR": 1.8543,
+    "D-3_vs_Entropy": 2.1347,
+    "D-3_vs_Self-BLEU": 1.8811,
+    "D-3_vs_TTR": 2.2809,
+    "D-3_vs_USR": 1.8811,
+    "Entropy_vs_Self-BLEU": 2.6535,
+    "Entropy_vs_TTR": 0.5854,
+    "Entropy_vs_USR": 2.6535,
+    "Self-BLEU_vs_TTR": 2.9312,
+    "Self-BLEU_vs_USR": -0.0,
+    "TTR_vs_USR": 2.9312
+  },
+  "tau_matrix": {
+    "D-2_vs_D-3": 0.3571,
+    "D-2_vs_Entropy": 0.3766,
+    "D-2_vs_Self-BLEU": 0.0,
+    "D-2_vs_TTR": 0.7922,
+    "D-2_vs_USR": 0.0,
+    "D-3_vs_Entropy": 0.3333,
+    "D-3_vs_Self-BLEU": 0.0,
+    "D-3_vs_TTR": 0.1579,
+    "D-3_vs_USR": 0.0,
+    "Entropy_vs_Self-BLEU": 0.0,
+    "Entropy_vs_TTR": 0.3077,
+    "Entropy_vs_USR": 0.0,
+    "Self-BLEU_vs_TTR": 0.0,
+    "Self-BLEU_vs_USR": 0.0,
+    "TTR_vs_USR": 0.0
+  },
+  "summary": {
+    "n_pairs": 15,
+    "mean_nmi": 0.2654,
+    "mean_vi": 1.847,
+    "mean_abs_tau": 0.155,
+    "redundant_by_tau": 1,
+    "redundant_by_nmi": 5,
+    "tau_nmi_agreement": 11
+  }
+}

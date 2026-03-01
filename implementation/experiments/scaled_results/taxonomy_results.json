@@ -1,0 +1,597 @@
+{
+  "experiment": "Metric_Taxonomy_gpt4.1-nano",
+  "model": "gpt-4.1-nano",
+  "n_configs": 13,
+  "n_prompts": 20,
+  "n_seeds": 3,
+  "n_seqs_per_call": 10,
+  "total_generations": 7800,
+  "aggregated": {
+    "temp_0.0": {
+      "distinct_2": {
+        "mean": 0.1192,
+        "ci95_lo": 0.1115,
+        "ci95_hi": 0.1272,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.9757,
+        "ci95_lo": 0.9679,
+        "ci95_hi": 0.9832,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.0435,
+        "ci95_lo": 0.0309,
+        "ci95_hi": 0.0566,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 3.8455,
+        "ci95_lo": 3.7013,
+        "ci95_hi": 3.973,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.0424,
+        "ci95_lo": 0.0303,
+        "ci95_hi": 0.0549,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 1.1297,
+        "ci95_lo": 1.0953,
+        "ci95_hi": 1.1655,
+        "n_obs": 60
+      }
+    },
+    "temp_0.3": {
+      "distinct_2": {
+        "mean": 0.3137,
+        "ci95_lo": 0.276,
+        "ci95_hi": 0.3509,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.8275,
+        "ci95_lo": 0.7924,
+        "ci95_hi": 0.8615,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4167,
+        "ci95_lo": 0.3562,
+        "ci95_hi": 0.4729,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 4.5987,
+        "ci95_lo": 4.4057,
+        "ci95_hi": 4.7879,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.3922,
+        "ci95_lo": 0.3379,
+        "ci95_hi": 0.4434,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 3.6896,
+        "ci95_lo": 3.2247,
+        "ci95_hi": 4.1456,
+        "n_obs": 60
+      }
+    },
+    "temp_0.5": {
+      "distinct_2": {
+        "mean": 0.3725,
+        "ci95_lo": 0.33,
+        "ci95_hi": 0.4147,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.7605,
+        "ci95_lo": 0.7163,
+        "ci95_hi": 0.8042,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4923,
+        "ci95_lo": 0.4356,
+        "ci95_hi": 0.5456,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 4.782,
+        "ci95_lo": 4.5855,
+        "ci95_hi": 4.9689,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.4615,
+        "ci95_lo": 0.411,
+        "ci95_hi": 0.5079,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 4.4835,
+        "ci95_lo": 3.9627,
+        "ci95_hi": 4.9826,
+        "n_obs": 60
+      }
+    },
+    "temp_0.7": {
+      "distinct_2": {
+        "mean": 0.4277,
+        "ci95_lo": 0.3807,
+        "ci95_hi": 0.4722,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6928,
+        "ci95_lo": 0.6448,
+        "ci95_hi": 0.7432,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.546,
+        "ci95_lo": 0.4922,
+        "ci95_hi": 0.5947,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 4.9456,
+        "ci95_lo": 4.7592,
+        "ci95_hi": 5.129,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5163,
+        "ci95_lo": 0.4698,
+        "ci95_hi": 0.5584,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 5.087,
+        "ci95_lo": 4.5675,
+        "ci95_hi": 5.5873,
+        "n_obs": 60
+      }
+    },
+    "temp_1.0": {
+      "distinct_2": {
+        "mean": 0.494,
+        "ci95_lo": 0.4411,
+        "ci95_hi": 0.5437,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6025,
+        "ci95_lo": 0.5454,
+        "ci95_hi": 0.6623,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.6071,
+        "ci95_lo": 0.5556,
+        "ci95_hi": 0.6528,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.1289,
+        "ci95_lo": 4.9445,
+        "ci95_hi": 5.3028,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5714,
+        "ci95_lo": 0.527,
+        "ci95_hi": 0.6122,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 5.7886,
+        "ci95_lo": 5.248,
+        "ci95_hi": 6.2955,
+        "n_obs": 60
+      }
+    },
+    "temp_1.2": {
+      "distinct_2": {
+        "mean": 0.5282,
+        "ci95_lo": 0.4735,
+        "ci95_hi": 0.5791,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.5562,
+        "ci95_lo": 0.4971,
+        "ci95_hi": 0.6187,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.6318,
+        "ci95_lo": 0.582,
+        "ci95_hi": 0.676,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.2082,
+        "ci95_lo": 5.0259,
+        "ci95_hi": 5.3785,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5943,
+        "ci95_lo": 0.5499,
+        "ci95_hi": 0.6348,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 6.0977,
+        "ci95_lo": 5.5539,
+        "ci95_hi": 6.6052,
+        "n_obs": 60
+      }
+    },
+    "temp_1.5": {
+      "distinct_2": {
+        "mean": 0.602,
+        "ci95_lo": 0.5438,
+        "ci95_hi": 0.657,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.4516,
+        "ci95_lo": 0.3882,
+        "ci95_hi": 0.519,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.6893,
+        "ci95_lo": 0.6404,
+        "ci95_hi": 0.7325,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.3718,
+        "ci95_lo": 5.1901,
+        "ci95_hi": 5.5356,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.6508,
+        "ci95_lo": 0.6068,
+        "ci95_hi": 0.6907,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 6.7038,
+        "ci95_lo": 6.1435,
+        "ci95_hi": 7.2132,
+        "n_obs": 60
+      }
+    },
+    "temp_2.0": {
+      "distinct_2": {
+        "mean": 0.887,
+        "ci95_lo": 0.855,
+        "ci95_hi": 0.9151,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.1119,
+        "ci95_lo": 0.0799,
+        "ci95_hi": 0.1492,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.932,
+        "ci95_lo": 0.9163,
+        "ci95_hi": 0.9453,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.8648,
+        "ci95_lo": 5.7904,
+        "ci95_hi": 5.9288,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.9217,
+        "ci95_lo": 0.9065,
+        "ci95_hi": 0.9349,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 9.3604,
+        "ci95_lo": 9.1125,
+        "ci95_hi": 9.5728,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.3": {
+      "distinct_2": {
+        "mean": 0.1429,
+        "ci95_lo": 0.1246,
+        "ci95_hi": 0.1642,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.9694,
+        "ci95_lo": 0.955,
+        "ci95_hi": 0.9814,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.1211,
+        "ci95_lo": 0.0779,
+        "ci95_hi": 0.1692,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 3.9724,
+        "ci95_lo": 3.798,
+        "ci95_hi": 4.1398,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.1035,
+        "ci95_lo": 0.0691,
+        "ci95_hi": 0.1417,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 1.4192,
+        "ci95_lo": 1.254,
+        "ci95_hi": 1.6128,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.5": {
+      "distinct_2": {
+        "mean": 0.2373,
+        "ci95_lo": 0.2024,
+        "ci95_hi": 0.2737,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.8984,
+        "ci95_lo": 0.8672,
+        "ci95_hi": 0.927,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.3056,
+        "ci95_lo": 0.242,
+        "ci95_hi": 0.3693,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 4.3347,
+        "ci95_lo": 4.1282,
+        "ci95_hi": 4.5319,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.2786,
+        "ci95_lo": 0.2218,
+        "ci95_hi": 0.3349,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 2.7672,
+        "ci95_lo": 2.3358,
+        "ci95_hi": 3.2264,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.7": {
+      "distinct_2": {
+        "mean": 0.3849,
+        "ci95_lo": 0.3384,
+        "ci95_hi": 0.4296,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.7512,
+        "ci95_lo": 0.7046,
+        "ci95_hi": 0.7984,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4994,
+        "ci95_lo": 0.4383,
+        "ci95_hi": 0.5564,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 4.8308,
+        "ci95_lo": 4.6394,
+        "ci95_hi": 5.0178,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.4657,
+        "ci95_lo": 0.4104,
+        "ci95_hi": 0.5169,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 4.5957,
+        "ci95_lo": 4.0464,
+        "ci95_hi": 5.1287,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.9": {
+      "distinct_2": {
+        "mean": 0.4504,
+        "ci95_lo": 0.4001,
+        "ci95_hi": 0.4976,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.661,
+        "ci95_lo": 0.6068,
+        "ci95_hi": 0.7161,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.5702,
+        "ci95_lo": 0.5172,
+        "ci95_hi": 0.6187,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.0212,
+        "ci95_lo": 4.8369,
+        "ci95_hi": 5.1976,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5374,
+        "ci95_lo": 0.4916,
+        "ci95_hi": 0.5792,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 5.3548,
+        "ci95_lo": 4.8229,
+        "ci95_hi": 5.8512,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.95": {
+      "distinct_2": {
+        "mean": 0.4621,
+        "ci95_lo": 0.4128,
+        "ci95_hi": 0.5087,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6429,
+        "ci95_lo": 0.5908,
+        "ci95_hi": 0.6969,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.5751,
+        "ci95_lo": 0.5231,
+        "ci95_hi": 0.6237,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.0494,
+        "ci95_lo": 4.8685,
+        "ci95_hi": 5.2306,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5414,
+        "ci95_lo": 0.4966,
+        "ci95_hi": 0.5825,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 5.4477,
+        "ci95_lo": 4.9211,
+        "ci95_hi": 5.9481,
+        "n_obs": 60
+      }
+    }
+  },
+  "kendall_tau": {
+    "distinct_2_vs_self_bleu": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "distinct_2_vs_jaccard": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_entropy": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_epd": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_vendi": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "self_bleu_vs_jaccard": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "self_bleu_vs_entropy": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "self_bleu_vs_epd": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "self_bleu_vs_vendi": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "jaccard_vs_entropy": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "jaccard_vs_epd": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "jaccard_vs_vendi": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "entropy_vs_epd": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "entropy_vs_vendi": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "epd_vs_vendi": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    }
+  },
+  "config_names": [
+    "temp_0.0",
+    "temp_0.3",
+    "temp_0.5",
+    "temp_0.7",
+    "temp_1.0",
+    "temp_1.2",
+    "temp_1.5",
+    "temp_2.0",
+    "nucleus_0.3",
+    "nucleus_0.5",
+    "nucleus_0.7",
+    "nucleus_0.9",
+    "nucleus_0.95"
+  ]
+}

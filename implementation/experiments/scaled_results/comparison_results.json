@@ -1,0 +1,1700 @@
+{
+  "experiment": "Algorithm_Comparison",
+  "aggregated": {
+    "temp_0.0": {
+      "distinct_2": {
+        "mean": 0.1152,
+        "ci95_lo": 0.1078,
+        "ci95_hi": 0.1224
+      },
+      "self_bleu": {
+        "mean": 0.9801,
+        "ci95_lo": 0.9731,
+        "ci95_hi": 0.9872
+      },
+      "jaccard": {
+        "mean": 0.0358,
+        "ci95_lo": 0.0235,
+        "ci95_hi": 0.0481
+      },
+      "entropy": {
+        "mean": 3.8349,
+        "ci95_lo": 3.693,
+        "ci95_hi": 3.9594
+      },
+      "epd": {
+        "mean": 0.0359,
+        "ci95_lo": 0.0241,
+        "ci95_hi": 0.0477
+      },
+      "vendi": {
+        "mean": 1.1114,
+        "ci95_lo": 1.077,
+        "ci95_hi": 1.1451
+      },
+      "n_unique": {
+        "mean": 1.5,
+        "ci95_lo": 1.3667,
+        "ci95_hi": 1.6333
+      }
+    },
+    "temp_0.3": {
+      "distinct_2": {
+        "mean": 0.3179,
+        "ci95_lo": 0.2815,
+        "ci95_hi": 0.3551
+      },
+      "self_bleu": {
+        "mean": 0.8303,
+        "ci95_lo": 0.7951,
+        "ci95_hi": 0.864
+      },
+      "jaccard": {
+        "mean": 0.4212,
+        "ci95_lo": 0.3621,
+        "ci95_hi": 0.4783
+      },
+      "entropy": {
+        "mean": 4.6118,
+        "ci95_lo": 4.4249,
+        "ci95_hi": 4.7958
+      },
+      "epd": {
+        "mean": 0.3938,
+        "ci95_lo": 0.3403,
+        "ci95_hi": 0.4445
+      },
+      "vendi": {
+        "mean": 3.6924,
+        "ci95_lo": 3.2197,
+        "ci95_hi": 4.1597
+      },
+      "n_unique": {
+        "mean": 7.2667,
+        "ci95_lo": 6.4167,
+        "ci95_hi": 8.0667
+      }
+    },
+    "temp_0.7": {
+      "distinct_2": {
+        "mean": 0.426,
+        "ci95_lo": 0.3786,
+        "ci95_hi": 0.4699
+      },
+      "self_bleu": {
+        "mean": 0.696,
+        "ci95_lo": 0.6475,
+        "ci95_hi": 0.7467
+      },
+      "jaccard": {
+        "mean": 0.5456,
+        "ci95_lo": 0.4919,
+        "ci95_hi": 0.5945
+      },
+      "entropy": {
+        "mean": 4.9389,
+        "ci95_lo": 4.7477,
+        "ci95_hi": 5.1184
+      },
+      "epd": {
+        "mean": 0.5122,
+        "ci95_lo": 0.464,
+        "ci95_hi": 0.5554
+      },
+      "vendi": {
+        "mean": 5.0658,
+        "ci95_lo": 4.5271,
+        "ci95_hi": 5.5563
+      },
+      "n_unique": {
+        "mean": 8.9167,
+        "ci95_lo": 8.3667,
+        "ci95_hi": 9.4
+      }
+    },
+    "temp_1.0": {
+      "distinct_2": {
+        "mean": 0.4916,
+        "ci95_lo": 0.4391,
+        "ci95_hi": 0.5411
+      },
+      "self_bleu": {
+        "mean": 0.6078,
+        "ci95_lo": 0.5525,
+        "ci95_hi": 0.6653
+      },
+      "jaccard": {
+        "mean": 0.6044,
+        "ci95_lo": 0.5524,
+        "ci95_hi": 0.6507
+      },
+      "entropy": {
+        "mean": 5.1206,
+        "ci95_lo": 4.9405,
+        "ci95_hi": 5.2906
+      },
+      "epd": {
+        "mean": 0.5682,
+        "ci95_lo": 0.5227,
+        "ci95_hi": 0.6092
+      },
+      "vendi": {
+        "mean": 5.7245,
+        "ci95_lo": 5.1953,
+        "ci95_hi": 6.2222
+      },
+      "n_unique": {
+        "mean": 9.3333,
+        "ci95_lo": 8.9,
+        "ci95_hi": 9.7
+      }
+    },
+    "temp_1.5": {
+      "distinct_2": {
+        "mean": 0.5982,
+        "ci95_lo": 0.5398,
+        "ci95_hi": 0.6522
+      },
+      "self_bleu": {
+        "mean": 0.4583,
+        "ci95_lo": 0.3942,
+        "ci95_hi": 0.5268
+      },
+      "jaccard": {
+        "mean": 0.6874,
+        "ci95_lo": 0.6391,
+        "ci95_hi": 0.7302
+      },
+      "entropy": {
+        "mean": 5.3582,
+        "ci95_lo": 5.1796,
+        "ci95_hi": 5.5231
+      },
+      "epd": {
+        "mean": 0.6505,
+        "ci95_lo": 0.6063,
+        "ci95_hi": 0.6907
+      },
+      "vendi": {
+        "mean": 6.6974,
+        "ci95_lo": 6.1292,
+        "ci95_hi": 7.2086
+      },
+      "n_unique": {
+        "mean": 9.65,
+        "ci95_lo": 9.2833,
+        "ci95_hi": 9.9333
+      }
+    },
+    "temp_2.0": {
+      "distinct_2": {
+        "mean": 0.8853,
+        "ci95_lo": 0.8531,
+        "ci95_hi": 0.9139
+      },
+      "self_bleu": {
+        "mean": 0.1114,
+        "ci95_lo": 0.0783,
+        "ci95_hi": 0.1498
+      },
+      "jaccard": {
+        "mean": 0.9301,
+        "ci95_lo": 0.9152,
+        "ci95_hi": 0.9431
+      },
+      "entropy": {
+        "mean": 5.8604,
+        "ci95_lo": 5.7888,
+        "ci95_hi": 5.9228
+      },
+      "epd": {
+        "mean": 0.919,
+        "ci95_lo": 0.904,
+        "ci95_hi": 0.9325
+      },
+      "vendi": {
+        "mean": 9.3423,
+        "ci95_lo": 9.0994,
+        "ci95_hi": 9.5514
+      },
+      "n_unique": {
+        "mean": 9.95,
+        "ci95_lo": 9.8667,
+        "ci95_hi": 10.0
+      }
+    },
+    "nucleus_0.5": {
+      "distinct_2": {
+        "mean": 0.2498,
+        "ci95_lo": 0.2151,
+        "ci95_hi": 0.2857
+      },
+      "self_bleu": {
+        "mean": 0.8901,
+        "ci95_lo": 0.8581,
+        "ci95_hi": 0.9192
+      },
+      "jaccard": {
+        "mean": 0.3265,
+        "ci95_lo": 0.2645,
+        "ci95_hi": 0.3894
+      },
+      "entropy": {
+        "mean": 4.3555,
+        "ci95_lo": 4.1447,
+        "ci95_hi": 4.5605
+      },
+      "epd": {
+        "mean": 0.3018,
+        "ci95_lo": 0.2455,
+        "ci95_hi": 0.3582
+      },
+      "vendi": {
+        "mean": 2.9228,
+        "ci95_lo": 2.4926,
+        "ci95_hi": 3.3658
+      },
+      "n_unique": {
+        "mean": 5.6,
+        "ci95_lo": 4.7167,
+        "ci95_hi": 6.4667
+      }
+    },
+    "nucleus_0.9": {
+      "distinct_2": {
+        "mean": 0.4446,
+        "ci95_lo": 0.3949,
+        "ci95_hi": 0.4923
+      },
+      "self_bleu": {
+        "mean": 0.6658,
+        "ci95_lo": 0.6114,
+        "ci95_hi": 0.7204
+      },
+      "jaccard": {
+        "mean": 0.5667,
+        "ci95_lo": 0.5137,
+        "ci95_hi": 0.6151
+      },
+      "entropy": {
+        "mean": 5.0059,
+        "ci95_lo": 4.8232,
+        "ci95_hi": 5.1842
+      },
+      "epd": {
+        "mean": 0.5334,
+        "ci95_lo": 0.4875,
+        "ci95_hi": 0.5757
+      },
+      "vendi": {
+        "mean": 5.318,
+        "ci95_lo": 4.7843,
+        "ci95_hi": 5.8241
+      },
+      "n_unique": {
+        "mean": 9.1,
+        "ci95_lo": 8.5667,
+        "ci95_hi": 9.5667
+      }
+    },
+    "nucleus_0.95": {
+      "distinct_2": {
+        "mean": 0.4688,
+        "ci95_lo": 0.4189,
+        "ci95_hi": 0.5159
+      },
+      "self_bleu": {
+        "mean": 0.6411,
+        "ci95_lo": 0.5877,
+        "ci95_hi": 0.6959
+      },
+      "jaccard": {
+        "mean": 0.589,
+        "ci95_lo": 0.5374,
+        "ci95_hi": 0.6353
+      },
+      "entropy": {
+        "mean": 5.0712,
+        "ci95_lo": 4.8877,
+        "ci95_hi": 5.2443
+      },
+      "epd": {
+        "mean": 0.5508,
+        "ci95_lo": 0.505,
+        "ci95_hi": 0.5926
+      },
+      "vendi": {
+        "mean": 5.5514,
+        "ci95_lo": 5.0318,
+        "ci95_hi": 6.0452
+      },
+      "n_unique": {
+        "mean": 9.2667,
+        "ci95_lo": 8.7667,
+        "ci95_hi": 9.6833
+      }
+    }
+  },
+  "by_domain": {
+    "creative_writing": {
+      "temp_0.0": {
+        "distinct_2": {
+          "mean": 0.1224,
+          "std": 0.0303
+        },
+        "self_bleu": {
+          "mean": 0.9767,
+          "std": 0.0317
+        },
+        "jaccard": {
+          "mean": 0.0423,
+          "std": 0.0539
+        },
+        "entropy": {
+          "mean": 3.6936,
+          "std": 0.7011
+        },
+        "epd": {
+          "mean": 0.0369,
+          "std": 0.0453
+        },
+        "vendi": {
+          "mean": 1.1152,
+          "std": 0.1331
+        },
+        "n_unique": {
+          "mean": 1.5,
+          "std": 0.5
+        }
+      },
+      "temp_0.3": {
+        "distinct_2": {
+          "mean": 0.4322,
+          "std": 0.1441
+        },
+        "self_bleu": {
+          "mean": 0.717,
+          "std": 0.1399
+        },
+        "jaccard": {
+          "mean": 0.5338,
+          "std": 0.2516
+        },
+        "entropy": {
+          "mean": 4.7334,
+          "std": 1.0699
+        },
+        "epd": {
+          "mean": 0.4744,
+          "std": 0.1945
+        },
+        "vendi": {
+          "mean": 4.6414,
+          "std": 1.8958
+        },
+        "n_unique": {
+          "mean": 7.8333,
+          "std": 3.2102
+        }
+      },
+      "temp_0.7": {
+        "distinct_2": {
+          "mean": 0.5756,
+          "std": 0.1495
+        },
+        "self_bleu": {
+          "mean": 0.5286,
+          "std": 0.1897
+        },
+        "jaccard": {
+          "mean": 0.6594,
+          "std": 0.18
+        },
+        "entropy": {
+          "mean": 5.1645,
+          "std": 0.9138
+        },
+        "epd": {
+          "mean": 0.6072,
+          "std": 0.1117
+        },
+        "vendi": {
+          "mean": 6.1646,
+          "std": 1.5863
+        },
+        "n_unique": {
+          "mean": 9.25,
+          "std": 1.3617
+        }
+      },
+      "temp_1.0": {
+        "distinct_2": {
+          "mean": 0.6947,
+          "std": 0.0889
+        },
+        "self_bleu": {
+          "mean": 0.3817,
+          "std": 0.1506
+        },
+        "jaccard": {
+          "mean": 0.7519,
+          "std": 0.0839
+        },
+        "entropy": {
+          "mean": 5.5128,
+          "std": 0.5618
+        },
+        "epd": {
+          "mean": 0.6973,
+          "std": 0.0407
+        },
+        "vendi": {
+          "mean": 7.201,
+          "std": 0.8308
+        },
+        "n_unique": {
+          "mean": 9.6667,
+          "std": 0.6236
+        }
+      },
+      "temp_1.5": {
+        "distinct_2": {
+          "mean": 0.8328,
+          "std": 0.0706
+        },
+        "self_bleu": {
+          "mean": 0.1711,
+          "std": 0.1112
+        },
+        "jaccard": {
+          "mean": 0.8466,
+          "std": 0.0434
+        },
+        "entropy": {
+          "mean": 5.7597,
+          "std": 0.4384
+        },
+        "epd": {
+          "mean": 0.8112,
+          "std": 0.0272
+        },
+        "vendi": {
+          "mean": 8.6076,
+          "std": 0.2582
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_2.0": {
+        "distinct_2": {
+          "mean": 0.9764,
+          "std": 0.0114
+        },
+        "self_bleu": {
+          "mean": 0.0029,
+          "std": 0.0068
+        },
+        "jaccard": {
+          "mean": 0.9714,
+          "std": 0.0136
+        },
+        "entropy": {
+          "mean": 6.0036,
+          "std": 0.0659
+        },
+        "epd": {
+          "mean": 0.9644,
+          "std": 0.0099
+        },
+        "vendi": {
+          "mean": 9.8998,
+          "std": 0.0415
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.5": {
+        "distinct_2": {
+          "mean": 0.309,
+          "std": 0.1791
+        },
+        "self_bleu": {
+          "mean": 0.8262,
+          "std": 0.1739
+        },
+        "jaccard": {
+          "mean": 0.3967,
+          "std": 0.2679
+        },
+        "entropy": {
+          "mean": 4.3722,
+          "std": 1.077
+        },
+        "epd": {
+          "mean": 0.3486,
+          "std": 0.2138
+        },
+        "vendi": {
+          "mean": 3.5088,
+          "std": 1.9488
+        },
+        "n_unique": {
+          "mean": 6.9167,
+          "std": 3.3778
+        }
+      },
+      "nucleus_0.9": {
+        "distinct_2": {
+          "mean": 0.6209,
+          "std": 0.1318
+        },
+        "self_bleu": {
+          "mean": 0.464,
+          "std": 0.2016
+        },
+        "jaccard": {
+          "mean": 0.7024,
+          "std": 0.1311
+        },
+        "entropy": {
+          "mean": 5.3141,
+          "std": 0.7528
+        },
+        "epd": {
+          "mean": 0.6525,
+          "std": 0.0634
+        },
+        "vendi": {
+          "mean": 6.6598,
+          "std": 1.1671
+        },
+        "n_unique": {
+          "mean": 9.5,
+          "std": 0.9574
+        }
+      },
+      "nucleus_0.95": {
+        "distinct_2": {
+          "mean": 0.6441,
+          "std": 0.1157
+        },
+        "self_bleu": {
+          "mean": 0.4397,
+          "std": 0.1865
+        },
+        "jaccard": {
+          "mean": 0.7224,
+          "std": 0.1067
+        },
+        "entropy": {
+          "mean": 5.3983,
+          "std": 0.667
+        },
+        "epd": {
+          "mean": 0.6721,
+          "std": 0.05
+        },
+        "vendi": {
+          "mean": 6.9553,
+          "std": 0.9202
+        },
+        "n_unique": {
+          "mean": 9.75,
+          "std": 0.5951
+        }
+      }
+    },
+    "code_generation": {
+      "temp_0.0": {
+        "distinct_2": {
+          "mean": 0.0861,
+          "std": 0.0099
+        },
+        "self_bleu": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "jaccard": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "entropy": {
+          "mean": 3.343,
+          "std": 0.6043
+        },
+        "epd": {
+          "mean": 0.0,
+          "std": 0.0001
+        },
+        "vendi": {
+          "mean": 1.0003,
+          "std": 0.0009
+        },
+        "n_unique": {
+          "mean": 1.0833,
+          "std": 0.2764
+        }
+      },
+      "temp_0.3": {
+        "distinct_2": {
+          "mean": 0.157,
+          "std": 0.0975
+        },
+        "self_bleu": {
+          "mean": 0.9747,
+          "std": 0.0263
+        },
+        "jaccard": {
+          "mean": 0.1662,
+          "std": 0.1716
+        },
+        "entropy": {
+          "mean": 3.8563,
+          "std": 0.2129
+        },
+        "epd": {
+          "mean": 0.1554,
+          "std": 0.1792
+        },
+        "vendi": {
+          "mean": 1.5138,
+          "std": 0.5584
+        },
+        "n_unique": {
+          "mean": 2.9167,
+          "std": 1.441
+        }
+      },
+      "temp_0.7": {
+        "distinct_2": {
+          "mean": 0.1625,
+          "std": 0.0699
+        },
+        "self_bleu": {
+          "mean": 0.9571,
+          "std": 0.0419
+        },
+        "jaccard": {
+          "mean": 0.2839,
+          "std": 0.1613
+        },
+        "entropy": {
+          "mean": 4.0126,
+          "std": 0.2551
+        },
+        "epd": {
+          "mean": 0.2552,
+          "std": 0.1554
+        },
+        "vendi": {
+          "mean": 2.0056,
+          "std": 0.6685
+        },
+        "n_unique": {
+          "mean": 5.75,
+          "std": 2.3848
+        }
+      },
+      "temp_1.0": {
+        "distinct_2": {
+          "mean": 0.1771,
+          "std": 0.0728
+        },
+        "self_bleu": {
+          "mean": 0.9224,
+          "std": 0.0674
+        },
+        "jaccard": {
+          "mean": 0.3202,
+          "std": 0.1675
+        },
+        "entropy": {
+          "mean": 4.092,
+          "std": 0.3078
+        },
+        "epd": {
+          "mean": 0.3017,
+          "std": 0.1347
+        },
+        "vendi": {
+          "mean": 2.355,
+          "std": 0.8417
+        },
+        "n_unique": {
+          "mean": 7.1667,
+          "std": 2.4438
+        }
+      },
+      "temp_1.5": {
+        "distinct_2": {
+          "mean": 0.231,
+          "std": 0.0725
+        },
+        "self_bleu": {
+          "mean": 0.8597,
+          "std": 0.0858
+        },
+        "jaccard": {
+          "mean": 0.4108,
+          "std": 0.156
+        },
+        "entropy": {
+          "mean": 4.2761,
+          "std": 0.3269
+        },
+        "epd": {
+          "mean": 0.3791,
+          "std": 0.1108
+        },
+        "vendi": {
+          "mean": 2.9488,
+          "std": 0.8434
+        },
+        "n_unique": {
+          "mean": 8.25,
+          "std": 2.4195
+        }
+      },
+      "temp_2.0": {
+        "distinct_2": {
+          "mean": 0.7068,
+          "std": 0.119
+        },
+        "self_bleu": {
+          "mean": 0.2954,
+          "std": 0.1496
+        },
+        "jaccard": {
+          "mean": 0.8675,
+          "std": 0.0625
+        },
+        "entropy": {
+          "mean": 5.4861,
+          "std": 0.2738
+        },
+        "epd": {
+          "mean": 0.8444,
+          "std": 0.0635
+        },
+        "vendi": {
+          "mean": 8.103,
+          "std": 1.2106
+        },
+        "n_unique": {
+          "mean": 9.75,
+          "std": 0.5951
+        }
+      },
+      "nucleus_0.5": {
+        "distinct_2": {
+          "mean": 0.116,
+          "std": 0.0646
+        },
+        "self_bleu": {
+          "mean": 0.9827,
+          "std": 0.0302
+        },
+        "jaccard": {
+          "mean": 0.0581,
+          "std": 0.0936
+        },
+        "entropy": {
+          "mean": 3.4843,
+          "std": 0.5756
+        },
+        "epd": {
+          "mean": 0.0471,
+          "std": 0.073
+        },
+        "vendi": {
+          "mean": 1.1424,
+          "std": 0.225
+        },
+        "n_unique": {
+          "mean": 1.5,
+          "std": 0.7638
+        }
+      },
+      "nucleus_0.9": {
+        "distinct_2": {
+          "mean": 0.1506,
+          "std": 0.0521
+        },
+        "self_bleu": {
+          "mean": 0.9588,
+          "std": 0.042
+        },
+        "jaccard": {
+          "mean": 0.2803,
+          "std": 0.1551
+        },
+        "entropy": {
+          "mean": 4.0176,
+          "std": 0.2443
+        },
+        "epd": {
+          "mean": 0.2587,
+          "std": 0.1184
+        },
+        "vendi": {
+          "mean": 2.026,
+          "std": 0.5428
+        },
+        "n_unique": {
+          "mean": 6.1667,
+          "std": 2.6087
+        }
+      },
+      "nucleus_0.95": {
+        "distinct_2": {
+          "mean": 0.1647,
+          "std": 0.0642
+        },
+        "self_bleu": {
+          "mean": 0.9423,
+          "std": 0.0489
+        },
+        "jaccard": {
+          "mean": 0.2996,
+          "std": 0.1622
+        },
+        "entropy": {
+          "mean": 4.07,
+          "std": 0.3009
+        },
+        "epd": {
+          "mean": 0.2711,
+          "std": 0.1254
+        },
+        "vendi": {
+          "mean": 2.1784,
+          "std": 0.6861
+        },
+        "n_unique": {
+          "mean": 6.6667,
+          "std": 2.8382
+        }
+      }
+    },
+    "scientific": {
+      "temp_0.0": {
+        "distinct_2": {
+          "mean": 0.1198,
+          "std": 0.0285
+        },
+        "self_bleu": {
+          "mean": 0.9772,
+          "std": 0.0293
+        },
+        "jaccard": {
+          "mean": 0.043,
+          "std": 0.0521
+        },
+        "entropy": {
+          "mean": 4.0695,
+          "std": 0.109
+        },
+        "epd": {
+          "mean": 0.044,
+          "std": 0.0513
+        },
+        "vendi": {
+          "mean": 1.1312,
+          "std": 0.1419
+        },
+        "n_unique": {
+          "mean": 1.5,
+          "std": 0.5
+        }
+      },
+      "temp_0.3": {
+        "distinct_2": {
+          "mean": 0.2975,
+          "std": 0.0875
+        },
+        "self_bleu": {
+          "mean": 0.8518,
+          "std": 0.0801
+        },
+        "jaccard": {
+          "mean": 0.4356,
+          "std": 0.1713
+        },
+        "entropy": {
+          "mean": 4.7526,
+          "std": 0.3187
+        },
+        "epd": {
+          "mean": 0.4108,
+          "std": 0.1635
+        },
+        "vendi": {
+          "mean": 3.5626,
+          "std": 1.2426
+        },
+        "n_unique": {
+          "mean": 7.9167,
+          "std": 2.3965
+        }
+      },
+      "temp_0.7": {
+        "distinct_2": {
+          "mean": 0.4673,
+          "std": 0.1212
+        },
+        "self_bleu": {
+          "mean": 0.6679,
+          "std": 0.1273
+        },
+        "jaccard": {
+          "mean": 0.6193,
+          "std": 0.131
+        },
+        "entropy": {
+          "mean": 5.2249,
+          "std": 0.3596
+        },
+        "epd": {
+          "mean": 0.5771,
+          "std": 0.1358
+        },
+        "vendi": {
+          "mean": 5.8031,
+          "std": 1.5726
+        },
+        "n_unique": {
+          "mean": 9.9167,
+          "std": 0.2764
+        }
+      },
+      "temp_1.0": {
+        "distinct_2": {
+          "mean": 0.5476,
+          "std": 0.1147
+        },
+        "self_bleu": {
+          "mean": 0.5644,
+          "std": 0.1391
+        },
+        "jaccard": {
+          "mean": 0.7004,
+          "std": 0.0709
+        },
+        "entropy": {
+          "mean": 5.4196,
+          "std": 0.2902
+        },
+        "epd": {
+          "mean": 0.6449,
+          "std": 0.0964
+        },
+        "vendi": {
+          "mean": 6.6308,
+          "std": 1.2097
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_1.5": {
+        "distinct_2": {
+          "mean": 0.6746,
+          "std": 0.0968
+        },
+        "self_bleu": {
+          "mean": 0.3898,
+          "std": 0.1289
+        },
+        "jaccard": {
+          "mean": 0.7768,
+          "std": 0.0391
+        },
+        "entropy": {
+          "mean": 5.6728,
+          "std": 0.2121
+        },
+        "epd": {
+          "mean": 0.7165,
+          "std": 0.0691
+        },
+        "vendi": {
+          "mean": 7.6178,
+          "std": 0.84
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_2.0": {
+        "distinct_2": {
+          "mean": 0.9506,
+          "std": 0.0269
+        },
+        "self_bleu": {
+          "mean": 0.0342,
+          "std": 0.035
+        },
+        "jaccard": {
+          "mean": 0.9596,
+          "std": 0.013
+        },
+        "entropy": {
+          "mean": 6.0075,
+          "std": 0.0559
+        },
+        "epd": {
+          "mean": 0.9468,
+          "std": 0.0116
+        },
+        "vendi": {
+          "mean": 9.7292,
+          "std": 0.1178
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.5": {
+        "distinct_2": {
+          "mean": 0.214,
+          "std": 0.0877
+        },
+        "self_bleu": {
+          "mean": 0.9279,
+          "std": 0.0604
+        },
+        "jaccard": {
+          "mean": 0.3081,
+          "std": 0.2101
+        },
+        "entropy": {
+          "mean": 4.4722,
+          "std": 0.3584
+        },
+        "epd": {
+          "mean": 0.2817,
+          "std": 0.1972
+        },
+        "vendi": {
+          "mean": 2.4049,
+          "std": 1.1653
+        },
+        "n_unique": {
+          "mean": 4.8333,
+          "std": 2.7938
+        }
+      },
+      "nucleus_0.9": {
+        "distinct_2": {
+          "mean": 0.5136,
+          "std": 0.1159
+        },
+        "self_bleu": {
+          "mean": 0.6014,
+          "std": 0.1373
+        },
+        "jaccard": {
+          "mean": 0.67,
+          "std": 0.0905
+        },
+        "entropy": {
+          "mean": 5.3369,
+          "std": 0.303
+        },
+        "epd": {
+          "mean": 0.6187,
+          "std": 0.1051
+        },
+        "vendi": {
+          "mean": 6.336,
+          "std": 1.2742
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.95": {
+        "distinct_2": {
+          "mean": 0.5334,
+          "std": 0.1072
+        },
+        "self_bleu": {
+          "mean": 0.5887,
+          "std": 0.1234
+        },
+        "jaccard": {
+          "mean": 0.6918,
+          "std": 0.0734
+        },
+        "entropy": {
+          "mean": 5.4004,
+          "std": 0.2864
+        },
+        "epd": {
+          "mean": 0.6324,
+          "std": 0.0944
+        },
+        "vendi": {
+          "mean": 6.4581,
+          "std": 1.2105
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      }
+    },
+    "business": {
+      "temp_0.0": {
+        "distinct_2": {
+          "mean": 0.1239,
+          "std": 0.0269
+        },
+        "self_bleu": {
+          "mean": 0.9732,
+          "std": 0.0293
+        },
+        "jaccard": {
+          "mean": 0.0482,
+          "std": 0.0509
+        },
+        "entropy": {
+          "mean": 4.1275,
+          "std": 0.0987
+        },
+        "epd": {
+          "mean": 0.0473,
+          "std": 0.0463
+        },
+        "vendi": {
+          "mean": 1.1484,
+          "std": 0.1317
+        },
+        "n_unique": {
+          "mean": 1.75,
+          "std": 0.433
+        }
+      },
+      "temp_0.3": {
+        "distinct_2": {
+          "mean": 0.4272,
+          "std": 0.0743
+        },
+        "self_bleu": {
+          "mean": 0.7183,
+          "std": 0.0801
+        },
+        "jaccard": {
+          "mean": 0.5853,
+          "std": 0.0825
+        },
+        "entropy": {
+          "mean": 5.158,
+          "std": 0.1816
+        },
+        "epd": {
+          "mean": 0.5405,
+          "std": 0.0858
+        },
+        "vendi": {
+          "mean": 5.3084,
+          "std": 1.0633
+        },
+        "n_unique": {
+          "mean": 9.9167,
+          "std": 0.2764
+        }
+      },
+      "temp_0.7": {
+        "distinct_2": {
+          "mean": 0.5404,
+          "std": 0.0583
+        },
+        "self_bleu": {
+          "mean": 0.5728,
+          "std": 0.0717
+        },
+        "jaccard": {
+          "mean": 0.6742,
+          "std": 0.0484
+        },
+        "entropy": {
+          "mean": 5.4516,
+          "std": 0.1403
+        },
+        "epd": {
+          "mean": 0.6083,
+          "std": 0.0415
+        },
+        "vendi": {
+          "mean": 6.3379,
+          "std": 0.5538
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_1.0": {
+        "distinct_2": {
+          "mean": 0.5982,
+          "std": 0.0551
+        },
+        "self_bleu": {
+          "mean": 0.4812,
+          "std": 0.0777
+        },
+        "jaccard": {
+          "mean": 0.7059,
+          "std": 0.0421
+        },
+        "entropy": {
+          "mean": 5.576,
+          "std": 0.1202
+        },
+        "epd": {
+          "mean": 0.6439,
+          "std": 0.0351
+        },
+        "vendi": {
+          "mean": 6.8575,
+          "std": 0.4303
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_1.5": {
+        "distinct_2": {
+          "mean": 0.6987,
+          "std": 0.0425
+        },
+        "self_bleu": {
+          "mean": 0.3366,
+          "std": 0.0599
+        },
+        "jaccard": {
+          "mean": 0.7662,
+          "std": 0.0273
+        },
+        "entropy": {
+          "mean": 5.7672,
+          "std": 0.0778
+        },
+        "epd": {
+          "mean": 0.7026,
+          "std": 0.0311
+        },
+        "vendi": {
+          "mean": 7.5931,
+          "std": 0.374
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_2.0": {
+        "distinct_2": {
+          "mean": 0.9465,
+          "std": 0.0251
+        },
+        "self_bleu": {
+          "mean": 0.0369,
+          "std": 0.0313
+        },
+        "jaccard": {
+          "mean": 0.9543,
+          "std": 0.0167
+        },
+        "entropy": {
+          "mean": 6.0001,
+          "std": 0.0772
+        },
+        "epd": {
+          "mean": 0.9409,
+          "std": 0.0185
+        },
+        "vendi": {
+          "mean": 9.7283,
+          "std": 0.1318
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.5": {
+        "distinct_2": {
+          "mean": 0.3772,
+          "std": 0.0696
+        },
+        "self_bleu": {
+          "mean": 0.794,
+          "std": 0.0815
+        },
+        "jaccard": {
+          "mean": 0.5634,
+          "std": 0.0731
+        },
+        "entropy": {
+          "mean": 5.0576,
+          "std": 0.1734
+        },
+        "epd": {
+          "mean": 0.5176,
+          "std": 0.0759
+        },
+        "vendi": {
+          "mean": 4.7479,
+          "std": 0.9692
+        },
+        "n_unique": {
+          "mean": 9.0,
+          "std": 1.1547
+        }
+      },
+      "nucleus_0.9": {
+        "distinct_2": {
+          "mean": 0.5552,
+          "std": 0.0543
+        },
+        "self_bleu": {
+          "mean": 0.5476,
+          "std": 0.0658
+        },
+        "jaccard": {
+          "mean": 0.6856,
+          "std": 0.0366
+        },
+        "entropy": {
+          "mean": 5.4925,
+          "std": 0.132
+        },
+        "epd": {
+          "mean": 0.6243,
+          "std": 0.0325
+        },
+        "vendi": {
+          "mean": 6.562,
+          "std": 0.421
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.95": {
+        "distinct_2": {
+          "mean": 0.58,
+          "std": 0.0434
+        },
+        "self_bleu": {
+          "mean": 0.5151,
+          "std": 0.0524
+        },
+        "jaccard": {
+          "mean": 0.7004,
+          "std": 0.0372
+        },
+        "entropy": {
+          "mean": 5.5335,
+          "std": 0.0946
+        },
+        "epd": {
+          "mean": 0.6325,
+          "std": 0.0322
+        },
+        "vendi": {
+          "mean": 6.6928,
+          "std": 0.3688
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      }
+    },
+    "dialogue": {
+      "temp_0.0": {
+        "distinct_2": {
+          "mean": 0.1238,
+          "std": 0.0235
+        },
+        "self_bleu": {
+          "mean": 0.9735,
+          "std": 0.0257
+        },
+        "jaccard": {
+          "mean": 0.0454,
+          "std": 0.0409
+        },
+        "entropy": {
+          "mean": 3.9411,
+          "std": 0.3643
+        },
+        "epd": {
+          "mean": 0.0515,
+          "std": 0.0454
+        },
+        "vendi": {
+          "mean": 1.1616,
+          "std": 0.1274
+        },
+        "n_unique": {
+          "mean": 1.6667,
+          "std": 0.4714
+        }
+      },
+      "temp_0.3": {
+        "distinct_2": {
+          "mean": 0.2757,
+          "std": 0.0968
+        },
+        "self_bleu": {
+          "mean": 0.8898,
+          "std": 0.0967
+        },
+        "jaccard": {
+          "mean": 0.3851,
+          "std": 0.1523
+        },
+        "entropy": {
+          "mean": 4.5586,
+          "std": 0.5971
+        },
+        "epd": {
+          "mean": 0.3881,
+          "std": 0.1402
+        },
+        "vendi": {
+          "mean": 3.4361,
+          "std": 1.3115
+        },
+        "n_unique": {
+          "mean": 7.75,
+          "std": 2.618
+        }
+      },
+      "temp_0.7": {
+        "distinct_2": {
+          "mean": 0.384,
+          "std": 0.1006
+        },
+        "self_bleu": {
+          "mean": 0.7538,
+          "std": 0.1176
+        },
+        "jaccard": {
+          "mean": 0.491,
+          "std": 0.1211
+        },
+        "entropy": {
+          "mean": 4.8408,
+          "std": 0.561
+        },
+        "epd": {
+          "mean": 0.5134,
+          "std": 0.1099
+        },
+        "vendi": {
+          "mean": 5.0177,
+          "std": 1.3222
+        },
+        "n_unique": {
+          "mean": 9.6667,
+          "std": 0.6236
+        }
+      },
+      "temp_1.0": {
+        "distinct_2": {
+          "mean": 0.4406,
+          "std": 0.1214
+        },
+        "self_bleu": {
+          "mean": 0.6893,
+          "std": 0.1445
+        },
+        "jaccard": {
+          "mean": 0.5436,
+          "std": 0.1314
+        },
+        "entropy": {
+          "mean": 5.0027,
+          "std": 0.5731
+        },
+        "epd": {
+          "mean": 0.5535,
+          "std": 0.1153
+        },
+        "vendi": {
+          "mean": 5.578,
+          "std": 1.4126
+        },
+        "n_unique": {
+          "mean": 9.8333,
+          "std": 0.3727
+        }
+      },
+      "temp_1.5": {
+        "distinct_2": {
+          "mean": 0.5541,
+          "std": 0.1395
+        },
+        "self_bleu": {
+          "mean": 0.5344,
+          "std": 0.1776
+        },
+        "jaccard": {
+          "mean": 0.6368,
+          "std": 0.1161
+        },
+        "entropy": {
+          "mean": 5.3151,
+          "std": 0.5551
+        },
+        "epd": {
+          "mean": 0.6432,
+          "std": 0.1073
+        },
+        "vendi": {
+          "mean": 6.7199,
+          "std": 1.3398
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "temp_2.0": {
+        "distinct_2": {
+          "mean": 0.8464,
+          "std": 0.0732
+        },
+        "self_bleu": {
+          "mean": 0.1874,
+          "std": 0.1055
+        },
+        "jaccard": {
+          "mean": 0.8979,
+          "std": 0.0446
+        },
+        "entropy": {
+          "mean": 5.8048,
+          "std": 0.2088
+        },
+        "epd": {
+          "mean": 0.8986,
+          "std": 0.0438
+        },
+        "vendi": {
+          "mean": 9.251,
+          "std": 0.561
+        },
+        "n_unique": {
+          "mean": 10.0,
+          "std": 0.0
+        }
+      },
+      "nucleus_0.5": {
+        "distinct_2": {
+          "mean": 0.2326,
+          "std": 0.1058
+        },
+        "self_bleu": {
+          "mean": 0.9195,
+          "std": 0.095
+        },
+        "jaccard": {
+          "mean": 0.3062,
+          "std": 0.1901
+        },
+        "entropy": {
+          "mean": 4.391,
+          "std": 0.6168
+        },
+        "epd": {
+          "mean": 0.3139,
+          "std": 0.1869
+        },
+        "vendi": {
+          "mean": 2.8102,
+          "std": 1.4224
+        },
+        "n_unique": {
+          "mean": 5.75,
+          "std": 2.919
+        }
+      },
+      "nucleus_0.9": {
+        "distinct_2": {
+          "mean": 0.3829,
+          "std": 0.1048
+        },
+        "self_bleu": {
+          "mean": 0.7571,
+          "std": 0.1216
+        },
+        "jaccard": {
+          "mean": 0.4953,
+          "std": 0.129
+        },
+        "entropy": {
+          "mean": 4.8684,
+          "std": 0.5295
+        },
+        "epd": {
+          "mean": 0.5128,
+          "std": 0.1184
+        },
+        "vendi": {
+          "mean": 5.006,
+          "std": 1.3473
+        },
+        "n_unique": {
+          "mean": 9.8333,
+          "std": 0.3727
+        }
+      },
+      "nucleus_0.95": {
+        "distinct_2": {
+          "mean": 0.4219,
+          "std": 0.1068
+        },
+        "self_bleu": {
+          "mean": 0.7194,
+          "std": 0.1287
+        },
+        "jaccard": {
+          "mean": 0.5306,
+          "std": 0.1265
+        },
+        "entropy": {
+          "mean": 4.9536,
+          "std": 0.5482
+        },
+        "epd": {
+          "mean": 0.5458,
+          "std": 0.108
+        },
+        "vendi": {
+          "mean": 5.4723,
+          "std": 1.2802
+        },
+        "n_unique": {
+          "mean": 9.9167,
+          "std": 0.2764
+        }
+      }
+    }
+  }
+}

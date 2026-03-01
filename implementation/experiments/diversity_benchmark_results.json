@@ -1,0 +1,267 @@
+{
+  "experiment": "diversity_decoding_arena_benchmark",
+  "timestamp": "2026-02-23T10:29:42",
+  "metric_benchmark": [
+    {
+      "diversity_level": 0.1,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0024,
+        "distinct_2": 0.01,
+        "distinct_3": 0.0249,
+        "self_bleu": 0.9591,
+        "vendi_score": 7.0141,
+        "fbd_score": 50.0359
+      },
+      "timings_s": {
+        "distinct_n": 0.0122,
+        "self_bleu": 0.1013,
+        "vendi_score": 0.0067,
+        "fbd_score": 0.0026
+      }
+    },
+    {
+      "diversity_level": 0.2,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0035,
+        "distinct_2": 0.0141,
+        "distinct_3": 0.0355,
+        "self_bleu": 0.9479,
+        "vendi_score": 8.8585,
+        "fbd_score": 49.8735
+      },
+      "timings_s": {
+        "distinct_n": 0.0115,
+        "self_bleu": 0.1012,
+        "vendi_score": 0.0053,
+        "fbd_score": 0.0025
+      }
+    },
+    {
+      "diversity_level": 0.3,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0049,
+        "distinct_2": 0.0204,
+        "distinct_3": 0.0515,
+        "self_bleu": 0.9245,
+        "vendi_score": 12.0578,
+        "fbd_score": 49.6998
+      },
+      "timings_s": {
+        "distinct_n": 0.0236,
+        "self_bleu": 0.1311,
+        "vendi_score": 0.0067,
+        "fbd_score": 0.0027
+      }
+    },
+    {
+      "diversity_level": 0.5,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0095,
+        "distinct_2": 0.0456,
+        "distinct_3": 0.1189,
+        "self_bleu": 0.8389,
+        "vendi_score": 19.7463,
+        "fbd_score": 49.3572
+      },
+      "timings_s": {
+        "distinct_n": 0.0101,
+        "self_bleu": 0.1541,
+        "vendi_score": 0.013,
+        "fbd_score": 0.0051
+      }
+    },
+    {
+      "diversity_level": 0.7,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0183,
+        "distinct_2": 0.1202,
+        "distinct_3": 0.3021,
+        "self_bleu": 0.6615,
+        "vendi_score": 34.4613,
+        "fbd_score": 48.764
+      },
+      "timings_s": {
+        "distinct_n": 0.01,
+        "self_bleu": 0.1772,
+        "vendi_score": 0.0106,
+        "fbd_score": 0.0031
+      }
+    },
+    {
+      "diversity_level": 0.9,
+      "n_responses": 500,
+      "metrics": {
+        "distinct_1": 0.0293,
+        "distinct_2": 0.3403,
+        "distinct_3": 0.715,
+        "self_bleu": 0.2009,
+        "vendi_score": 54.9484,
+        "fbd_score": 48.1354
+      },
+      "timings_s": {
+        "distinct_n": 0.0108,
+        "self_bleu": 0.2308,
+        "vendi_score": 0.0179,
+        "fbd_score": 0.004
+      }
+    }
+  ],
+  "metric_correlation": {
+    "n_diversity_levels": 20,
+    "correlations": {
+      "distinct_2_vs_self_bleu": -0.9895,
+      "distinct_2_vs_vendi": 1.0,
+      "distinct_2_vs_fbd": -1.0,
+      "self_bleu_vs_vendi": -0.9895,
+      "self_bleu_vs_fbd": 0.9895,
+      "vendi_vs_fbd": -1.0
+    },
+    "metric_ranges": {
+      "distinct_2": {
+        "min": 0.0213,
+        "max": 0.6033
+      },
+      "self_bleu": {
+        "min": 0.0676,
+        "max": 0.9621
+      },
+      "vendi": {
+        "min": 5.4342,
+        "max": 34.1478
+      },
+      "fbd": {
+        "min": 48.1128,
+        "max": 50.1672
+      }
+    }
+  },
+  "selection_comparison": [
+    {
+      "method": "Flow",
+      "k": 20,
+      "selection_time_s": 0.0062,
+      "distinct_2": 0.2983,
+      "self_bleu": 0.6033,
+      "vendi_score": 13.885,
+      "avg_pairwise_distance": 0.7536
+    },
+    {
+      "method": "MMR",
+      "k": 20,
+      "selection_time_s": 0.0068,
+      "distinct_2": 0.3603,
+      "self_bleu": 0.4901,
+      "vendi_score": 12.7609,
+      "avg_pairwise_distance": 0.7043
+    },
+    {
+      "method": "DPP",
+      "k": 20,
+      "selection_time_s": 0.0315,
+      "distinct_2": 0.3103,
+      "self_bleu": 0.5958,
+      "vendi_score": 14.8832,
+      "avg_pairwise_distance": 0.7736
+    },
+    {
+      "method": "K-Medoids",
+      "k": 20,
+      "selection_time_s": 0.0087,
+      "distinct_2": 0.2276,
+      "self_bleu": 0.6785,
+      "vendi_score": 10.3,
+      "avg_pairwise_distance": 0.6365
+    },
+    {
+      "method": "Random",
+      "k": 20,
+      "selection_time_s": 0.0002,
+      "distinct_2": 0.2552,
+      "self_bleu": 0.6722,
+      "vendi_score": 10.9071,
+      "avg_pairwise_distance": 0.6427
+    }
+  ],
+  "streaming_vs_batch": [
+    {
+      "batch_size": 10,
+      "total_responses": 200,
+      "n_batches": 20,
+      "streaming_distinct_2": 0.3007,
+      "batch_distinct_2": 0.1041,
+      "d2_discrepancy": 0.1966,
+      "streaming_vendi": 6.6812,
+      "batch_vendi": 26.63,
+      "vendi_discrepancy": 19.9489,
+      "streaming_time_s": 0.0011,
+      "batch_time_s": 0.0011
+    },
+    {
+      "batch_size": 20,
+      "total_responses": 200,
+      "n_batches": 10,
+      "streaming_distinct_2": 0.2402,
+      "batch_distinct_2": 0.1041,
+      "d2_discrepancy": 0.136,
+      "streaming_vendi": 10.7151,
+      "batch_vendi": 26.63,
+      "vendi_discrepancy": 15.9149,
+      "streaming_time_s": 0.0012,
+      "batch_time_s": 0.0012
+    },
+    {
+      "batch_size": 50,
+      "total_responses": 200,
+      "n_batches": 4,
+      "streaming_distinct_2": 0.1767,
+      "batch_distinct_2": 0.1041,
+      "d2_discrepancy": 0.0726,
+      "streaming_vendi": 18.364,
+      "batch_vendi": 26.63,
+      "vendi_discrepancy": 8.266,
+      "streaming_time_s": 0.0012,
+      "batch_time_s": 0.0019
+    },
+    {
+      "batch_size": 100,
+      "total_responses": 200,
+      "n_batches": 2,
+      "streaming_distinct_2": 0.1347,
+      "batch_distinct_2": 0.1041,
+      "d2_discrepancy": 0.0305,
+      "streaming_vendi": 25.8671,
+      "batch_vendi": 26.63,
+      "vendi_discrepancy": 0.7629,
+      "streaming_time_s": 0.0013,
+      "batch_time_s": 0.0015
+    },
+    {
+      "batch_size": 200,
+      "total_responses": 200,
+      "n_batches": 1,
+      "streaming_distinct_2": 0.1041,
+      "batch_distinct_2": 0.1041,
+      "d2_discrepancy": 0.0,
+      "streaming_vendi": 34.5088,
+      "batch_vendi": 26.63,
+      "vendi_discrepancy": 7.8787,
+      "streaming_time_s": 0.0025,
+      "batch_time_s": 0.0012
+    }
+  ],
+  "total_time_s": 3.64,
+  "summary": {
+    "best_selection_method": "DPP",
+    "best_pairwise_distance": 0.7736,
+    "strongest_metric_correlation": [
+      "distinct_2_vs_vendi",
+      1.0
+    ],
+    "mean_streaming_batch_d2_discrepancy": 0.0871
+  }
+}

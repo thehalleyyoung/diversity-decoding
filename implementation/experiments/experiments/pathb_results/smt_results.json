@@ -1,0 +1,134 @@
+{
+  "summary": {
+    "total_instances": 6,
+    "suboptimal_count": 1,
+    "suboptimal_pct": 16.666666666666664,
+    "mean_gap_pct": 0.9533182651348905,
+    "max_gap_pct": 5.719909590809344,
+    "median_gap_pct": 6.965806245679388e-15,
+    "n_fair_certificates": 3,
+    "mean_retention": 0.9876002336099807,
+    "worst_retention": 0.9675880288397407,
+    "n_hardness_witnesses": 4,
+    "max_hardness_gap_pct": 2.284185682621051
+  },
+  "optimality_gaps": [
+    {
+      "n": 8,
+      "k": 3,
+      "greedy_obj": 12.512,
+      "optimal_obj": 13.2711,
+      "gap_pct": 5.72,
+      "is_suboptimal": true
+    },
+    {
+      "n": 8,
+      "k": 3,
+      "greedy_obj": 16.1167,
+      "optimal_obj": 16.1167,
+      "gap_pct": 0.0,
+      "is_suboptimal": false
+    },
+    {
+      "n": 8,
+      "k": 5,
+      "greedy_obj": 39.5966,
+      "optimal_obj": 39.5966,
+      "gap_pct": -0.0,
+      "is_suboptimal": false
+    },
+    {
+      "n": 8,
+      "k": 5,
+      "greedy_obj": 51.0022,
+      "optimal_obj": 51.0022,
+      "gap_pct": 0.0,
+      "is_suboptimal": false
+    },
+    {
+      "n": 10,
+      "k": 3,
+      "greedy_obj": 16.7476,
+      "optimal_obj": 16.7476,
+      "gap_pct": 0.0,
+      "is_suboptimal": false
+    },
+    {
+      "n": 10,
+      "k": 3,
+      "greedy_obj": 17.4799,
+      "optimal_obj": 17.4799,
+      "gap_pct": 0.0,
+      "is_suboptimal": false
+    }
+  ],
+  "fair_retention": [
+    {
+      "constraints": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "unconstrained": 84.6906,
+      "constrained": 84.6906,
+      "retention": 1.0,
+      "certified": true
+    },
+    {
+      "constraints": {
+        "0": 2,
+        "1": 2,
+        "2": 2
+      },
+      "unconstrained": 84.6906,
+      "constrained": 84.2851,
+      "retention": 0.9952,
+      "certified": true
+    },
+    {
+      "constraints": {
+        "0": 1,
+        "1": 1,
+        "2": 3
+      },
+      "unconstrained": 84.6906,
+      "constrained": 81.9456,
+      "retention": 0.9676,
+      "certified": true
+    }
+  ],
+  "hardness_witnesses": [
+    {
+      "n": 14,
+      "k": 3,
+      "greedy": 19.1653,
+      "optimal": 19.4693,
+      "gap_pct": 1.56,
+      "description": "Max-3-Dispersion on 14 points in R^5. Clustered instance with 4 clusters. Greedy achieves 19.1653 vs optimal 19.4693 (gap 1.6%). NP-hard by reduction from Hassin et al. 1997."
+    },
+    {
+      "n": 11,
+      "k": 3,
+      "greedy": 12.8814,
+      "optimal": 13.1825,
+      "gap_pct": 2.28,
+      "description": "Max-3-Dispersion on 11 points in R^5. Clustered instance with 4 clusters. Greedy achieves 12.8814 vs optimal 13.1825 (gap 2.3%). NP-hard by reduction from Hassin et al. 1997."
+    },
+    {
+      "n": 8,
+      "k": 4,
+      "greedy": 17.3795,
+      "optimal": 17.3795,
+      "gap_pct": 0.0,
+      "description": "Max-4-Dispersion on 8 points in R^5. Clustered instance with 5 clusters. Greedy achieves 17.3795 vs optimal 17.3795 (gap 0.0%). NP-hard by reduction from Hassin et al. 1997."
+    },
+    {
+      "n": 14,
+      "k": 5,
+      "greedy": 10.2807,
+      "optimal": 10.2807,
+      "gap_pct": 0.0,
+      "description": "Max-5-Dispersion on 14 points in R^5. Clustered instance with 6 clusters. Greedy achieves 10.2807 vs optimal 10.2807 (gap 0.0%). NP-hard by reduction from Hassin et al. 1997."
+    }
+  ]
+}

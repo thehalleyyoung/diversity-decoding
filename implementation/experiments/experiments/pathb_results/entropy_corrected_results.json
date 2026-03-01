@@ -1,0 +1,91 @@
+{
+  "shannon_entropy": {
+    "high_diversity": {
+      "mle": 9.2014,
+      "miller_madow": 9.8146,
+      "nsb": 11.1345,
+      "jackknife": 10.3507,
+      "ci_lower": 8.5653,
+      "ci_upper": 11.0639,
+      "ci_method": "bca",
+      "bias_magnitude": 0.613195,
+      "n_types": 619,
+      "n_samples": 727
+    },
+    "low_diversity": {
+      "mle": 6.537,
+      "miller_madow": 6.6695,
+      "nsb": 6.6458,
+      "jackknife": 6.6847,
+      "ci_lower": 6.4174,
+      "ci_upper": 6.9215,
+      "ci_method": "bca",
+      "bias_magnitude": 0.132492,
+      "n_types": 100,
+      "n_samples": 539
+    },
+    "effect_size": {
+      "cohens_d_corrected": 4.94,
+      "estimator": "miller_madow"
+    }
+  },
+  "kl_divergence": {
+    "raw": 23.0335,
+    "laplace_smoothed": 0.645,
+    "jelinek_mercer_smoothed": 3.4967,
+    "dirichlet_smoothed": 6.1816,
+    "symmetric_kl_laplace": 0.8042,
+    "smoothing_impact_pct": 97.2,
+    "zero_mass_fraction_p": 0.1106,
+    "zero_mass_fraction_q": 0.8563,
+    "diagnosis": "Large KL due to zero-mass tail domination",
+    "diagnostics": {
+      "vocab_p_size": 619,
+      "vocab_q_size": 100,
+      "vocab_union_size": 696,
+      "vocab_intersection_size": 23,
+      "jaccard_vocab_overlap": 0.033,
+      "kl_reduction_pct": 97.1999
+    }
+  },
+  "entropy_rate": {
+    "high_diversity": {
+      "rate": 0.0,
+      "memory_length": 5,
+      "convergence": null,
+      "conditionals_raw": [
+        5.5317,
+        3.6697,
+        0.2378,
+        0.0,
+        0.0
+      ],
+      "conditionals_corrected": [
+        5.5765,
+        4.2381,
+        0.3429,
+        0.0,
+        0.0
+      ]
+    },
+    "low_diversity": {
+      "rate": 0.0,
+      "memory_length": 1,
+      "convergence": 0.0,
+      "conditionals_raw": [
+        3.3157,
+        3.2213,
+        2.0374,
+        0.3044,
+        0.0
+      ],
+      "conditionals_corrected": [
+        3.3271,
+        3.3424,
+        2.4831,
+        0.437,
+        0.0
+      ]
+    }
+  }
+}

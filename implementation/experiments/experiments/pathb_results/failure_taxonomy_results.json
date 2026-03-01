@@ -1,0 +1,292 @@
+{
+  "total_failure_modes": 13,
+  "categories": {
+    "DEGENERATE_INPUT": 3,
+    "BOUNDARY_CASE": 3,
+    "DIMENSIONALITY_ARTIFACT": 2,
+    "SCALE_SENSITIVITY": 2,
+    "DISTRIBUTION_MISMATCH": 1,
+    "METRIC_DEFINITION_GAP": 2
+  },
+  "severity_distribution": {
+    "high": 5,
+    "medium": 6,
+    "low": 2
+  },
+  "metric_coverage": {
+    "D-2": 13,
+    "Self-BLEU": 5,
+    "Entropy": 7,
+    "TTR": 7,
+    "Jaccard": 1
+  },
+  "modes": [
+    {
+      "id": "FM-DEG-001",
+      "name": "Empty/trivial texts",
+      "category": "DEGENERATE_INPUT",
+      "severity": "high",
+      "description": "Empty or single-token texts cause division by zero or undefined behavior in n-gram metrics.",
+      "structural_cause": "N-gram metrics require \u2265n tokens per text; with fewer, the denominator is 0.",
+      "affected_metrics": [
+        "D-2",
+        "Self-BLEU",
+        "Entropy"
+      ],
+      "detection_criterion": "Any text has fewer than n tokens",
+      "mitigation": "Filter texts with < n tokens before computing metrics. Return NaN with warning.",
+      "metric_values": {
+        "D-2": 0.0,
+        "Self-BLEU": 0.0,
+        "TTR": 1.0,
+        "Entropy": 0.0
+      }
+    },
+    {
+      "id": "FM-DEG-002",
+      "name": "Identical texts",
+      "category": "DEGENERATE_INPUT",
+      "severity": "medium",
+      "description": "All texts identical. D-2 may still be non-zero (from within-text diversity) while Self-BLEU is 1.0.",
+      "structural_cause": "D-2 measures type-token ratio which can be >0 for a single long text, while Self-BLEU correctly identifies zero diversity between texts.",
+      "affected_metrics": [
+        "D-2",
+        "Self-BLEU"
+      ],
+      "detection_criterion": "All texts identical after normalization",
+      "mitigation": "Check for exact/near-exact duplicates before computing metrics. Flag degenerate case.",
+      "metric_values": {
+        "D-2": 0.1,
+        "Self-BLEU": 1.0,
+        "TTR": 0.0833,
+        "Entropy": 2.3219
+      }
+    },
+    {
+      "id": "FM-DEG-003",
+      "name": "Extreme repetition",
+      "category": "DEGENERATE_INPUT",
+      "severity": "high",
+      "description": "Texts consisting of a single repeated word. TTR approaches 1/n_tokens while D-2 is near 0.",
+      "structural_cause": "TTR denominator grows linearly with text length but numerator is bounded by vocabulary size.",
+      "affected_metrics": [
+        "TTR",
+        "D-2",
+        "Entropy"
+      ],
+      "detection_criterion": "TTR < 0.05 or single unique token dominates >90% of text",
+      "mitigation": "Use bias-corrected TTR (MSTTR) or entropy-based measures for highly repetitive text.",
+      "metric_values": {
+        "D-2": 0.0105,
+        "Self-BLEU": 0.4444,
+        "TTR": 0.01,
+        "Entropy": 1.0
+      }
+    },
+    {
+      "id": "FM-BND-001",
+      "name": "High within-text, low between-text diversity",
+      "category": "BOUNDARY_CASE",
+      "severity": "medium",
+      "description": "Texts have rich internal vocabulary but are near-identical to each other. D-2 (computed across all texts) may show high diversity while Self-BLEU correctly shows low diversity.",
+      "structural_cause": "D-2 pools n-grams across all texts, mixing within-text and between-text diversity. Self-BLEU explicitly compares pairs.",
+      "affected_metrics": [
+        "D-2",
+        "Self-BLEU"
+      ],
+      "detection_criterion": "|D-2 rank - Self-BLEU rank| > 50th percentile for normal inputs",
+      "mitigation": "Report both within-text and between-text diversity separately.",
+      "metric_values": {
+        "D-2": 0.2727,
+        "Self-BLEU": 0.8889,
+        "TTR": 0.2333,
+        "Entropy": 3.6705
+      }
+    },
+    {
+      "id": "FM-BND-002",
+      "name": "Extreme length variation",
+      "category": "BOUNDARY_CASE",
+      "severity": "medium",
+      "description": "Texts vary enormously in length. Long texts dominate n-gram counts, making short texts invisible to pooled metrics.",
+      "structural_cause": "N-gram pooling is count-weighted, so a single long text contributes O(L) n-grams while a short text contributes O(1).",
+      "affected_metrics": [
+        "D-2",
+        "Entropy",
+        "TTR"
+      ],
+      "detection_criterion": "max(len)/min(len) > 10",
+      "mitigation": "Normalize by text length or use per-text metrics averaged across texts.",
+      "metric_values": {
+        "D-2": 0.1949,
+        "Self-BLEU": 0.4444,
+        "TTR": 0.1561,
+        "Entropy": 5.2341
+      }
+    },
+    {
+      "id": "FM-BND-003",
+      "name": "Permutation-only diversity",
+      "category": "BOUNDARY_CASE",
+      "severity": "low",
+      "description": "Texts use identical vocabulary but in different orders. TTR shows zero diversity while D-2 and Self-BLEU capture n-gram differences.",
+      "structural_cause": "TTR is a bag-of-words metric (order-invariant), while n-gram metrics are order-sensitive.",
+      "affected_metrics": [
+        "TTR",
+        "D-2"
+      ],
+      "detection_criterion": "TTR variation < 0.01 but D-2 variation > 0.1",
+      "mitigation": "Use n-gram metrics when word order matters; report TTR alongside for vocabulary diversity.",
+      "metric_values": {
+        "D-2": 0.56,
+        "Self-BLEU": 0.0,
+        "TTR": 0.1667,
+        "Entropy": 3.5737
+      }
+    },
+    {
+      "id": "FM-DIM-001",
+      "name": "Vocabulary explosion (hapax legomena)",
+      "category": "DIMENSIONALITY_ARTIFACT",
+      "severity": "high",
+      "description": "Many unique tokens appear only once. D-2 and TTR are inflated by rare tokens that don't indicate meaningful diversity.",
+      "structural_cause": "D-2 counts distinct n-grams / total n-grams. With many hapax legomena, the ratio approaches 1 regardless of semantic diversity.",
+      "affected_metrics": [
+        "D-2",
+        "TTR",
+        "Entropy"
+      ],
+      "detection_criterion": "Hapax legomenon ratio > 0.5 (>50% of types occur only once)",
+      "mitigation": "Apply frequency thresholding (remove hapax legomena) or use entropy with bias correction.",
+      "metric_values": {
+        "D-2": 0.9842,
+        "Self-BLEU": 0.0,
+        "TTR": 0.76,
+        "Entropy": 7.5383
+      }
+    },
+    {
+      "id": "FM-DIM-002",
+      "name": "Domain vocabulary clustering",
+      "category": "DIMENSIONALITY_ARTIFACT",
+      "severity": "medium",
+      "description": "Texts from different domains create vocabulary clusters. TTR and D-2 show high diversity due to disjoint vocabularies, not meaningful text variation.",
+      "structural_cause": "Domain-specific jargon creates non-overlapping vocabulary clusters that inflate type-token and n-gram metrics.",
+      "affected_metrics": [
+        "D-2",
+        "TTR",
+        "Jaccard"
+      ],
+      "detection_criterion": "Vocabulary Jaccard similarity between text subsets < 0.2",
+      "mitigation": "Compute diversity within and between domains separately. Use embedding-based metrics for semantic diversity.",
+      "metric_values": {
+        "D-2": 1.0,
+        "Self-BLEU": 0.0,
+        "TTR": 0.9057,
+        "Entropy": 5.5546
+      }
+    },
+    {
+      "id": "FM-SCL-001",
+      "name": "Small sample instability",
+      "category": "SCALE_SENSITIVITY",
+      "severity": "high",
+      "description": "With very few texts (n<5), metric estimates are unstable and bootstrap CIs are unreliable.",
+      "structural_cause": "Shannon entropy bias is O(m/2N) where m is vocabulary size and N is sample size. For small N, this bias dominates.",
+      "affected_metrics": [
+        "Entropy",
+        "D-2",
+        "Self-BLEU"
+      ],
+      "detection_criterion": "n_texts < 5 or n_total_tokens < 100",
+      "mitigation": "Require minimum sample size. Use bias-corrected entropy (Miller-Madow or NSB). Report sample size alongside metrics.",
+      "metric_values": {
+        "D-2": 1.0,
+        "Self-BLEU": 0.0,
+        "TTR": 0.75,
+        "Entropy": 3.3219
+      }
+    },
+    {
+      "id": "FM-SCL-002",
+      "name": "Metric saturation",
+      "category": "SCALE_SENSITIVITY",
+      "severity": "low",
+      "description": "At large sample sizes with fixed vocabulary, D-2 saturates near its maximum. Adding more texts provides diminishing information.",
+      "structural_cause": "D-2 = distinct_ngrams / total_ngrams. With fixed vocabulary, distinct_ngrams is bounded while total_ngrams grows linearly.",
+      "affected_metrics": [
+        "D-2",
+        "TTR"
+      ],
+      "detection_criterion": "D-2 change < 0.01 when adding 10% more texts",
+      "mitigation": "Report sample-size-adjusted metrics. Use entropy (scales logarithmically) instead of ratio-based metrics at scale.",
+      "metric_values": {
+        "D-2": 0.8571,
+        "Self-BLEU": 0.0,
+        "TTR": 0.1357,
+        "Entropy": 7.2606
+      }
+    },
+    {
+      "id": "FM-DST-001",
+      "name": "Uniform vs Zipfian distribution",
+      "category": "DISTRIBUTION_MISMATCH",
+      "severity": "medium",
+      "description": "Uniform token distribution maximizes entropy but may have lower D-2 than Zipfian distribution due to n-gram diversity patterns.",
+      "structural_cause": "Entropy is maximized by uniform distributions. D-2 depends on n-gram uniqueness, which can be higher when some tokens are rare (creating unique bigrams).",
+      "affected_metrics": [
+        "Entropy",
+        "D-2"
+      ],
+      "detection_criterion": "Rank correlation between Entropy and D-2 < 0 for specific configurations",
+      "mitigation": "Report both entropy and D-2. Use KL divergence to quantify distribution shape differences.",
+      "metric_values": {
+        "D-2": 0.9947,
+        "Self-BLEU": 0.0,
+        "TTR": 0.45,
+        "Entropy": 7.5593
+      }
+    },
+    {
+      "id": "FM-DEF-001",
+      "name": "Syntactic diversity without semantic diversity",
+      "category": "METRIC_DEFINITION_GAP",
+      "severity": "high",
+      "description": "Texts are paraphrases of the same idea. N-gram metrics show high diversity but semantic content is identical.",
+      "structural_cause": "N-gram metrics operate on surface forms, not meaning. Paraphrases create distinct n-grams while conveying the same information.",
+      "affected_metrics": [
+        "D-2",
+        "TTR",
+        "Entropy"
+      ],
+      "detection_criterion": "High D-2/TTR but low semantic embedding diversity (EPD)",
+      "mitigation": "Always pair surface-level metrics with embedding-based semantic diversity (EPD, Vendi Score).",
+      "metric_values": {
+        "D-2": 0.8621,
+        "Self-BLEU": 0.0,
+        "TTR": 0.6176,
+        "Entropy": 4.5561
+      }
+    },
+    {
+      "id": "FM-DEF-002",
+      "name": "Semantic diversity with syntactic template",
+      "category": "METRIC_DEFINITION_GAP",
+      "severity": "medium",
+      "description": "Texts follow a template with slot-filling. Self-BLEU is high (similar structure) but content varies meaningfully.",
+      "structural_cause": "Self-BLEU measures n-gram overlap between pairs. Templates create high overlap even when filled content differs.",
+      "affected_metrics": [
+        "Self-BLEU",
+        "D-2"
+      ],
+      "detection_criterion": "Self-BLEU > 0.5 but slot-fill diversity > 0.8",
+      "mitigation": "Use content-word-only metrics or mask template words before computing diversity.",
+      "metric_values": {
+        "D-2": 0.6571,
+        "Self-BLEU": 0.0,
+        "TTR": 0.5,
+        "Entropy": 4.1342
+      }
+    }
+  ]
+}

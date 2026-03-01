@@ -1,0 +1,231 @@
+{
+  "n_metrics": 7,
+  "metrics": [
+    "CRD",
+    "D-2",
+    "D-3",
+    "Entropy",
+    "Self-BLEU",
+    "TTR",
+    "USR"
+  ],
+  "is_lattice_at_0.3": true,
+  "n_automorphisms": 2,
+  "betti_numbers": [
+    5,
+    0,
+    0
+  ],
+  "critical_deltas": [
+    {
+      "delta": 0.2679,
+      "n_classes": 5,
+      "change": 2
+    },
+    {
+      "delta": 0.3711,
+      "n_classes": 4,
+      "change": 1
+    },
+    {
+      "delta": 0.4742,
+      "n_classes": 3,
+      "change": 1
+    }
+  ],
+  "merge_sequence": [
+    {
+      "delta": 0.2564,
+      "metric_a": "D-2",
+      "metric_b": "TTR"
+    },
+    {
+      "delta": 0.2609,
+      "metric_a": "D-3",
+      "metric_b": "Entropy"
+    },
+    {
+      "delta": 0.3478,
+      "metric_a": "D-2",
+      "metric_b": "D-3"
+    },
+    {
+      "delta": 0.4348,
+      "metric_a": "D-3",
+      "metric_b": "TTR"
+    },
+    {
+      "delta": 0.4615,
+      "metric_a": "CRD",
+      "metric_b": "TTR"
+    },
+    {
+      "delta": 0.5128,
+      "metric_a": "CRD",
+      "metric_b": "D-2"
+    },
+    {
+      "delta": 0.641,
+      "metric_a": "D-2",
+      "metric_b": "Entropy"
+    },
+    {
+      "delta": 0.7436,
+      "metric_a": "Entropy",
+      "metric_b": "TTR"
+    },
+    {
+      "delta": 0.8462,
+      "metric_a": "CRD",
+      "metric_b": "Entropy"
+    },
+    {
+      "delta": 0.9565,
+      "metric_a": "CRD",
+      "metric_b": "D-3"
+    }
+  ],
+  "filtration_summary": {
+    "delta_0.1": 7,
+    "delta_0.3": 5,
+    "delta_0.5": 3,
+    "delta_0.7": 3,
+    "delta_0.9": 3
+  },
+  "hasse_diagrams": {
+    "0.1": {
+      "n_classes": 7,
+      "n_edges": 0,
+      "classes": [
+        [
+          "CRD"
+        ],
+        [
+          "D-2"
+        ],
+        [
+          "D-3"
+        ],
+        [
+          "Entropy"
+        ],
+        [
+          "Self-BLEU"
+        ],
+        [
+          "TTR"
+        ],
+        [
+          "USR"
+        ]
+      ]
+    },
+    "0.2": {
+      "n_classes": 7,
+      "n_edges": 0,
+      "classes": [
+        [
+          "CRD"
+        ],
+        [
+          "D-2"
+        ],
+        [
+          "D-3"
+        ],
+        [
+          "Entropy"
+        ],
+        [
+          "Self-BLEU"
+        ],
+        [
+          "TTR"
+        ],
+        [
+          "USR"
+        ]
+      ]
+    },
+    "0.3": {
+      "n_classes": 5,
+      "n_edges": 0,
+      "classes": [
+        [
+          "CRD"
+        ],
+        [
+          "Self-BLEU"
+        ],
+        [
+          "USR"
+        ],
+        [
+          "TTR",
+          "D-2"
+        ],
+        [
+          "Entropy",
+          "D-3"
+        ]
+      ]
+    },
+    "0.5": {
+      "n_classes": 3,
+      "n_edges": 0,
+      "classes": [
+        [
+          "Self-BLEU"
+        ],
+        [
+          "USR"
+        ],
+        [
+          "Entropy",
+          "TTR",
+          "CRD",
+          "D-2",
+          "D-3"
+        ]
+      ]
+    },
+    "0.7": {
+      "n_classes": 3,
+      "n_edges": 0,
+      "classes": [
+        [
+          "Self-BLEU"
+        ],
+        [
+          "USR"
+        ],
+        [
+          "Entropy",
+          "TTR",
+          "CRD",
+          "D-2",
+          "D-3"
+        ]
+      ]
+    },
+    "0.9": {
+      "n_classes": 3,
+      "n_edges": 0,
+      "classes": [
+        [
+          "Self-BLEU"
+        ],
+        [
+          "USR"
+        ],
+        [
+          "Entropy",
+          "TTR",
+          "CRD",
+          "D-2",
+          "D-3"
+        ]
+      ]
+    }
+  }
+}

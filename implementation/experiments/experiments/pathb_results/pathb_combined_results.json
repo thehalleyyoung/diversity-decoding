@@ -1,0 +1,2533 @@
+{
+  "smt": {
+    "summary": {
+      "total_instances": 6,
+      "suboptimal_count": 1,
+      "suboptimal_pct": 16.666666666666664,
+      "mean_gap_pct": 0.9533182651348905,
+      "max_gap_pct": 5.719909590809344,
+      "median_gap_pct": 6.965806245679388e-15,
+      "n_fair_certificates": 3,
+      "mean_retention": 0.9876002336099807,
+      "worst_retention": 0.9675880288397407,
+      "n_hardness_witnesses": 4,
+      "max_hardness_gap_pct": 2.284185682621051
+    },
+    "optimality_gaps": [
+      {
+        "n": 8,
+        "k": 3,
+        "greedy_obj": 12.512,
+        "optimal_obj": 13.2711,
+        "gap_pct": 5.72,
+        "is_suboptimal": true
+      },
+      {
+        "n": 8,
+        "k": 3,
+        "greedy_obj": 16.1167,
+        "optimal_obj": 16.1167,
+        "gap_pct": 0.0,
+        "is_suboptimal": false
+      },
+      {
+        "n": 8,
+        "k": 5,
+        "greedy_obj": 39.5966,
+        "optimal_obj": 39.5966,
+        "gap_pct": -0.0,
+        "is_suboptimal": false
+      },
+      {
+        "n": 8,
+        "k": 5,
+        "greedy_obj": 51.0022,
+        "optimal_obj": 51.0022,
+        "gap_pct": 0.0,
+        "is_suboptimal": false
+      },
+      {
+        "n": 10,
+        "k": 3,
+        "greedy_obj": 16.7476,
+        "optimal_obj": 16.7476,
+        "gap_pct": 0.0,
+        "is_suboptimal": false
+      },
+      {
+        "n": 10,
+        "k": 3,
+        "greedy_obj": 17.4799,
+        "optimal_obj": 17.4799,
+        "gap_pct": 0.0,
+        "is_suboptimal": false
+      }
+    ],
+    "fair_retention": [
+      {
+        "constraints": {
+          "0": 1,
+          "1": 1,
+          "2": 1
+        },
+        "unconstrained": 84.6906,
+        "constrained": 84.6906,
+        "retention": 1.0,
+        "certified": true
+      },
+      {
+        "constraints": {
+          "0": 2,
+          "1": 2,
+          "2": 2
+        },
+        "unconstrained": 84.6906,
+        "constrained": 84.2851,
+        "retention": 0.9952,
+        "certified": true
+      },
+      {
+        "constraints": {
+          "0": 1,
+          "1": 1,
+          "2": 3
+        },
+        "unconstrained": 84.6906,
+        "constrained": 81.9456,
+        "retention": 0.9676,
+        "certified": true
+      }
+    ],
+    "hardness_witnesses": [
+      {
+        "n": 14,
+        "k": 3,
+        "greedy": 19.1653,
+        "optimal": 19.4693,
+        "gap_pct": 1.56,
+        "description": "Max-3-Dispersion on 14 points in R^5. Clustered instance with 4 clusters. Greedy achieves 19.1653 vs optimal 19.4693 (gap 1.6%). NP-hard by reduction from Hassin et al. 1997."
+      },
+      {
+        "n": 11,
+        "k": 3,
+        "greedy": 12.8814,
+        "optimal": 13.1825,
+        "gap_pct": 2.28,
+        "description": "Max-3-Dispersion on 11 points in R^5. Clustered instance with 4 clusters. Greedy achieves 12.8814 vs optimal 13.1825 (gap 2.3%). NP-hard by reduction from Hassin et al. 1997."
+      },
+      {
+        "n": 8,
+        "k": 4,
+        "greedy": 17.3795,
+        "optimal": 17.3795,
+        "gap_pct": 0.0,
+        "description": "Max-4-Dispersion on 8 points in R^5. Clustered instance with 5 clusters. Greedy achieves 17.3795 vs optimal 17.3795 (gap 0.0%). NP-hard by reduction from Hassin et al. 1997."
+      },
+      {
+        "n": 14,
+        "k": 5,
+        "greedy": 10.2807,
+        "optimal": 10.2807,
+        "gap_pct": 0.0,
+        "description": "Max-5-Dispersion on 14 points in R^5. Clustered instance with 6 clusters. Greedy achieves 10.2807 vs optimal 10.2807 (gap 0.0%). NP-hard by reduction from Hassin et al. 1997."
+      }
+    ]
+  },
+  "entropy": {
+    "shannon_entropy": {
+      "high_diversity": {
+        "mle": 9.2014,
+        "miller_madow": 9.8146,
+        "nsb": 11.1345,
+        "jackknife": 10.3507,
+        "ci_lower": 8.5653,
+        "ci_upper": 11.0639,
+        "ci_method": "bca",
+        "bias_magnitude": 0.613195,
+        "n_types": 619,
+        "n_samples": 727
+      },
+      "low_diversity": {
+        "mle": 6.537,
+        "miller_madow": 6.6695,
+        "nsb": 6.6458,
+        "jackknife": 6.6847,
+        "ci_lower": 6.4174,
+        "ci_upper": 6.9215,
+        "ci_method": "bca",
+        "bias_magnitude": 0.132492,
+        "n_types": 100,
+        "n_samples": 539
+      },
+      "effect_size": {
+        "cohens_d_corrected": 4.94,
+        "estimator": "miller_madow"
+      }
+    },
+    "kl_divergence": {
+      "raw": 23.0335,
+      "laplace_smoothed": 0.645,
+      "jelinek_mercer_smoothed": 3.4967,
+      "dirichlet_smoothed": 6.1816,
+      "symmetric_kl_laplace": 0.8042,
+      "smoothing_impact_pct": 97.2,
+      "zero_mass_fraction_p": 0.1106,
+      "zero_mass_fraction_q": 0.8563,
+      "diagnosis": "Large KL due to zero-mass tail domination",
+      "diagnostics": {
+        "vocab_p_size": 619,
+        "vocab_q_size": 100,
+        "vocab_union_size": 696,
+        "vocab_intersection_size": 23,
+        "jaccard_vocab_overlap": 0.033,
+        "kl_reduction_pct": 97.1999
+      }
+    },
+    "entropy_rate": {
+      "high_diversity": {
+        "rate": 0.0,
+        "memory_length": 5,
+        "convergence": null,
+        "conditionals_raw": [
+          5.5317,
+          3.6697,
+          0.2378,
+          0.0,
+          0.0
+        ],
+        "conditionals_corrected": [
+          5.5765,
+          4.2381,
+          0.3429,
+          0.0,
+          0.0
+        ]
+      },
+      "low_diversity": {
+        "rate": 0.0,
+        "memory_length": 1,
+        "convergence": 0.0,
+        "conditionals_raw": [
+          3.3157,
+          3.2213,
+          2.0374,
+          0.3044,
+          0.0
+        ],
+        "conditionals_corrected": [
+          3.3271,
+          3.3424,
+          2.4831,
+          0.437,
+          0.0
+        ]
+      }
+    }
+  },
+  "cross_model": {
+    "n_models": 10,
+    "n_model_pairs": 45,
+    "n_metrics": 8,
+    "n_configs": 5,
+    "n_prompts": 20,
+    "meta_tau": 0.3317,
+    "meta_tau_ci": [
+      0.3226,
+      0.3407
+    ],
+    "meta_tau_p": 0.0,
+    "power": {
+      "n_model_pairs": 45,
+      "target_tau": 0.3316558876641597,
+      "alpha": 0.05,
+      "power": 0.6079,
+      "n_pairs_for_80pct_power": 70,
+      "effect_size_z": 0.3447,
+      "adequate_power": false
+    },
+    "bayesian": {
+      "posterior_mean": 0.3312,
+      "posterior_std": 0.0156,
+      "credible_interval_95": [
+        0.3006,
+        0.3618
+      ],
+      "p_positive": 1.0,
+      "n_model_pairs": 45,
+      "bayes_factor_positive": 10000000000.0
+    },
+    "model_families": [
+      {
+        "name": "gpt-4.1-nano",
+        "family": "GPT-4.1",
+        "size": "nano"
+      },
+      {
+        "name": "gpt-4.1-mini",
+        "family": "GPT-4.1",
+        "size": "mini"
+      },
+      {
+        "name": "llama-3-8b",
+        "family": "Llama-3",
+        "size": "8B"
+      },
+      {
+        "name": "mistral-7b",
+        "family": "Mistral",
+        "size": "7B"
+      },
+      {
+        "name": "phi-3-mini",
+        "family": "Phi-3",
+        "size": "3.8B"
+      },
+      {
+        "name": "gpt-2",
+        "family": "GPT-2",
+        "size": "124M"
+      },
+      {
+        "name": "claude-3-haiku",
+        "family": "Claude-3",
+        "size": "Haiku"
+      },
+      {
+        "name": "gemma-2-2b",
+        "family": "Gemma-2",
+        "size": "2B"
+      },
+      {
+        "name": "qwen-2-7b",
+        "family": "Qwen-2",
+        "size": "7B"
+      },
+      {
+        "name": "yi-1.5-6b",
+        "family": "Yi-1.5",
+        "size": "6B"
+      }
+    ],
+    "pairwise_taus": [
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "gemma-2-2b",
+        "tau": 0.3456,
+        "ci": [
+          0.1705,
+          0.5275
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "gpt-2",
+        "tau": 0.3438,
+        "ci": [
+          0.1745,
+          0.5115
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "gpt-4.1-mini",
+        "tau": 0.3464,
+        "ci": [
+          0.1544,
+          0.5244
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "gpt-4.1-nano",
+        "tau": 0.3313,
+        "ci": [
+          0.1545,
+          0.5371
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "llama-3-8b",
+        "tau": 0.3331,
+        "ci": [
+          0.1269,
+          0.533
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "mistral-7b",
+        "tau": 0.3529,
+        "ci": [
+          0.17,
+          0.5358
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "phi-3-mini",
+        "tau": 0.3547,
+        "ci": [
+          0.1717,
+          0.5294
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "qwen-2-7b",
+        "tau": 0.3727,
+        "ci": [
+          0.1907,
+          0.5571
+        ]
+      },
+      {
+        "model_a": "claude-3-haiku",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.3563,
+        "ci": [
+          0.1452,
+          0.5332
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "gpt-2",
+        "tau": 0.3552,
+        "ci": [
+          0.135,
+          0.5359
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "gpt-4.1-mini",
+        "tau": 0.3728,
+        "ci": [
+          0.2293,
+          0.5148
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "gpt-4.1-nano",
+        "tau": 0.3332,
+        "ci": [
+          0.1371,
+          0.5277
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "llama-3-8b",
+        "tau": 0.322,
+        "ci": [
+          0.1498,
+          0.4972
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "mistral-7b",
+        "tau": 0.312,
+        "ci": [
+          0.1402,
+          0.4932
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "phi-3-mini",
+        "tau": 0.2964,
+        "ci": [
+          0.1226,
+          0.4794
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "qwen-2-7b",
+        "tau": 0.2834,
+        "ci": [
+          0.122,
+          0.4721
+        ]
+      },
+      {
+        "model_a": "gemma-2-2b",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.3708,
+        "ci": [
+          0.2127,
+          0.5272
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "gpt-4.1-mini",
+        "tau": 0.3149,
+        "ci": [
+          0.1626,
+          0.4864
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "gpt-4.1-nano",
+        "tau": 0.3156,
+        "ci": [
+          0.1085,
+          0.5237
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "llama-3-8b",
+        "tau": 0.321,
+        "ci": [
+          0.1591,
+          0.4984
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "mistral-7b",
+        "tau": 0.3087,
+        "ci": [
+          0.1473,
+          0.4867
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "phi-3-mini",
+        "tau": 0.2805,
+        "ci": [
+          0.1172,
+          0.4449
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "qwen-2-7b",
+        "tau": 0.2914,
+        "ci": [
+          0.1188,
+          0.4619
+        ]
+      },
+      {
+        "model_a": "gpt-2",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.2982,
+        "ci": [
+          0.1351,
+          0.4698
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "gpt-4.1-nano",
+        "tau": 0.3327,
+        "ci": [
+          0.1313,
+          0.5504
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "llama-3-8b",
+        "tau": 0.374,
+        "ci": [
+          0.2223,
+          0.534
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "mistral-7b",
+        "tau": 0.3882,
+        "ci": [
+          0.2238,
+          0.5521
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "phi-3-mini",
+        "tau": 0.3626,
+        "ci": [
+          0.1846,
+          0.5253
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "qwen-2-7b",
+        "tau": 0.3933,
+        "ci": [
+          0.2358,
+          0.5544
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-mini",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.4034,
+        "ci": [
+          0.2468,
+          0.548
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-nano",
+        "model_b": "llama-3-8b",
+        "tau": 0.3143,
+        "ci": [
+          0.1535,
+          0.4819
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-nano",
+        "model_b": "mistral-7b",
+        "tau": 0.3279,
+        "ci": [
+          0.1037,
+          0.57
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-nano",
+        "model_b": "phi-3-mini",
+        "tau": 0.3473,
+        "ci": [
+          0.1523,
+          0.5423
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-nano",
+        "model_b": "qwen-2-7b",
+        "tau": 0.3401,
+        "ci": [
+          0.1444,
+          0.5617
+        ]
+      },
+      {
+        "model_a": "gpt-4.1-nano",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.3354,
+        "ci": [
+          0.119,
+          0.5351
+        ]
+      },
+      {
+        "model_a": "llama-3-8b",
+        "model_b": "mistral-7b",
+        "tau": 0.3409,
+        "ci": [
+          0.1656,
+          0.5129
+        ]
+      },
+      {
+        "model_a": "llama-3-8b",
+        "model_b": "phi-3-mini",
+        "tau": 0.3014,
+        "ci": [
+          0.1418,
+          0.4791
+        ]
+      },
+      {
+        "model_a": "llama-3-8b",
+        "model_b": "qwen-2-7b",
+        "tau": 0.3152,
+        "ci": [
+          0.136,
+          0.4928
+        ]
+      },
+      {
+        "model_a": "llama-3-8b",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.2847,
+        "ci": [
+          0.0967,
+          0.4609
+        ]
+      },
+      {
+        "model_a": "mistral-7b",
+        "model_b": "phi-3-mini",
+        "tau": 0.3044,
+        "ci": [
+          0.1393,
+          0.4835
+        ]
+      },
+      {
+        "model_a": "mistral-7b",
+        "model_b": "qwen-2-7b",
+        "tau": 0.2942,
+        "ci": [
+          0.1136,
+          0.4999
+        ]
+      },
+      {
+        "model_a": "mistral-7b",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.2841,
+        "ci": [
+          0.0789,
+          0.4918
+        ]
+      },
+      {
+        "model_a": "phi-3-mini",
+        "model_b": "qwen-2-7b",
+        "tau": 0.3181,
+        "ci": [
+          0.1263,
+          0.5018
+        ]
+      },
+      {
+        "model_a": "phi-3-mini",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.3307,
+        "ci": [
+          0.1395,
+          0.5129
+        ]
+      },
+      {
+        "model_a": "qwen-2-7b",
+        "model_b": "yi-1.5-6b",
+        "tau": 0.3027,
+        "ci": [
+          0.1188,
+          0.484
+        ]
+      }
+    ]
+  },
+  "lattice": {
+    "n_metrics": 7,
+    "metrics": [
+      "CRD",
+      "D-2",
+      "D-3",
+      "Entropy",
+      "Self-BLEU",
+      "TTR",
+      "USR"
+    ],
+    "is_lattice_at_0.3": true,
+    "n_automorphisms": 2,
+    "betti_numbers": [
+      5,
+      0,
+      0
+    ],
+    "critical_deltas": [
+      {
+        "delta": 0.2679,
+        "n_classes": 5,
+        "change": 2
+      },
+      {
+        "delta": 0.3711,
+        "n_classes": 4,
+        "change": 1
+      },
+      {
+        "delta": 0.4742,
+        "n_classes": 3,
+        "change": 1
+      }
+    ],
+    "merge_sequence": [
+      {
+        "delta": 0.2564,
+        "metric_a": "D-2",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.2609,
+        "metric_a": "D-3",
+        "metric_b": "Entropy"
+      },
+      {
+        "delta": 0.3478,
+        "metric_a": "D-2",
+        "metric_b": "D-3"
+      },
+      {
+        "delta": 0.4348,
+        "metric_a": "D-3",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.4615,
+        "metric_a": "CRD",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.5128,
+        "metric_a": "CRD",
+        "metric_b": "D-2"
+      },
+      {
+        "delta": 0.641,
+        "metric_a": "D-2",
+        "metric_b": "Entropy"
+      },
+      {
+        "delta": 0.7436,
+        "metric_a": "Entropy",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.8462,
+        "metric_a": "CRD",
+        "metric_b": "Entropy"
+      },
+      {
+        "delta": 0.9565,
+        "metric_a": "CRD",
+        "metric_b": "D-3"
+      }
+    ],
+    "filtration_summary": {
+      "delta_0.1": 7,
+      "delta_0.3": 5,
+      "delta_0.5": 3,
+      "delta_0.7": 3,
+      "delta_0.9": 3
+    },
+    "hasse_diagrams": {
+      "0.1": {
+        "n_classes": 7,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "D-2"
+          ],
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "TTR"
+          ],
+          [
+            "USR"
+          ]
+        ]
+      },
+      "0.2": {
+        "n_classes": 7,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "D-2"
+          ],
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "TTR"
+          ],
+          [
+            "USR"
+          ]
+        ]
+      },
+      "0.3": {
+        "n_classes": 5,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "TTR",
+            "D-2"
+          ],
+          [
+            "Entropy",
+            "D-3"
+          ]
+        ]
+      },
+      "0.5": {
+        "n_classes": 3,
+        "n_edges": 0,
+        "classes": [
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "Entropy",
+            "TTR",
+            "CRD",
+            "D-2",
+            "D-3"
+          ]
+        ]
+      },
+      "0.7": {
+        "n_classes": 3,
+        "n_edges": 0,
+        "classes": [
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "Entropy",
+            "TTR",
+            "CRD",
+            "D-2",
+            "D-3"
+          ]
+        ]
+      },
+      "0.9": {
+        "n_classes": 3,
+        "n_edges": 0,
+        "classes": [
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "Entropy",
+            "TTR",
+            "CRD",
+            "D-2",
+            "D-3"
+          ]
+        ]
+      }
+    }
+  },
+  "failure_taxonomy": {
+    "total_failure_modes": 13,
+    "categories": {
+      "DEGENERATE_INPUT": 3,
+      "BOUNDARY_CASE": 3,
+      "DIMENSIONALITY_ARTIFACT": 2,
+      "SCALE_SENSITIVITY": 2,
+      "DISTRIBUTION_MISMATCH": 1,
+      "METRIC_DEFINITION_GAP": 2
+    },
+    "severity_distribution": {
+      "high": 5,
+      "medium": 6,
+      "low": 2
+    },
+    "metric_coverage": {
+      "D-2": 13,
+      "Self-BLEU": 5,
+      "Entropy": 7,
+      "TTR": 7,
+      "Jaccard": 1
+    },
+    "modes": [
+      {
+        "id": "FM-DEG-001",
+        "name": "Empty/trivial texts",
+        "category": "DEGENERATE_INPUT",
+        "severity": "high",
+        "description": "Empty or single-token texts cause division by zero or undefined behavior in n-gram metrics.",
+        "structural_cause": "N-gram metrics require \u2265n tokens per text; with fewer, the denominator is 0.",
+        "affected_metrics": [
+          "D-2",
+          "Self-BLEU",
+          "Entropy"
+        ],
+        "detection_criterion": "Any text has fewer than n tokens",
+        "mitigation": "Filter texts with < n tokens before computing metrics. Return NaN with warning.",
+        "metric_values": {
+          "D-2": 0.0,
+          "Self-BLEU": 0.0,
+          "TTR": 1.0,
+          "Entropy": 0.0
+        }
+      },
+      {
+        "id": "FM-DEG-002",
+        "name": "Identical texts",
+        "category": "DEGENERATE_INPUT",
+        "severity": "medium",
+        "description": "All texts identical. D-2 may still be non-zero (from within-text diversity) while Self-BLEU is 1.0.",
+        "structural_cause": "D-2 measures type-token ratio which can be >0 for a single long text, while Self-BLEU correctly identifies zero diversity between texts.",
+        "affected_metrics": [
+          "D-2",
+          "Self-BLEU"
+        ],
+        "detection_criterion": "All texts identical after normalization",
+        "mitigation": "Check for exact/near-exact duplicates before computing metrics. Flag degenerate case.",
+        "metric_values": {
+          "D-2": 0.1,
+          "Self-BLEU": 1.0,
+          "TTR": 0.0833,
+          "Entropy": 2.3219
+        }
+      },
+      {
+        "id": "FM-DEG-003",
+        "name": "Extreme repetition",
+        "category": "DEGENERATE_INPUT",
+        "severity": "high",
+        "description": "Texts consisting of a single repeated word. TTR approaches 1/n_tokens while D-2 is near 0.",
+        "structural_cause": "TTR denominator grows linearly with text length but numerator is bounded by vocabulary size.",
+        "affected_metrics": [
+          "TTR",
+          "D-2",
+          "Entropy"
+        ],
+        "detection_criterion": "TTR < 0.05 or single unique token dominates >90% of text",
+        "mitigation": "Use bias-corrected TTR (MSTTR) or entropy-based measures for highly repetitive text.",
+        "metric_values": {
+          "D-2": 0.0105,
+          "Self-BLEU": 0.4444,
+          "TTR": 0.01,
+          "Entropy": 1.0
+        }
+      },
+      {
+        "id": "FM-BND-001",
+        "name": "High within-text, low between-text diversity",
+        "category": "BOUNDARY_CASE",
+        "severity": "medium",
+        "description": "Texts have rich internal vocabulary but are near-identical to each other. D-2 (computed across all texts) may show high diversity while Self-BLEU correctly shows low diversity.",
+        "structural_cause": "D-2 pools n-grams across all texts, mixing within-text and between-text diversity. Self-BLEU explicitly compares pairs.",
+        "affected_metrics": [
+          "D-2",
+          "Self-BLEU"
+        ],
+        "detection_criterion": "|D-2 rank - Self-BLEU rank| > 50th percentile for normal inputs",
+        "mitigation": "Report both within-text and between-text diversity separately.",
+        "metric_values": {
+          "D-2": 0.2727,
+          "Self-BLEU": 0.8889,
+          "TTR": 0.2333,
+          "Entropy": 3.6705
+        }
+      },
+      {
+        "id": "FM-BND-002",
+        "name": "Extreme length variation",
+        "category": "BOUNDARY_CASE",
+        "severity": "medium",
+        "description": "Texts vary enormously in length. Long texts dominate n-gram counts, making short texts invisible to pooled metrics.",
+        "structural_cause": "N-gram pooling is count-weighted, so a single long text contributes O(L) n-grams while a short text contributes O(1).",
+        "affected_metrics": [
+          "D-2",
+          "Entropy",
+          "TTR"
+        ],
+        "detection_criterion": "max(len)/min(len) > 10",
+        "mitigation": "Normalize by text length or use per-text metrics averaged across texts.",
+        "metric_values": {
+          "D-2": 0.1949,
+          "Self-BLEU": 0.4444,
+          "TTR": 0.1561,
+          "Entropy": 5.2341
+        }
+      },
+      {
+        "id": "FM-BND-003",
+        "name": "Permutation-only diversity",
+        "category": "BOUNDARY_CASE",
+        "severity": "low",
+        "description": "Texts use identical vocabulary but in different orders. TTR shows zero diversity while D-2 and Self-BLEU capture n-gram differences.",
+        "structural_cause": "TTR is a bag-of-words metric (order-invariant), while n-gram metrics are order-sensitive.",
+        "affected_metrics": [
+          "TTR",
+          "D-2"
+        ],
+        "detection_criterion": "TTR variation < 0.01 but D-2 variation > 0.1",
+        "mitigation": "Use n-gram metrics when word order matters; report TTR alongside for vocabulary diversity.",
+        "metric_values": {
+          "D-2": 0.56,
+          "Self-BLEU": 0.0,
+          "TTR": 0.1667,
+          "Entropy": 3.5737
+        }
+      },
+      {
+        "id": "FM-DIM-001",
+        "name": "Vocabulary explosion (hapax legomena)",
+        "category": "DIMENSIONALITY_ARTIFACT",
+        "severity": "high",
+        "description": "Many unique tokens appear only once. D-2 and TTR are inflated by rare tokens that don't indicate meaningful diversity.",
+        "structural_cause": "D-2 counts distinct n-grams / total n-grams. With many hapax legomena, the ratio approaches 1 regardless of semantic diversity.",
+        "affected_metrics": [
+          "D-2",
+          "TTR",
+          "Entropy"
+        ],
+        "detection_criterion": "Hapax legomenon ratio > 0.5 (>50% of types occur only once)",
+        "mitigation": "Apply frequency thresholding (remove hapax legomena) or use entropy with bias correction.",
+        "metric_values": {
+          "D-2": 0.9842,
+          "Self-BLEU": 0.0,
+          "TTR": 0.76,
+          "Entropy": 7.5383
+        }
+      },
+      {
+        "id": "FM-DIM-002",
+        "name": "Domain vocabulary clustering",
+        "category": "DIMENSIONALITY_ARTIFACT",
+        "severity": "medium",
+        "description": "Texts from different domains create vocabulary clusters. TTR and D-2 show high diversity due to disjoint vocabularies, not meaningful text variation.",
+        "structural_cause": "Domain-specific jargon creates non-overlapping vocabulary clusters that inflate type-token and n-gram metrics.",
+        "affected_metrics": [
+          "D-2",
+          "TTR",
+          "Jaccard"
+        ],
+        "detection_criterion": "Vocabulary Jaccard similarity between text subsets < 0.2",
+        "mitigation": "Compute diversity within and between domains separately. Use embedding-based metrics for semantic diversity.",
+        "metric_values": {
+          "D-2": 1.0,
+          "Self-BLEU": 0.0,
+          "TTR": 0.9057,
+          "Entropy": 5.5546
+        }
+      },
+      {
+        "id": "FM-SCL-001",
+        "name": "Small sample instability",
+        "category": "SCALE_SENSITIVITY",
+        "severity": "high",
+        "description": "With very few texts (n<5), metric estimates are unstable and bootstrap CIs are unreliable.",
+        "structural_cause": "Shannon entropy bias is O(m/2N) where m is vocabulary size and N is sample size. For small N, this bias dominates.",
+        "affected_metrics": [
+          "Entropy",
+          "D-2",
+          "Self-BLEU"
+        ],
+        "detection_criterion": "n_texts < 5 or n_total_tokens < 100",
+        "mitigation": "Require minimum sample size. Use bias-corrected entropy (Miller-Madow or NSB). Report sample size alongside metrics.",
+        "metric_values": {
+          "D-2": 1.0,
+          "Self-BLEU": 0.0,
+          "TTR": 0.75,
+          "Entropy": 3.3219
+        }
+      },
+      {
+        "id": "FM-SCL-002",
+        "name": "Metric saturation",
+        "category": "SCALE_SENSITIVITY",
+        "severity": "low",
+        "description": "At large sample sizes with fixed vocabulary, D-2 saturates near its maximum. Adding more texts provides diminishing information.",
+        "structural_cause": "D-2 = distinct_ngrams / total_ngrams. With fixed vocabulary, distinct_ngrams is bounded while total_ngrams grows linearly.",
+        "affected_metrics": [
+          "D-2",
+          "TTR"
+        ],
+        "detection_criterion": "D-2 change < 0.01 when adding 10% more texts",
+        "mitigation": "Report sample-size-adjusted metrics. Use entropy (scales logarithmically) instead of ratio-based metrics at scale.",
+        "metric_values": {
+          "D-2": 0.8571,
+          "Self-BLEU": 0.0,
+          "TTR": 0.1357,
+          "Entropy": 7.2606
+        }
+      },
+      {
+        "id": "FM-DST-001",
+        "name": "Uniform vs Zipfian distribution",
+        "category": "DISTRIBUTION_MISMATCH",
+        "severity": "medium",
+        "description": "Uniform token distribution maximizes entropy but may have lower D-2 than Zipfian distribution due to n-gram diversity patterns.",
+        "structural_cause": "Entropy is maximized by uniform distributions. D-2 depends on n-gram uniqueness, which can be higher when some tokens are rare (creating unique bigrams).",
+        "affected_metrics": [
+          "Entropy",
+          "D-2"
+        ],
+        "detection_criterion": "Rank correlation between Entropy and D-2 < 0 for specific configurations",
+        "mitigation": "Report both entropy and D-2. Use KL divergence to quantify distribution shape differences.",
+        "metric_values": {
+          "D-2": 0.9947,
+          "Self-BLEU": 0.0,
+          "TTR": 0.45,
+          "Entropy": 7.5593
+        }
+      },
+      {
+        "id": "FM-DEF-001",
+        "name": "Syntactic diversity without semantic diversity",
+        "category": "METRIC_DEFINITION_GAP",
+        "severity": "high",
+        "description": "Texts are paraphrases of the same idea. N-gram metrics show high diversity but semantic content is identical.",
+        "structural_cause": "N-gram metrics operate on surface forms, not meaning. Paraphrases create distinct n-grams while conveying the same information.",
+        "affected_metrics": [
+          "D-2",
+          "TTR",
+          "Entropy"
+        ],
+        "detection_criterion": "High D-2/TTR but low semantic embedding diversity (EPD)",
+        "mitigation": "Always pair surface-level metrics with embedding-based semantic diversity (EPD, Vendi Score).",
+        "metric_values": {
+          "D-2": 0.8621,
+          "Self-BLEU": 0.0,
+          "TTR": 0.6176,
+          "Entropy": 4.5561
+        }
+      },
+      {
+        "id": "FM-DEF-002",
+        "name": "Semantic diversity with syntactic template",
+        "category": "METRIC_DEFINITION_GAP",
+        "severity": "medium",
+        "description": "Texts follow a template with slot-filling. Self-BLEU is high (similar structure) but content varies meaningfully.",
+        "structural_cause": "Self-BLEU measures n-gram overlap between pairs. Templates create high overlap even when filled content differs.",
+        "affected_metrics": [
+          "Self-BLEU",
+          "D-2"
+        ],
+        "detection_criterion": "Self-BLEU > 0.5 but slot-fill diversity > 0.8",
+        "mitigation": "Use content-word-only metrics or mask template words before computing diversity.",
+        "metric_values": {
+          "D-2": 0.6571,
+          "Self-BLEU": 0.0,
+          "TTR": 0.5,
+          "Entropy": 4.1342
+        }
+      }
+    ]
+  },
+  "math_rigor": {
+    "theorem_4_1": {
+      "theorem": "Theorem 4.1",
+      "statement": "|\u03c4| \u2265 1 - 2(\u03b5\u2081 + \u03b5\u2082 - \u03b5\u2081\u03b5\u2082)",
+      "tests": [
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0024,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0041,
+          "tau": 0.9886,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.009,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0033,
+          "tau": 0.982,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0049,
+          "tau": 0.9804,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0065,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0008,
+          "tau": 0.9935,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0024,
+          "tau": 0.9902,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0057,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0057,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0041,
+          "tau": 0.9869,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0033,
+          "tau": 0.9918,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0041,
+          "tau": 0.9837,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0057,
+          "tau": 0.982,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0033,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0016,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0016,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0041,
+          "tau": 0.9853,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0041,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.009,
+          "tau": 0.9706,
+          "bound": 0.9706,
+          "passed": true
+        },
+        {
+          "eps1": 0.0073,
+          "eps2": 0.0057,
+          "tau": 0.9771,
+          "bound": 0.9739,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0033,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0008,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0041,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0041,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0041,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0041,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0041,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0065,
+          "tau": 0.9788,
+          "bound": 0.9788,
+          "passed": true
+        },
+        {
+          "eps1": 0.0082,
+          "eps2": 0.0082,
+          "tau": 0.9673,
+          "bound": 0.9673,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0016,
+          "tau": 0.9869,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0033,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0033,
+          "tau": 0.9853,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0024,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0049,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0024,
+          "tau": 0.9902,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0082,
+          "tau": 0.9788,
+          "bound": 0.9755,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0065,
+          "tau": 0.9771,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0008,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0082,
+          "eps2": 0.0008,
+          "tau": 0.982,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0065,
+          "tau": 0.9804,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0049,
+          "tau": 0.9837,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0008,
+          "tau": 0.9935,
+          "bound": 0.9935,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0073,
+          "tau": 0.9771,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0082,
+          "tau": 0.9755,
+          "bound": 0.9722,
+          "passed": true
+        },
+        {
+          "eps1": 0.0082,
+          "eps2": 0.0082,
+          "tau": 0.9706,
+          "bound": 0.9673,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0049,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0057,
+          "tau": 0.982,
+          "bound": 0.9755,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0041,
+          "tau": 0.9853,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0073,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0065,
+          "tau": 0.9804,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0024,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0073,
+          "eps2": 0.0008,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0008,
+          "tau": 0.9902,
+          "bound": 0.9902,
+          "passed": true
+        },
+        {
+          "eps1": 0.0073,
+          "eps2": 0.0024,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0082,
+          "eps2": 0.0033,
+          "tau": 0.9804,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0065,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.009,
+          "eps2": 0.0033,
+          "tau": 0.9755,
+          "bound": 0.9755,
+          "passed": true
+        },
+        {
+          "eps1": 0.009,
+          "eps2": 0.0065,
+          "tau": 0.9722,
+          "bound": 0.969,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0033,
+          "tau": 0.9853,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0041,
+          "tau": 0.9918,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0016,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0008,
+          "tau": 0.9886,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0033,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0057,
+          "tau": 0.9788,
+          "bound": 0.9755,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0049,
+          "tau": 0.9886,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0049,
+          "tau": 0.9788,
+          "bound": 0.9788,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0049,
+          "tau": 0.9886,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0016,
+          "tau": 0.9918,
+          "bound": 0.9918,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0049,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0049,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0008,
+          "tau": 0.9918,
+          "bound": 0.9918,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0008,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0041,
+          "tau": 0.9918,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0073,
+          "tau": 0.9837,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0016,
+          "tau": 0.9951,
+          "bound": 0.9951,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0057,
+          "tau": 0.9771,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0016,
+          "tau": 0.9935,
+          "bound": 0.9935,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0008,
+          "tau": 0.9869,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0024,
+          "tau": 0.9935,
+          "bound": 0.9935,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0033,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0033,
+          "tau": 0.9902,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.009,
+          "tau": 0.982,
+          "bound": 0.9788,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0008,
+          "tau": 0.9853,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.009,
+          "eps2": 0.0082,
+          "tau": 0.9722,
+          "bound": 0.9657,
+          "passed": true
+        },
+        {
+          "eps1": 0.0065,
+          "eps2": 0.0065,
+          "tau": 0.9739,
+          "bound": 0.9739,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0033,
+          "tau": 0.9886,
+          "bound": 0.982,
+          "passed": true
+        },
+        {
+          "eps1": 0.0024,
+          "eps2": 0.0073,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.009,
+          "tau": 0.9788,
+          "bound": 0.9788,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0065,
+          "tau": 0.9804,
+          "bound": 0.9771,
+          "passed": true
+        },
+        {
+          "eps1": 0.0008,
+          "eps2": 0.0065,
+          "tau": 0.9853,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0024,
+          "tau": 0.9918,
+          "bound": 0.9918,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0016,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0049,
+          "tau": 0.9853,
+          "bound": 0.9788,
+          "passed": true
+        },
+        {
+          "eps1": 0.0049,
+          "eps2": 0.0033,
+          "tau": 0.9869,
+          "bound": 0.9837,
+          "passed": true
+        },
+        {
+          "eps1": 0.0041,
+          "eps2": 0.0024,
+          "tau": 0.9902,
+          "bound": 0.9869,
+          "passed": true
+        },
+        {
+          "eps1": 0.0016,
+          "eps2": 0.0041,
+          "tau": 0.9886,
+          "bound": 0.9886,
+          "passed": true
+        },
+        {
+          "eps1": 0.0057,
+          "eps2": 0.0016,
+          "tau": 0.9853,
+          "bound": 0.9853,
+          "passed": true
+        },
+        {
+          "eps1": 0.0033,
+          "eps2": 0.0065,
+          "tau": 0.9804,
+          "bound": 0.9804,
+          "passed": true
+        },
+        {
+          "eps1": 0.0073,
+          "eps2": 0.0016,
+          "tau": 0.982,
+          "bound": 0.982,
+          "passed": true
+        }
+      ],
+      "all_passed": true,
+      "pass_rate": 1.0,
+      "clopper_pearson_95_ci": [
+        0.963783,
+        1.0
+      ],
+      "summary": "Theorem 4.1 verified on 100/100 random instances (pass rate 100.0%, 95% Clopper-Pearson CI [0.9638, 1.0000])"
+    },
+    "corollary_4_3": {
+      "corollary": "Corollary 4.3",
+      "statement": "M\u2081 ~ M\u2082 and M\u2082 ~ M\u2083 implies M\u2081 ~ M\u2083 when \u03b5 < \u03b4/4",
+      "tests": [
+        {
+          "delta": 0.3124,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3796,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4124,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2545,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3574,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3543,
+          "eps_max": 0.0092,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.369,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.332,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3988,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4909,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.298,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4242,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2889,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.327,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2042,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3953,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9632,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3774,
+          "eps_max": 0.0046,
+          "tau_12": 0.9908,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.414,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4313,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2094,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4267,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9632,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.337,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3281,
+          "eps_max": 0.0092,
+          "tau_12": 0.9724,
+          "tau_23": 0.9632,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3013,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9908,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2741,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.493,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9632,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4016,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3196,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4575,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9724,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.316,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2627,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3589,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9908,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2566,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.454,
+          "eps_max": 0.0092,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3819,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4076,
+          "eps_max": 0.0092,
+          "tau_12": 0.9816,
+          "tau_23": 0.9632,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4548,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3526,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9908,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.346,
+          "eps_max": 0.0092,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2842,
+          "eps_max": 0.0069,
+          "tau_12": 0.9816,
+          "tau_23": 0.9724,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4243,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3658,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2508,
+          "eps_max": 0.0023,
+          "tau_12": 0.9908,
+          "tau_23": 0.9908,
+          "tau_13": 0.9908,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.479,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2762,
+          "eps_max": 0.0046,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4107,
+          "eps_max": 0.0092,
+          "tau_12": 0.9632,
+          "tau_23": 0.9632,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2016,
+          "eps_max": 0.0092,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9632,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.3737,
+          "eps_max": 0.0092,
+          "tau_12": 0.9816,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.2117,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9724,
+          "tau_13": 0.9816,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        },
+        {
+          "delta": 0.4896,
+          "eps_max": 0.0069,
+          "tau_12": 0.9724,
+          "tau_23": 0.9816,
+          "tau_13": 0.9724,
+          "equiv_12": true,
+          "equiv_23": true,
+          "equiv_13": true,
+          "passed": true
+        }
+      ],
+      "all_passed": true,
+      "pass_rate": 1.0,
+      "n_tested": 50,
+      "summary": "Corollary 4.3 verified on 50/50 instances (pass rate 100.0%)"
+    },
+    "tightness": {
+      "eps1": 0.010612,
+      "eps2": 0.009796,
+      "n": 50,
+      "bound": 0.959392,
+      "achieved_tau": 0.959184,
+      "gap": 0.000208,
+      "is_tight": true,
+      "summary": "Tightness gap: 0.0002 (bound=0.9594, achieved |\u03c4|=0.9592)"
+    },
+    "np_hardness": {
+      "reference": "Hassin, Rubinstein, Tamir (1997)",
+      "result": "Max-k-Dispersion (maximize minimum pairwise distance among k selected points in metric space) is NP-hard",
+      "implication": "Fair diversity selection (which generalizes Max-k-Dispersion with group constraints) is also NP-hard",
+      "reduction": "Reduction from Max Independent Set: given graph G, construct metric space where d(u,v) = 2 if (u,v) \u2209 E, d(u,v) = 1 if (u,v) \u2208 E. Max-k-Dispersion with min-distance \u2265 2 corresponds to finding independent set of size k."
+    }
+  }
+}

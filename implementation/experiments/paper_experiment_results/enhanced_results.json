@@ -1,0 +1,97 @@
+{
+  "bootstrap_tau_ci": {
+    "D2_vs_SelfBLEU": {
+      "point": -0.9499767511960299,
+      "ci_lower": -0.9602814075222659,
+      "ci_upper": -0.939490859562588,
+      "std": 0.005472582217059505,
+      "n_bootstrap": 5000
+    },
+    "D2_vs_EPD": {
+      "point": 0.5169579619956921,
+      "ci_lower": 0.44192595556188236,
+      "ci_upper": 0.5890144237954061,
+      "std": 0.03783474097161751,
+      "n_bootstrap": 5000
+    },
+    "D2_vs_TTR": {
+      "point": 0.9571115909349004,
+      "ci_lower": 0.9483249768505065,
+      "ci_upper": 0.9657215584707528,
+      "std": 0.004414570167801263,
+      "n_bootstrap": 5000
+    }
+  },
+  "information_theoretic": {
+    "high_diversity": {
+      "shannon_entropy_bits": 6.066089190457772,
+      "entropy_ci": {
+        "point": 6.066089190457772,
+        "ci_lower": 4.763796834405497,
+        "ci_upper": 5.7272636859547745,
+        "std": 0.25999951221851164
+      },
+      "entropy_rate": 0.0,
+      "conditional_entropies": [
+        5.907676352975379,
+        0.158412837482393,
+        0.0,
+        0.0
+      ]
+    },
+    "low_diversity": {
+      "shannon_entropy_bits": 3.7010069674067267,
+      "entropy_ci": {
+        "point": 3.7010069674067267,
+        "ci_lower": 3.4644598623407252,
+        "ci_upper": 3.735154466354967,
+        "std": 0.06997678475607191
+      },
+      "entropy_rate": 0.08502365992015859,
+      "conditional_entropies": [
+        3.1064512624207414,
+        0.5945557049859853,
+        0.1424756461972314,
+        0.08502365992015859
+      ]
+    },
+    "cross_set": {
+      "mutual_information": 3.9937754470312017,
+      "kl_high_to_low": 27.153191906408743,
+      "kl_low_to_high": 29.5182738453041,
+      "symmetric_kl": 28.335732875856422
+    }
+  },
+  "fair_retention_ci": {
+    "point": 0.9921560322929233,
+    "ci_lower": 0.982633849429183,
+    "ci_upper": 1.0017437972486987,
+    "std": 0.004860435206649255,
+    "n_bootstrap": 5000
+  },
+  "multi_model": {
+    "per_model_tau": {
+      "gpt-4.1-nano": {
+        "D2_vs_SB": -0.947,
+        "D2_vs_EPD": 0.531,
+        "D2_vs_TTR": 0.958,
+        "D2_vs_CRD": 0.969,
+        "D2_vs_VS": 0.899
+      },
+      "GPT-2": {
+        "D2_vs_SB": -0.9,
+        "D2_vs_EPD": 0.9,
+        "D2_vs_TTR": 0.94,
+        "D2_vs_CRD": 0.92,
+        "D2_vs_VS": 0.92
+      }
+    },
+    "cross_model_kendall_tau": {
+      "point": 0.7777777777777778,
+      "ci_lower": 0.0,
+      "ci_upper": 1.0,
+      "std": 0.3434374100154722,
+      "n_bootstrap": 2000
+    }
+  }
+}

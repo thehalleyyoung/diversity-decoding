@@ -1,0 +1,587 @@
+{
+  "project": "diversity-decoding-arena",
+  "model": "GPT-2 124M (HuggingFace Transformers)",
+  "total_time_sec": 1254.09,
+  "seed": 42,
+  "experiments": {
+    "H1": {
+      "experiment": "H1_Metric_Correlation_Taxonomy",
+      "model": "GPT-2 124M",
+      "n_configs": 15,
+      "n_prompts": 3,
+      "sequences_per_config_per_prompt": 8,
+      "metric_names": [
+        "distinct_2",
+        "self_bleu",
+        "ngram_entropy",
+        "embedding_distance",
+        "vendi_score",
+        "parse_tree_diversity",
+        "behavioral_diversity",
+        "jaccard_diversity"
+      ],
+      "metric_values_per_config": {
+        "distinct_2": [
+          0.2822,
+          0.5864,
+          0.6744,
+          0.777,
+          0.8157,
+          0.8098,
+          0.6616,
+          0.7241,
+          0.778,
+          0.7947,
+          0.7677,
+          0.7621,
+          0.7768,
+          0.0865,
+          0.6855
+        ],
+        "self_bleu": [
+          0.6653,
+          0.3741,
+          0.3098,
+          0.2565,
+          0.2309,
+          0.2192,
+          0.3156,
+          0.2785,
+          0.2551,
+          0.2547,
+          0.2714,
+          0.2747,
+          0.2566,
+          1.0,
+          0.3356
+        ],
+        "ngram_entropy": [
+          7.0179,
+          8.4762,
+          8.7392,
+          9.0209,
+          9.0297,
+          8.9073,
+          8.668,
+          8.9059,
+          9.0477,
+          9.0481,
+          8.9955,
+          9.0048,
+          8.9721,
+          6.0103,
+          8.814
+        ],
+        "embedding_distance": [
+          0.8426,
+          0.8987,
+          0.9166,
+          0.9372,
+          0.9507,
+          0.9622,
+          0.9091,
+          0.9242,
+          0.9268,
+          0.9389,
+          0.9313,
+          0.9241,
+          0.93,
+          0.6565,
+          0.914
+        ],
+        "vendi_score": [
+          14.1702,
+          20.8699,
+          21.8436,
+          22.746,
+          23.0956,
+          23.2837,
+          21.6065,
+          22.3796,
+          22.5294,
+          22.8098,
+          22.4875,
+          22.2717,
+          22.4434,
+          2.9903,
+          21.797
+        ],
+        "parse_tree_diversity": [
+          0.7824,
+          0.8785,
+          0.8803,
+          1.0226,
+          0.7226,
+          0.7963,
+          0.962,
+          0.8901,
+          0.8717,
+          0.7576,
+          0.8264,
+          0.7681,
+          0.9076,
+          0.6862,
+          0.8903
+        ],
+        "behavioral_diversity": [
+          -1.9745,
+          -0.2804,
+          -0.2949,
+          -0.3879,
+          -0.3957,
+          -0.2845,
+          -0.4343,
+          -0.444,
+          -0.2495,
+          -0.2078,
+          -0.2927,
+          -0.2922,
+          -0.3808,
+          -15.8582,
+          -0.2753
+        ],
+        "jaccard_diversity": [
+          0.7719,
+          0.8124,
+          0.8477,
+          0.8691,
+          0.9001,
+          0.9332,
+          0.8357,
+          0.85,
+          0.862,
+          0.8661,
+          0.8585,
+          0.8705,
+          0.8628,
+          0.6327,
+          0.8357
+        ]
+      },
+      "kendall_tau_correlations": {
+        "distinct_2_vs_self_bleu": -0.9429,
+        "distinct_2_vs_ngram_entropy": 0.7905,
+        "distinct_2_vs_embedding_distance": 0.8667,
+        "distinct_2_vs_vendi_score": 0.9048,
+        "distinct_2_vs_parse_tree_diversity": -0.0667,
+        "distinct_2_vs_behavioral_diversity": 0.3143,
+        "distinct_2_vs_jaccard_diversity": 0.8095,
+        "self_bleu_vs_ngram_entropy": -0.7333,
+        "self_bleu_vs_embedding_distance": -0.8857,
+        "self_bleu_vs_vendi_score": -0.9238,
+        "self_bleu_vs_parse_tree_diversity": 0.0476,
+        "self_bleu_vs_behavioral_diversity": -0.2952,
+        "self_bleu_vs_jaccard_diversity": -0.8286,
+        "ngram_entropy_vs_embedding_distance": 0.6952,
+        "ngram_entropy_vs_vendi_score": 0.7333,
+        "ngram_entropy_vs_parse_tree_diversity": -0.0476,
+        "ngram_entropy_vs_behavioral_diversity": 0.3714,
+        "ngram_entropy_vs_jaccard_diversity": 0.6762,
+        "embedding_distance_vs_vendi_score": 0.9619,
+        "embedding_distance_vs_parse_tree_diversity": -0.0476,
+        "embedding_distance_vs_behavioral_diversity": 0.2571,
+        "embedding_distance_vs_jaccard_diversity": 0.8286,
+        "vendi_score_vs_parse_tree_diversity": -0.0476,
+        "vendi_score_vs_behavioral_diversity": 0.2952,
+        "vendi_score_vs_jaccard_diversity": 0.8286,
+        "parse_tree_diversity_vs_behavioral_diversity": -0.0286,
+        "parse_tree_diversity_vs_jaccard_diversity": -0.0667,
+        "behavioral_diversity_vs_jaccard_diversity": 0.2762
+      },
+      "config_names": [
+        "temp_0.3",
+        "temp_0.5",
+        "temp_0.7",
+        "temp_1.0",
+        "temp_1.2",
+        "temp_1.5",
+        "nucleus_0.5",
+        "nucleus_0.7",
+        "nucleus_0.9",
+        "nucleus_0.95",
+        "typical_0.8",
+        "typical_0.9",
+        "typical_0.95",
+        "greedy",
+        "contrastive"
+      ],
+      "time_sec": 690.28
+    },
+    "H2": {
+      "experiment": "H2_Decoding_Algorithm_Comparison",
+      "model": "GPT-2 124M",
+      "prompt": "The future of artificial intelligence will",
+      "max_tokens": 30,
+      "algorithm_results": {
+        "greedy": {
+          "self_bleu": 1.0,
+          "distinct_2": 0.0452,
+          "ngram_entropy": 3.7284,
+          "embedding_distance": 0.0,
+          "vendi_score": 1.0,
+          "parse_tree_diversity": 0.0,
+          "behavioral_diversity": -16.3484,
+          "jaccard_diversity": 0.0,
+          "unique_sequences": 1,
+          "generation_time_sec": 1.64
+        },
+        "temperature_0.7": {
+          "self_bleu": 0.2644,
+          "distinct_2": 0.7423,
+          "ngram_entropy": 7.5592,
+          "embedding_distance": 0.8916,
+          "vendi_score": 9.5272,
+          "parse_tree_diversity": 0.9335,
+          "behavioral_diversity": -0.1827,
+          "jaccard_diversity": 0.7816,
+          "unique_sequences": 10,
+          "generation_time_sec": 16.68
+        },
+        "temperature_1.0": {
+          "self_bleu": 0.2121,
+          "distinct_2": 0.8198,
+          "ngram_entropy": 7.7752,
+          "embedding_distance": 0.9121,
+          "vendi_score": 9.6971,
+          "parse_tree_diversity": 1.1825,
+          "behavioral_diversity": -0.0999,
+          "jaccard_diversity": 0.8123,
+          "unique_sequences": 10,
+          "generation_time_sec": 17.81
+        },
+        "temperature_1.5": {
+          "self_bleu": 0.161,
+          "distinct_2": 0.8407,
+          "ngram_entropy": 7.6254,
+          "embedding_distance": 0.9628,
+          "vendi_score": 9.9403,
+          "parse_tree_diversity": 0.6872,
+          "behavioral_diversity": -0.1294,
+          "jaccard_diversity": 0.8776,
+          "unique_sequences": 10,
+          "generation_time_sec": 18.05
+        },
+        "nucleus_p0.5": {
+          "self_bleu": 0.2686,
+          "distinct_2": 0.716,
+          "ngram_entropy": 7.4386,
+          "embedding_distance": 0.8724,
+          "vendi_score": 9.3874,
+          "parse_tree_diversity": 0.949,
+          "behavioral_diversity": -0.1561,
+          "jaccard_diversity": 0.7619,
+          "unique_sequences": 10,
+          "generation_time_sec": 16.98
+        },
+        "nucleus_p0.9": {
+          "self_bleu": 0.2025,
+          "distinct_2": 0.8182,
+          "ngram_entropy": 7.8202,
+          "embedding_distance": 0.911,
+          "vendi_score": 9.6696,
+          "parse_tree_diversity": 0.9037,
+          "behavioral_diversity": -0.1257,
+          "jaccard_diversity": 0.796,
+          "unique_sequences": 10,
+          "generation_time_sec": 18.48
+        },
+        "typical_0.9": {
+          "self_bleu": 0.2188,
+          "distinct_2": 0.8098,
+          "ngram_entropy": 7.7799,
+          "embedding_distance": 0.9094,
+          "vendi_score": 9.6678,
+          "parse_tree_diversity": 0.6992,
+          "behavioral_diversity": -0.0978,
+          "jaccard_diversity": 0.8094,
+          "unique_sequences": 10,
+          "generation_time_sec": 19.31
+        },
+        "contrastive": {
+          "self_bleu": 0.2906,
+          "distinct_2": 0.7214,
+          "ngram_entropy": 7.5618,
+          "embedding_distance": 0.8804,
+          "vendi_score": 9.3944,
+          "parse_tree_diversity": 0.8007,
+          "behavioral_diversity": -0.0203,
+          "jaccard_diversity": 0.7542,
+          "unique_sequences": 10,
+          "generation_time_sec": 17.16
+        },
+        "diverse_beam": {
+          "self_bleu": 1.0,
+          "distinct_2": 0.0427,
+          "ngram_entropy": 1.7821,
+          "embedding_distance": 0.0052,
+          "vendi_score": 1.0327,
+          "parse_tree_diversity": 0.1231,
+          "behavioral_diversity": -11.9194,
+          "jaccard_diversity": 0.1056,
+          "unique_sequences": 3,
+          "generation_time_sec": 15.41
+        },
+        "svd": {
+          "self_bleu": 0.1917,
+          "distinct_2": 0.8321,
+          "ngram_entropy": 7.5045,
+          "embedding_distance": 0.9007,
+          "vendi_score": 7.7529,
+          "parse_tree_diversity": 0.9542,
+          "behavioral_diversity": -0.0044,
+          "jaccard_diversity": 0.8059,
+          "unique_sequences": 8,
+          "generation_time_sec": 6.84
+        },
+        "qdbs": {
+          "self_bleu": 0.8605,
+          "distinct_2": 0.2632,
+          "ngram_entropy": 3.3478,
+          "embedding_distance": 0.4404,
+          "vendi_score": 3.7064,
+          "parse_tree_diversity": 0.2543,
+          "behavioral_diversity": -0.0145,
+          "jaccard_diversity": 0.1888,
+          "unique_sequences": 8,
+          "generation_time_sec": 2.64
+        }
+      },
+      "time_sec": 151.46
+    },
+    "H3": {
+      "experiment": "H3_Pareto_Frontier",
+      "model": "GPT-2 124M",
+      "prompt": "The most important scientific discovery of the century was",
+      "all_configs": [
+        {
+          "temperature": 0.3,
+          "diversity_distinct2": 0.3322,
+          "quality_avg_logprob": -1.8027,
+          "quality_normalized": 0.6395
+        },
+        {
+          "temperature": 0.5,
+          "diversity_distinct2": 0.4966,
+          "quality_avg_logprob": -2.0039,
+          "quality_normalized": 0.5992
+        },
+        {
+          "temperature": 0.7,
+          "diversity_distinct2": 0.6725,
+          "quality_avg_logprob": -2.6543,
+          "quality_normalized": 0.4691
+        },
+        {
+          "temperature": 0.8,
+          "diversity_distinct2": 0.7133,
+          "quality_avg_logprob": -2.8243,
+          "quality_normalized": 0.4351
+        },
+        {
+          "temperature": 0.9,
+          "diversity_distinct2": 0.6904,
+          "quality_avg_logprob": -3.0411,
+          "quality_normalized": 0.3918
+        },
+        {
+          "temperature": 1.0,
+          "diversity_distinct2": 0.79,
+          "quality_avg_logprob": -3.9822,
+          "quality_normalized": 0.2036
+        },
+        {
+          "temperature": 1.1,
+          "diversity_distinct2": 0.7758,
+          "quality_avg_logprob": -4.3442,
+          "quality_normalized": 0.1312
+        },
+        {
+          "temperature": 1.2,
+          "diversity_distinct2": 0.7942,
+          "quality_avg_logprob": -5.5688,
+          "quality_normalized": 0.0
+        },
+        {
+          "temperature": 1.3,
+          "diversity_distinct2": 0.7053,
+          "quality_avg_logprob": -6.3246,
+          "quality_normalized": 0.0
+        },
+        {
+          "temperature": 1.5,
+          "diversity_distinct2": 0.7729,
+          "quality_avg_logprob": -8.12,
+          "quality_normalized": 0.0
+        },
+        {
+          "temperature": 1.7,
+          "diversity_distinct2": 0.7667,
+          "quality_avg_logprob": -8.477,
+          "quality_normalized": 0.0
+        },
+        {
+          "temperature": 2.0,
+          "diversity_distinct2": 0.7838,
+          "quality_avg_logprob": -9.2011,
+          "quality_normalized": 0.0
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.3,
+          "diversity_distinct2": 0.477,
+          "quality_avg_logprob": -1.9432,
+          "quality_normalized": 0.6114
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.5,
+          "diversity_distinct2": 0.6888,
+          "quality_avg_logprob": -2.5108,
+          "quality_normalized": 0.4978
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.7,
+          "diversity_distinct2": 0.7232,
+          "quality_avg_logprob": -2.7245,
+          "quality_normalized": 0.4551
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.9,
+          "diversity_distinct2": 0.7751,
+          "quality_avg_logprob": -3.4296,
+          "quality_normalized": 0.3141
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.95,
+          "diversity_distinct2": 0.7708,
+          "quality_avg_logprob": -3.6236,
+          "quality_normalized": 0.2753
+        }
+      ],
+      "pareto_front": [
+        {
+          "temperature": 0.3,
+          "diversity_distinct2": 0.3322,
+          "quality_avg_logprob": -1.8027,
+          "quality_normalized": 0.6395
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.3,
+          "diversity_distinct2": 0.477,
+          "quality_avg_logprob": -1.9432,
+          "quality_normalized": 0.6114
+        },
+        {
+          "temperature": 0.5,
+          "diversity_distinct2": 0.4966,
+          "quality_avg_logprob": -2.0039,
+          "quality_normalized": 0.5992
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.5,
+          "diversity_distinct2": 0.6888,
+          "quality_avg_logprob": -2.5108,
+          "quality_normalized": 0.4978
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.7,
+          "diversity_distinct2": 0.7232,
+          "quality_avg_logprob": -2.7245,
+          "quality_normalized": 0.4551
+        },
+        {
+          "algorithm": "nucleus",
+          "top_p": 0.9,
+          "diversity_distinct2": 0.7751,
+          "quality_avg_logprob": -3.4296,
+          "quality_normalized": 0.3141
+        },
+        {
+          "temperature": 1.0,
+          "diversity_distinct2": 0.79,
+          "quality_avg_logprob": -3.9822,
+          "quality_normalized": 0.2036
+        },
+        {
+          "temperature": 1.2,
+          "diversity_distinct2": 0.7942,
+          "quality_avg_logprob": -5.5688,
+          "quality_normalized": 0.0
+        }
+      ],
+      "n_pareto_optimal": 8,
+      "n_total_configs": 17,
+      "time_sec": 272.66
+    },
+    "H4": {
+      "experiment": "H4_Hypervolume_Comparison",
+      "model": "GPT-2 124M",
+      "prompt": "In the future, technology will",
+      "reference_point": [
+        0.0,
+        0.0
+      ],
+      "regime_results": {
+        "high_diversity": {
+          "points": [
+            [
+              0.8542,
+              0.0
+            ],
+            [
+              0.8298,
+              0.0
+            ],
+            [
+              0.8352,
+              0.2889
+            ]
+          ],
+          "hypervolume": 0.2413
+        },
+        "high_quality": {
+          "points": [
+            [
+              0.5165,
+              0.6385
+            ],
+            [
+              0.6534,
+              0.6106
+            ],
+            [
+              0.6481,
+              0.6029
+            ]
+          ],
+          "hypervolume": 0.4134
+        },
+        "balanced": {
+          "points": [
+            [
+              0.8118,
+              0.4113
+            ],
+            [
+              0.8592,
+              0.2364
+            ],
+            [
+              0.8106,
+              0.43
+            ]
+          ],
+          "hypervolume": 0.3603
+        }
+      },
+      "hypervolume_algorithm": "exact_2d_sweep_line",
+      "time_sec": 139.66
+    }
+  }
+}

@@ -1,0 +1,1009 @@
+{
+  "multi_model_taxonomy": {
+    "models": {
+      "gpt-4.1-nano": {
+        "tau_matrix": {
+          "distinct_2_vs_self_bleu": {
+            "mean_tau": -0.9523809523809523,
+            "std_tau": 0.06388765649999398,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.8309523809523809
+          },
+          "distinct_2_vs_ttr": {
+            "mean_tau": 0.9142857142857143,
+            "std_tau": 0.11625291062603525,
+            "n_samples": 10,
+            "ci_lower": 0.6619047619047619,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_epd_tfidf": {
+            "mean_tau": 0.9238095238095239,
+            "std_tau": 0.09331389496316869,
+            "n_samples": 10,
+            "ci_lower": 0.7357142857142858,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_ngram_entropy": {
+            "mean_tau": 0.9238095238095239,
+            "std_tau": 0.07126966450997983,
+            "n_samples": 10,
+            "ci_lower": 0.8095238095238095,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_semantic_diversity": {
+            "mean_tau": 0.9238095238095239,
+            "std_tau": 0.09331389496316869,
+            "n_samples": 10,
+            "ci_lower": 0.7357142857142858,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_topic_entropy": {
+            "mean_tau": 0.7428571428571428,
+            "std_tau": 0.20887344951867917,
+            "n_samples": 10,
+            "ci_lower": 0.3238095238095238,
+            "ci_upper": 0.9785714285714286
+          },
+          "self_bleu_vs_ttr": {
+            "mean_tau": -0.8857142857142858,
+            "std_tau": 0.10257456775494292,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.7142857142857143
+          },
+          "self_bleu_vs_semantic_diversity": {
+            "mean_tau": -0.8952380952380953,
+            "std_tau": 0.08984743935292004,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.7357142857142857
+          },
+          "self_bleu_vs_topic_entropy": {
+            "mean_tau": -0.7714285714285715,
+            "std_tau": 0.19142620230706456,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.39761904761904754
+          },
+          "epd_tfidf_vs_self_bleu": {
+            "mean_tau": -0.8952380952380953,
+            "std_tau": 0.08984743935292004,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.7357142857142857
+          },
+          "epd_tfidf_vs_ttr": {
+            "mean_tau": 0.9323308270676691,
+            "std_tau": 0.09605898695106165,
+            "n_samples": 10,
+            "ci_lower": 0.7357142857142858,
+            "ci_upper": 1.0
+          },
+          "epd_tfidf_vs_ngram_entropy": {
+            "mean_tau": 0.9238095238095239,
+            "std_tau": 0.07126966450997983,
+            "n_samples": 10,
+            "ci_lower": 0.8095238095238095,
+            "ci_upper": 1.0
+          },
+          "epd_tfidf_vs_semantic_diversity": {
+            "mean_tau": 1.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 1.0,
+            "ci_upper": 1.0
+          },
+          "epd_tfidf_vs_topic_entropy": {
+            "mean_tau": 0.7238095238095239,
+            "std_tau": 0.17791944468828003,
+            "n_samples": 10,
+            "ci_lower": 0.3761904761904762,
+            "ci_upper": 0.9047619047619048
+          },
+          "ngram_entropy_vs_self_bleu": {
+            "mean_tau": -0.8952380952380953,
+            "std_tau": 0.10816968277714807,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.6619047619047619
+          },
+          "ngram_entropy_vs_ttr": {
+            "mean_tau": 0.8942355889724312,
+            "std_tau": 0.08979149274931163,
+            "n_samples": 10,
+            "ci_lower": 0.7357142857142858,
+            "ci_upper": 1.0
+          },
+          "ngram_entropy_vs_semantic_diversity": {
+            "mean_tau": 0.9238095238095239,
+            "std_tau": 0.07126966450997983,
+            "n_samples": 10,
+            "ci_lower": 0.8095238095238095,
+            "ci_upper": 1.0
+          },
+          "ngram_entropy_vs_topic_entropy": {
+            "mean_tau": 0.7047619047619047,
+            "std_tau": 0.17791944468828003,
+            "n_samples": 10,
+            "ci_lower": 0.3761904761904762,
+            "ci_upper": 0.9047619047619048
+          },
+          "crd_vs_distinct_2": {
+            "mean_tau": 0.38095238095238093,
+            "std_tau": 0.26683668049756,
+            "n_samples": 10,
+            "ci_lower": 0.06904761904761905,
+            "ci_upper": 0.861904761904762
+          },
+          "crd_vs_self_bleu": {
+            "mean_tau": -0.39047619047619053,
+            "std_tau": 0.27004660721443474,
+            "n_samples": 10,
+            "ci_lower": -0.861904761904762,
+            "ci_upper": -0.06904761904761901
+          },
+          "crd_vs_ttr": {
+            "mean_tau": 0.34636591478696743,
+            "std_tau": 0.26418655618043757,
+            "n_samples": 10,
+            "ci_lower": 0.047619047619047616,
+            "ci_upper": 0.8404761904761906
+          },
+          "crd_vs_epd_tfidf": {
+            "mean_tau": 0.39999999999999997,
+            "std_tau": 0.2761904761904762,
+            "n_samples": 10,
+            "ci_lower": 0.047619047619047616,
+            "ci_upper": 0.861904761904762
+          },
+          "crd_vs_ngram_entropy": {
+            "mean_tau": 0.38095238095238093,
+            "std_tau": 0.26683668049756,
+            "n_samples": 10,
+            "ci_lower": 0.06904761904761905,
+            "ci_upper": 0.861904761904762
+          },
+          "crd_vs_semantic_diversity": {
+            "mean_tau": 0.39999999999999997,
+            "std_tau": 0.2761904761904762,
+            "n_samples": 10,
+            "ci_lower": 0.047619047619047616,
+            "ci_upper": 0.861904761904762
+          },
+          "crd_vs_cross_text_novelty": {
+            "mean_tau": 0.34285714285714286,
+            "std_tau": 0.29028096484053656,
+            "n_samples": 10,
+            "ci_lower": -0.026190476190476188,
+            "ci_upper": 0.861904761904762
+          },
+          "crd_vs_topic_entropy": {
+            "mean_tau": 0.2571428571428571,
+            "std_tau": 0.3348265872618466,
+            "n_samples": 10,
+            "ci_lower": -0.21666666666666665,
+            "ci_upper": 0.7880952380952382
+          },
+          "semantic_diversity_vs_ttr": {
+            "mean_tau": 0.9323308270676691,
+            "std_tau": 0.09605898695106165,
+            "n_samples": 10,
+            "ci_lower": 0.7357142857142858,
+            "ci_upper": 1.0
+          },
+          "semantic_diversity_vs_topic_entropy": {
+            "mean_tau": 0.7238095238095239,
+            "std_tau": 0.17791944468828003,
+            "n_samples": 10,
+            "ci_lower": 0.3761904761904762,
+            "ci_upper": 0.9047619047619048
+          },
+          "cross_text_novelty_vs_distinct_2": {
+            "mean_tau": 0.9428571428571428,
+            "std_tau": 0.06317380553057905,
+            "n_samples": 10,
+            "ci_lower": 0.830952380952381,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_self_bleu": {
+            "mean_tau": -0.9333333333333333,
+            "std_tau": 0.10476190476190476,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": -0.7357142857142857
+          },
+          "cross_text_novelty_vs_ttr": {
+            "mean_tau": 0.8952380952380953,
+            "std_tau": 0.13768411709334247,
+            "n_samples": 10,
+            "ci_lower": 0.5880952380952381,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_epd_tfidf": {
+            "mean_tau": 0.9047619047619048,
+            "std_tau": 0.11268723396380222,
+            "n_samples": 10,
+            "ci_lower": 0.6619047619047619,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_ngram_entropy": {
+            "mean_tau": 0.8857142857142858,
+            "std_tau": 0.05714285714285714,
+            "n_samples": 10,
+            "ci_lower": 0.8095238095238095,
+            "ci_upper": 0.9785714285714286
+          },
+          "cross_text_novelty_vs_semantic_diversity": {
+            "mean_tau": 0.9047619047619048,
+            "std_tau": 0.11268723396380222,
+            "n_samples": 10,
+            "ci_lower": 0.6619047619047619,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_topic_entropy": {
+            "mean_tau": 0.780952380952381,
+            "std_tau": 0.19071413709048368,
+            "n_samples": 10,
+            "ci_lower": 0.3976190476190476,
+            "ci_upper": 1.0
+          },
+          "topic_entropy_vs_ttr": {
+            "mean_tau": 0.7483709273182957,
+            "std_tau": 0.1586179086894956,
+            "n_samples": 10,
+            "ci_lower": 0.462406015037594,
+            "ci_upper": 0.9047619047619048
+          }
+        },
+        "n_text_groups": 10,
+        "n_configs": 7
+      },
+      "gpt2_simulated": {
+        "tau_matrix": {
+          "distinct_2_vs_self_bleu": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "distinct_2_vs_ttr": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_epd_tfidf": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_ngram_entropy": {
+            "mean_tau": 0.0,
+            "std_tau": 1.0,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_semantic_diversity": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "distinct_2_vs_topic_entropy": {
+            "mean_tau": 0.4666666666666667,
+            "std_tau": 0.5333333333333333,
+            "n_samples": 10,
+            "ci_lower": -0.06666666666666667,
+            "ci_upper": 1.0
+          },
+          "self_bleu_vs_ttr": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "self_bleu_vs_semantic_diversity": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "self_bleu_vs_topic_entropy": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "epd_tfidf_vs_self_bleu": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "epd_tfidf_vs_ttr": {
+            "mean_tau": 1.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 1.0,
+            "ci_upper": 1.0
+          },
+          "epd_tfidf_vs_ngram_entropy": {
+            "mean_tau": -0.22222222222222224,
+            "std_tau": 0.7777777777777778,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 0.5555555555555556
+          },
+          "epd_tfidf_vs_semantic_diversity": {
+            "mean_tau": 1.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 1.0,
+            "ci_upper": 1.0
+          },
+          "epd_tfidf_vs_topic_entropy": {
+            "mean_tau": 0.32222222222222224,
+            "std_tau": 0.2873892701417236,
+            "n_samples": 10,
+            "ci_lower": 0.1111111111111111,
+            "ci_upper": 0.8888888888888888
+          },
+          "ngram_entropy_vs_self_bleu": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "ngram_entropy_vs_ttr": {
+            "mean_tau": -0.22222222222222224,
+            "std_tau": 0.7777777777777778,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 0.5555555555555556
+          },
+          "ngram_entropy_vs_semantic_diversity": {
+            "mean_tau": -0.22222222222222224,
+            "std_tau": 0.7777777777777778,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 0.5555555555555556
+          },
+          "ngram_entropy_vs_topic_entropy": {
+            "mean_tau": -0.32222222222222224,
+            "std_tau": 0.2873892701417236,
+            "n_samples": 10,
+            "ci_lower": -0.8888888888888888,
+            "ci_upper": -0.1111111111111111
+          },
+          "crd_vs_distinct_2": {
+            "mean_tau": 0.68,
+            "std_tau": 0.4951318567367237,
+            "n_samples": 10,
+            "ci_lower": -0.4333333333333333,
+            "ci_upper": 1.0
+          },
+          "crd_vs_self_bleu": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "crd_vs_ttr": {
+            "mean_tau": 0.5222222222222223,
+            "std_tau": 0.5259911279353167,
+            "n_samples": 10,
+            "ci_lower": -0.6138888888888889,
+            "ci_upper": 1.0
+          },
+          "crd_vs_epd_tfidf": {
+            "mean_tau": 0.5222222222222223,
+            "std_tau": 0.5259911279353167,
+            "n_samples": 10,
+            "ci_lower": -0.6138888888888889,
+            "ci_upper": 1.0
+          },
+          "crd_vs_ngram_entropy": {
+            "mean_tau": -0.14444444444444443,
+            "std_tau": 0.81959038248489,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 0.975
+          },
+          "crd_vs_semantic_diversity": {
+            "mean_tau": 0.5222222222222223,
+            "std_tau": 0.5259911279353167,
+            "n_samples": 10,
+            "ci_lower": -0.6138888888888889,
+            "ci_upper": 1.0
+          },
+          "crd_vs_cross_text_novelty": {
+            "mean_tau": 0.68,
+            "std_tau": 0.4951318567367237,
+            "n_samples": 10,
+            "ci_lower": -0.4333333333333333,
+            "ci_upper": 1.0
+          },
+          "crd_vs_topic_entropy": {
+            "mean_tau": 5.551115123125783e-18,
+            "std_tau": 0.3617515688022157,
+            "n_samples": 10,
+            "ci_lower": -0.4194444444444444,
+            "ci_upper": 0.702777777777778
+          },
+          "semantic_diversity_vs_ttr": {
+            "mean_tau": 1.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 1.0,
+            "ci_upper": 1.0
+          },
+          "semantic_diversity_vs_topic_entropy": {
+            "mean_tau": 0.32222222222222224,
+            "std_tau": 0.2873892701417236,
+            "n_samples": 10,
+            "ci_lower": 0.1111111111111111,
+            "ci_upper": 0.8888888888888888
+          },
+          "cross_text_novelty_vs_distinct_2": {
+            "mean_tau": 1.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 1.0,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_self_bleu": {
+            "mean_tau": 0.0,
+            "std_tau": 0.0,
+            "n_samples": 10,
+            "ci_lower": 0.0,
+            "ci_upper": 0.0
+          },
+          "cross_text_novelty_vs_ttr": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_epd_tfidf": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_ngram_entropy": {
+            "mean_tau": 0.0,
+            "std_tau": 1.0,
+            "n_samples": 10,
+            "ci_lower": -1.0,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_semantic_diversity": {
+            "mean_tau": 0.9333333333333333,
+            "std_tau": 0.06666666666666667,
+            "n_samples": 10,
+            "ci_lower": 0.8666666666666667,
+            "ci_upper": 1.0
+          },
+          "cross_text_novelty_vs_topic_entropy": {
+            "mean_tau": 0.4666666666666667,
+            "std_tau": 0.5333333333333333,
+            "n_samples": 10,
+            "ci_lower": -0.06666666666666667,
+            "ci_upper": 1.0
+          },
+          "topic_entropy_vs_ttr": {
+            "mean_tau": 0.32222222222222224,
+            "std_tau": 0.2873892701417236,
+            "n_samples": 10,
+            "ci_lower": 0.1111111111111111,
+            "ci_upper": 0.8888888888888888
+          }
+        },
+        "n_text_groups": 10,
+        "n_configs": 7
+      }
+    },
+    "cross_model": {
+      "models": [
+        "gpt-4.1-nano",
+        "gpt2_simulated"
+      ],
+      "cross_model_tau": 0.4338235294117647,
+      "n_metric_pairs": 36,
+      "bootstrap_ci": {
+        "point": 0.4338235294117647,
+        "ci_lower": 0.12732365497759188,
+        "ci_upper": 0.7137098778297954,
+        "std": 0.1494712301101494,
+        "n_bootstrap": 5000
+      },
+      "per_pair": {
+        "crd_vs_cross_text_novelty": {
+          "m0": 0.34285714285714286,
+          "m1": 0.68
+        },
+        "crd_vs_distinct_2": {
+          "m0": 0.38095238095238093,
+          "m1": 0.68
+        },
+        "crd_vs_epd_tfidf": {
+          "m0": 0.39999999999999997,
+          "m1": 0.5222222222222223
+        },
+        "crd_vs_ngram_entropy": {
+          "m0": 0.38095238095238093,
+          "m1": -0.14444444444444443
+        },
+        "crd_vs_self_bleu": {
+          "m0": -0.39047619047619053,
+          "m1": 0.0
+        },
+        "crd_vs_semantic_diversity": {
+          "m0": 0.39999999999999997,
+          "m1": 0.5222222222222223
+        },
+        "crd_vs_topic_entropy": {
+          "m0": 0.2571428571428571,
+          "m1": 5.551115123125783e-18
+        },
+        "crd_vs_ttr": {
+          "m0": 0.34636591478696743,
+          "m1": 0.5222222222222223
+        },
+        "cross_text_novelty_vs_distinct_2": {
+          "m0": 0.9428571428571428,
+          "m1": 1.0
+        },
+        "cross_text_novelty_vs_epd_tfidf": {
+          "m0": 0.9047619047619048,
+          "m1": 0.9333333333333333
+        },
+        "cross_text_novelty_vs_ngram_entropy": {
+          "m0": 0.8857142857142858,
+          "m1": 0.0
+        },
+        "cross_text_novelty_vs_self_bleu": {
+          "m0": -0.9333333333333333,
+          "m1": 0.0
+        },
+        "cross_text_novelty_vs_semantic_diversity": {
+          "m0": 0.9047619047619048,
+          "m1": 0.9333333333333333
+        },
+        "cross_text_novelty_vs_topic_entropy": {
+          "m0": 0.780952380952381,
+          "m1": 0.4666666666666667
+        },
+        "cross_text_novelty_vs_ttr": {
+          "m0": 0.8952380952380953,
+          "m1": 0.9333333333333333
+        },
+        "distinct_2_vs_epd_tfidf": {
+          "m0": 0.9238095238095239,
+          "m1": 0.9333333333333333
+        },
+        "distinct_2_vs_ngram_entropy": {
+          "m0": 0.9238095238095239,
+          "m1": 0.0
+        },
+        "distinct_2_vs_self_bleu": {
+          "m0": -0.9523809523809523,
+          "m1": 0.0
+        },
+        "distinct_2_vs_semantic_diversity": {
+          "m0": 0.9238095238095239,
+          "m1": 0.9333333333333333
+        },
+        "distinct_2_vs_topic_entropy": {
+          "m0": 0.7428571428571428,
+          "m1": 0.4666666666666667
+        },
+        "distinct_2_vs_ttr": {
+          "m0": 0.9142857142857143,
+          "m1": 0.9333333333333333
+        },
+        "epd_tfidf_vs_ngram_entropy": {
+          "m0": 0.9238095238095239,
+          "m1": -0.22222222222222224
+        },
+        "epd_tfidf_vs_self_bleu": {
+          "m0": -0.8952380952380953,
+          "m1": 0.0
+        },
+        "epd_tfidf_vs_semantic_diversity": {
+          "m0": 1.0,
+          "m1": 1.0
+        },
+        "epd_tfidf_vs_topic_entropy": {
+          "m0": 0.7238095238095239,
+          "m1": 0.32222222222222224
+        },
+        "epd_tfidf_vs_ttr": {
+          "m0": 0.9323308270676691,
+          "m1": 1.0
+        },
+        "ngram_entropy_vs_self_bleu": {
+          "m0": -0.8952380952380953,
+          "m1": 0.0
+        },
+        "ngram_entropy_vs_semantic_diversity": {
+          "m0": 0.9238095238095239,
+          "m1": -0.22222222222222224
+        },
+        "ngram_entropy_vs_topic_entropy": {
+          "m0": 0.7047619047619047,
+          "m1": -0.32222222222222224
+        },
+        "ngram_entropy_vs_ttr": {
+          "m0": 0.8942355889724312,
+          "m1": -0.22222222222222224
+        },
+        "self_bleu_vs_semantic_diversity": {
+          "m0": -0.8952380952380953,
+          "m1": 0.0
+        },
+        "self_bleu_vs_topic_entropy": {
+          "m0": -0.7714285714285715,
+          "m1": 0.0
+        },
+        "self_bleu_vs_ttr": {
+          "m0": -0.8857142857142858,
+          "m1": 0.0
+        },
+        "semantic_diversity_vs_topic_entropy": {
+          "m0": 0.7238095238095239,
+          "m1": 0.32222222222222224
+        },
+        "semantic_diversity_vs_ttr": {
+          "m0": 0.9323308270676691,
+          "m1": 1.0
+        },
+        "topic_entropy_vs_ttr": {
+          "m0": 0.7483709273182957,
+          "m1": 0.32222222222222224
+        }
+      }
+    }
+  },
+  "info_theory": {
+    "shannon_entropy": {
+      "high_diversity": {
+        "point": 6.357552004618084,
+        "ci_lower": 5.0492490169197035,
+        "ci_upper": 6.009390936137701,
+        "std": 0.25886503664529903
+      },
+      "low_diversity": {
+        "point": 5.24475497457937,
+        "ci_lower": 4.500093307816549,
+        "ci_upper": 5.128770953493289,
+        "std": 0.1603784447001851
+      }
+    },
+    "kl_divergence": {
+      "kl_high_low": 26.861729042538315,
+      "kl_low_high": 27.97452589491089,
+      "symmetric_kl": 27.418127468724602
+    },
+    "mutual_information": 4.828593567271679,
+    "entropy_rate": {
+      "high_diversity": {
+        "rate": 0.0,
+        "conditional_sequence": [
+          6.371388043013535,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "low_diversity": {
+        "rate": 0.0,
+        "conditional_sequence": [
+          3.780112832582691,
+          1.4646421419966784,
+          0.48330093275390684,
+          0.2869413953259752,
+          0.0
+        ]
+      }
+    },
+    "effect_size": {
+      "cohens_d_entropy": 3.4790655424980166,
+      "high_mean": 5.598711321218318,
+      "low_mean": 4.882941453008982
+    }
+  },
+  "selection_benchmark": {
+    "params": {
+      "n": 200,
+      "d": 50,
+      "k": 10,
+      "n_trials": 30
+    },
+    "FarthestPoint": {
+      "spread_mean": 10.640247367734803,
+      "spread_std": 0.1964614364848924,
+      "sum_dist_mean": 527.3344959478575,
+      "sum_dist_std": 11.076759793445284,
+      "time_ms": 0.34871896107991535,
+      "n_trials": 30
+    },
+    "Random": {
+      "spread_mean": 7.829784747153899,
+      "spread_std": 0.5736578684807836,
+      "sum_dist_mean": 450.3252381107864,
+      "sum_dist_std": 14.576059279842786,
+      "time_ms": 0.1815954844156901,
+      "n_trials": 30
+    },
+    "stat_test_fp_vs_random": {
+      "t_statistic": 28.257837967345594,
+      "p_value": 1.3282956442309002e-35,
+      "cohens_d": 7.420871807640367
+    }
+  },
+  "adversarial": {
+    "n_trials": 50,
+    "metric_pairs": {
+      "distinct_2_vs_self_bleu": {
+        "kendall_tau": -0.6509009009009009,
+        "max_rank_divergence": 0.875,
+        "n_evaluations": 400
+      },
+      "distinct_2_vs_ttr": {
+        "kendall_tau": 0.7658679581952588,
+        "max_rank_divergence": 0.625,
+        "n_evaluations": 400
+      },
+      "distinct_2_vs_epd_tfidf": {
+        "kendall_tau": 0.5299357383724629,
+        "max_rank_divergence": 0.875,
+        "n_evaluations": 400
+      }
+    },
+    "max_divergences": {
+      "distinct_2_vs_self_bleu": 0.875,
+      "distinct_2_vs_ttr": 0.625,
+      "distinct_2_vs_epd_tfidf": 0.875
+    },
+    "adversarial_examples": [
+      {
+        "trial": 6,
+        "m1_scores": [
+          0.8571428571428571,
+          0.6770833333333334,
+          1.0,
+          0.8095238095238095,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "m2_scores": [
+          0.013333333333333334,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rank_diff": 0.875,
+        "pair": "distinct_2_vs_self_bleu"
+      },
+      {
+        "trial": 27,
+        "m1_scores": [
+          1.0,
+          1.0,
+          1.0,
+          0.8311688311688312,
+          1.0,
+          0.5846153846153846,
+          0.875,
+          1.0
+        ],
+        "m2_scores": [
+          0.9019607843137255,
+          1.0,
+          0.96875,
+          0.4659090909090909,
+          0.9473684210526315,
+          0.2714285714285714,
+          0.7721518987341772,
+          0.7
+        ],
+        "rank_diff": 0.625,
+        "pair": "distinct_2_vs_ttr"
+      },
+      {
+        "trial": 11,
+        "m1_scores": [
+          1.0,
+          0.7962962962962963,
+          0.5822784810126582,
+          1.0,
+          1.0,
+          0.875,
+          1.0,
+          1.0
+        ],
+        "m2_scores": [
+          0.950423907063785,
+          0.8811800764204283,
+          1.0,
+          0.9855289868774946,
+          0.9904171775627452,
+          0.8533567093955936,
+          0.9854141495070738,
+          0.996916834374189
+        ],
+        "rank_diff": 0.875,
+        "pair": "distinct_2_vs_epd_tfidf"
+      }
+    ]
+  },
+  "worst_case_fair": {
+    "params": {
+      "n": 200,
+      "d": 50,
+      "k": 20,
+      "n_groups": 4,
+      "n_trials": 30
+    },
+    "constraint_levels": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "mean_retention": [
+      0.9834567014504482,
+      0.9760944394266923,
+      0.9767102042260979,
+      0.9788517628120871,
+      0.981311092609467,
+      0.9806329855449065
+    ],
+    "worst_case_retention": [
+      0.9453543845677154,
+      0.9505336803311636,
+      0.9507094788169458,
+      0.9463778937415902,
+      0.9585000374012976,
+      0.9485320086414791
+    ],
+    "ci_lower": [
+      0.9524592160859839,
+      0.9508242771920807,
+      0.95502400282835,
+      0.9471370737566761,
+      0.9647487140129468,
+      0.958337925406279
+    ],
+    "ci_upper": [
+      1.0038719400357492,
+      1.0067161452499431,
+      1.0014903093044736,
+      1.0059890645308776,
+      1.0017584468104708,
+      1.0029009822669896
+    ],
+    "sensitivity": [
+      0.0,
+      -0.07362262023755894,
+      0.006157647994056159,
+      0.021415585859891898,
+      0.024593297973799493,
+      -0.006781070645605071
+    ]
+  },
+  "hardness": {
+    "n_trials": 500,
+    "mean_gap": 0.044249116935212156,
+    "max_gap": 0.6957521119066875,
+    "std_gap": 0.09802423159242599,
+    "fraction_suboptimal": 0.414,
+    "worst_instance": {
+      "n": 18,
+      "k": 5,
+      "d": 2,
+      "greedy_spread": 3.608539369955243,
+      "best_found_spread": 6.1191882575000305,
+      "gap": 0.6957521119066875
+    }
+  },
+  "scaling": {
+    "sizes": [
+      50,
+      100,
+      200,
+      500,
+      1000,
+      2000
+    ],
+    "k": 10,
+    "d": 50,
+    "FarthestPoint": {
+      "times": [
+        0.00341949462890625,
+        0.0004759311676025391,
+        0.0002999305725097656,
+        0.0004500865936279297,
+        0.0007369041442871094,
+        0.0012473583221435547
+      ],
+      "exponent": -0.11856298090025966,
+      "r_squared": 0.035906606249252605,
+      "n_points": 6
+    },
+    "Random": {
+      "times": [
+        0.00011892318725585938,
+        0.00011510848999023438,
+        0.00011324882507324219,
+        0.00011205673217773438,
+        0.0001437664031982422,
+        0.00015201568603515626
+      ],
+      "exponent": 0.07128569867504252,
+      "r_squared": 0.5649373364433731,
+      "n_points": 6
+    }
+  },
+  "text_selection": {
+    "FarthestPoint": {
+      "distinct_2": 0.9815950920245399,
+      "entropy": 7.307287126610443,
+      "self_bleu": 0.0,
+      "n_selected": 20
+    },
+    "Random": {
+      "distinct_2": 0.7133757961783439,
+      "entropy": 6.635874392187411,
+      "self_bleu": 0.5,
+      "n_selected": 20
+    },
+    "improvement_pct": 37.59859772129712
+  },
+  "fair_selection": {
+    "params": {
+      "n": 200,
+      "d": 50,
+      "k": 20,
+      "n_trials": 30
+    },
+    "retention": {
+      "point": 0.9784892113759716,
+      "ci_lower": 0.9746298085014188,
+      "ci_upper": 0.9823896134939225,
+      "std": 0.001977086594400312,
+      "n_bootstrap": 5000
+    },
+    "unconstrained_mean": 2179.144947359118,
+    "fair_mean": 2132.2698210153562
+  },
+  "metadata": {
+    "total_time_seconds": 419.41241693496704,
+    "timestamp": "2026-02-24T00:34:42"
+  }
+}

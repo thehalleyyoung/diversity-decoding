@@ -1,0 +1,1184 @@
+{
+  "experiment": "corrected_taxonomy_analysis",
+  "description": "Kendall tau with bootstrap CIs, parse-tree diversity, per-domain stability",
+  "total_generations": 7800,
+  "n_configs": 13,
+  "n_prompts": 20,
+  "n_seeds": 3,
+  "n_domains": 5,
+  "configs": [
+    "nucleus_0.3",
+    "nucleus_0.5",
+    "nucleus_0.7",
+    "nucleus_0.9",
+    "nucleus_0.95",
+    "temp_0.0",
+    "temp_0.3",
+    "temp_0.5",
+    "temp_0.7",
+    "temp_1.0",
+    "temp_1.2",
+    "temp_1.5",
+    "temp_2.0"
+  ],
+  "domains": [
+    "business",
+    "code_generation",
+    "creative_writing",
+    "dialogue",
+    "scientific"
+  ],
+  "config_metrics": {
+    "nucleus_0.3": {
+      "distinct_2": {
+        "mean": 0.143,
+        "std": 0.0779,
+        "ci95_lo": 0.0721,
+        "ci95_hi": 0.4294,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.9688,
+        "std": 0.0536,
+        "ci95_lo": 0.8049,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.1211,
+        "std": 0.1815,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.6595,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.731,
+        "std": 0.9497,
+        "ci95_lo": 3.3219,
+        "ci95_hi": 7.4193,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.6755,
+        "std": 0.3434,
+        "ci95_lo": 0.2,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 1.6961,
+        "std": 1.1317,
+        "ci95_lo": 1.0,
+        "ci95_hi": 4.9258,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.0904,
+        "std": 0.1327,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.4674,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.5": {
+      "distinct_2": {
+        "mean": 0.2373,
+        "std": 0.1403,
+        "ci95_lo": 0.0745,
+        "ci95_hi": 0.5458,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.8976,
+        "std": 0.1194,
+        "ci95_lo": 0.5995,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.3056,
+        "std": 0.2511,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.7434,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 6.2536,
+        "std": 1.1267,
+        "ci95_lo": 3.585,
+        "ci95_hi": 7.8689,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8061,
+        "std": 0.1897,
+        "ci95_lo": 0.2751,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 4.2906,
+        "std": 2.8825,
+        "ci95_lo": 1.0,
+        "ci95_hi": 9.2864,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.2309,
+        "std": 0.1926,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.539,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.7": {
+      "distinct_2": {
+        "mean": 0.3849,
+        "std": 0.1801,
+        "ci95_lo": 0.077,
+        "ci95_hi": 0.6588,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.7494,
+        "std": 0.187,
+        "ci95_lo": 0.4374,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4994,
+        "std": 0.2294,
+        "ci95_lo": 0.0188,
+        "ci95_hi": 0.7763,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 6.9695,
+        "std": 1.06,
+        "ci95_lo": 5.1513,
+        "ci95_hi": 8.2532,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8145,
+        "std": 0.14,
+        "ci95_lo": 0.5208,
+        "ci95_hi": 0.9926,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 6.897,
+        "std": 2.9121,
+        "ci95_lo": 1.3085,
+        "ci95_hi": 9.6641,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.3945,
+        "std": 0.178,
+        "ci95_lo": 0.0054,
+        "ci95_hi": 0.5867,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.9": {
+      "distinct_2": {
+        "mean": 0.4504,
+        "std": 0.1931,
+        "ci95_lo": 0.0869,
+        "ci95_hi": 0.7635,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6581,
+        "std": 0.2145,
+        "ci95_lo": 0.2487,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.5702,
+        "std": 0.1984,
+        "ci95_lo": 0.0937,
+        "ci95_hi": 0.83,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.244,
+        "std": 1.0068,
+        "ci95_lo": 5.4219,
+        "ci95_hi": 8.5291,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8366,
+        "std": 0.1268,
+        "ci95_lo": 0.4727,
+        "ci95_hi": 0.9365,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 7.8172,
+        "std": 2.3879,
+        "ci95_lo": 1.9171,
+        "ci95_hi": 9.7675,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.4432,
+        "std": 0.1595,
+        "ci95_lo": 0.0184,
+        "ci95_hi": 0.5892,
+        "n_obs": 60
+      }
+    },
+    "nucleus_0.95": {
+      "distinct_2": {
+        "mean": 0.4621,
+        "std": 0.1893,
+        "ci95_lo": 0.1037,
+        "ci95_hi": 0.7182,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6392,
+        "std": 0.2094,
+        "ci95_lo": 0.287,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.5751,
+        "std": 0.1964,
+        "ci95_lo": 0.1446,
+        "ci95_hi": 0.8131,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.2847,
+        "std": 1.0154,
+        "ci95_lo": 5.4201,
+        "ci95_hi": 8.437,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.842,
+        "std": 0.1198,
+        "ci95_lo": 0.5089,
+        "ci95_hi": 0.9373,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 8.0082,
+        "std": 2.3487,
+        "ci95_lo": 1.9171,
+        "ci95_hi": 9.7658,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.4516,
+        "std": 0.1624,
+        "ci95_lo": 0.0308,
+        "ci95_hi": 0.6087,
+        "n_obs": 60
+      }
+    },
+    "temp_0.0": {
+      "distinct_2": {
+        "mean": 0.1192,
+        "std": 0.0311,
+        "ci95_lo": 0.0745,
+        "ci95_hi": 0.1858,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.9751,
+        "std": 0.0306,
+        "ci95_lo": 0.9109,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.0435,
+        "std": 0.0511,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.1423,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 5.5479,
+        "std": 0.7748,
+        "ci95_lo": 3.3219,
+        "ci95_hi": 6.1829,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.5733,
+        "std": 0.3991,
+        "ci95_lo": 0.2,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 1.2049,
+        "std": 0.1916,
+        "ci95_lo": 1.0,
+        "ci95_hi": 1.3841,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.0362,
+        "std": 0.0434,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.1173,
+        "n_obs": 60
+      }
+    },
+    "temp_0.3": {
+      "distinct_2": {
+        "mean": 0.3137,
+        "std": 0.1466,
+        "ci95_lo": 0.077,
+        "ci95_hi": 0.5656,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.8255,
+        "std": 0.1358,
+        "ci95_lo": 0.5548,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4167,
+        "std": 0.2292,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.7528,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 6.6345,
+        "std": 1.0678,
+        "ci95_lo": 4.0408,
+        "ci95_hi": 7.9541,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.7614,
+        "std": 0.2048,
+        "ci95_lo": 0.2739,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 5.8325,
+        "std": 2.9089,
+        "ci95_lo": 1.0,
+        "ci95_hi": 9.3837,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.326,
+        "std": 0.1747,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.5358,
+        "n_obs": 60
+      }
+    },
+    "temp_0.5": {
+      "distinct_2": {
+        "mean": 0.3725,
+        "std": 0.167,
+        "ci95_lo": 0.0794,
+        "ci95_hi": 0.6505,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.7582,
+        "std": 0.1742,
+        "ci95_lo": 0.4355,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.4923,
+        "std": 0.2127,
+        "ci95_lo": 0.0593,
+        "ci95_hi": 0.7895,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 6.899,
+        "std": 1.0805,
+        "ci95_lo": 4.4399,
+        "ci95_hi": 8.2043,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8147,
+        "std": 0.1363,
+        "ci95_lo": 0.4739,
+        "ci95_hi": 0.9884,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 6.9254,
+        "std": 2.7996,
+        "ci95_lo": 1.6023,
+        "ci95_hi": 9.6489,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.3885,
+        "std": 0.1694,
+        "ci95_lo": 0.0172,
+        "ci95_hi": 0.5865,
+        "n_obs": 60
+      }
+    },
+    "temp_0.7": {
+      "distinct_2": {
+        "mean": 0.4277,
+        "std": 0.1801,
+        "ci95_lo": 0.0941,
+        "ci95_hi": 0.7012,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.6901,
+        "std": 0.1928,
+        "ci95_lo": 0.3567,
+        "ci95_hi": 1.0,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.546,
+        "std": 0.1997,
+        "ci95_lo": 0.107,
+        "ci95_hi": 0.7993,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.1349,
+        "std": 1.0307,
+        "ci95_lo": 5.3348,
+        "ci95_hi": 8.3593,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8306,
+        "std": 0.1204,
+        "ci95_lo": 0.4983,
+        "ci95_hi": 0.9379,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 7.6184,
+        "std": 2.4085,
+        "ci95_lo": 1.8981,
+        "ci95_hi": 9.7487,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.4328,
+        "std": 0.1678,
+        "ci95_lo": 0.0309,
+        "ci95_hi": 0.5995,
+        "n_obs": 60
+      }
+    },
+    "temp_1.0": {
+      "distinct_2": {
+        "mean": 0.494,
+        "std": 0.2025,
+        "ci95_lo": 0.1108,
+        "ci95_hi": 0.7911,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.5951,
+        "std": 0.2277,
+        "ci95_lo": 0.2107,
+        "ci95_hi": 0.9959,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.607,
+        "std": 0.1885,
+        "ci95_lo": 0.1687,
+        "ci95_hi": 0.8373,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.3995,
+        "std": 0.9949,
+        "ci95_lo": 5.4423,
+        "ci95_hi": 8.6054,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8542,
+        "std": 0.1152,
+        "ci95_lo": 0.5316,
+        "ci95_hi": 0.9483,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 8.2294,
+        "std": 2.2233,
+        "ci95_lo": 1.9681,
+        "ci95_hi": 9.8422,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.4741,
+        "std": 0.1622,
+        "ci95_lo": 0.0446,
+        "ci95_hi": 0.6168,
+        "n_obs": 60
+      }
+    },
+    "temp_1.2": {
+      "distinct_2": {
+        "mean": 0.5282,
+        "std": 0.2099,
+        "ci95_lo": 0.117,
+        "ci95_hi": 0.8187,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.55,
+        "std": 0.2396,
+        "ci95_lo": 0.1738,
+        "ci95_hi": 0.959,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.6318,
+        "std": 0.1844,
+        "ci95_lo": 0.1854,
+        "ci95_hi": 0.8579,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.5138,
+        "std": 0.9903,
+        "ci95_lo": 5.5548,
+        "ci95_hi": 8.6472,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8708,
+        "std": 0.1012,
+        "ci95_lo": 0.6074,
+        "ci95_hi": 0.9523,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 8.5316,
+        "std": 2.0104,
+        "ci95_lo": 2.5311,
+        "ci95_hi": 9.8715,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.4945,
+        "std": 0.1527,
+        "ci95_lo": 0.0682,
+        "ci95_hi": 0.6257,
+        "n_obs": 60
+      }
+    },
+    "temp_1.5": {
+      "distinct_2": {
+        "mean": 0.602,
+        "std": 0.222,
+        "ci95_lo": 0.1382,
+        "ci95_hi": 0.8832,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.4452,
+        "std": 0.257,
+        "ci95_lo": 0.0691,
+        "ci95_hi": 0.9398,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.6893,
+        "std": 0.1804,
+        "ci95_lo": 0.2279,
+        "ci95_hi": 0.8892,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 7.7499,
+        "std": 0.9711,
+        "ci95_lo": 5.5885,
+        "ci95_hi": 8.7731,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.8863,
+        "std": 0.0986,
+        "ci95_lo": 0.6157,
+        "ci95_hi": 0.9613,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 8.7804,
+        "std": 1.9547,
+        "ci95_lo": 2.5403,
+        "ci95_hi": 9.9062,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.527,
+        "std": 0.1475,
+        "ci95_lo": 0.1047,
+        "ci95_hi": 0.6544,
+        "n_obs": 60
+      }
+    },
+    "temp_2.0": {
+      "distinct_2": {
+        "mean": 0.887,
+        "std": 0.1178,
+        "ci95_lo": 0.5644,
+        "ci95_hi": 0.993,
+        "n_obs": 60
+      },
+      "self_bleu": {
+        "mean": 0.1103,
+        "std": 0.1341,
+        "ci95_lo": 0.0,
+        "ci95_hi": 0.4734,
+        "n_obs": 60
+      },
+      "jaccard": {
+        "mean": 0.932,
+        "std": 0.0557,
+        "ci95_lo": 0.7822,
+        "ci95_hi": 0.9839,
+        "n_obs": 60
+      },
+      "entropy": {
+        "mean": 8.4612,
+        "std": 0.3845,
+        "ci95_lo": 7.394,
+        "ci95_hi": 8.826,
+        "n_obs": 60
+      },
+      "epd": {
+        "mean": 0.9698,
+        "std": 0.0251,
+        "ci95_lo": 0.9051,
+        "ci95_hi": 0.9909,
+        "n_obs": 60
+      },
+      "vendi": {
+        "mean": 9.7386,
+        "std": 0.6312,
+        "ci95_lo": 8.4346,
+        "ci95_hi": 9.9918,
+        "n_obs": 60
+      },
+      "ptd": {
+        "mean": 0.5178,
+        "std": 0.047,
+        "ci95_lo": 0.4091,
+        "ci95_hi": 0.595,
+        "n_obs": 60
+      }
+    }
+  },
+  "kendall_tau_aggregate": {
+    "distinct_2_vs_self_bleu": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "distinct_2_vs_jaccard": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_entropy": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_epd": {
+      "tau": 0.9487,
+      "ci95_lo": 0.8082,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_vendi": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "distinct_2_vs_ptd": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "self_bleu_vs_jaccard": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "self_bleu_vs_entropy": {
+      "tau": -1.0,
+      "ci95_lo": -1.0,
+      "ci95_hi": -1.0
+    },
+    "self_bleu_vs_epd": {
+      "tau": -0.9487,
+      "ci95_lo": -1.0,
+      "ci95_hi": -0.8082
+    },
+    "self_bleu_vs_vendi": {
+      "tau": -0.9744,
+      "ci95_lo": -1.0,
+      "ci95_hi": -0.8356
+    },
+    "self_bleu_vs_ptd": {
+      "tau": -0.9744,
+      "ci95_lo": -1.0,
+      "ci95_hi": -0.8356
+    },
+    "jaccard_vs_entropy": {
+      "tau": 1.0,
+      "ci95_lo": 1.0,
+      "ci95_hi": 1.0
+    },
+    "jaccard_vs_epd": {
+      "tau": 0.9487,
+      "ci95_lo": 0.8082,
+      "ci95_hi": 1.0
+    },
+    "jaccard_vs_vendi": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "jaccard_vs_ptd": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "entropy_vs_epd": {
+      "tau": 0.9487,
+      "ci95_lo": 0.8082,
+      "ci95_hi": 1.0
+    },
+    "entropy_vs_vendi": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "entropy_vs_ptd": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8356,
+      "ci95_hi": 1.0
+    },
+    "epd_vs_vendi": {
+      "tau": 0.9744,
+      "ci95_lo": 0.8462,
+      "ci95_hi": 1.0
+    },
+    "epd_vs_ptd": {
+      "tau": 0.9231,
+      "ci95_lo": 0.7612,
+      "ci95_hi": 1.0
+    },
+    "vendi_vs_ptd": {
+      "tau": 0.9487,
+      "ci95_lo": 0.8065,
+      "ci95_hi": 1.0
+    }
+  },
+  "kendall_tau_per_prompt": {
+    "distinct_2_vs_self_bleu": {
+      "mean_tau": -0.9114,
+      "std_tau": 0.1295,
+      "min_tau": -1.0,
+      "max_tau": -0.3766,
+      "n_prompts": 60
+    },
+    "distinct_2_vs_jaccard": {
+      "mean_tau": 0.9372,
+      "std_tau": 0.0936,
+      "min_tau": 0.3766,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "distinct_2_vs_entropy": {
+      "mean_tau": 0.9419,
+      "std_tau": 0.0921,
+      "min_tau": 0.4026,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "distinct_2_vs_epd": {
+      "mean_tau": 0.4896,
+      "std_tau": 0.3878,
+      "min_tau": -0.5849,
+      "max_tau": 0.9678,
+      "n_prompts": 60
+    },
+    "distinct_2_vs_vendi": {
+      "mean_tau": 0.8852,
+      "std_tau": 0.1253,
+      "min_tau": 0.2468,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "distinct_2_vs_ptd": {
+      "mean_tau": 0.8108,
+      "std_tau": 0.156,
+      "min_tau": 0.0909,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "self_bleu_vs_jaccard": {
+      "mean_tau": -0.8851,
+      "std_tau": 0.1084,
+      "min_tau": -1.0,
+      "max_tau": -0.4758,
+      "n_prompts": 60
+    },
+    "self_bleu_vs_entropy": {
+      "mean_tau": -0.8933,
+      "std_tau": 0.1061,
+      "min_tau": -1.0,
+      "max_tau": -0.4758,
+      "n_prompts": 60
+    },
+    "self_bleu_vs_epd": {
+      "mean_tau": -0.5003,
+      "std_tau": 0.3566,
+      "min_tau": -0.9487,
+      "max_tau": 0.28,
+      "n_prompts": 60
+    },
+    "self_bleu_vs_vendi": {
+      "mean_tau": -0.8623,
+      "std_tau": 0.0945,
+      "min_tau": -1.0,
+      "max_tau": -0.4758,
+      "n_prompts": 60
+    },
+    "self_bleu_vs_ptd": {
+      "mean_tau": -0.7599,
+      "std_tau": 0.1351,
+      "min_tau": -0.9678,
+      "max_tau": -0.2727,
+      "n_prompts": 60
+    },
+    "jaccard_vs_entropy": {
+      "mean_tau": 0.9398,
+      "std_tau": 0.0564,
+      "min_tau": 0.7143,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "jaccard_vs_epd": {
+      "mean_tau": 0.4806,
+      "std_tau": 0.3698,
+      "min_tau": -0.5849,
+      "max_tau": 0.9936,
+      "n_prompts": 60
+    },
+    "jaccard_vs_vendi": {
+      "mean_tau": 0.8733,
+      "std_tau": 0.0968,
+      "min_tau": 0.4286,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "jaccard_vs_ptd": {
+      "mean_tau": 0.8194,
+      "std_tau": 0.1299,
+      "min_tau": 0.4615,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "entropy_vs_epd": {
+      "mean_tau": 0.4865,
+      "std_tau": 0.3665,
+      "min_tau": -0.5849,
+      "max_tau": 0.9678,
+      "n_prompts": 60
+    },
+    "entropy_vs_vendi": {
+      "mean_tau": 0.8812,
+      "std_tau": 0.0692,
+      "min_tau": 0.7143,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "entropy_vs_ptd": {
+      "mean_tau": 0.8244,
+      "std_tau": 0.1393,
+      "min_tau": 0.4545,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "epd_vs_vendi": {
+      "mean_tau": 0.5477,
+      "std_tau": 0.3752,
+      "min_tau": -0.5849,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    },
+    "epd_vs_ptd": {
+      "mean_tau": 0.3779,
+      "std_tau": 0.3397,
+      "min_tau": -0.5849,
+      "max_tau": 0.9161,
+      "n_prompts": 60
+    },
+    "vendi_vs_ptd": {
+      "mean_tau": 0.7661,
+      "std_tau": 0.1619,
+      "min_tau": 0.1688,
+      "max_tau": 1.0,
+      "n_prompts": 60
+    }
+  },
+  "domain_results": {
+    "business": {
+      "kendall_tau": {
+        "distinct_2_vs_self_bleu": -0.9744,
+        "distinct_2_vs_jaccard": 1.0,
+        "distinct_2_vs_entropy": 1.0,
+        "distinct_2_vs_epd": 0.9487,
+        "distinct_2_vs_vendi": 0.9487,
+        "distinct_2_vs_ptd": 0.8205,
+        "self_bleu_vs_jaccard": -0.9744,
+        "self_bleu_vs_entropy": -0.9744,
+        "self_bleu_vs_epd": -0.9231,
+        "self_bleu_vs_vendi": -0.9231,
+        "self_bleu_vs_ptd": -0.7949,
+        "jaccard_vs_entropy": 1.0,
+        "jaccard_vs_epd": 0.9487,
+        "jaccard_vs_vendi": 0.9487,
+        "jaccard_vs_ptd": 0.8205,
+        "entropy_vs_epd": 0.9487,
+        "entropy_vs_vendi": 0.9487,
+        "entropy_vs_ptd": 0.8205,
+        "epd_vs_vendi": 1.0,
+        "epd_vs_ptd": 0.7692,
+        "vendi_vs_ptd": 0.7692
+      },
+      "d2_vs_sb": -0.9744,
+      "cluster_stability": 1.0,
+      "n_entries": 156
+    },
+    "code_generation": {
+      "kendall_tau": {
+        "distinct_2_vs_self_bleu": -0.9744,
+        "distinct_2_vs_jaccard": 0.9487,
+        "distinct_2_vs_entropy": 0.9487,
+        "distinct_2_vs_epd": 0.0513,
+        "distinct_2_vs_vendi": 0.9487,
+        "distinct_2_vs_ptd": 0.9487,
+        "self_bleu_vs_jaccard": -0.9744,
+        "self_bleu_vs_entropy": -0.9744,
+        "self_bleu_vs_epd": -0.0256,
+        "self_bleu_vs_vendi": -0.9744,
+        "self_bleu_vs_ptd": -0.9231,
+        "jaccard_vs_entropy": 1.0,
+        "jaccard_vs_epd": 0.0513,
+        "jaccard_vs_vendi": 1.0,
+        "jaccard_vs_ptd": 0.9487,
+        "entropy_vs_epd": 0.0513,
+        "entropy_vs_vendi": 1.0,
+        "entropy_vs_ptd": 0.9487,
+        "epd_vs_vendi": 0.0513,
+        "epd_vs_ptd": 0.0513,
+        "vendi_vs_ptd": 0.9487
+      },
+      "d2_vs_sb": -0.9744,
+      "cluster_stability": 0.6,
+      "n_entries": 156
+    },
+    "creative_writing": {
+      "kendall_tau": {
+        "distinct_2_vs_self_bleu": -1.0,
+        "distinct_2_vs_jaccard": 1.0,
+        "distinct_2_vs_entropy": 1.0,
+        "distinct_2_vs_epd": 0.8205,
+        "distinct_2_vs_vendi": 1.0,
+        "distinct_2_vs_ptd": 0.8462,
+        "self_bleu_vs_jaccard": -1.0,
+        "self_bleu_vs_entropy": -1.0,
+        "self_bleu_vs_epd": -0.8205,
+        "self_bleu_vs_vendi": -1.0,
+        "self_bleu_vs_ptd": -0.8462,
+        "jaccard_vs_entropy": 1.0,
+        "jaccard_vs_epd": 0.8205,
+        "jaccard_vs_vendi": 1.0,
+        "jaccard_vs_ptd": 0.8462,
+        "entropy_vs_epd": 0.8205,
+        "entropy_vs_vendi": 1.0,
+        "entropy_vs_ptd": 0.8462,
+        "epd_vs_vendi": 0.8205,
+        "epd_vs_ptd": 0.6667,
+        "vendi_vs_ptd": 0.8462
+      },
+      "d2_vs_sb": -1.0,
+      "cluster_stability": 1.0,
+      "n_entries": 156
+    },
+    "dialogue": {
+      "kendall_tau": {
+        "distinct_2_vs_self_bleu": -1.0,
+        "distinct_2_vs_jaccard": 0.9744,
+        "distinct_2_vs_entropy": 1.0,
+        "distinct_2_vs_epd": 0.9487,
+        "distinct_2_vs_vendi": 0.9744,
+        "distinct_2_vs_ptd": 1.0,
+        "self_bleu_vs_jaccard": -0.9744,
+        "self_bleu_vs_entropy": -1.0,
+        "self_bleu_vs_epd": -0.9487,
+        "self_bleu_vs_vendi": -0.9744,
+        "self_bleu_vs_ptd": -1.0,
+        "jaccard_vs_entropy": 0.9744,
+        "jaccard_vs_epd": 0.9744,
+        "jaccard_vs_vendi": 1.0,
+        "jaccard_vs_ptd": 0.9744,
+        "entropy_vs_epd": 0.9487,
+        "entropy_vs_vendi": 0.9744,
+        "entropy_vs_ptd": 1.0,
+        "epd_vs_vendi": 0.9744,
+        "epd_vs_ptd": 0.9487,
+        "vendi_vs_ptd": 0.9744
+      },
+      "d2_vs_sb": -1.0,
+      "cluster_stability": 1.0,
+      "n_entries": 156
+    },
+    "scientific": {
+      "kendall_tau": {
+        "distinct_2_vs_self_bleu": -1.0,
+        "distinct_2_vs_jaccard": 1.0,
+        "distinct_2_vs_entropy": 1.0,
+        "distinct_2_vs_epd": 0.9744,
+        "distinct_2_vs_vendi": 0.9487,
+        "distinct_2_vs_ptd": 0.9487,
+        "self_bleu_vs_jaccard": -1.0,
+        "self_bleu_vs_entropy": -1.0,
+        "self_bleu_vs_epd": -0.9744,
+        "self_bleu_vs_vendi": -0.9487,
+        "self_bleu_vs_ptd": -0.9487,
+        "jaccard_vs_entropy": 1.0,
+        "jaccard_vs_epd": 0.9744,
+        "jaccard_vs_vendi": 0.9487,
+        "jaccard_vs_ptd": 0.9487,
+        "entropy_vs_epd": 0.9744,
+        "entropy_vs_vendi": 0.9487,
+        "entropy_vs_ptd": 0.9487,
+        "epd_vs_vendi": 0.9231,
+        "epd_vs_ptd": 0.9231,
+        "vendi_vs_ptd": 0.8974
+      },
+      "d2_vs_sb": -1.0,
+      "cluster_stability": 1.0,
+      "n_entries": 156
+    }
+  },
+  "cross_domain_stability": {
+    "business_vs_code_generation": 0.5929,
+    "business_vs_creative_writing": 0.6872,
+    "business_vs_dialogue": 0.5546,
+    "business_vs_scientific": 0.8329,
+    "code_generation_vs_creative_writing": 0.9281,
+    "code_generation_vs_dialogue": 0.7611,
+    "code_generation_vs_scientific": 0.5711,
+    "creative_writing_vs_dialogue": 0.7459,
+    "creative_writing_vs_scientific": 0.6428,
+    "dialogue_vs_scientific": 0.5331
+  },
+  "cross_model_agreement": null,
+  "sample_texts": {
+    "business__temp_0.0": [
+      "understanding your target market deeply and adapting quickly to their evolving needs. It's essential to foster a culture of innovation and agility within your team, allowing you to pivot when necessary and seize new opportunities. Building strong relationships with customers and listening to their feedback can provide invaluable insights that guide product development and marketing efforts",
+      "understanding your target market deeply and adapting quickly to their evolving needs. It's essential to foster a culture of innovation and agility within your team, allowing you to pivot when necessary and seize new opportunities. Building strong relationships with customers and listening to their feedback can provide invaluable insights that guide product development and marketing efforts",
+      "understanding your target market deeply and adapting quickly to their evolving needs. It's essential to foster a culture of innovation and agility within your team, allowing you to pivot when necessary and seize new opportunities. Building strong relationships with customers and listening to their feedback can provide invaluable insights that guide product development and marketing efforts"
+    ],
+    "business__temp_1.0": [
+      "understanding your target market and continuously adapting to their evolving needs. It involves identifying a clear value proposition, building a strong team, and remaining flexible in your approach. Additionally, leveraging data-driven insights and fostering a culture of innovation can help you stay ahead of the competition and navigate uncertainties effectively.",
+      "understanding your target market deeply and staying adaptable as you learn more about customer needs and industry shifts. Prioritizing innovation, fostering a strong team culture, and maintaining financial discipline are also crucial components that can help turn a compelling idea into a sustainable business.",
+      "understanding your target market deeply and adapting quickly to their needs. Building a strong, agile team that shares your vision is essential, as is prioritizing customer feedback to refine your product or service. Furthermore, maintaining a balance between innovation and practicality helps in navigating challenges and seizing opportunities effectively. Ultimately,"
+    ],
+    "business__temp_1.5": [
+      "understanding your target market and evolving adaptively to meet their needs. It involves thorough research, smart deployment of resources, and the agility to pivot when necessary. Building a strong team, fostering innovative ideas, and establishing clear goals are equally essential components that ensure sustainable growth and long-term success.",
+      "understanding your target market deeply and staying adaptable as you learn more about customer needs and industry shifts. Nonetheless, building a strong, committed team and maintaining financial discipline are equally crucial to sustain growth and resilience in the face of uncertainties. Ultimately, clear vision combined with continuous innovation can help turn pioneering ideas into",
+      "beginning with a clear vision and understanding of the target market. Establishing strong product-market fit, staying adaptable to feedback, and mindful resource management are also crucial components. Building a talented, motivated team and cultivating a robust network can open doors to new opportunities and partnerships. Most importantly, maintaining resilience and"
+    ],
+    "code_generation__temp_0.0": [
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +"
+    ],
+    "code_generation__temp_1.0": [
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +"
+    ],
+    "code_generation__temp_1.5": [
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)",
+      "if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a +"
+    ],
+    "creative_writing__temp_0.0": [
+      "a young girl named Elara who dreamed of exploring the world beyond her village. Every day, she would gaze at the horizon, imagining the adventures that awaited her. Despite her humble beginnings, her curiosity and courage knew no bounds. One fateful morning, as the sun cast golden rays over the fields",
+      "a young girl named Elara who dreamed of exploring the world beyond her village. Every day, she would gaze at the horizon, imagining the adventures that awaited her. One morning, as the sun cast golden rays over the fields, a mysterious traveler arrived, bearing tales of enchanted forests and hidden treasures.",
+      "a young girl named Elara who dreamed of exploring the world beyond her village. Every day, she would gaze at the horizon, imagining the adventures that awaited her. One morning, as the sun cast golden rays over the fields, a mysterious traveler arrived, bearing tales of enchanted forests and hidden treasures."
+    ],
+    "creative_writing__temp_1.0": [
+      "a curious young girl named Elara who dreamed of exploring the world beyond her village. Every day, she would gaze at the horizon, imagining adventures that awaited her among the mountains and forests. Despite the warnings of her elders about dangers lurking outside her familiar surroundings, her spirit remained unbreakable. One",
+      "a young girl named Elara, who possessed a boundless curiosity and a heart full of dreams. Every day, she explored the lush forests and sparkling streams that surrounded her village, longing for adventures beyond the familiar. One sunny morning, as she wandered deeper into the woods than ever before, she stumbled",
+      "a young girl named Elara, who dreamed of exploring the world beyond the castle walls. Despite her noble status, she was curious about the village life and the forests that stretched endlessly beyond her home. One day, as she wandered through the gardens, she discovered a mysterious old map tucked inside a hidden"
+    ],
+    "creative_writing__temp_1.5": [
+      "a curious young girl named Elara who dreamed of exploring the world beyond her village. Every day, she would gaze at the horizon, fantasizing about adventures and new beginnings. One day, as she wandered through the forest near her home, she stumbled upon a mysterious, shimmering stone embedded in the earth",
+      "Once upon a time in a distant kingdom, there lived a young girl named Elara whoDreamed of exploring the forests beyond the castle walls and uncovering the world's hidden wonders. Though crowned with innocence and curiosity, she was bound by the duties that her royal birth demanded. Yet, her adventurous heart",
+      "a wise old owl named Oliver, who was known throughout the land for his remarkable knowledge and gentle guidance. Every day, creatures from all over Merryvale would seek his counsel, stories, and comforting presence. One sunny morning, a young fox named Finley hurried into the clearing, his tail twitching"
+    ],
+    "dialogue__temp_0.0": [
+      "I'm sorry to hear that. Could you please provide the order number and let me know the reason for the return?",
+      "I'm sorry to hear that. Could you please provide the reason for the return and your order number so I can assist you further?",
+      "I'm sorry to hear that. Could you please provide the reason for the return and your order number so I can assist you further?"
+    ],
+    "dialogue__temp_1.0": [
+      "I'm sorry to hear that. Could you please let me know the reason for the return and whether you have your receipt or order number ready?",
+      "I'm sorry to hear that you'd like to return it. Could you please provide a bit more detail about the reason for the return and whether you have your receipt or order number handy?",
+      "I'm sorry to hear that you're not satisfied with your purchase. Could you please provide me with the reason for the return and your order number so I can assist you further?"
+    ],
+    "dialogue__temp_1.5": [
+      "I'm sorry to hear that. Could you please let me know the reason for the return and whether you have your receipt or order number ready?",
+      "I'm sorry to hear that you'd like to return it. Could you please provide a bit more detail about the reason for the return and whether you have your receipt or order number handy?",
+      "I'm sorry to hear that. Could you please tell me the reason for the return?"
+    ],
+    "scientific__temp_0.0": [
+      "classical correlations has been a subject of intense research and debate. While entanglement represents a uniquely quantum phenomenon where particles become interconnected such that the state of one instantly influences the state of another, classical correlations can often be explained through shared histories or common causes. Understanding the distinctions and connections between these two",
+      "classical correlations has been a subject of intense research and debate. While entanglement represents a uniquely quantum phenomenon where particles become interconnected such that the state of one instantly influences the state of another, classical correlations can often be explained through shared histories or common causes. Understanding the distinctions and connections between these two",
+      "classical correlations has been a subject of intense research and debate. While entanglement represents a uniquely quantum phenomenon where particles become interconnected such that the state of one instantly influences the state of another, classical correlations can often be explained through shared histories or common causes. Understanding the distinctions and connections between these two"
+    ],
+    "scientific__temp_1.0": [
+      "classical correlations has been a subject of intense study in recent years. While entanglement represents a uniquely quantum phenomenon with no classical counterpart, understanding how it relates to classical notions of correlation can shed light on the boundaries between quantum and classical worlds. Researchers have been exploring various measures to quantify entanglement",
+      "the foundations of information theory has been a subject of intense research, shedding light on how non-local correlations can influence computational processes and communication protocols. Understanding this connection not only deepens our comprehension of quantum mechanics but also paves the way for developing more secure and efficient technologies, such as quantum cryptography and",
+      "classical notions of causality has long intrigued physicists. Recent experiments suggest that entangled particles can exhibit correlations that defy traditional explanations rooted in local realism, prompting a reevaluation of our understanding of space, time, and information transfer. While entanglement itself does not allow for faster-than-light"
+    ],
+    "scientific__temp_1.5": [
+      "classical correlations has been a subject of intense study within quantum information theory. While classical correlations can often be fully explained by shared randomness, quantum entanglement introduces nonlocal correlations that defy such classical explanations. Researchers have sought to rigorously quantify entanglement through various measures, such as entang",
+      "the foundations of information theory has been a subject of intense research, unveiling new perspectives on how information is stored and transmitted at fundamental levels. Recent advancements suggest that entanglement not only underpins the phenomena observed in quantum computing but also offers insights into the nature of spacetime itself, hinting at an",
+      "classical notions of causality has long intrigued physicists. Recent advancements suggest that entanglement may not only challenge our understanding of locality but could also hold the key to new computational paradigms. As researchers continue to explore the underlying mechanisms, there is growing evidence that integrating entanglement into our frameworks"
+    ]
+  }
+}

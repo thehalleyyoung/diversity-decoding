@@ -1,0 +1,486 @@
+{
+  "1. Diversity Theory": {
+    "facility_location": {
+      "status": "passed",
+      "time": 0.03876614570617676,
+      "result": {
+        "is_submodular": true,
+        "is_monotone": true,
+        "approx_ratio": 0.9956529572994691,
+        "minimax": 2.8410503394788553
+      }
+    },
+    "max_coverage": {
+      "status": "passed",
+      "time": 0.028067827224731445,
+      "result": {
+        "is_submodular": true,
+        "is_monotone": true
+      }
+    },
+    "log_det": {
+      "status": "passed",
+      "time": 0.0054187774658203125,
+      "result": {
+        "is_submodular": true
+      }
+    },
+    "greedy_bound": {
+      "status": "passed",
+      "time": 0.0009539127349853516,
+      "result": {
+        "ratio": 0.9745316313744881,
+        "satisfies": true
+      }
+    },
+    "pareto": {
+      "status": "passed",
+      "time": 0.002039194107055664,
+      "result": {
+        "n_pareto_points": 4,
+        "area": 82.32784974580343
+      }
+    },
+    "concentration": {
+      "status": "passed",
+      "time": 1.0967254638671875e-05,
+      "result": {
+        "mcdiarmid": 0.4294694083467376,
+        "hoeffding": 0.13581015157406195
+      }
+    },
+    "minimax": {
+      "status": "passed",
+      "time": 0.00015401840209960938,
+      "result": {
+        "radius": 3.069107768925326,
+        "dispersion": 3.7232021326137605
+      }
+    },
+    "info_theory": {
+      "status": "passed",
+      "time": 0.0006959438323974609,
+      "result": {
+        "entropy": 18.632760046478534,
+        "total_correlation": 0.0
+      }
+    }
+  },
+  "2. Active Selection": {
+    "simulation_100_rounds": {
+      "status": "passed",
+      "time": 0.014699935913085938,
+      "result": {
+        "n_selected": 100,
+        "initial_coverage": 0.005,
+        "final_coverage": 0.52,
+        "coverage_improved": true
+      }
+    },
+    "batch_select": {
+      "status": "passed",
+      "time": 0.003574848175048828,
+      "result": {
+        "n_selected": 10,
+        "diversity": 204.1502584798664
+      }
+    },
+    "bayesian": {
+      "status": "passed",
+      "time": 0.0013058185577392578,
+      "result": {
+        "selected": 46,
+        "score": 0.9484478423199333
+      }
+    },
+    "ucb": {
+      "status": "passed",
+      "time": 0.0009152889251708984,
+      "result": {
+        "selected": 37
+      }
+    }
+  },
+  "3. Generation Diversity": {
+    "temperature_monotonic": {
+      "status": "passed",
+      "time": 0.0872502326965332,
+      "result": {
+        "diversities": [
+          0.25331055365502936,
+          0.2720255971967354,
+          0.2516538574476383,
+          0.2715711075306523,
+          0.28064850152924403
+        ],
+        "levels": [
+          0.1,
+          0.3,
+          0.5,
+          0.7,
+          0.9
+        ],
+        "mostly_monotonic": true
+      }
+    },
+    "diverse_beam": {
+      "status": "passed",
+      "time": 0.010289907455444336,
+      "result": {
+        "n_generated": 4
+      }
+    },
+    "contrastive": {
+      "status": "passed",
+      "time": 0.03077387809753418,
+      "result": {
+        "n_generated": 4
+      }
+    },
+    "stochastic_beam": {
+      "status": "passed",
+      "time": 0.01361393928527832,
+      "result": {
+        "n_generated": 4
+      }
+    }
+  },
+  "4. Recommendation Diversity": {
+    "50_users": {
+      "status": "passed",
+      "time": 2.4767141342163086,
+      "result": {
+        "n_users": 50,
+        "avg_calibration": 0.6810050249297419,
+        "avg_novelty": 3.134921423220529,
+        "avg_diversity": 7.832728050102826,
+        "avg_coverage": 1.0
+      }
+    },
+    "methods": {
+      "status": "passed",
+      "time": 0.016559839248657227,
+      "result": {
+        "calibrated": {
+          "diversity": 5.881433030451173,
+          "calibration": 0.8967431425461776,
+          "novelty": 2.398109926133503
+        },
+        "serendipity": {
+          "diversity": 6.012910905415317,
+          "calibration": 0.44709536382369963,
+          "novelty": 2.5082893747365596
+        },
+        "novelty": {
+          "diversity": 7.140206750552884,
+          "calibration": 0.798025766960312,
+          "novelty": 3.0553372588762353
+        },
+        "mmr": {
+          "diversity": 5.991860423001645,
+          "calibration": 0.3643113223619151,
+          "novelty": 2.4111558810567515
+        },
+        "coverage": {
+          "diversity": 6.012910905415317,
+          "calibration": 0.44709536382369963,
+          "novelty": 2.5082893747365596
+        },
+        "fairness": {
+          "diversity": 6.164872314750973,
+          "calibration": 0.38077294935538963,
+          "novelty": 2.511775610252695
+        }
+      }
+    }
+  },
+  "5. Retrieval Diversity": {
+    "methods": {
+      "status": "passed",
+      "time": 0.015548229217529297,
+      "result": {
+        "xquad": {
+          "diversity": 2.549304643072786,
+          "coverage": 0.5
+        },
+        "pm2": {
+          "diversity": 3.1179703266108736,
+          "coverage": 0.7
+        },
+        "ia_select": {
+          "diversity": 6.285084377012361,
+          "coverage": 0.5
+        },
+        "mmr": {
+          "diversity": 3.2131876788295037,
+          "coverage": 0.6
+        },
+        "subtopic": {
+          "diversity": 2.6550470824056176,
+          "coverage": 0.6
+        },
+        "novelty": {
+          "diversity": 2.6254996872034373,
+          "coverage": 0.4
+        },
+        "rerank": {
+          "diversity": 3.2131876788295037,
+          "coverage": 0.6
+        }
+      }
+    },
+    "5_topic": {
+      "status": "passed",
+      "time": 0.0008740425109863281,
+      "result": {
+        "topics_covered": 4,
+        "coverage": 0.8,
+        "diversity": 2.1280020345042954
+      }
+    }
+  },
+  "6. Ensemble Diversity": {
+    "analyze": {
+      "status": "passed",
+      "time": 0.008465051651000977,
+      "result": {
+        "disagreement": 0.2355,
+        "q_statistic": 0.4758897232751635,
+        "correlation": 0.2033960048890746,
+        "double_fault": 0.051500000000000004,
+        "entropy": 0.428221017634409,
+        "kw_variance": 0.08440000000000002,
+        "ensemble_accuracy": 0.92,
+        "avg_individual_accuracy": 0.843,
+        "improvement": 0.07700000000000007
+      }
+    },
+    "diversity_levels": {
+      "status": "passed",
+      "time": 0.024174928665161133,
+      "result": {
+        "disagreements": [
+          0.1565,
+          0.312,
+          0.267
+        ],
+        "improvements": [
+          0.02400000000000002,
+          0.1140000000000001,
+          0.11099999999999988
+        ],
+        "correlation_positive": true
+      }
+    },
+    "construction": {
+      "status": "passed",
+      "time": 0.04775714874267578,
+      "result": {
+        "selected_models": [
+          4,
+          1,
+          7,
+          8,
+          5
+        ],
+        "ensemble_accuracy": 0.925
+      }
+    }
+  },
+  "7. Curriculum Diversity": {
+    "facility_location": {
+      "status": "passed",
+      "time": 0.038333892822265625,
+      "result": {
+        "n_selected": 50,
+        "coverage": 1380.253059670595,
+        "diversity": 4.461324960552534
+      }
+    },
+    "stratified": {
+      "status": "passed",
+      "time": 0.007596015930175781,
+      "result": {
+        "n_selected": 50,
+        "class_balance": {
+          "0": 0.2,
+          "1": 0.2,
+          "2": 0.2,
+          "3": 0.2,
+          "4": 0.2
+        },
+        "max_imbalance": 0.0
+      }
+    },
+    "deduplication": {
+      "status": "passed",
+      "time": 0.0017669200897216797,
+      "result": {
+        "kept": 100,
+        "removed": 20,
+        "reduction": 0.16666666666666666
+      }
+    },
+    "coreset": {
+      "status": "passed",
+      "time": 0.00023674964904785156,
+      "result": {
+        "n_centers": 20,
+        "radius": 4.086186731067194
+      }
+    }
+  },
+  "8. Evaluation Metrics": {
+    "coverage_pr": {
+      "status": "passed",
+      "time": 0.008650064468383789,
+      "result": {
+        "diverse_diversity": 2.8185006401986357,
+        "clustered_diversity": 2.547049158746467,
+        "diverse_recall": 0.36,
+        "diverse_ndcd": 0.4805160809553564
+      }
+    },
+    "alpha_ndcg": {
+      "status": "passed",
+      "time": 5.817413330078125e-05,
+      "result": {
+        "diverse_score": 1.0,
+        "redundant_score": 0.9257535956341444
+      }
+    },
+    "subtopic_recall": {
+      "status": "passed",
+      "time": 8.106231689453125e-06,
+      "result": {
+        "full": 1.0,
+        "partial": 0.4
+      }
+    },
+    "diversity_lift": {
+      "status": "passed",
+      "time": 0.002802133560180664,
+      "result": {
+        "selected_diversity": 4.681576525853952,
+        "random_mean": 3.088507832718489,
+        "random_std": 0.23597757554202428,
+        "lift": 1.593068693135463,
+        "normalized_lift": 6.750932538722349,
+        "percentile": 1.0
+      }
+    },
+    "significance": {
+      "status": "passed",
+      "time": 0.10281801223754883,
+      "result": {
+        "observed_diff": 0.40814409553875036,
+        "p_value": 0.0016,
+        "significant": true,
+        "ci_lower": 0.14929030025309342,
+        "ci_upper": 0.6645151208784453,
+        "n_bootstrap": 10000,
+        "effect_size": 0.30769867403661777
+      }
+    },
+    "tradeoff": {
+      "status": "passed",
+      "time": 0.025315284729003906,
+      "result": {
+        "n_curve_points": 10,
+        "n_pareto": 8
+      }
+    }
+  },
+  "9. Adversarial Diversity": {
+    "filter": {
+      "status": "passed",
+      "time": 0.00822591781616211,
+      "result": {
+        "kept": 50,
+        "filtered": 0
+      }
+    },
+    "contrastive": {
+      "status": "passed",
+      "time": 0.005468845367431641,
+      "result": {
+        "selected": 10,
+        "diversity": 4.456375671095385
+      }
+    },
+    "gan": {
+      "status": "passed",
+      "time": 0.006259918212890625,
+      "result": {
+        "generated_shape": [
+          10,
+          10
+        ],
+        "final_d_loss": 1.3696845394928157
+      }
+    },
+    "robustness": {
+      "status": "passed",
+      "time": 0.0011262893676757812,
+      "result": {
+        "original": 2.98062523883016,
+        "perturbed": 2.9723425422842746,
+        "robustness": 0.9972211546631283
+      }
+    },
+    "attack": {
+      "status": "passed",
+      "time": 0.007225751876831055,
+      "result": {
+        "original": 2.3809496022855305,
+        "attacked": 2.3068563050502564,
+        "decrease": 0.07409329723527414
+      }
+    }
+  },
+  "10. Existing Benchmarks": {
+    "dpp": {
+      "status": "passed",
+      "time": 0.0061419010162353516,
+      "result": {
+        "status": "skipped",
+        "reason": "DPPSampler.__init__() got an unexpected keyword argument 'seed'"
+      }
+    },
+    "mmr": {
+      "status": "passed",
+      "time": 0.005549192428588867,
+      "result": {
+        "status": "module_found"
+      }
+    },
+    "submodular": {
+      "status": "passed",
+      "time": 0.007885932922363281,
+      "result": {
+        "status": "module_found"
+      }
+    },
+    "embedding": {
+      "status": "passed",
+      "time": 0.03434324264526367,
+      "result": {
+        "status": "module_found"
+      }
+    },
+    "fair": {
+      "status": "passed",
+      "time": 0.012037992477416992,
+      "result": {
+        "status": "skipped",
+        "reason": "cannot import name 'FairDiversitySelector' from 'src.fair_diversity' (/Users/halleyyoung/Documents/div/mathdivergence/pipeline_output/diversity-decoding-arena/implementation/src/fair_diversity.py)"
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 43,
+    "passed": 43,
+    "failed": 0,
+    "total_time": 3.173858165740967
+  }
+}
