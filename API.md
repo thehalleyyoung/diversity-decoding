@@ -235,3 +235,73 @@ results = searcher.search(n_trials=50)
 analyzer = FairSelectionWorstCase(seed=42)
 frontier = analyzer.pareto_frontier(n=200, d=50, k=20)
 ```
+
+## Theorem Bounds (NEW)
+
+```python
+from src.theorem_bounds import (
+    tau_lower_bound,
+    tau_lower_bound_with_overlap,
+    sample_complexity_for_epsilon,
+    epsilon_concentration_bound,
+    verify_bound_random_instances,
+    compute_theorem_bounds,
+    construct_tightness_instance,
+)
+
+# Tight bound: |τ| ≥ 1 - 2(ε₁ + ε₂)
+lb = tau_lower_bound(0.025, 0.025)  # 0.9
+
+# With overlap: |τ| ≥ 1 - 2(ε₁ + ε₂ - 2c)
+lb_o = tau_lower_bound_with_overlap(0.1, 0.1, overlap_fraction=0.05)
+
+# Sample complexity for estimating ε to ±0.01 with 95% confidence
+n = sample_complexity_for_epsilon(0.05, delta=0.05, margin=0.01)  # 18445
+
+# Verify bound on random instances
+result = verify_bound_random_instances(n_instances=200, n_items=20)
+
+# Full bounds computation
+bounds = compute_theorem_bounds(eps1=0.025, eps2=0.025, n_items=13)
+```
+
+## Embedding Sensitivity Analysis (NEW)
+
+```python
+from src.embedding_sensitivity import (
+    run_sensitivity_analysis,
+    epd_with_kernel,
+    vendi_score_with_kernel,
+    KERNELS,
+)
+
+# EPD with specific kernel
+epd = epd_with_kernel(embeddings, kernel_name='rbf', bandwidth=1.0)
+
+# Vendi Score with specific kernel
+vs = vendi_score_with_kernel(embeddings, kernel_name='cosine')
+
+# Full sensitivity analysis across 5 kernels × 4 bandwidths
+result = run_sensitivity_analysis(embeddings_list, seed=42)
+print(result.summary['recommendation'])
+```
+
+## CLI Interface (NEW)
+
+```bash
+# Compute diversity metrics
+python3 -m src.cli.divflow metrics --texts "text1" "text2" "text3"
+python3 -m src.cli.divflow metrics --file texts.txt -o results.json
+
+# Select diverse subset
+python3 -m src.cli.divflow select --n 200 --k 10 --method farthest_point
+
+# Benchmark all algorithms
+python3 -m src.cli.divflow benchmark --n 200 --k 10 --trials 10
+
+# Cross-model analysis
+python3 -m src.cli.divflow cross-model --n-prompts 10
+
+# Kernel sensitivity
+python3 -m src.cli.divflow sensitivity
+```

@@ -1,0 +1,186 @@
+{
+  "models": [
+    "gpt2",
+    "gpt2-medium",
+    "gpt2-large"
+  ],
+  "n_prompts": 10,
+  "n_per_prompt": 8,
+  "n_temperatures": 5,
+  "per_metric_tau": {
+    "D-2": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.2779,
+          "p_value": 0.00445
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.4708,
+          "p_value": 1e-06
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.4456,
+          "p_value": 5e-06
+        }
+      ],
+      "mean_tau": 0.3981
+    },
+    "D-3": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.294,
+          "p_value": 0.00291
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.3196,
+          "p_value": 0.001156
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.4315,
+          "p_value": 1.4e-05
+        }
+      ],
+      "mean_tau": 0.3484
+    },
+    "Self-BLEU": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 1.0,
+          "p_value": 0.0
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 1.0,
+          "p_value": 0.0
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 1.0,
+          "p_value": 0.0
+        }
+      ],
+      "mean_tau": 1.0
+    },
+    "TTR": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.6817,
+          "p_value": 0.0
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.6991,
+          "p_value": 0.0
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.7329,
+          "p_value": 0.0
+        }
+      ],
+      "mean_tau": 0.7046
+    },
+    "Entropy": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.3054,
+          "p_value": 0.001757
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.2394,
+          "p_value": 0.014243
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.4851,
+          "p_value": 1e-06
+        }
+      ],
+      "mean_tau": 0.3433
+    },
+    "Jaccard": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.284,
+          "p_value": 0.003861
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.3608,
+          "p_value": 0.000231
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.3437,
+          "p_value": 0.000491
+        }
+      ],
+      "mean_tau": 0.3295
+    },
+    "CRD": {
+      "pairwise": [
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-large",
+          "tau": 0.409,
+          "p_value": 2.8e-05
+        },
+        {
+          "model_a": "gpt2",
+          "model_b": "gpt2-medium",
+          "tau": 0.5314,
+          "p_value": 0.0
+        },
+        {
+          "model_a": "gpt2-large",
+          "model_b": "gpt2-medium",
+          "tau": 0.551,
+          "p_value": 0.0
+        }
+      ],
+      "mean_tau": 0.4971
+    },
+    "USR": {
+      "pairwise": [],
+      "mean_tau": 0.0
+    }
+  },
+  "meta_tau": 0.7445,
+  "meta_tau_ci": [
+    0.4284,
+    0.8982
+  ],
+  "n_model_pairs": 3,
+  "taxonomy_transfers": true,
+  "lexical_cluster_mean_tau": 0.5589,
+  "interpretation": "Metric taxonomy transfers across GPT-2 scale variants"
+}

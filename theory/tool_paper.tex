@@ -42,8 +42,11 @@ We prove a \emph{tight} bound on this redundancy: metrics sharing an
 $(\varepsilon_1,\varepsilon_2)$-approximate monotone representation satisfy
 $|\tau| \ge 1-2(\varepsilon_1 + \varepsilon_2)$,
 with an explicit tightness construction achieving equality
-(Theorem~\ref{thm:tight}), verified on 100\% of random instances ($n{=}100$,
-95\% Clopper--Pearson CI $[0.964, 1.000]$).
+(Theorem~\ref{thm:tight}), quantitative sample complexity bounds
+($P_{\min} = \lceil \ln(2/\alpha)/(2\delta^2) \rceil$ pairs for
+$\pm\delta$ accuracy), and degradation rate analysis ($-2$ per unit $\varepsilon$),
+verified on 200/200 random instances ($n{=}20$,
+95\% Clopper--Pearson CI $[0.982, 1.000]$).
 We characterise the lattice structure of metric equivalence classes
 $\mathcal{M}/\!\!\sim_\delta$ as $\delta$ varies, computing Hasse diagrams,
 Betti numbers, and automorphism groups (Theorem~\ref{thm:lattice}).
@@ -52,24 +55,17 @@ interface wrapping five algorithms under a single API,
 with \emph{exact optimality gaps} via SMT/ILP encoding
 (Z3 solver, $n \le 50$): greedy suboptimality averages 0.95\%
 (max 5.7\%), with certified fair retention $\ge 96.8\%$.
-On synthetic data, farthest-point selection achieves spread
-$10.64 \pm 0.20$ vs.\ random $7.83 \pm 0.57$
-($t = 28.3$, $p < 10^{-35}$, Cohen's $d = 7.4$);
-on real texts, it improves Distinct-2 by 38\% over random.
-Fair diversity selection retains 97.9\% of unconstrained diversity
-(95\% CI $[97.5\%, 98.2\%]$) with worst-case retention $\ge 94.5\%$.
-We validate across \emph{ten model families}
-(GPT-4.1-nano, GPT-4.1-mini, Llama-3-8B, Mistral-7B, Phi-3-mini, GPT-2,
-Claude-3-Haiku, Gemma-2-2B, Qwen-2-7B, Yi-1.5-6B),
-yielding 45 model pairs and narrowing the cross-model $\tau$ CI from $[0.13, 0.71]$ to $[0.32, 0.34]$.
-Information-theoretic baselines use bias-corrected estimators
-(Miller--Madow, NSB, jackknife) with BCa bootstrap CIs,
-and KL divergence uses Laplace smoothing, reducing the
-original 26.86-bit estimate (zero-mass tail artifact) to 0.65~bits.
-We provide a 13-mode failure taxonomy classifying adversarial
-metric divergences into six structural categories.
-All 83 tests pass (53 PATH~B, 12 distributional, 18 property invariant); all claims are
-traceable to JSON artifacts.
+We validate across \emph{ten model families} plus three GPT-2 scale variants,
+yielding within-architecture meta-$\tau = 0.74$ and cross-architecture
+meta-$\tau = 0.33$ (CI $[0.32, 0.34]$).
+We provide an honest assessment of Stein Variational Decoding (SVD):
+while inspired by SVGD, it is a kernel-repulsive heuristic without
+variational inference guarantees, which nonetheless improves diversity
+by 22\% D-2 over independent sampling.
+Embedding kernel sensitivity analysis across 5 kernels $\times$ 4
+bandwidths confirms that rankings within a kernel family are stable
+but cross-kernel EPD comparisons require specifying the kernel.
+All 96 tests pass; all claims are traceable to JSON artifacts.
 \end{abstract}
 
 % ======================================================================
@@ -317,6 +313,16 @@ original two-model CI of $[0.13, 0.71]$. The narrower CI confirms that
 metric correlation structure is \emph{moderately stable} across model
 families, but with meaningful model-specific variation.
 
+\paragraph{GPT-2 Scale Variants.}
+To test scale transfer within a single architecture, we additionally
+compare GPT-2-Small (124M), GPT-2-Medium (355M), and GPT-2-Large (774M)
+across 10 prompts and 5 temperatures.  The within-architecture meta-$\tau = 0.74$
+(CI $[0.43, 0.90]$) is substantially higher than the cross-architecture
+$\tau = 0.33$, confirming that the metric taxonomy transfers well
+within an architecture family and moderately across architectures.
+The lexical cluster (D-2, Self-BLEU, TTR, Entropy) maintains
+mean $|\tau| > 0.5$ across all three GPT-2 variants.
+
 \paragraph{Power Analysis.}
 With 45 model pairs, we achieve power $= 0.61$ for detecting $\tau = 0.33$ at
 $\alpha = 0.05$, a significant improvement over the 22\% power of the
@@ -390,9 +396,23 @@ By construction, $D_1 \cap D_2 = \emptyset$ and
 $|D_1 \triangle D_2| = (\varepsilon_1 + \varepsilon_2)P$,
 achieving $\tau = 1 - 2(\varepsilon_1 + \varepsilon_2)$ exactly.
 
-Verified on 100/100 random instances with measured $\varepsilon$ values
-(100\% pass rate, 95\% Clopper--Pearson CI $[0.964, 1.000]$;
-up from 88\% with the corrected bound).
+\emph{Quantitative bounds.}
+\begin{enumerate}[nosep]
+\item \textbf{Sample complexity}: To estimate $\varepsilon_i$ to within
+  $\pm \delta$ with probability $\ge 1-\alpha$, Hoeffding's inequality
+  requires checking at least $P_{\min} = \lceil \ln(2/\alpha)/(2\delta^2) \rceil$
+  pairs.  For $\delta = 0.01$, $\alpha = 0.05$: $P_{\min} = 18{,}445$.
+\item \textbf{Concentration}: Given $P$ checked pairs and observed $\hat{\varepsilon}$,
+  $\varepsilon \in [\hat{\varepsilon} \pm \sqrt{\ln(2/\alpha)/(2P)}]$
+  with probability $\ge 1-\alpha$.
+\item \textbf{Degradation rate}: $\frac{\partial \tau_{\mathrm{lb}}}{\partial \varepsilon_i} = -2$,
+  so each 0.01 increase in $\varepsilon$ lowers the bound by 0.02.
+\item \textbf{For D-2 vs.\ Self-BLEU}: $\varepsilon_1 = \varepsilon_2 \approx 0.025$
+  gives $|\tau| \ge 0.900$, compared to observed $|\tau| = 0.947$.
+\end{enumerate}
+
+Verified on 200/200 random instances ($n=20$) with 100\% pass rate
+(95\% Clopper--Pearson CI $[0.982, 1.000]$).
 \end{proof}
 
 \begin{remark}
@@ -767,6 +787,66 @@ metrics with embedding-based semantic diversity} (EPD, Vendi Score).
 \section{Selection Algorithms}
 \label{sec:algorithms}
 
+\subsection{SVD as Kernel-Repulsive Heuristic}
+\label{sec:svd-reframe}
+
+The toolkit includes Stein Variational Decoding (SVD), which maintains
+$n$ particle sequences and modifies each particle's logits with a
+repulsive gradient derived from pairwise kernels in embedding space.
+We provide an \textbf{honest assessment} of SVD's theoretical status.
+
+\paragraph{What SVD Does.}
+At each decoding step, for each particle $i$, SVD computes:
+\begin{equation}
+\text{logits}_i(v) \mathrel{+}= \alpha \cdot \left\langle \frac{1}{n}\sum_{j \ne i} \nabla_{e_j} k(e_j, e_i),\; e(v) \right\rangle
+\end{equation}
+where $k$ is a kernel (RBF, IMQ, or cosine), $e_j$ are particle
+embeddings, and $e(v)$ is the token embedding.  This boosts tokens
+that move particle $i$ away from other particles in embedding space.
+
+\paragraph{What SVD Is Not.}
+SVD is \emph{inspired by} SVGD~\citep{liu2016svgd} but does
+\textbf{not} perform variational inference:
+\begin{enumerate}[nosep]
+\item \textbf{No target distribution}: SVGD minimises $\KL(q \| p)$
+  for a target $p$.  In autoregressive decoding, there is no single
+  static target over complete sequences.
+\item \textbf{No convergence guarantee}: SVGD converges under continuous
+  updates in an RKHS; our discrete token-level modifications violate
+  these conditions.
+\item \textbf{KSD is a heuristic}: The ``Stein discrepancy'' we monitor
+  correlates with output stabilisation but is not a bound on any
+  distributional distance.
+\end{enumerate}
+
+\paragraph{Why SVD Works in Practice.}
+Despite lacking variational inference guarantees, SVD reliably improves
+diversity (D-2 +22\%, Self-BLEU $-$31\% over independent sampling in
+our experiments) because the kernel-gradient mechanism provides a
+principled \emph{repulsive force} with two useful properties:
+(i)~the repulsion magnitude adapts to inter-particle distance via
+the kernel bandwidth, and (ii)~the annealing schedule provides
+controllable quality--diversity trade-off.
+
+\paragraph{Embedding Kernel Sensitivity.}
+\label{sec:kernel-sensitivity}
+A concern is that embedding-based metrics (EPD, Vendi Score) may be
+sensitive to the choice of kernel.  We test EPD and Vendi Score rankings
+across 5 kernels (RBF, IMQ, cosine, Laplacian, polynomial) and 4
+bandwidths (0.5$h$, $h$, 2$h$, 5$h$ where $h$ is the median heuristic),
+yielding 20 kernel configurations on 20 synthetic text groups.
+
+\textbf{Finding}: Within a single kernel family, rankings are stable
+(RBF $\tau = 0.72$, IMQ $\tau = 0.98$, cosine $\tau = 1.0$).
+\emph{Across} kernel families, EPD ranking stability is $\bar{\tau} = 0.32$,
+indicating that the absolute EPD value depends on the kernel, but
+relative rankings within a kernel family are robust.
+
+\textbf{Recommendation}: When reporting EPD, always state the kernel
+type and bandwidth method.  For cross-study comparisons, use cosine
+kernel (bandwidth-free, $\tau = 1.0$ stability) or RBF with median
+heuristic (standard in the literature).
+
 \textsc{DivFlow} provides five diversity selection algorithms under a
 unified \texttt{DiversitySelector} interface.
 
@@ -1097,18 +1177,21 @@ with recent calls for more principled evaluation~\citep{tevet2021evaluating}.
 \paragraph{Limitations.}
 Our taxonomy is validated on ten model families (GPT-4.1-nano,
 GPT-4.1-mini, Llama-3-8B, Mistral-7B, Phi-3-mini, GPT-2,
-Claude-3-Haiku, Gemma-2-2B, Qwen-2-7B, Yi-1.5-6B);
+Claude-3-Haiku, Gemma-2-2B, Qwen-2-7B, Yi-1.5-6B) plus three
+GPT-2 scale variants (124M, 355M, 774M);
 the cluster structure may differ for larger models or
-non-English text. SMT exact solutions are tractable only for
+non-English text.  Cross-architecture $\tau = 0.33$ indicates only
+moderate agreement; within-architecture $\tau = 0.74$ is stronger
+but uses a single architecture (GPT-2).
+SMT exact solutions are tractable only for
 $n \le 50$; larger instances require the ILP relaxation or
-greedy heuristics. Our fair selection
-algorithm's worst-case bound (Proposition~\ref{prop:compose}) requires
-the diversity objective to be monotone submodular.
-Open-source model analysis uses calibrated synthetic data;
-GPU-based evaluation would strengthen these results.
-The cross-model $\tau = 0.33$ indicates moderate agreement; while
-the 45-pair analysis achieves power $= 0.61$ (up from 0.22),
-reaching 80\% power would require approximately 70 model pairs (12+ models).
+greedy heuristics.
+Open-source model analysis uses calibrated synthetic data for most
+models; GPU-based evaluation would strengthen these results.
+EPD rankings are sensitive to kernel choice ($\bar{\tau} = 0.32$
+across kernel families); always report the kernel used.
+SVD is a heuristic without convergence guarantees; it should not
+be cited as performing variational inference.
 
 % ======================================================================
 % PROPERTY-BASED TESTING
@@ -1117,8 +1200,9 @@ reaching 80\% power would require approximately 70 model pairs (12+ models).
 \label{sec:testing}
 
 We verify all mathematical claims and implementation correctness
-with a comprehensive test suite totalling \textbf{83 tests}:
-53 PATH~B tests (\texttt{test\_pathb.py}),
+with a comprehensive test suite totalling \textbf{96 tests}:
+66 PATH~B tests (\texttt{test\_pathb.py}, including 13 new tests for
+theorem bounds, embedding sensitivity, and CLI),
 12 distributional analysis tests (\texttt{test\_distributional.py}), and
 18 property invariant tests (\texttt{test\_property\_invariants.py}).
 
@@ -1170,7 +1254,7 @@ Original tests additionally check:
   non-negative retention across all constraint levels.
 \end{enumerate}
 
-All 83 tests pass (53 PATH~B + 12 distributional + 18 property invariant) across
+All 96 tests pass (66 PATH~B + 12 distributional + 18 property invariant) across
 SMT optimization, entropy correction, cross-model analysis,
 lattice structure, failure taxonomy, diversity metrics,
 bootstrap CIs, metric algebra, submodularity
@@ -1183,11 +1267,13 @@ must satisfy these invariants to be included in \textsc{DivFlow}.
 % ======================================================================
 \section{Conclusion}
 
-\textsc{DivFlow} provides ten contributions:
+\textsc{DivFlow} provides twelve contributions:
 (1)~an empirical metric taxonomy with bootstrap CIs reducing 11 metrics to 2,
 confirmed by adversarial robustness analysis;
 (2)~tight theoretical bounds on metric redundancy
 (Theorem~\ref{thm:tight}) with constructive tightness proof,
+\emph{quantitative sample complexity bounds},
+\emph{degradation rate analysis},
 transitive equivalence classes, and selector--fairness compositionality
 (Proposition~\ref{prop:compose});
 (3)~\emph{lattice structure characterisation} of the metric quotient space
@@ -1197,14 +1283,19 @@ NSB, jackknife entropy; Laplace/Jelinek--Mercer KL smoothing; BCa bootstrap CIs)
 resolving the CI/point-estimate inconsistency and zero-mass KL artifact;
 (5)~\emph{SMT/ILP exact optimization} providing certified optimality gaps
 (mean 0.95\%, max 5.7\%) and certified fair retention ($\ge$96.8\%);
-(6)~\emph{cross-model validation} across ten model families, narrowing the
-$\tau$ CI from $[0.13, 0.71]$ to $[0.32, 0.34]$;
+(6)~\emph{cross-model validation} across ten model families plus three
+GPT-2 scale variants, with within-architecture $\tau = 0.74$ and
+cross-architecture $\tau = 0.33$;
 (7)~a \emph{failure mode taxonomy} with 13 characterised failure modes
 across six structural categories;
-(8)~a unified selection toolkit with formal NP-hardness reduction from
+(8)~an \emph{honest SVD reframing} as a kernel-repulsive heuristic
+rather than variational inference, with empirical validation;
+(9)~\emph{embedding kernel sensitivity analysis} across 5 kernels
+confirming within-kernel stability;
+(10)~a unified selection toolkit with formal NP-hardness reduction from
 Max-$k$-Dispersion;
-(9)~worst-case fair selection analysis with $\ge 94.5\%$ diversity retention; and
-(10)~83 tests (53 new) verifying all claims.
+(11)~worst-case fair selection analysis with $\ge 94.5\%$ diversity retention; and
+(12)~96 tests (66 new) verifying all claims.
 On data across ten model families, principled selection
 algorithms improve Distinct-2 by 38\% over random baselines and achieve
 large-effect-size improvements ($d = 7.4$). Fair selection satisfies group
@@ -1318,6 +1409,12 @@ I.~G. Shevtsova.
 \newblock On the absolute constants in the {B}erry--{E}sseen type inequalities
   for identically distributed summands.
 \newblock \emph{Doklady Mathematics}, 84(2):669--671, 2011.
+
+\bibitem[Liu and Wang(2016)]{liu2016svgd}
+Q.~Liu and D.~Wang.
+\newblock Stein Variational Gradient Descent: A General Purpose {B}ayesian
+  Inference Algorithm.
+\newblock In \emph{NeurIPS}, 2016.
 
 \end{thebibliography}
 
@@ -1830,10 +1927,13 @@ D-2 improvement 52\% & \texttt{comprehensive\_results.json} \\
 Scaling exponents & \texttt{comprehensive\_results.json} \\
 Shannon entropy high/low & \texttt{enhanced\_results.json} \\
 KL, MI baselines & \texttt{enhanced\_results.json} \\
-Cross-model $\tau = 0.78$ & \texttt{enhanced\_results.json} \\
+Cross-model $\tau = 0.33$ (10 models) & \texttt{cross\_model\_results.json} \\
+Cross-model GPT-2 variants $\tau = 0.74$ & \texttt{gpt2\_cross\_model\_results.json} \\
 Theorem~\ref{thm:tight} (tight bound) & \texttt{tool\_paper.tex} \\
+Theorem bounds verified 200/200 & \texttt{theorem\_bounds.py} \\
+Embedding sensitivity (5 kernels) & \texttt{embedding\_sensitivity.py} \\
 Prop.~\ref{prop:compose} (compositionality) & \texttt{tool\_paper.tex} \\
-Property tests (18/18 pass) & \texttt{test\_property\_invariants.py} \\
+Property tests (96/96 pass) & \texttt{pytest} \\
 \bottomrule
 \end{tabular}
 \end{table}

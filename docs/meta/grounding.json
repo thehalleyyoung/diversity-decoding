@@ -1,12 +1,13 @@
 {
   "project": "diversity-decoding-arena",
-  "description": "Maps every paper claim to artifact. All experimental claims verified from JSON result files. Theoretical claims in tool_paper.tex. Property tests in test_property_invariants.py, test_distributional.py, and test_pathb.py. PATH B improvements: SMT/ILP encoding, entropy bias correction, cross-model analysis (10 families, 45 pairs), lattice structure, failure taxonomy, information-theoretic baselines (NMI, VI), corrected Theorem 4.1 (100% verified, Clopper-Pearson CI [0.964, 1.000]), corrected Corollary 4.3 (100% verified), Berry-Esseen convergence rate (C₀≤0.4748), submodularity verified beyond n≤8.",
+  "description": "Maps every paper claim to artifact. All experimental claims verified from JSON result files. Theoretical claims in tool_paper.tex. Property tests in test_property_invariants.py, test_distributional.py, and test_pathb.py. PATH B improvements: SMT/ILP encoding, entropy bias correction, cross-model analysis (10 families, 45 pairs + 3 GPT-2 scale variants), lattice structure, failure taxonomy, information-theoretic baselines (NMI, VI), corrected Theorem 4.1 (200/200 verified, Clopper-Pearson CI [0.982, 1.000]) with quantitative sample complexity bounds, SVD reframed as kernel-repulsive heuristic, embedding sensitivity analysis across 5 kernels.",
   "artifacts": {
     "comprehensive_v2": "implementation/experiments/divflow_comprehensive_results/comprehensive_v2_results.json",
     "pathb_results": "implementation/experiments/experiments/pathb_results/",
     "smt_results": "implementation/experiments/experiments/pathb_results/smt_results.json",
     "entropy_results": "implementation/experiments/experiments/pathb_results/entropy_corrected_results.json",
     "cross_model_results": "implementation/experiments/experiments/pathb_results/cross_model_results.json",
+    "gpt2_cross_model_results": "experiments/cross_model_gpt2_results/gpt2_cross_model_results.json",
     "lattice_results": "implementation/experiments/experiments/pathb_results/lattice_results.json",
     "failure_taxonomy_results": "implementation/experiments/experiments/pathb_results/failure_taxonomy_results.json",
     "math_rigor_results": "implementation/experiments/experiments/pathb_results/math_rigor_results.json",
@@ -20,6 +21,10 @@
     "failure_taxonomy_module": "implementation/src/failure_taxonomy.py",
     "adversarial_module": "implementation/src/adversarial_analysis.py",
     "distributional_module": "implementation/src/distributional_analysis.py",
+    "theorem_bounds_module": "src/theorem_bounds.py",
+    "embedding_sensitivity_module": "src/embedding_sensitivity.py",
+    "divflow_cli": "src/cli/divflow.py",
+    "cross_model_gpt2_experiment": "experiments/run_cross_model_gpt2.py",
     "paper": "theory/tool_paper.tex"
   },
   "claims": [
@@ -48,106 +53,58 @@
       "artifact": "implementation/experiments/divflow_comprehensive_results/comprehensive_v2_results.json"
     },
     {
-      "claim": "Worst-case fair retention ≥ 94.5% across all constraint levels",
+      "claim": "Theorem 4.1: Tight bound |τ| ≥ 1 - 2(ε₁ + ε₂) with quantitative sample complexity and degradation rate",
+      "type": "theoretical",
+      "evidence": "Proof in paper Section 3.5; verified 200/200 random instances (Clopper-Pearson 95% CI [0.982, 1.000]); sample complexity P_min = ceil(ln(2/α)/(2δ²)); degradation rate -2 per unit ε",
+      "artifact": "theory/tool_paper.tex, src/theorem_bounds.py"
+    },
+    {
+      "claim": "SVD is a kernel-repulsive heuristic, NOT variational inference",
+      "type": "theoretical",
+      "evidence": "Module docstring in src/algorithms/svd.py explicitly documents: no target distribution, no convergence guarantee, KSD is heuristic diagnostic",
+      "artifact": "src/algorithms/svd.py"
+    },
+    {
+      "claim": "Cross-model meta τ = 0.33 (95% CI [0.32, 0.34]) across 10 model families (45 pairs)",
       "type": "empirical",
-      "evidence": "comprehensive_v2_results.json → worst_case_fair.worst_case_retention (min=0.945)",
-      "artifact": "implementation/experiments/divflow_comprehensive_results/comprehensive_v2_results.json"
+      "evidence": "pathb_results/cross_model_results.json → meta_tau=0.3317",
+      "artifact": "implementation/experiments/experiments/pathb_results/cross_model_results.json"
     },
     {
-      "claim": "Theorem 4.1: Tight bound |τ| ≥ 1 - 2(ε₁ + ε₂) with constructive tightness proof",
-      "type": "theoretical",
-      "evidence": "Proof in paper Section 3.5; corrected from incorrect ε₁ε₂ term; tightness verified in test_distributional.py; 100/100 pass rate (Clopper-Pearson 95% CI [0.964, 1.000])",
-      "artifact": "theory/tool_paper.tex"
+      "claim": "Within-architecture GPT-2 meta τ = 0.74 (CI [0.43, 0.90]) across 3 scale variants",
+      "type": "empirical",
+      "evidence": "gpt2_cross_model_results.json → meta_tau=0.7445",
+      "artifact": "experiments/cross_model_gpt2_results/gpt2_cross_model_results.json"
     },
     {
-      "claim": "Corollary 4.3: metric equivalence classes are transitive when ε < δ/4",
-      "type": "theoretical",
-      "evidence": "Corollary in paper; verified 50/50 (100%) using measured pair-level ε values; bug fixed: element-level swaps replaced with pair-level discordance measurement",
-      "artifact": "theory/tool_paper.tex"
-    },
-    {
-      "claim": "Berry-Esseen convergence rate: |P(Zₙ ≤ t) - Φ(t)| ≤ 0.4748/√n (Shevtsova 2011)",
-      "type": "theoretical",
-      "evidence": "Proposition in paper; implemented in distributional_analysis.berry_esseen_kendall_tau(); Gaussian reliable at n≥8",
-      "artifact": "implementation/src/distributional_analysis.py"
-    },
-    {
-      "claim": "Proposition: Selector-fairness compositionality preserves (1-1/e) approximation",
-      "type": "theoretical",
-      "evidence": "Proposition 4.6 in paper",
-      "artifact": "theory/tool_paper.tex"
+      "claim": "Embedding sensitivity: within-kernel EPD rankings stable, cross-kernel τ = 0.32",
+      "type": "empirical",
+      "evidence": "embedding_sensitivity.py → epd_ranking_stability.mean_cross_kernel_tau=0.32",
+      "artifact": "src/embedding_sensitivity.py"
     },
     {
       "claim": "SMT/ILP exact optimality gaps: greedy suboptimal in 16.7% of instances, mean gap 0.95%, max gap 5.72%",
       "type": "empirical",
-      "evidence": "pathb_results/smt_results.json → summary.suboptimal_pct=16.7, mean_gap_pct=0.95, max_gap_pct=5.72",
-      "artifact": "implementation/experiments/experiments/pathb_results/smt_results.json"
-    },
-    {
-      "claim": "Certified fair retention ≥ 96.8% (mean 98.8%) via SMT exact solution",
-      "type": "empirical",
-      "evidence": "pathb_results/smt_results.json → summary.worst_retention=0.968, mean_retention=0.988",
+      "evidence": "pathb_results/smt_results.json",
       "artifact": "implementation/experiments/experiments/pathb_results/smt_results.json"
     },
     {
       "claim": "Miller-Madow corrected entropy: high-diversity H_MM=9.81 bits (MLE bias +0.61 bits)",
       "type": "empirical",
-      "evidence": "pathb_results/entropy_corrected_results.json → shannon_entropy.high_diversity.miller_madow=9.8146",
+      "evidence": "pathb_results/entropy_corrected_results.json",
       "artifact": "implementation/experiments/experiments/pathb_results/entropy_corrected_results.json"
     },
     {
-      "claim": "KL divergence reduced from 23.03 bits (raw) to 0.65 bits (Laplace smoothed) — 97.2% reduction due to zero-mass tail domination",
+      "claim": "KL divergence reduced from 23.03 bits to 0.65 bits (Laplace smoothed)",
       "type": "empirical",
-      "evidence": "pathb_results/entropy_corrected_results.json → kl_divergence.raw=23.03, laplace_smoothed=0.645",
+      "evidence": "pathb_results/entropy_corrected_results.json",
       "artifact": "implementation/experiments/experiments/pathb_results/entropy_corrected_results.json"
     },
     {
-      "claim": "BCa bootstrap CI [8.57, 11.06] contains point estimate 9.81 — fixes CI/point-estimate inconsistency",
-      "type": "empirical",
-      "evidence": "pathb_results/entropy_corrected_results.json → shannon_entropy.high_diversity.ci_lower=8.5653, ci_upper=11.0639, miller_madow=9.8146",
-      "artifact": "implementation/experiments/experiments/pathb_results/entropy_corrected_results.json"
-    },
-    {
-      "claim": "Cross-model meta τ = 0.33 (95% CI [0.32, 0.34]) across 10 model families (45 pairs), power = 0.61",
-      "type": "empirical",
-      "evidence": "pathb_results/cross_model_results.json → meta_tau=0.3317, meta_tau_ci=[0.3226, 0.3407], n_model_pairs=45, power=0.6079",
-      "artifact": "implementation/experiments/experiments/pathb_results/cross_model_results.json"
-    },
-    {
-      "claim": "MetricAlgebra M/~_δ forms lattice at δ=0.3 with β₀=5, β₁=0, 2 automorphisms",
-      "type": "empirical",
-      "evidence": "pathb_results/lattice_results.json → is_lattice_at_0.3=true, betti_numbers=[5,0,0], n_automorphisms=2",
-      "artifact": "implementation/experiments/experiments/pathb_results/lattice_results.json"
-    },
-    {
-      "claim": "13 failure modes across 6 categories (5 high severity) with structural causes and mitigations",
-      "type": "empirical",
-      "evidence": "pathb_results/failure_taxonomy_results.json → total_failure_modes=13, categories=6, severity.high=5",
-      "artifact": "implementation/experiments/experiments/pathb_results/failure_taxonomy_results.json"
-    },
-    {
-      "claim": "NP-hardness of fair diversity selection by reduction from Max-k-Dispersion (Hassin, Rubinstein, Tamir 1997)",
-      "type": "theoretical",
-      "evidence": "pathb_results/math_rigor_results.json → np_hardness.reduction",
-      "artifact": "implementation/experiments/experiments/pathb_results/math_rigor_results.json"
-    },
-    {
-      "claim": "Sum-pairwise-distance is NOT submodular in general",
-      "type": "theoretical",
-      "evidence": "Verified in test_distributional.py::TestSubmodularityVerifier",
-      "artifact": "implementation/tests/test_distributional.py"
-    },
-    {
-      "claim": "Facility-location IS submodular (exhaustive for n≤8; random sampling with Clopper-Pearson CI for n>8)",
-      "type": "theoretical",
-      "evidence": "Verified in test_distributional.py and test_pathb.py::test_submodularity_beyond_n8",
-      "artifact": "implementation/tests/test_pathb.py"
-    },
-    {
-      "claim": "Tests: 83/83 pass (53 PATH B, 12 distributional, 18 property invariant)",
+      "claim": "Tests: 96/96 pass (66 PATH B, 12 distributional, 18 property invariant)",
       "type": "testing",
-      "evidence": "pytest tests/test_pathb.py tests/test_distributional.py tests/test_property_invariants.py → 83 passed",
-      "artifact": "implementation/tests/"
+      "evidence": "pytest tests/test_pathb.py tests/test_distributional.py tests/test_property_invariants.py → 96 passed",
+      "artifact": "tests/"
     }
   ]
 }

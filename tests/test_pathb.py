@@ -658,3 +658,139 @@ class TestPathBIntegration:
         assert result["method"].startswith("random_sampling")
         assert result["n_checked"] > 0
         assert "violation_rate_ci_95" in result
+
+
+# ---------------------------------------------------------------------------
+# Theorem Bounds Tests (new)
+# ---------------------------------------------------------------------------
+
+class TestTheoremBounds:
+    """Test quantitative bounds from Theorem 4.1."""
+
+    def test_tau_lower_bound_basic(self):
+        from src.theorem_bounds import tau_lower_bound
+        # eps1 = eps2 = 0 → τ ≥ 1
+        assert tau_lower_bound(0.0, 0.0) == 1.0
+        # eps1 = eps2 = 0.025 → τ ≥ 0.9
+        assert abs(tau_lower_bound(0.025, 0.025) - 0.9) < 1e-10
+        # eps1 = eps2 = 0.25 → τ ≥ 0
+        assert abs(tau_lower_bound(0.25, 0.25) - 0.0) < 1e-10
+
+    def test_tau_lower_bound_with_overlap(self):
+        from src.theorem_bounds import tau_lower_bound_with_overlap
+        # With overlap, bound should be tighter (higher)
+        lb_no_overlap = 1 - 2 * (0.1 + 0.1)
+        lb_with_overlap = tau_lower_bound_with_overlap(0.1, 0.1, 0.05)
+        assert lb_with_overlap > lb_no_overlap
+
+    def test_sample_complexity(self):
+        from src.theorem_bounds import sample_complexity_for_epsilon
+        n = sample_complexity_for_epsilon(0.05, delta=0.05, margin=0.01)
+        assert n > 0
+        assert n >= 100  # Should need at least 100 pairs
+
+    def test_concentration_bound(self):
+        from src.theorem_bounds import epsilon_concentration_bound
+        lo, hi = epsilon_concentration_bound(100, 0.05, delta=0.05)
+        assert lo >= 0.0
+        assert hi <= 1.0
+        assert lo <= 0.05 <= hi
+
+    def test_verify_200_instances(self):
+        from src.theorem_bounds import verify_bound_random_instances
+        result = verify_bound_random_instances(n_instances=100, n_items=15)
+        assert result["pass_rate"] >= 0.95  # At least 95% should pass
+        assert result["clopper_pearson_95_ci"][0] >= 0.0
+        assert result["clopper_pearson_95_ci"][1] <= 1.0
+
+    def test_tightness_construction(self):
+        from src.theorem_bounds import construct_tightness_instance
+        tight = construct_tightness_instance(n=30, eps1=0.1, eps2=0.1)
+        assert tight.bound_holds, f"Bound violated: τ={tight.actual_tau}, lb={tight.predicted_tau_lb}"
+
+    def test_compute_bounds(self):
+        from src.theorem_bounds import compute_theorem_bounds
+        bounds = compute_theorem_bounds(eps1=0.025, eps2=0.025, n_items=13)
+        assert bounds.tau_lower_bound == 0.9
+        assert bounds.sample_complexity_for_eps > 0
+        assert bounds.degradation_rate == -4.0
+
+
+# ---------------------------------------------------------------------------
+# Embedding Sensitivity Tests (new)
+# ---------------------------------------------------------------------------
+
+class TestEmbeddingSensitivity:
+    """Test embedding kernel sensitivity analysis."""
+
+    def test_epd_with_kernel(self):
+        from src.embedding_sensitivity import epd_with_kernel
+        rng = np.random.RandomState(42)
+        X = rng.randn(10, 20)
+        epd_rbf = epd_with_kernel(X, 'rbf', 1.0)
+        epd_cos = epd_with_kernel(X, 'cosine', 1.0)
+        assert 0 <= epd_rbf <= 2.0
+        assert 0 <= epd_cos <= 2.0
+
+    def test_vendi_with_kernel(self):
+        from src.embedding_sensitivity import vendi_score_with_kernel
+        rng = np.random.RandomState(42)
+        X = rng.randn(10, 20)
+        vs = vendi_score_with_kernel(X, 'rbf', 1.0)
+        assert vs >= 1.0  # Vendi score ≥ 1
+
+    def test_sensitivity_analysis_runs(self):
+        from src.embedding_sensitivity import run_sensitivity_analysis
+        result = run_sensitivity_analysis([], seed=42)
+        assert result.n_kernels == 5
+        assert result.n_texts > 0
+        assert "EPD_cross_kernel" in result.tau_stability
+        assert "recommendation" in result.summary
+
+    def test_kernel_implementations(self):
+        from src.embedding_sensitivity import KERNELS
+        rng = np.random.RandomState(42)
+        X = rng.randn(5, 10)
+        for name, fn in KERNELS.items():
+            K = fn(X, 1.0)
+            assert K.shape == (5, 5), f"Kernel {name} shape mismatch"
+            # Diagonal should be max (similarity with self)
+            for i in range(5):
+                assert K[i, i] >= K[i, (i + 1) % 5] - 0.01, \
+                    f"Kernel {name}: diagonal not max"
+
+
+# ---------------------------------------------------------------------------
+# CLI Tests (new)
+# ---------------------------------------------------------------------------
+
+class TestDivFlowCLI:
+    """Test the simplified DivFlow CLI."""
+
+    def test_metrics_command(self):
+        import subprocess
+        result = subprocess.run(
+            ["python3", "-m", "src.cli.divflow", "metrics",
+             "--texts", "Hello world", "Goodbye world", "Hi there"],
+            capture_output=True, text=True, timeout=30,
+            cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            env={**os.environ, "PYTHONPATH": os.path.dirname(os.path.dirname(os.path.abspath(__file__)))},
+        )
+        assert result.returncode == 0
+        assert "D-2" in result.stdout
+
+    def test_select_command(self):
+        import subprocess
+        result = subprocess.run(
+            ["python3", "-m", "src.cli.divflow", "select",
+             "--n", "50", "--k", "5", "--method", "farthest_point"],
+            capture_output=True, text=True, timeout=30,
+            cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            env={**os.environ, "PYTHONPATH": os.path.dirname(os.path.dirname(os.path.abspath(__file__)))},
+        )
+        assert result.returncode == 0
+        assert "Selected 5 items" in result.stdout
+
+
+# Need os import for CLI tests
+import os

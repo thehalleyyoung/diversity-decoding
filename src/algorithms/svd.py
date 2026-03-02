@@ -1,30 +1,46 @@
 """
-Stein Variational Decoding (SVD) — a novel decoding algorithm that adapts
-Stein Variational Gradient Descent (SVGD) to autoregressive text generation.
+Kernel-Repulsive Particle Decoding (KRPD) — a diverse decoding algorithm
+that maintains *n* particle sequences, repelling them from each other in
+embedding space via kernel gradients to encourage diversity.
 
-The core idea: maintain *n* particle sequences that are simultaneously
-attracted to high-probability regions of the language model distribution
-and repelled from each other in embedding space.  This produces a set of
-diverse, high-quality generations in a principled way.
+**Honest framing**: This algorithm is *inspired by* Stein Variational
+Gradient Descent (SVGD; Liu & Wang 2016), but does **not** perform
+variational inference in any formal sense.  Specifically:
 
-Key equation (SVD Logit Modification):
+1. **No target distribution**: SVGD minimises KL(q || p) for a target p.
+   In autoregressive decoding, there is no single static target distribution
+   over complete sequences — the distribution is built token-by-token.
+   We do not define or approximate any target.
 
-    logits_i(v) = log p(v | y^i_{1:t})
-                  + α · Σ_{j≠i} ∇_{e_i} k(e_i, e_j) · (e(v) - e_i)
+2. **No convergence guarantee**: SVGD converges to the target under
+   conditions (Stein operator in RKHS, continuous updates).  Our discrete
+   token-level modifications violate these conditions.  The "Stein
+   discrepancy" we monitor is a heuristic diagnostic, not a bound on
+   distributional distance.
 
-Key equation (SVGD Update Rule):
+3. **What we actually do**: At each step, for each particle i, we compute
+   a *repulsive gradient* from the kernel between particle embeddings:
+       g_i = (1/n) Σ_{j≠i} ∇_{e_j} k(e_j, e_i)
+   This gradient is projected onto the token vocabulary and added to logits:
+       logits_i(v) += α · ⟨g_i, e(v)⟩
+   The effect is to boost tokens that move particle i *away* from other
+   particles in embedding space, producing diverse outputs.
 
-    x_i ← x_i + ε · (1/n) · Σ_j [ k(x_j, x_i) · ∇_{x_j} log p(x_j)
-                                    + ∇_{x_j} k(x_j, x_i) ]
+4. **Empirical properties**: The algorithm reliably produces more diverse
+   outputs than independent sampling (verified by D-2, EPD, Self-BLEU).
+   The annealing schedule for α provides a quality–diversity trade-off.
+   Convergence of the KSD diagnostic correlates with output stabilisation
+   but is not a formal convergence certificate.
 
-The first (attractive) term drives particles toward high-probability modes;
-the second (repulsive) term pushes particles apart, preventing mode collapse.
+We retain the name "Stein Variational Decoding" for continuity with
+the codebase, but users should understand it as a kernel-repulsive
+heuristic, not a variational inference method.
 
 References
 ----------
-- Liu & Wang (2016), "Stein Variational Gradient Descent: A General Purpose
-  Bayesian Inference Algorithm", NeurIPS.
-- Stein Discrepancy literature (Gorham & Mackey, 2017).
+- Liu & Wang (2016), "Stein Variational Gradient Descent", NeurIPS.
+  (Inspiration for the kernel-gradient mechanism, not a direct application.)
+- Gorham & Mackey (2017), Stein discrepancy diagnostics.
 """
 
 from __future__ import annotations
@@ -864,15 +880,17 @@ class SVDConvergenceMonitor:
     # -- queries ------------------------------------------------------------
 
     def stein_discrepancy(self) -> float:
-        """Return the most recent kernelised Stein discrepancy.
+        """Return the most recent kernelised Stein discrepancy (KSD) proxy.
 
-        The KSD measures how far the empirical particle distribution is from
-        the target (model) distribution.  As particles converge, KSD → 0.
+        **Caveat**: This is a heuristic diagnostic that correlates with
+        particle stabilisation.  It is NOT a formal bound on distributional
+        distance because autoregressive decoding violates SVGD convergence
+        conditions (discrete updates, no static target distribution).
 
         Returns
         -------
         float
-            Most recent KSD value (0.0 if no steps recorded).
+            Most recent KSD proxy value (0.0 if no steps recorded).
         """
         if not self._stein_discrepancy_history:
             return 0.0
@@ -1058,12 +1076,14 @@ class SVDConvergenceMonitor:
 
 
 class SteinVariationalDecoding(DecodingAlgorithm):
-    """Stein Variational Decoding (SVD).
+    """Stein Variational Decoding (SVD) — Kernel-Repulsive Particle Decoding.
 
-    Adapts Stein Variational Gradient Descent to autoregressive text
-    generation.  The algorithm maintains *n* particle sequences and at each
-    step modifies each particle's next-token logits with a repulsive term
-    derived from the pairwise kernel between particle embeddings.
+    Maintains *n* particle sequences and at each step modifies each
+    particle's next-token logits with a repulsive term derived from the
+    pairwise kernel between particle embeddings.
+
+    **Important**: Despite the name, this is a kernel-repulsive heuristic,
+    not a variational inference method.  See module docstring for details.
 
     **Algorithm outline (per step)**:
 
@@ -1073,14 +1093,14 @@ class SteinVariationalDecoding(DecodingAlgorithm):
        the embeddings.
     3. For each particle *i*:
        a. Obtain base logits from the language model.
-       b. Compute the SVGD repulsive gradient:
-          ``g_i = (1/n) Σ_j ∇_{e_j} k(e_j, e_i)``
+       b. Compute the repulsive gradient:
+          ``g_i = (1/n) Σ_{j≠i} ∇_{e_j} k(e_j, e_i)``
        c. Project the gradient onto the vocabulary via inner products with
           token embeddings.
        d. Modify logits: ``logits_i += α · projected_gradient``
        e. Sample the next token from the modified distribution.
     4. Anneal α according to the configured schedule.
-    5. Record convergence diagnostics.
+    5. Record convergence diagnostics (heuristic, not formal).
     """
 
     def __init__(self, config: SVDConfig) -> None:
@@ -1124,8 +1144,8 @@ class SteinVariationalDecoding(DecodingAlgorithm):
     @property
     def description(self) -> str:
         return (
-            "Stein Variational Decoding: diverse generation via "
-            "kernel-repulsive particle dynamics in embedding space"
+            "Kernel-Repulsive Particle Decoding: diverse generation via "
+            "kernel-gradient repulsion in embedding space (inspired by SVGD)"
         )
 
     # -- public entry points ------------------------------------------------

@@ -53,7 +53,7 @@ class DPPSelector(DiversitySelector):
         self.gamma = gamma
 
     def select(self, candidates: np.ndarray, k: int, **kwargs) -> Tuple[List[int], Dict[str, Any]]:
-        from dpp_sampler import compute_kernel, DPPSampler
+        from src.dpp_sampler import compute_kernel, DPPSampler
         K = compute_kernel(candidates, kernel=self.kernel, gamma=self.gamma)
         sampler = DPPSampler()
         sampler.fit(K)
@@ -68,7 +68,7 @@ class MMRSelector(DiversitySelector):
         self.lambda_param = lambda_param
 
     def select(self, candidates: np.ndarray, k: int, **kwargs) -> Tuple[List[int], Dict[str, Any]]:
-        from mmr_selector import MMRSelector as _MMR
+        from src.mmr_selector import MMRSelector as _MMR
         query = kwargs.get('query', np.mean(candidates, axis=0))
         mmr = _MMR()
         indices = mmr.select(items=candidates, query=query, k=k,
@@ -83,7 +83,7 @@ class SubmodularSelector(DiversitySelector):
         self.method = method
 
     def select(self, candidates: np.ndarray, k: int, **kwargs) -> Tuple[List[int], Dict[str, Any]]:
-        from submodular_optimizer import SumPairwiseDistanceFunction, SubmodularOptimizer
+        from src.submodular_optimizer import SumPairwiseDistanceFunction, SubmodularOptimizer
         dist_matrix = np.linalg.norm(candidates[:, None] - candidates[None, :], axis=-1)
         f = SumPairwiseDistanceFunction(dist_matrix)
         opt = SubmodularOptimizer()
