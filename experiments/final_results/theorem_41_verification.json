@@ -1,0 +1,258 @@
+{
+  "random_n10": {
+    "n_instances": 200,
+    "n_items": 10,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9817,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.0757,
+    "eps2_mean": 0.0691,
+    "eps1_max": 0.3778,
+    "eps2_max": 0.3778,
+    "n_failures": 0,
+    "failure_details": []
+  },
+  "random_n15": {
+    "n_instances": 200,
+    "n_items": 15,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9817,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.0936,
+    "eps2_mean": 0.0903,
+    "eps1_max": 0.4571,
+    "eps2_max": 0.419,
+    "n_failures": 0,
+    "failure_details": []
+  },
+  "random_n20": {
+    "n_instances": 200,
+    "n_items": 20,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9817,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.118,
+    "eps2_mean": 0.1181,
+    "eps1_max": 0.4316,
+    "eps2_max": 0.3526,
+    "n_failures": 0,
+    "failure_details": []
+  },
+  "random_n30": {
+    "n_instances": 200,
+    "n_items": 30,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9817,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.1233,
+    "eps2_mean": 0.1195,
+    "eps1_max": 0.4092,
+    "eps2_max": 0.3816,
+    "n_failures": 0,
+    "failure_details": []
+  },
+  "random_n50": {
+    "n_instances": 200,
+    "n_items": 50,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9817,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.1173,
+    "eps2_mean": 0.1251,
+    "eps1_max": 0.378,
+    "eps2_max": 0.3486,
+    "n_failures": 0,
+    "failure_details": []
+  },
+  "adversarial": {
+    "n_instances": 200,
+    "n_items": 20,
+    "passes": 200,
+    "pass_rate": 1.0,
+    "all_pass": true,
+    "boundary_instances": 79,
+    "boundary_pass_rate": 1.0
+  },
+  "tightness": [
+    {
+      "n": 20,
+      "eps": 0.01,
+      "tau": 0.978947,
+      "bound": 0.978947,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 20,
+      "eps": 0.05,
+      "tau": 0.894737,
+      "bound": 0.894737,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 20,
+      "eps": 0.1,
+      "tau": 0.894737,
+      "bound": 0.894737,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 20,
+      "eps": 0.15,
+      "tau": 0.894737,
+      "bound": 0.894737,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 30,
+      "eps": 0.01,
+      "tau": 0.963218,
+      "bound": 0.963218,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 30,
+      "eps": 0.05,
+      "tau": 0.931034,
+      "bound": 0.931034,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 30,
+      "eps": 0.1,
+      "tau": 0.931034,
+      "bound": 0.931034,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 30,
+      "eps": 0.15,
+      "tau": 0.931034,
+      "bound": 0.931034,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 50,
+      "eps": 0.01,
+      "tau": 0.960816,
+      "bound": 0.960816,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 50,
+      "eps": 0.05,
+      "tau": 0.959184,
+      "bound": 0.959184,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 50,
+      "eps": 0.1,
+      "tau": 0.959184,
+      "bound": 0.959184,
+      "holds": true,
+      "gap": 0.0
+    },
+    {
+      "n": 50,
+      "eps": 0.15,
+      "tau": 0.959184,
+      "bound": 0.959184,
+      "holds": true,
+      "gap": 0.0
+    }
+  ],
+  "proof_steps": 10,
+  "proof_complete": true,
+  "corollary_43": {
+    "eps_ab": 0.025,
+    "eps_bc": 0.025,
+    "eps_ac_upper": 0.05,
+    "tau_ac_lower_bound": 0.9,
+    "tau_ac_basic_bound": 0.8,
+    "propagation_loss": 0.1,
+    "interpretation": "Transitivity propagates \u03b5: if A~B with \u03b5=0.025 and B~C with \u03b5=0.025, then |\u03c4(A,C)| \u2265 0.900. Total propagation loss: 0.100."
+  },
+  "berry_esseen_n13": {
+    "n": 13,
+    "berry_esseen_bound": 0.181931,
+    "sigma_tau": 0.210142,
+    "variance_tau": 0.04416,
+    "ci_width_95": 0.823756,
+    "berry_esseen_constant": 0.4748,
+    "reliability_thresholds": {
+      "n_for_0.1": 28,
+      "n_for_0.05": 60,
+      "n_for_0.01": 317
+    },
+    "power_vs_zero": null,
+    "interpretation": "For n=13 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.1819. 95% CI width for \u03c4\u0302 is \u00b10.4119."
+  },
+  "berry_esseen_n50": {
+    "n": 50,
+    "berry_esseen_bound": 0.058976,
+    "sigma_tau": 0.09759,
+    "variance_tau": 0.009524,
+    "ci_width_95": 0.382553,
+    "berry_esseen_constant": 0.4748,
+    "reliability_thresholds": {
+      "n_for_0.1": 28,
+      "n_for_0.05": 60,
+      "n_for_0.01": 317
+    },
+    "power_vs_zero": null,
+    "interpretation": "For n=50 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.0590. 95% CI width for \u03c4\u0302 is \u00b10.1913."
+  },
+  "overall_verification": {
+    "all_pass": true,
+    "total_instances_tested": 1200,
+    "tightness_constructions": 12,
+    "tightness_all_hold": true
+  },
+  "large_scale_500": {
+    "n_instances": 500,
+    "n_items": 20,
+    "passes": 500,
+    "pass_rate": 1.0,
+    "clopper_pearson_95_ci": [
+      0.9926,
+      1.0
+    ],
+    "all_pass": true,
+    "eps1_mean": 0.1172,
+    "eps2_mean": 0.1211,
+    "eps1_max": 0.4105,
+    "eps2_max": 0.4105,
+    "n_failures": 0,
+    "failure_details": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "algorithms": {
+    "farthest_point": {
+      "mean_spread": 78.7085,
+      "std_spread": 4.8215,
+      "min_spread": 71.8826,
+      "max_spread": 88.4927
+    },
+    "random": {
+      "mean_spread": 61.8652,
+      "std_spread": 4.8843,
+      "min_spread": 54.301,
+      "max_spread": 69.8921
+    },
+    "greedy_submodular": {
+      "mean_spread": 81.6701,
+      "std_spread": 2.1441,
+      "min_spread": 77.8355,
+      "max_spread": 86.5935
+    }
+  },
+  "n_trials": 20,
+  "n_items": 50,
+  "k": 5,
+  "farthest_vs_random": {
+    "t_statistic": 17.7727,
+    "p_value": 2.0245862742247455e-32,
+    "fp_mean": 77.51,
+    "random_mean": 62.3356,
+    "fp_std": 3.0199,
+    "random_std": 5.1576
+  }
+}

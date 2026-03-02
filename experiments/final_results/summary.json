@@ -1,0 +1,20 @@
+{
+  "total_time_seconds": 202.52,
+  "experiments_run": 9,
+  "experiments_succeeded": 7,
+  "key_claims": {
+    "theorem_41_pass_rate": "100%",
+    "theorem_41_instances_tested": 1200,
+    "n_models": 10,
+    "n_model_pairs": 45,
+    "meta_tau": 0.3317,
+    "meta_tau_ci": [
+      0.3226,
+      0.3407
+    ],
+    "power": 0.6079,
+    "n_equivalence_classes": 8,
+    "redundancy_fraction": 0.0,
+    "nmi_tau_agreement": 0.9643
+  }
+}

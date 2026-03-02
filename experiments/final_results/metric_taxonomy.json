@@ -1,0 +1,339 @@
+{
+  "n_metrics": 8,
+  "n_configs": 100,
+  "equivalence_classes": [
+    [
+      "CRD"
+    ],
+    [
+      "D-2"
+    ],
+    [
+      "D-3"
+    ],
+    [
+      "Entropy"
+    ],
+    [
+      "Jaccard"
+    ],
+    [
+      "Self-BLEU"
+    ],
+    [
+      "TTR"
+    ],
+    [
+      "USR"
+    ]
+  ],
+  "n_equivalence_classes": 8,
+  "quotient_dimension": 8,
+  "is_transitive": true,
+  "tau_matrix": {
+    "CRD_vs_D-2": 0.5428,
+    "CRD_vs_D-3": 0.1559,
+    "CRD_vs_Entropy": 0.0139,
+    "CRD_vs_Jaccard": 0.5021,
+    "CRD_vs_Self-BLEU": NaN,
+    "CRD_vs_TTR": 0.6888,
+    "CRD_vs_USR": NaN,
+    "D-2_vs_D-3": 0.3203,
+    "D-2_vs_Entropy": 0.2359,
+    "D-2_vs_Jaccard": 0.5986,
+    "D-2_vs_Self-BLEU": NaN,
+    "D-2_vs_TTR": 0.4648,
+    "D-2_vs_USR": NaN,
+    "D-3_vs_Entropy": 0.1755,
+    "D-3_vs_Jaccard": 0.1344,
+    "D-3_vs_Self-BLEU": NaN,
+    "D-3_vs_TTR": 0.1389,
+    "D-3_vs_USR": NaN,
+    "Entropy_vs_Jaccard": 0.1638,
+    "Entropy_vs_Self-BLEU": NaN,
+    "Entropy_vs_TTR": 0.0507,
+    "Entropy_vs_USR": NaN,
+    "Jaccard_vs_Self-BLEU": NaN,
+    "Jaccard_vs_TTR": 0.5135,
+    "Jaccard_vs_USR": NaN,
+    "Self-BLEU_vs_TTR": NaN,
+    "Self-BLEU_vs_USR": NaN,
+    "TTR_vs_USR": NaN
+  },
+  "redundant_pairs": 0,
+  "total_pairs": 28,
+  "redundancy_fraction": 0.0,
+  "it_comparison": {
+    "n_pairs": 28,
+    "mean_nmi": 0.1334,
+    "mean_vi": 3.1442,
+    "mean_abs_tau": 0.1728,
+    "redundant_by_tau": 0,
+    "redundant_by_nmi": 0,
+    "tau_nmi_agreement": 28
+  },
+  "lattice_summary": {
+    "n_metrics": 8,
+    "metrics": [
+      "CRD",
+      "D-2",
+      "D-3",
+      "Entropy",
+      "Jaccard",
+      "Self-BLEU",
+      "TTR",
+      "USR"
+    ],
+    "is_lattice_at_0.3": true,
+    "n_automorphisms": 4,
+    "betti_numbers": [
+      8,
+      0,
+      0
+    ],
+    "critical_deltas": [
+      {
+        "delta": 0.3195,
+        "n_classes": 7,
+        "change": 1
+      },
+      {
+        "delta": 0.4226,
+        "n_classes": 6,
+        "change": 1
+      },
+      {
+        "delta": 0.4742,
+        "n_classes": 5,
+        "change": 1
+      },
+      {
+        "delta": 0.6805,
+        "n_classes": 4,
+        "change": 1
+      },
+      {
+        "delta": 0.7837,
+        "n_classes": 3,
+        "change": 1
+      }
+    ],
+    "merge_sequence": [
+      {
+        "delta": 0.311,
+        "metric_a": "CRD",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.3989,
+        "metric_a": "D-2",
+        "metric_b": "Jaccard"
+      },
+      {
+        "delta": 0.4567,
+        "metric_a": "CRD",
+        "metric_b": "D-2"
+      },
+      {
+        "delta": 0.4846,
+        "metric_a": "Jaccard",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.4962,
+        "metric_a": "CRD",
+        "metric_b": "Jaccard"
+      },
+      {
+        "delta": 0.5346,
+        "metric_a": "D-2",
+        "metric_b": "TTR"
+      },
+      {
+        "delta": 0.635,
+        "metric_a": "D-2",
+        "metric_b": "D-3"
+      },
+      {
+        "delta": 0.764,
+        "metric_a": "D-2",
+        "metric_b": "Entropy"
+      },
+      {
+        "delta": 0.8,
+        "metric_a": "D-3",
+        "metric_b": "Entropy"
+      },
+      {
+        "delta": 0.8224,
+        "metric_a": "CRD",
+        "metric_b": "D-3"
+      }
+    ],
+    "filtration_summary": {
+      "delta_0.1": 8,
+      "delta_0.3": 7,
+      "delta_0.5": 5,
+      "delta_0.7": 4,
+      "delta_0.9": 3
+    },
+    "hasse_diagrams": {
+      "0.1": {
+        "n_classes": 8,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "D-2"
+          ],
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Jaccard"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "TTR"
+          ],
+          [
+            "USR"
+          ]
+        ]
+      },
+      "0.2": {
+        "n_classes": 8,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "D-2"
+          ],
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Jaccard"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "TTR"
+          ],
+          [
+            "USR"
+          ]
+        ]
+      },
+      "0.3": {
+        "n_classes": 8,
+        "n_edges": 0,
+        "classes": [
+          [
+            "CRD"
+          ],
+          [
+            "D-2"
+          ],
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Jaccard"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "TTR"
+          ],
+          [
+            "USR"
+          ]
+        ]
+      },
+      "0.5": {
+        "n_classes": 5,
+        "n_edges": 0,
+        "classes": [
+          [
+            "D-3"
+          ],
+          [
+            "Entropy"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "TTR",
+            "Jaccard",
+            "D-2",
+            "CRD"
+          ]
+        ]
+      },
+      "0.7": {
+        "n_classes": 4,
+        "n_edges": 0,
+        "classes": [
+          [
+            "Entropy"
+          ],
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "D-2",
+            "TTR",
+            "Jaccard",
+            "D-3",
+            "CRD"
+          ]
+        ]
+      },
+      "0.9": {
+        "n_classes": 3,
+        "n_edges": 0,
+        "classes": [
+          [
+            "Self-BLEU"
+          ],
+          [
+            "USR"
+          ],
+          [
+            "Entropy",
+            "D-2",
+            "TTR",
+            "Jaccard",
+            "D-3",
+            "CRD"
+          ]
+        ]
+      }
+    }
+  }
+}

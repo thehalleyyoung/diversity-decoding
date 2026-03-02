@@ -1,0 +1,486 @@
+{
+  "metrics": [
+    "CRD",
+    "D-2",
+    "D-3",
+    "Entropy",
+    "Jaccard",
+    "Self-BLEU",
+    "TTR",
+    "USR"
+  ],
+  "comparisons": [
+    {
+      "pair": "CRD_vs_D-2",
+      "kendall_tau": 0.3432,
+      "nmi": 0.2222,
+      "vi": 4.4811,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_D-3",
+      "kendall_tau": -0.1172,
+      "nmi": 0.1419,
+      "vi": 4.2766,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_Entropy",
+      "kendall_tau": -0.109,
+      "nmi": 0.1596,
+      "vi": 4.7687,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_Jaccard",
+      "kendall_tau": 0.4496,
+      "nmi": 0.2314,
+      "vi": 4.3857,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_Self-BLEU",
+      "kendall_tau": 0.3445,
+      "nmi": 0.0128,
+      "vi": 2.9448,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_TTR",
+      "kendall_tau": 0.6928,
+      "nmi": 0.373,
+      "vi": 3.8117,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "CRD_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.9134,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_D-3",
+      "kendall_tau": 0.3496,
+      "nmi": 0.2061,
+      "vi": 3.9048,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_Entropy",
+      "kendall_tau": 0.182,
+      "nmi": 0.1702,
+      "vi": 4.6539,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_Jaccard",
+      "kendall_tau": 0.53,
+      "nmi": 0.2763,
+      "vi": 4.0822,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_Self-BLEU",
+      "kendall_tau": -0.6303,
+      "nmi": 0.0193,
+      "vi": 2.8611,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_TTR",
+      "kendall_tau": 0.2504,
+      "nmi": 0.2007,
+      "vi": 4.8072,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-2_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.8478,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_Entropy",
+      "kendall_tau": 0.1852,
+      "nmi": 0.1545,
+      "vi": 4.0849,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_Jaccard",
+      "kendall_tau": -0.0337,
+      "nmi": 0.1234,
+      "vi": 4.263,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_Self-BLEU",
+      "kendall_tau": -0.9832,
+      "nmi": 0.0494,
+      "vi": 2.0344,
+      "tau_indicates_redundant": true,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_TTR",
+      "kendall_tau": -0.1608,
+      "nmi": 0.1361,
+      "vi": 4.5237,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "D-3_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.0706,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_Jaccard",
+      "kendall_tau": 0.1049,
+      "nmi": 0.1407,
+      "vi": 4.7719,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_Self-BLEU",
+      "kendall_tau": -0.2773,
+      "nmi": 0.0113,
+      "vi": 2.7981,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_TTR",
+      "kendall_tau": -0.1564,
+      "nmi": 0.238,
+      "vi": 4.516,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Entropy_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.7606,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Jaccard_vs_Self-BLEU",
+      "kendall_tau": 0.5462,
+      "nmi": 0.0133,
+      "vi": 2.8242,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Jaccard_vs_TTR",
+      "kendall_tau": 0.4332,
+      "nmi": 0.2449,
+      "vi": 4.4997,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Jaccard_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.7928,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Self-BLEU_vs_TTR",
+      "kendall_tau": 0.2269,
+      "nmi": 0.0147,
+      "vi": 3.188,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "Self-BLEU_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 0.0695,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    },
+    {
+      "pair": "TTR_vs_USR",
+      "kendall_tau": 0.0,
+      "nmi": 0.0,
+      "vi": 3.166,
+      "tau_indicates_redundant": false,
+      "nmi_indicates_redundant": false
+    }
+  ],
+  "nmi_matrix": {
+    "CRD_vs_D-2": 0.2222,
+    "CRD_vs_D-3": 0.1419,
+    "CRD_vs_Entropy": 0.1596,
+    "CRD_vs_Jaccard": 0.2314,
+    "CRD_vs_Self-BLEU": 0.0128,
+    "CRD_vs_TTR": 0.373,
+    "CRD_vs_USR": 0.0,
+    "D-2_vs_D-3": 0.2061,
+    "D-2_vs_Entropy": 0.1702,
+    "D-2_vs_Jaccard": 0.2763,
+    "D-2_vs_Self-BLEU": 0.0193,
+    "D-2_vs_TTR": 0.2007,
+    "D-2_vs_USR": 0.0,
+    "D-3_vs_Entropy": 0.1545,
+    "D-3_vs_Jaccard": 0.1234,
+    "D-3_vs_Self-BLEU": 0.0494,
+    "D-3_vs_TTR": 0.1361,
+    "D-3_vs_USR": 0.0,
+    "Entropy_vs_Jaccard": 0.1407,
+    "Entropy_vs_Self-BLEU": 0.0113,
+    "Entropy_vs_TTR": 0.238,
+    "Entropy_vs_USR": 0.0,
+    "Jaccard_vs_Self-BLEU": 0.0133,
+    "Jaccard_vs_TTR": 0.2449,
+    "Jaccard_vs_USR": 0.0,
+    "Self-BLEU_vs_TTR": 0.0147,
+    "Self-BLEU_vs_USR": 0.0,
+    "TTR_vs_USR": 0.0
+  },
+  "vi_matrix": {
+    "CRD_vs_D-2": 4.4811,
+    "CRD_vs_D-3": 4.2766,
+    "CRD_vs_Entropy": 4.7687,
+    "CRD_vs_Jaccard": 4.3857,
+    "CRD_vs_Self-BLEU": 2.9448,
+    "CRD_vs_TTR": 3.8117,
+    "CRD_vs_USR": 2.9134,
+    "D-2_vs_D-3": 3.9048,
+    "D-2_vs_Entropy": 4.6539,
+    "D-2_vs_Jaccard": 4.0822,
+    "D-2_vs_Self-BLEU": 2.8611,
+    "D-2_vs_TTR": 4.8072,
+    "D-2_vs_USR": 2.8478,
+    "D-3_vs_Entropy": 4.0849,
+    "D-3_vs_Jaccard": 4.263,
+    "D-3_vs_Self-BLEU": 2.0344,
+    "D-3_vs_TTR": 4.5237,
+    "D-3_vs_USR": 2.0706,
+    "Entropy_vs_Jaccard": 4.7719,
+    "Entropy_vs_Self-BLEU": 2.7981,
+    "Entropy_vs_TTR": 4.516,
+    "Entropy_vs_USR": 2.7606,
+    "Jaccard_vs_Self-BLEU": 2.8242,
+    "Jaccard_vs_TTR": 4.4997,
+    "Jaccard_vs_USR": 2.7928,
+    "Self-BLEU_vs_TTR": 3.188,
+    "Self-BLEU_vs_USR": 0.0695,
+    "TTR_vs_USR": 3.166
+  },
+  "tau_matrix": {
+    "CRD_vs_D-2": 0.3432,
+    "CRD_vs_D-3": -0.1172,
+    "CRD_vs_Entropy": -0.109,
+    "CRD_vs_Jaccard": 0.4496,
+    "CRD_vs_Self-BLEU": 0.3445,
+    "CRD_vs_TTR": 0.6928,
+    "CRD_vs_USR": 0.0,
+    "D-2_vs_D-3": 0.3496,
+    "D-2_vs_Entropy": 0.182,
+    "D-2_vs_Jaccard": 0.53,
+    "D-2_vs_Self-BLEU": -0.6303,
+    "D-2_vs_TTR": 0.2504,
+    "D-2_vs_USR": 0.0,
+    "D-3_vs_Entropy": 0.1852,
+    "D-3_vs_Jaccard": -0.0337,
+    "D-3_vs_Self-BLEU": -0.9832,
+    "D-3_vs_TTR": -0.1608,
+    "D-3_vs_USR": 0.0,
+    "Entropy_vs_Jaccard": 0.1049,
+    "Entropy_vs_Self-BLEU": -0.2773,
+    "Entropy_vs_TTR": -0.1564,
+    "Entropy_vs_USR": 0.0,
+    "Jaccard_vs_Self-BLEU": 0.5462,
+    "Jaccard_vs_TTR": 0.4332,
+    "Jaccard_vs_USR": 0.0,
+    "Self-BLEU_vs_TTR": 0.2269,
+    "Self-BLEU_vs_USR": 0.0,
+    "TTR_vs_USR": 0.0
+  },
+  "summary": {
+    "n_pairs": 28,
+    "mean_nmi": 0.1121,
+    "mean_vi": 3.5394,
+    "mean_abs_tau": 0.2538,
+    "redundant_by_tau": 1,
+    "redundant_by_nmi": 0,
+    "tau_nmi_agreement": 27
+  },
+  "berry_esseen": {
+    "n=10": {
+      "n": 10,
+      "berry_esseen_bound": 0.217556,
+      "sigma_tau": 0.248452,
+      "variance_tau": 0.061728,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=10 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.2176. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    },
+    "n=13": {
+      "n": 13,
+      "berry_esseen_bound": 0.181931,
+      "sigma_tau": 0.210142,
+      "variance_tau": 0.04416,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=13 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.1819. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    },
+    "n=20": {
+      "n": 20,
+      "berry_esseen_bound": 0.130893,
+      "sigma_tau": 0.162221,
+      "variance_tau": 0.026316,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=20 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.1309. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    },
+    "n=30": {
+      "n": 30,
+      "berry_esseen_bound": 0.093151,
+      "sigma_tau": 0.128852,
+      "variance_tau": 0.016603,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=30 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.0932. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    },
+    "n=50": {
+      "n": 50,
+      "berry_esseen_bound": 0.058976,
+      "sigma_tau": 0.09759,
+      "variance_tau": 0.009524,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=50 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.0590. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    },
+    "n=100": {
+      "n": 100,
+      "berry_esseen_bound": 0.030729,
+      "sigma_tau": 0.067835,
+      "variance_tau": 0.004602,
+      "berry_esseen_constant": 0.4748,
+      "n_for_gaussian_reliable": 60,
+      "interpretation": "For n=100 items, the CDF of standardized \u03c4\u0302 deviates from Gaussian by at most 0.0307. Gaussian approximation reliable (bound<0.05) for n\u226560."
+    }
+  },
+  "nmi_tau_agreement_rate": 0.9643,
+  "nmi_tau_details": [
+    {
+      "pair": "CRD_vs_D-2",
+      "tau": 0.3432,
+      "nmi": 0.2222,
+      "vi": 4.4811,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_D-3",
+      "tau": -0.1172,
+      "nmi": 0.1419,
+      "vi": 4.2766,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_Entropy",
+      "tau": -0.109,
+      "nmi": 0.1596,
+      "vi": 4.7687,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_Jaccard",
+      "tau": 0.4496,
+      "nmi": 0.2314,
+      "vi": 4.3857,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_Self-BLEU",
+      "tau": 0.3445,
+      "nmi": 0.0128,
+      "vi": 2.9448,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_TTR",
+      "tau": 0.6928,
+      "nmi": 0.373,
+      "vi": 3.8117,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "CRD_vs_USR",
+      "tau": 0.0,
+      "nmi": 0.0,
+      "vi": 2.9134,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "D-2_vs_D-3",
+      "tau": 0.3496,
+      "nmi": 0.2061,
+      "vi": 3.9048,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "D-2_vs_Entropy",
+      "tau": 0.182,
+      "nmi": 0.1702,
+      "vi": 4.6539,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    },
+    {
+      "pair": "D-2_vs_Jaccard",
+      "tau": 0.53,
+      "nmi": 0.2763,
+      "vi": 4.0822,
+      "tau_redundant": false,
+      "nmi_redundant": false,
+      "agreement": true
+    }
+  ]
+}

@@ -1,307 +1,369 @@
 # DivFlow API Reference
 
-## Unified Selector API
+## 1. Unified Selector API
 
-All selection algorithms share the same interface via `DiversitySelector`:
+`src/unified_selector.py`
 
-```python
-from src.unified_selector import get_selector, DiversitySelector
+All selection algorithms implement the `DiversitySelector` abstract base class.
 
-selector = get_selector(name: str, **kwargs) -> DiversitySelector
-```
+### `get_selector(name: str, **kwargs) -> DiversitySelector`
 
-### `DiversitySelector.select(candidates, k, **kwargs)`
+Factory function. Returns a selector by name.
 
-Select k diverse items from candidates.
+### `DiversitySelector` (ABC)
 
-**Parameters:**
-- `candidates` (`np.ndarray`): (n, d) feature matrix
-- `k` (`int`): number of items to select
+#### `select(candidates: np.ndarray, k: int, **kwargs) -> Tuple[List[int], Dict[str, Any]]`
 
-**Returns:**
-- `indices` (`List[int]`): selected item indices
-- `metadata` (`Dict[str, Any]`): algorithm-specific metadata
+Select k diverse items from an (n, d) feature matrix. Returns `(indices, metadata)`.
 
-### Available Selectors
+#### `spread(candidates: np.ndarray, indices: List[int]) -> float`
 
-| Name | Class | Key Parameters |
+Min pairwise distance of selected subset.
+
+#### `sum_distance(candidates: np.ndarray, indices: List[int]) -> float`
+
+Sum of pairwise distances of selected subset.
+
+### Selector Implementations
+
+| Name | Class | Constructor Parameters |
 |---|---|---|
-| `'farthest_point'` | `FarthestPointSelector` | None |
-| `'submodular'` | `SubmodularSelector` | `method='greedy'` or `'stochastic'` |
-| `'dpp'` | `DPPSelector` | `kernel='rbf'`, `gamma=None` |
-| `'mmr'` | `MMRSelector` | `lambda_param=0.5` |
-| `'clustering'` | `ClusteringSelector` | `method='kmedoids'` |
-| `'random'` | `RandomSelector` | None |
+| `'dpp'` | `DPPSelector` | `kernel: str = 'rbf'`, `gamma: Optional[float] = None` |
+| `'mmr'` | `MMRSelector` | `lambda_param: float = 0.5` |
+| `'submodular'` | `SubmodularSelector` | `method: str = 'greedy'` (also `'stochastic'`) |
+| `'clustering'` | `ClusteringSelector` | `method: str = 'kmedoids'` |
+| `'farthest_point'` | `FarthestPointSelector` | — |
+| `'random'` | `RandomSelector` | — |
 
-## SMT/ILP Exact Optimization (NEW)
+---
 
-```python
-from src.smt_diversity import SMTDiversityOptimizer, ILPDiversityOptimizer
+## 2. Cross-Model Analysis API
 
-# Exact solution via Z3 SMT solver (n ≤ 50)
-opt = SMTDiversityOptimizer(timeout_ms=10000)
-result = opt.solve_exact(
-    distance_matrix,          # (n, n) pairwise distances
-    k=5,                      # items to select
-    groups=group_labels,      # (n,) group labels (optional)
-    min_per_group={0: 2, 1: 2},  # fairness constraints
-    objective="sum_pairwise", # or "min_pairwise", "facility_location"
-)
-# result.selected_indices, result.objective_value, result.status
+`src/cross_model_analysis.py`
 
-# Optimality gaps: compare greedy vs exact
-gaps = opt.compute_optimality_gaps(n_values=[8,10,15], k_values=[3,5])
+### `cross_model_analysis(n_prompts: int = 20, n_texts: int = 10, n_configs: int = 5, seed: int = 42) -> Dict`
 
-# Certified fair retention
-certs = opt.certify_fair_retention(D, k, groups, constraint_levels)
+Run cross-model diversity analysis and return JSON-serializable summary.
 
-# NP-hardness witnesses
-witnesses = opt.np_hardness_reduction(n_instances=20)
+### `CrossModelAnalyzer(seed: int = 42)`
 
-# Comprehensive benchmark
-benchmark = opt.run_benchmark(max_n=15, n_trials=5)
+#### `generate_all_model_data(n_prompts: int = 20, n_texts_per_prompt: int = 10, n_configs: int = 5) -> Dict[str, List[Dict]]`
 
-# ILP fallback for larger instances
-selected, obj = ILPDiversityOptimizer.solve_ilp(D, k=10)
-```
+Generate text data for all models across multiple temperature configs. Returns `{model_name: [metric_dicts]}`.
 
-## Bias-Corrected Entropy (NEW)
+#### `compute_metric_rankings(model_data: Dict[str, List[Dict]]) -> Dict[str, Dict[str, np.ndarray]]`
 
-```python
-from src.entropy_correction import (
-    entropy_miller_madow,      # Miller-Madow correction
-    entropy_nsb,               # NSB Bayesian estimator
-    entropy_jackknife,         # Jackknife correction
-    bootstrap_entropy_bca,     # BCa bootstrap CI
-    kl_laplace,                # Laplace-smoothed KL
-    kl_jelinek_mercer,         # Jelinek-Mercer smoothed KL
-    kl_dirichlet,              # Dirichlet prior smoothed KL
-    smoothed_kl_analysis,      # Full KL diagnostic
-    entropy_rate_corrected,    # Corrected entropy rate
-    corrected_info_theory_analysis,  # Full analysis
-)
+Convert metric values to rankings per model. Returns `{model: {metric: rank_array}}`.
 
-# Miller-Madow bias correction
-h_mle, h_mm, bias = entropy_miller_madow(texts, n=2)
+#### `compute_pairwise_tau(rankings: Dict[str, Dict[str, np.ndarray]]) -> List[CrossModelResult]`
 
-# NSB estimator
-h_nsb, h_std = entropy_nsb(texts, n=2)
+Kendall τ between metric rankings across all model pairs, with bootstrap CIs.
 
-# BCa bootstrap CI (fixes CI/point-estimate inconsistency)
-result = bootstrap_entropy_bca(texts, n=2, n_bootstrap=2000)
-# result.miller_madow, result.ci_lower, result.ci_upper, result.ci_method
+#### `meta_correlation(pairwise_results: List[CrossModelResult]) -> Tuple[float, Tuple[float, float], float]`
 
-# KL with proper smoothing (fixes zero-mass tail artifact)
-kl = kl_laplace(texts_a, texts_b, n=2)
-analysis = smoothed_kl_analysis(texts_a, texts_b, n=2)
-# analysis.kl_raw, analysis.kl_laplace, analysis.smoothing_impact
+Fisher z-transform meta-correlation across model pairs. Returns `(mean_tau, (ci_lo, ci_hi), p_value)`.
 
-# Full corrected analysis
-results = corrected_info_theory_analysis(high_texts, low_texts)
-```
+#### `power_analysis(n_model_pairs: int, target_tau: float = 0.5, alpha: float = 0.05) -> Dict[str, float]`
 
-## Cross-Model Analysis (NEW)
+Statistical power analysis for model-invariance claim. Returns dict with `power`, `n_pairs_for_80pct_power`, etc.
 
-```python
-from src.cross_model_analysis import CrossModelAnalyzer, cross_model_analysis
+#### `bayesian_hierarchical(pairwise_results: List[CrossModelResult]) -> Dict[str, float]`
 
-# Full analysis across 10 model families (45 pairs)
-analyzer = CrossModelAnalyzer(seed=42)
-result = analyzer.run_full_analysis(
-    n_prompts=20, n_texts_per_prompt=10, n_configs=5
-)
-# result.meta_tau, result.meta_tau_ci, result.power_analysis
-# result.bayesian_posterior, result.pairwise_results
+Normal-normal conjugate Bayesian model for cross-model τ. Returns `posterior_mean`, `posterior_std`, `credible_interval_95`, `bayes_factor_positive`.
 
-# Quick JSON output
-results = cross_model_analysis(n_prompts=20, n_texts=10)
-```
+#### `run_full_analysis(n_prompts: int = 20, n_texts_per_prompt: int = 10, n_configs: int = 5, use_api: bool = False) -> CrossModelAnalysis`
 
-## Metric Lattice Structure (NEW)
+Run complete analysis. Returns `CrossModelAnalysis` dataclass.
 
-```python
-from src.metric_lattice import MetricLattice, lattice_analysis
+### `SyntheticModelGenerator(seed: int = 42)`
 
-lattice = MetricLattice(metric_values_dict)
-classes = lattice.equivalence_classes(delta=0.3)
-hasse = lattice.hasse_diagram(delta=0.3)
-filtration = lattice.delta_filtration(n_thresholds=50)
-merges = lattice.merge_sequence()
-is_lat = lattice.is_lattice(delta=0.3)
-betti = lattice.betti_numbers(delta=0.3)
-autos = lattice.compute_automorphisms(delta=0.3)
-full = lattice.full_analysis()
+#### `generate_texts(model_name: str, n_texts: int = 10, prompt_seed: int = 0, temperature: float = 0.7) -> List[str]`
 
-# Quick JSON output
-results = lattice_analysis(metric_values_dict)
-```
+Generate synthetic texts calibrated to a model's diversity profile. Supports: `gpt-4.1-nano`, `gpt-4.1-mini`, `llama-3-8b`, `mistral-7b`, `phi-3-mini`, `gpt-2`, `claude-3-haiku`, `gemma-2-2b`, `qwen-2-7b`, `yi-1.5-6b`.
 
-## Failure Mode Taxonomy (NEW)
+### Data Classes
 
-```python
-from src.failure_taxonomy import (
-    build_failure_taxonomy, FailureModeDetector,
-    failure_taxonomy_analysis,
-)
+- **`ModelProfile`** — `name`, `family`, `size_params`, `is_open_source`, `metric_values`, `generation_config`
+- **`CrossModelResult`** — `model_a`, `model_b`, `tau`, `p_value`, `ci_lower`, `ci_upper`, `n_pairs`
+- **`CrossModelAnalysis`** — `model_profiles`, `pairwise_results`, `meta_tau`, `meta_tau_ci`, `meta_tau_p`, `power_analysis`, `bayesian_posterior`, `summary`
 
-# Build taxonomy (13 modes, 6 categories)
-taxonomy = build_failure_taxonomy()
-for mode in taxonomy.modes:
-    print(f"{mode.id}: {mode.name} [{mode.severity.value}]")
-    print(f"  Cause: {mode.structural_cause}")
-    print(f"  Affects: {mode.affected_metrics}")
+---
 
-# Detect failure modes on new texts
-detector = FailureModeDetector(taxonomy)
-detected = detector.detect(my_texts)
-for mode, confidence in detected:
-    print(f"  {mode.id}: {mode.name} (confidence {confidence:.2f})")
-```
+## 3. Theorem Bounds API
 
-## Fair Diversity Selection
+`src/theorem_bounds.py`
 
-```python
-from src.fair_diversity import FairDiverseSelector
+### `tau_lower_bound(eps1: float, eps2: float) -> float`
 
-selector = FairDiverseSelector()
-indices = selector.select(
-    items=embeddings,        # (n, d) features
-    groups=group_labels,     # (n,) integer group labels
-    k=20,
-    min_per_group={0: 2, 1: 2, 2: 2},
-    strategy='group_fair'    # or 'proportional', 'rooney'
-)
-```
+Theorem 4.1 tight bound: `|τ| ≥ 1 − 2(ε₁ + ε₂)`.
 
-## Information-Theoretic Baselines
+### `tau_lower_bound_with_overlap(eps1: float, eps2: float, overlap_fraction: float) -> float`
 
-```python
-from src.metrics.information_theoretic import (
-    shannon_entropy, kl_divergence, symmetric_kl,
-    mutual_information, entropy_rate, bootstrap_entropy_ci,
-)
+Strengthened bound when discordance overlap is known: `|τ| ≥ 1 − 2(ε₁ + ε₂ − 2c)`.
 
-h = shannon_entropy(texts, n=2)           # bits
-kl = kl_divergence(texts_a, texts_b, n=2) # bits
-mi = mutual_information(texts_a, texts_b)  # bits
-rate, cond = entropy_rate(texts, max_order=5)
-ci = bootstrap_entropy_ci(texts, n=2, n_bootstrap=2000)
-```
+### `theorem_41_proof() -> FormalProof`
 
-## Distributional Analysis
+Formal constructive proof of Theorem 4.1. Returns `FormalProof` with `steps: List[ProofStep]`.
 
-```python
-from src.distributional_analysis import (
-    MetricAlgebra, SubmodularityVerifier, PermutationTest,
-    tightness_construction,
-    normalized_mutual_information,  # NMI for metric comparison
-    variation_of_information,       # VI metric distance
-    info_theoretic_metric_comparison,  # Full IT comparison
-    berry_esseen_kendall_tau,       # Berry-Esseen convergence rate
-)
+### `corollary_42_proof() -> FormalProof`
 
-algebra = MetricAlgebra(metric_values_dict, delta=0.3)
-classes = algebra.equivalence_classes()
-summary = algebra.summary()
+Formal proof that under shared ε-monotone representation with ε ≤ 0.025, metrics collapse to one equivalence class.
 
-# Information-theoretic metric comparison (NMI + VI)
-it_results = info_theoretic_metric_comparison(metric_values_dict)
-# it_results['summary']['mean_nmi'], ['redundant_by_nmi']
+### `corollary_43_transitivity_bound(eps_ab: float, eps_bc: float) -> Dict[str, float]`
 
-# Berry-Esseen convergence rate for Kendall τ CLT
-be = berry_esseen_kendall_tau(n=13)
-# be['berry_esseen_bound'], be['n_for_gaussian_reliable']
+Transitivity of ε-redundancy. Returns `eps_ac_upper`, `tau_ac_lower_bound`, `propagation_loss`.
 
-# Submodularity verification (exhaustive n≤8, random sampling n>8)
-verifier = SubmodularityVerifier(f, ground_set_size=n)
-result = verifier.verify_exact()
-# result['is_submodular'], result['violation_rate_ci_95'] (for n>8)
+### `proposition_41_berry_esseen(n: int, tau: float = 0.0) -> Dict[str, Any]`
 
-pt = PermutationTest(n_permutations=10000)
-result = pt.test(x, y)
-```
+Berry-Esseen convergence rate for Kendall τ CLT. Returns `berry_esseen_bound`, `sigma_tau`, `ci_width_95`, `reliability_thresholds`.
 
-## Adversarial Analysis
+### `sample_complexity_for_epsilon(eps: float, delta: float = 0.05, margin: float = 0.01) -> int`
 
-```python
-from src.adversarial_analysis import (
-    AdversarialDivergenceSearch, FairSelectionWorstCase,
-    construct_np_hardness_witness,
-)
+Minimum n to estimate ε within ±margin at confidence 1−δ (Hoeffding).
 
-searcher = AdversarialDivergenceSearch(seed=42)
-results = searcher.search(n_trials=50)
+### `epsilon_concentration_bound(n_pairs: int, observed_eps: float, delta: float = 0.05) -> Tuple[float, float]`
 
-analyzer = FairSelectionWorstCase(seed=42)
-frontier = analyzer.pareto_frontier(n=200, d=50, k=20)
-```
+Hoeffding CI for ε. Returns `(lower, upper)`.
 
-## Theorem Bounds (NEW)
+### `degradation_rate(eps1: float, eps2: float) -> float`
 
-```python
-from src.theorem_bounds import (
-    tau_lower_bound,
-    tau_lower_bound_with_overlap,
-    sample_complexity_for_epsilon,
-    epsilon_concentration_bound,
-    verify_bound_random_instances,
-    compute_theorem_bounds,
-    construct_tightness_instance,
-)
+Rate of τ degradation w.r.t. ε. Returns `−4.0`.
 
-# Tight bound: |τ| ≥ 1 - 2(ε₁ + ε₂)
-lb = tau_lower_bound(0.025, 0.025)  # 0.9
+### `construct_tightness_instance(n: int, eps1: float, eps2: float, seed: int = 42) -> TightnessVerification`
 
-# With overlap: |τ| ≥ 1 - 2(ε₁ + ε₂ - 2c)
-lb_o = tau_lower_bound_with_overlap(0.1, 0.1, overlap_fraction=0.05)
+Construct explicit instance achieving the Theorem 4.1 bound via disjoint swaps.
 
-# Sample complexity for estimating ε to ±0.01 with 95% confidence
-n = sample_complexity_for_epsilon(0.05, delta=0.05, margin=0.01)  # 18445
+### `verify_bound_random_instances(n_instances: int = 100, n_items: int = 20, seed: int = 42) -> Dict[str, Any]`
 
-# Verify bound on random instances
-result = verify_bound_random_instances(n_instances=200, n_items=20)
+Verify Theorem 4.1 on random instances with Clopper-Pearson CI.
 
-# Full bounds computation
-bounds = compute_theorem_bounds(eps1=0.025, eps2=0.025, n_items=13)
-```
+### `verify_bound_adversarial(n_instances: int = 200, n_items: int = 20, max_eps: float = 0.4, seed: int = 42) -> Dict[str, Any]`
 
-## Embedding Sensitivity Analysis (NEW)
+Adversarial verification near the boundary.
 
-```python
-from src.embedding_sensitivity import (
-    run_sensitivity_analysis,
-    epd_with_kernel,
-    vendi_score_with_kernel,
-    KERNELS,
-)
+### `compute_theorem_bounds(eps1: float, eps2: float, n_items: int = 13, overlap_fraction: float = 0.0, delta: float = 0.05) -> TheoremBounds`
 
-# EPD with specific kernel
-epd = epd_with_kernel(embeddings, kernel_name='rbf', bandwidth=1.0)
+Compute all quantitative bounds. Returns `TheoremBounds` dataclass.
 
-# Vendi Score with specific kernel
-vs = vendi_score_with_kernel(embeddings, kernel_name='cosine')
+### `run_comprehensive_verification(seed: int = 42) -> Dict[str, Any]`
 
-# Full sensitivity analysis across 5 kernels × 4 bandwidths
-result = run_sensitivity_analysis(embeddings_list, seed=42)
-print(result.summary['recommendation'])
-```
+Run all verification procedures (random, adversarial, tightness, proofs, Berry-Esseen).
 
-## CLI Interface (NEW)
+### Data Classes
 
-```bash
-# Compute diversity metrics
-python3 -m src.cli.divflow metrics --texts "text1" "text2" "text3"
-python3 -m src.cli.divflow metrics --file texts.txt -o results.json
+- **`TightnessVerification`** — `n`, `eps1`, `eps2`, `predicted_tau_lb`, `actual_tau`, `bound_holds`, `gap`
+- **`TheoremBounds`** — `eps1`, `eps2`, `tau_lower_bound`, `tau_with_overlap`, `overlap_fraction`, `sample_complexity_for_eps`, `concentration_bound`, `degradation_rate`
+- **`ProofStep`** — `step_number`, `statement`, `justification`, `formula`
+- **`FormalProof`** — `theorem_id`, `statement`, `steps`, `qed`
 
-# Select diverse subset
-python3 -m src.cli.divflow select --n 200 --k 10 --method farthest_point
+---
 
-# Benchmark all algorithms
-python3 -m src.cli.divflow benchmark --n 200 --k 10 --trials 10
+## 4. Metric Algebra API
 
-# Cross-model analysis
-python3 -m src.cli.divflow cross-model --n-prompts 10
+`src/distributional_analysis.py`
 
-# Kernel sensitivity
-python3 -m src.cli.divflow sensitivity
-```
+### `MetricAlgebra(metric_values: Dict[str, np.ndarray], delta: float = 0.3)`
+
+Algebraic structure over diversity metrics. Defines equivalence classes where `M₁ ~ M₂ iff |τ(M₁,M₂)| ≥ 1 − δ`.
+
+#### `equivalence_classes() -> List[List[str]]`
+
+Compute equivalence classes via union-find.
+
+#### `verify_transitivity() -> Dict`
+
+Check transitivity of ~. Returns `is_transitive`, `n_violations`, `violations`.
+
+#### `quotient_dimension() -> int`
+
+Number of equivalence classes (dimension of M/~).
+
+#### `summary() -> Dict`
+
+Full algebra summary: classes, τ matrix, transitivity status.
+
+### `normalized_mutual_information(x: np.ndarray, y: np.ndarray, n_bins: int = 10) -> float`
+
+NMI between two metric vectors. Ranges [0, 1]. Captures nonlinear dependencies.
+
+### `variation_of_information(x: np.ndarray, y: np.ndarray, n_bins: int = 10) -> float`
+
+VI distance between two metric vectors. A proper metric on partitions.
+
+### `info_theoretic_metric_comparison(metric_values: Dict[str, np.ndarray], n_bins: int = 10) -> Dict`
+
+Compare metrics using NMI, VI, and Kendall τ. Returns matrices and summary.
+
+### `berry_esseen_kendall_tau(n: int, tau: float = 0.0) -> Dict`
+
+Berry-Esseen convergence rate for Kendall τ. Returns `berry_esseen_bound`, `n_for_gaussian_reliable`.
+
+### `tightness_construction(n: int, eps1: float, eps2: float) -> Dict`
+
+Construct instances achieving the tight Theorem 4.1 bound via disjoint swaps.
+
+### `SubmodularityVerifier(f: Callable, ground_set_size: int)`
+
+#### `verify_exact(max_subsets: int = 2000) -> Dict`
+
+Exhaustive (n ≤ 8) or random-sampling (n > 8) submodularity check. Returns `is_submodular`, `n_violations`, `violation_rate_ci_95`.
+
+### `PermutationTest(n_permutations: int = 10000, seed: int = 42)`
+
+#### `test(x: np.ndarray, y: np.ndarray) -> Dict`
+
+Permutation test for Kendall τ independence. Returns `observed_tau`, `p_value`, `is_significant_05`.
+
+---
+
+## 5. Entropy Correction API
+
+`src/entropy_correction.py`
+
+### `entropy_miller_madow(texts: List[str], n: int = 2) -> Tuple[float, float, float]`
+
+Miller-Madow bias-corrected Shannon entropy. Returns `(H_MLE, H_MM, bias)`.
+
+### `entropy_nsb(texts: List[str], n: int = 2, n_beta: int = 50) -> Tuple[float, float]`
+
+NSB (Nemenman-Shafee-Bialek) Bayesian entropy estimator. Returns `(H_nsb, H_std)`.
+
+### `entropy_jackknife(texts: List[str], n: int = 2) -> Tuple[float, float, float]`
+
+Delete-1 jackknife bias-corrected entropy. Returns `(H_jackknife, H_mle, bias)`.
+
+### `bootstrap_entropy_bca(texts: List[str], n: int = 2, n_bootstrap: int = 2000, confidence: float = 0.95, seed: int = 42, estimator: str = "miller_madow") -> CorrectedEntropyResult`
+
+BCa bootstrap CI for entropy. Returns `CorrectedEntropyResult` with `mle`, `miller_madow`, `jackknife`, `nsb`, `ci_lower`, `ci_upper`, `ci_method`.
+
+### `kl_laplace(texts_p: List[str], texts_q: List[str], n: int = 2) -> float`
+
+KL divergence with Laplace (add-1) smoothing.
+
+### `kl_jelinek_mercer(texts_p: List[str], texts_q: List[str], n: int = 2, lambda_: float = 0.1) -> float`
+
+KL divergence with Jelinek-Mercer interpolation smoothing.
+
+### `kl_dirichlet(texts_p: List[str], texts_q: List[str], n: int = 2, alpha: float = 0.01) -> float`
+
+KL divergence with symmetric Dirichlet prior smoothing.
+
+### `smoothed_kl_analysis(texts_p: List[str], texts_q: List[str], n: int = 2) -> SmoothedKLResult`
+
+Full KL analysis with all smoothing methods. Returns `SmoothedKLResult` with `kl_raw`, `kl_laplace`, `kl_jelinek_mercer`, `kl_dirichlet`, `smoothing_impact`, zero-mass diagnostics.
+
+### `entropy_rate_corrected(texts: List[str], max_order: int = 5) -> EntropyRateCorrected`
+
+Bias-corrected entropy rate with Miller-Madow at each order. Returns `rate`, `conditionals`, `memory_length`, `convergence_diagnostic`.
+
+### `corrected_info_theory_analysis(high_diversity_texts: List[str], low_diversity_texts: List[str], n: int = 2, n_bootstrap: int = 1000, seed: int = 42) -> Dict`
+
+Full bias-corrected information-theoretic analysis. Returns JSON-serializable dict with corrected entropy, smoothed KL, and entropy rate sections.
+
+---
+
+## 6. Lattice Analysis API
+
+`src/metric_lattice.py`
+
+### `lattice_analysis(metric_values: Dict[str, np.ndarray]) -> Dict`
+
+Run lattice analysis and return JSON-serializable summary.
+
+### `MetricLattice(metric_values: Dict[str, np.ndarray])`
+
+#### `equivalence_classes(delta: float) -> List[FrozenSet[str]]`
+
+Equivalence classes at threshold δ via union-find.
+
+#### `hasse_diagram(delta: float) -> HasseDiagram`
+
+Hasse diagram (covering relation) at threshold δ.
+
+#### `delta_filtration(n_thresholds: int = 50) -> List[Tuple[float, int, List[FrozenSet[str]]]]`
+
+How equivalence classes evolve as δ varies from 0.01 to 0.99.
+
+#### `merge_sequence() -> List[Tuple[float, str, str]]`
+
+Sequence of δ values at which metric pairs merge. Sorted ascending.
+
+#### `compute_meet_join(delta: float) -> Tuple[Dict, Dict]`
+
+Meet (∧) and join (∨) tables for equivalence classes.
+
+#### `is_lattice(delta: float) -> bool`
+
+Check if M/~_δ forms a lattice (absorption laws).
+
+#### `compute_automorphisms(delta: float) -> List[Dict[str, str]]`
+
+Automorphism group of the metric equivalence graph (exhaustive, n ≤ 8).
+
+#### `betti_numbers(delta: float, max_dim: int = 3) -> List[int]`
+
+Betti numbers of the Vietoris-Rips complex. β₀ = components, β₁ = 1-holes.
+
+#### `full_analysis(n_thresholds: int = 20) -> LatticeStructure`
+
+Complete analysis: filtration, Hasse diagrams, meet/join, automorphisms, Betti numbers.
+
+### Data Classes
+
+- **`LatticeElement`** — `metrics: FrozenSet[str]`, `level: int`, `delta: float`
+- **`HasseDiagram`** — `elements`, `edges`, `delta`, `n_classes`
+- **`LatticeStructure`** — `hasse_diagrams`, `filtration`, `merge_sequence`, `is_lattice`, `meet_table`, `join_table`, `automorphisms`, `betti_numbers`, `summary`
+
+---
+
+## 7. SMT Solver API
+
+`src/smt_diversity.py` — Requires Z3 (`Z3_AVAILABLE` flag guards imports).
+
+### `SMTDiversityOptimizer(timeout_ms: int = 10000)`
+
+#### `solve_exact(distance_matrix: np.ndarray, k: int, groups=None, min_per_group=None, objective: str = "sum_pairwise") -> SMTSelectionResult`
+
+Exact optimal diverse subset via Z3. Objectives: `"sum_pairwise"`, `"min_pairwise"`, `"facility_location"`.
+
+#### `greedy_sum_pairwise(D: np.ndarray, k: int, groups=None, min_per_group=None) -> Tuple[List[int], float]` (static)
+
+Greedy heuristic for sum-pairwise diversity.
+
+#### `greedy_min_pairwise(D: np.ndarray, k: int) -> Tuple[List[int], float]` (static)
+
+Greedy heuristic for min-pairwise (maximin) diversity.
+
+#### `compute_optimality_gaps(n_values: List[int], k_values: List[int], ...) -> List[OptimalityGap]`
+
+Compare greedy vs exact solutions across instance sizes.
+
+#### `certify_fair_retention(D: np.ndarray, k: int, groups: np.ndarray, constraint_levels: List[Dict]) -> List[FairRetentionCertificate]`
+
+Certified worst-case fair retention bounds via SMT.
+
+#### `np_hardness_reduction(n_instances: int = 20, ...) -> List[HardnessWitness]`
+
+NP-hardness witnesses via reduction from Max-k-Dispersion.
+
+#### `run_benchmark(max_n: int = 20, n_trials: int = 5, ...) -> SMTBenchmarkResult`
+
+Comprehensive benchmark across sizes.
+
+### `ILPDiversityOptimizer`
+
+#### `solve_ilp(D: np.ndarray, k: int, groups=None, min_per_group=None, ...) -> Tuple[List[int], float]` (static)
+
+ILP fallback for larger instances. Uses scipy `linprog`.
+
+### `smt_benchmark(max_n: int = 20, n_trials: int = 5, seed: int = 42) -> Dict`
+
+Module-level convenience function for running benchmarks.
+
+### Data Classes
+
+- **`SMTSelectionResult`** — `selected_indices`, `objective_value`, `status`, `solve_time_ms`, `n_items`, `k`
+- **`OptimalityGap`** — `n`, `k`, `exact_obj`, `greedy_obj`, `gap_pct`, `greedy_time_ms`, `exact_time_ms`
+- **`FairRetentionCertificate`** — `constraints`, `is_feasible`, `objective_value`, `diversity_loss_pct`
+- **`HardnessWitness`** — `n`, `k`, `greedy_obj`, `exact_obj`, `gap_pct`, `is_hard`
+- **`SMTBenchmarkResult`** — `gaps`, `certificates`, `witnesses`, `summary`
