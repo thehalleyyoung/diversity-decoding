@@ -1,0 +1,2443 @@
+{
+  "overall": {
+    "total_gap_evaluations": 690,
+    "mean_gap_pct": 17.945,
+    "max_gap_pct": 98.432,
+    "pct_exactly_optimal": 6.8,
+    "pct_gt5_suboptimal": 65.1,
+    "pct_gt10_suboptimal": 49.6
+  },
+  "per_selector": {
+    "farthest_point_sum_pairwise": {
+      "selector": "farthest_point",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 4.894,
+      "max_gap_pct": 18.702,
+      "median_gap_pct": 3.311,
+      "pct_optimal": 7.2,
+      "pct_gt5": 40.6,
+      "pct_gt10": 11.6,
+      "n_instances": 69
+    },
+    "farthest_point_min_pairwise": {
+      "selector": "farthest_point",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 7.415,
+      "max_gap_pct": 26.14,
+      "median_gap_pct": 5.888,
+      "pct_optimal": 17.4,
+      "pct_gt5": 56.5,
+      "pct_gt10": 31.9,
+      "n_instances": 69
+    },
+    "submodular_sum_pairwise": {
+      "selector": "submodular",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 2.129,
+      "max_gap_pct": 10.314,
+      "median_gap_pct": 0.787,
+      "pct_optimal": 23.2,
+      "pct_gt5": 15.9,
+      "pct_gt10": 1.4,
+      "n_instances": 69
+    },
+    "submodular_min_pairwise": {
+      "selector": "submodular",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 13.321,
+      "max_gap_pct": 91.474,
+      "median_gap_pct": 7.14,
+      "pct_optimal": 8.7,
+      "pct_gt5": 56.5,
+      "pct_gt10": 44.9,
+      "n_instances": 69
+    },
+    "dpp_sum_pairwise": {
+      "selector": "dpp",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 18.813,
+      "max_gap_pct": 65.395,
+      "median_gap_pct": 14.954,
+      "pct_optimal": 0.0,
+      "pct_gt5": 84.1,
+      "pct_gt10": 69.6,
+      "n_instances": 69
+    },
+    "dpp_min_pairwise": {
+      "selector": "dpp",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 33.233,
+      "max_gap_pct": 96.524,
+      "median_gap_pct": 29.991,
+      "pct_optimal": 0.0,
+      "pct_gt5": 87.0,
+      "pct_gt10": 72.5,
+      "n_instances": 69
+    },
+    "mmr_sum_pairwise": {
+      "selector": "mmr",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 11.899,
+      "max_gap_pct": 38.261,
+      "median_gap_pct": 10.08,
+      "pct_optimal": 1.4,
+      "pct_gt5": 66.7,
+      "pct_gt10": 52.2,
+      "n_instances": 69
+    },
+    "mmr_min_pairwise": {
+      "selector": "mmr",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 12.604,
+      "max_gap_pct": 39.518,
+      "median_gap_pct": 10.03,
+      "pct_optimal": 10.1,
+      "pct_gt5": 65.2,
+      "pct_gt10": 50.7,
+      "n_instances": 69
+    },
+    "random_sum_pairwise": {
+      "selector": "random",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 20.471,
+      "max_gap_pct": 73.429,
+      "median_gap_pct": 17.656,
+      "pct_optimal": 0.0,
+      "pct_gt5": 87.0,
+      "pct_gt10": 71.0,
+      "n_instances": 69
+    },
+    "random_min_pairwise": {
+      "selector": "random",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 54.67,
+      "max_gap_pct": 98.432,
+      "median_gap_pct": 59.617,
+      "pct_optimal": 0.0,
+      "pct_gt5": 91.3,
+      "pct_gt10": 89.9,
+      "n_instances": 69
+    }
+  },
+  "per_distribution": {
+    "uniform_sum_pairwise": {
+      "distribution": "uniform",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 16.523,
+      "max_gap_pct": 38.261,
+      "n_instances": 60
+    },
+    "uniform_min_pairwise": {
+      "distribution": "uniform",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 26.834,
+      "max_gap_pct": 66.575,
+      "n_instances": 60
+    },
+    "clustered_sum_pairwise": {
+      "distribution": "clustered",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 11.227,
+      "max_gap_pct": 73.429,
+      "n_instances": 75
+    },
+    "clustered_min_pairwise": {
+      "distribution": "clustered",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 25.081,
+      "max_gap_pct": 98.432,
+      "n_instances": 75
+    },
+    "hierarchical_sum_pairwise": {
+      "distribution": "hierarchical",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 13.276,
+      "max_gap_pct": 65.395,
+      "n_instances": 60
+    },
+    "hierarchical_min_pairwise": {
+      "distribution": "hierarchical",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 28.125,
+      "max_gap_pct": 82.129,
+      "n_instances": 60
+    },
+    "adversarial_sum_pairwise": {
+      "distribution": "adversarial",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 12.782,
+      "max_gap_pct": 57.543,
+      "n_instances": 75
+    },
+    "adversarial_min_pairwise": {
+      "distribution": "adversarial",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 23.263,
+      "max_gap_pct": 89.507,
+      "n_instances": 75
+    },
+    "realworld_sum_pairwise": {
+      "distribution": "realworld",
+      "objective": "sum_pairwise",
+      "mean_gap_pct": 5.701,
+      "max_gap_pct": 41.621,
+      "n_instances": 75
+    },
+    "realworld_min_pairwise": {
+      "distribution": "realworld",
+      "objective": "min_pairwise",
+      "mean_gap_pct": 19.232,
+      "max_gap_pct": 94.879,
+      "n_instances": 75
+    }
+  },
+  "per_instance": {
+    "sum_pairwise": [
+      {
+        "instance": "uniform_n10_k3_t0",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 11.314365,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.2326,
+        "selector_gaps": {
+          "farthest_point": 8.4456,
+          "submodular": 5.8172,
+          "dpp": 38.1907,
+          "mmr": 20.8557,
+          "random": 32.1921
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t1",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 11.775828,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.3252,
+        "selector_gaps": {
+          "farthest_point": 5.9194,
+          "submodular": 0.0,
+          "dpp": 7.3733,
+          "mmr": 38.2606,
+          "random": 34.6444
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t2",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 12.981963,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.2101,
+        "selector_gaps": {
+          "farthest_point": 14.9446,
+          "submodular": 0.0,
+          "dpp": 15.1358,
+          "mmr": 25.5319,
+          "random": 33.0096
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t3",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 11.391676,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0445,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.3278,
+          "dpp": 10.9537,
+          "mmr": 31.177,
+          "random": 29.8345
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t0",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 34.753215,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.403,
+        "selector_gaps": {
+          "farthest_point": 8.3099,
+          "submodular": 0.0,
+          "dpp": 37.5184,
+          "mmr": 25.5232,
+          "random": 29.2657
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t1",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 29.422032,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.2505,
+        "selector_gaps": {
+          "farthest_point": 11.3755,
+          "submodular": 9.9059,
+          "dpp": 36.4059,
+          "mmr": 29.3653,
+          "random": 21.2111
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t2",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 33.059709,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.3696,
+        "selector_gaps": {
+          "farthest_point": 6.3331,
+          "submodular": 0.0,
+          "dpp": 17.8448,
+          "mmr": 10.0804,
+          "random": 8.9087
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t3",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 30.343323,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.3215,
+        "selector_gaps": {
+          "farthest_point": 8.0152,
+          "submodular": 10.314,
+          "dpp": 13.2725,
+          "mmr": 12.5547,
+          "random": 16.5174
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t0",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 33.930157,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.2838,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 5.5291,
+          "dpp": 20.9945,
+          "mmr": 17.8012,
+          "random": 30.5493
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t1",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 32.56881,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.822,
+        "selector_gaps": {
+          "farthest_point": 10.8962,
+          "submodular": 9.9016,
+          "dpp": 27.5851,
+          "mmr": 23.8505,
+          "random": 30.0919
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t2",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 33.598658,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.4111,
+        "selector_gaps": {
+          "farthest_point": 12.7301,
+          "submodular": 4.0263,
+          "dpp": 14.9384,
+          "mmr": 24.2421,
+          "random": 19.5992
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t3",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 37.505936,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.1866,
+        "selector_gaps": {
+          "farthest_point": 4.1714,
+          "submodular": 9.1239,
+          "dpp": 22.6065,
+          "mmr": 13.408,
+          "random": 23.9786
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t0",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 40.363215,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.0813,
+        "selector_gaps": {
+          "farthest_point": 0.9155,
+          "submodular": 6.9219,
+          "dpp": 22.3739,
+          "mmr": 6.3989,
+          "random": 73.4291
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t1",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 43.653726,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.0948,
+        "selector_gaps": {
+          "farthest_point": 2.4347,
+          "submodular": 6.4832,
+          "dpp": 37.5687,
+          "mmr": 0.4226,
+          "random": 36.2927
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t2",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 53.897296,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.1924,
+        "selector_gaps": {
+          "farthest_point": 3.5795,
+          "submodular": 1.6853,
+          "dpp": 60.0169,
+          "mmr": 33.68,
+          "random": 7.1686
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t3",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 52.995292,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1415,
+        "selector_gaps": {
+          "farthest_point": 0.9427,
+          "submodular": 0.0,
+          "dpp": 18.485,
+          "mmr": 16.3165,
+          "random": 40.4225
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t4",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 38.886731,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.1172,
+        "selector_gaps": {
+          "farthest_point": 13.7615,
+          "submodular": 0.1516,
+          "dpp": 19.0323,
+          "mmr": 16.6501,
+          "random": 21.1579
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t0",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 131.813706,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.2077,
+        "selector_gaps": {
+          "farthest_point": 8.0758,
+          "submodular": 0.2062,
+          "dpp": 15.7117,
+          "mmr": 14.6215,
+          "random": 3.7589
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t1",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 113.433787,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.5458,
+        "selector_gaps": {
+          "farthest_point": 0.7021,
+          "submodular": 0.0,
+          "dpp": 7.422,
+          "mmr": 7.6277,
+          "random": 23.5497
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t2",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 107.411998,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.4394,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.598,
+          "dpp": 18.7157,
+          "mmr": 7.6328,
+          "random": 9.88
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t3",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 150.721883,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.5425,
+        "selector_gaps": {
+          "farthest_point": 1.7553,
+          "submodular": 4.2855,
+          "dpp": 10.7361,
+          "mmr": 2.0397,
+          "random": 39.9409
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t4",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 118.597256,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.6605,
+        "selector_gaps": {
+          "farthest_point": 2.5773,
+          "submodular": 2.7901,
+          "dpp": 24.6729,
+          "mmr": 13.4528,
+          "random": 15.9161
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t0",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 147.899038,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.2043,
+        "selector_gaps": {
+          "farthest_point": 0.3086,
+          "submodular": 0.239,
+          "dpp": 17.5595,
+          "mmr": 4.6895,
+          "random": 0.1091
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t1",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 116.448006,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.5913,
+        "selector_gaps": {
+          "farthest_point": 0.0656,
+          "submodular": 0.0,
+          "dpp": 8.9669,
+          "mmr": 16.7132,
+          "random": 12.6646
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t2",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 134.936128,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.7822,
+        "selector_gaps": {
+          "farthest_point": 0.2436,
+          "submodular": 0.636,
+          "dpp": 9.7083,
+          "mmr": 12.5711,
+          "random": 12.5074
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t3",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 143.455036,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.659,
+        "selector_gaps": {
+          "farthest_point": 0.5519,
+          "submodular": 0.5519,
+          "dpp": 12.334,
+          "mmr": 4.7115,
+          "random": 16.4506
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t4",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 148.052981,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.3389,
+        "selector_gaps": {
+          "farthest_point": 0.9139,
+          "submodular": 0.5294,
+          "dpp": 20.8651,
+          "mmr": 4.1324,
+          "random": 1.0109
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t0",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 117.017865,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.4658,
+        "selector_gaps": {
+          "farthest_point": 2.5129,
+          "submodular": 1.7175,
+          "dpp": 48.5972,
+          "mmr": 3.6768,
+          "random": 26.499
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t1",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 111.0806,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1017,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.4983,
+          "dpp": 12.2784,
+          "mmr": 10.009,
+          "random": 36.909
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t2",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 115.689649,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.1358,
+        "selector_gaps": {
+          "farthest_point": 2.6159,
+          "submodular": 4.9895,
+          "dpp": 22.2218,
+          "mmr": 9.054,
+          "random": 24.7946
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t3",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 109.654918,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1474,
+        "selector_gaps": {
+          "farthest_point": 2.1686,
+          "submodular": 6.8404,
+          "dpp": 26.7431,
+          "mmr": 0.0,
+          "random": 30.3445
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t0",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 167.291706,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.3334,
+        "selector_gaps": {
+          "farthest_point": 12.9353,
+          "submodular": 2.0429,
+          "dpp": 65.395,
+          "mmr": 15.3512,
+          "random": 27.9334
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t1",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 192.620562,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.6523,
+        "selector_gaps": {
+          "farthest_point": 6.717,
+          "submodular": 5.2412,
+          "dpp": 18.0472,
+          "mmr": 24.4764,
+          "random": 4.0052
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t2",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 157.82872,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.8591,
+        "selector_gaps": {
+          "farthest_point": 3.7267,
+          "submodular": 0.0,
+          "dpp": 27.9781,
+          "mmr": 4.6954,
+          "random": 12.6993
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t3",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 218.801319,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.7111,
+        "selector_gaps": {
+          "farthest_point": 4.6028,
+          "submodular": 3.3446,
+          "dpp": 47.4643,
+          "mmr": 7.3151,
+          "random": 5.6374
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t0",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 266.477797,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.6436,
+        "selector_gaps": {
+          "farthest_point": 6.3959,
+          "submodular": 1.4477,
+          "dpp": 37.0234,
+          "mmr": 9.9464,
+          "random": 14.4536
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t1",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 310.725023,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.0252,
+        "selector_gaps": {
+          "farthest_point": 8.3997,
+          "submodular": 0.0,
+          "dpp": 13.413,
+          "mmr": 19.4366,
+          "random": 12.3837
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t2",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 352.252089,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.4896,
+        "selector_gaps": {
+          "farthest_point": 3.0162,
+          "submodular": 0.2502,
+          "dpp": 10.9822,
+          "mmr": 19.6961,
+          "random": 14.2551
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t3",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 393.765361,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.2338,
+        "selector_gaps": {
+          "farthest_point": 7.3176,
+          "submodular": 1.5388,
+          "dpp": 20.3333,
+          "mmr": 18.1833,
+          "random": 5.9821
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t0",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 28.013518,
+        "optimal_status": "smt_optimal",
+        "solve_time": 1.1452,
+        "selector_gaps": {
+          "farthest_point": 3.1981,
+          "submodular": 4.7202,
+          "dpp": 38.02,
+          "mmr": 20.7842,
+          "random": 0.1839
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t1",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 25.167953,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.3183,
+        "selector_gaps": {
+          "farthest_point": 2.851,
+          "submodular": 0.0982,
+          "dpp": 9.726,
+          "mmr": 5.5307,
+          "random": 19.4729
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t2",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 28.782789,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0114,
+        "selector_gaps": {
+          "farthest_point": 8.9258,
+          "submodular": 0.0,
+          "dpp": 16.233,
+          "mmr": 12.3898,
+          "random": 6.5489
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t3",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 26.216889,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1967,
+        "selector_gaps": {
+          "farthest_point": 18.7018,
+          "submodular": 0.0,
+          "dpp": 48.7756,
+          "mmr": 25.6097,
+          "random": 20.4103
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t4",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 25.172302,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0588,
+        "selector_gaps": {
+          "farthest_point": 6.553,
+          "submodular": 0.0,
+          "dpp": 47.2662,
+          "mmr": 17.8443,
+          "random": 17.6557
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t0",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 47.048153,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.054,
+        "selector_gaps": {
+          "farthest_point": 6.2588,
+          "submodular": 4.528,
+          "dpp": 13.0171,
+          "mmr": 1.2986,
+          "random": 4.4092
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t1",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 49.49243,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1277,
+        "selector_gaps": {
+          "farthest_point": 4.1625,
+          "submodular": 1.7333,
+          "dpp": 20.1215,
+          "mmr": 1.1186,
+          "random": 2.8725
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t2",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 46.943839,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1407,
+        "selector_gaps": {
+          "farthest_point": 3.7955,
+          "submodular": 1.3323,
+          "dpp": 29.315,
+          "mmr": 9.4349,
+          "random": 9.4349
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t3",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 48.588117,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.1867,
+        "selector_gaps": {
+          "farthest_point": 5.5385,
+          "submodular": 0.0,
+          "dpp": 7.0161,
+          "mmr": 17.9822,
+          "random": 13.4414
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t4",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 48.716684,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.1598,
+        "selector_gaps": {
+          "farthest_point": 7.4061,
+          "submodular": 2.7514,
+          "dpp": 14.8881,
+          "mmr": 10.2041,
+          "random": 8.1173
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t0",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 30.448534,
+        "optimal_status": "smt_optimal",
+        "solve_time": 2.3099,
+        "selector_gaps": {
+          "farthest_point": 8.5577,
+          "submodular": 3.2269,
+          "dpp": 11.0992,
+          "mmr": 13.1569,
+          "random": 32.7337
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t1",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 24.498689,
+        "optimal_status": "smt_optimal",
+        "solve_time": 3.4869,
+        "selector_gaps": {
+          "farthest_point": 18.1431,
+          "submodular": 3.967,
+          "dpp": 11.2961,
+          "mmr": 15.3178,
+          "random": 57.5431
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t2",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 27.853688,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.1929,
+        "selector_gaps": {
+          "farthest_point": 8.3476,
+          "submodular": 0.0102,
+          "dpp": 9.6909,
+          "mmr": 8.128,
+          "random": 42.7004
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t3",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 28.97546,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.2064,
+        "selector_gaps": {
+          "farthest_point": 9.4281,
+          "submodular": 0.7872,
+          "dpp": 31.8383,
+          "mmr": 23.3866,
+          "random": 41.9217
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t4",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 26.058168,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.2428,
+        "selector_gaps": {
+          "farthest_point": 1.266,
+          "submodular": 1.2291,
+          "dpp": 11.9037,
+          "mmr": 8.0868,
+          "random": 33.2374
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t0",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 4.865646,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.2067,
+        "selector_gaps": {
+          "farthest_point": 2.4352,
+          "submodular": 0.0,
+          "dpp": 2.4633,
+          "mmr": 2.0291,
+          "random": 29.827
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t1",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 4.650935,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0945,
+        "selector_gaps": {
+          "farthest_point": 8.4979,
+          "submodular": 0.2812,
+          "dpp": 6.8625,
+          "mmr": 10.1202,
+          "random": 34.2107
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t2",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 4.467473,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0142,
+        "selector_gaps": {
+          "farthest_point": 7.9022,
+          "submodular": 5.1257,
+          "dpp": 14.9545,
+          "mmr": 13.5421,
+          "random": 41.6206
+        }
+      },
+      {
+        "instance": "paranmt_n10_k3_t0",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.599695,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0076,
+        "selector_gaps": {
+          "farthest_point": 1.3828,
+          "submodular": 0.0,
+          "dpp": 1.3996,
+          "mmr": 3.9364,
+          "random": 1.5619
+        }
+      },
+      {
+        "instance": "paranmt_n10_k3_t1",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.195838,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 0.2044,
+        "selector_gaps": {
+          "farthest_point": 1.6042,
+          "submodular": 0.11,
+          "dpp": 1.1537,
+          "mmr": 1.1537,
+          "random": 1.8841
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t0",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 9.058794,
+        "optimal_status": "smt_optimal",
+        "solve_time": 3.3404,
+        "selector_gaps": {
+          "farthest_point": 0.7066,
+          "submodular": 0.1553,
+          "dpp": 0.1553,
+          "mmr": 3.6814,
+          "random": 24.6986
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t1",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 8.780593,
+        "optimal_status": "smt_optimal",
+        "solve_time": 4.5131,
+        "selector_gaps": {
+          "farthest_point": 3.3108,
+          "submodular": 0.6886,
+          "dpp": 4.4398,
+          "mmr": 0.8311,
+          "random": 21.8995
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t2",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 8.549884,
+        "optimal_status": "smt_optimal",
+        "solve_time": 13.9858,
+        "selector_gaps": {
+          "farthest_point": 1.0343,
+          "submodular": 1.591,
+          "dpp": 0.4259,
+          "mmr": 3.1958,
+          "random": 9.4126
+        }
+      },
+      {
+        "instance": "paranmt_n12_k4_t0",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 7.473478,
+        "optimal_status": "smt_optimal",
+        "solve_time": 9.4573,
+        "selector_gaps": {
+          "farthest_point": 0.6386,
+          "submodular": 0.9658,
+          "dpp": 0.723,
+          "mmr": 0.0221,
+          "random": 29.6057
+        }
+      },
+      {
+        "instance": "paranmt_n12_k4_t1",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 8.517326,
+        "optimal_status": "smt_optimal",
+        "solve_time": 3.8312,
+        "selector_gaps": {
+          "farthest_point": 0.8004,
+          "submodular": 0.5885,
+          "dpp": 7.1284,
+          "mmr": 0.9992,
+          "random": 16.4844
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t0",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 8.643278,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.692,
+        "selector_gaps": {
+          "farthest_point": 2.5916,
+          "submodular": 0.6178,
+          "dpp": 3.3898,
+          "mmr": 2.2357,
+          "random": 11.9794
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t1",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 7.55189,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.1018,
+        "selector_gaps": {
+          "farthest_point": 2.7297,
+          "submodular": 1.1952,
+          "dpp": 3.5972,
+          "mmr": 3.4506,
+          "random": 7.8985
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t2",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 8.542094,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.2769,
+        "selector_gaps": {
+          "farthest_point": 2.2618,
+          "submodular": 2.2369,
+          "dpp": 3.4808,
+          "mmr": 3.2408,
+          "random": 7.7802
+        }
+      },
+      {
+        "instance": "paranmt_n15_k4_t0",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 8.026007,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 1.7898,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.0,
+          "dpp": 8.7129,
+          "mmr": 4.3882,
+          "random": 11.8365
+        }
+      },
+      {
+        "instance": "paranmt_n15_k4_t1",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 8.973922,
+        "optimal_status": "ilp_optimal",
+        "solve_time": 2.3122,
+        "selector_gaps": {
+          "farthest_point": 0.2742,
+          "submodular": 1.0112,
+          "dpp": 1.5376,
+          "mmr": 1.7488,
+          "random": 11.1412
+        }
+      }
+    ],
+    "min_pairwise": [
+      {
+        "instance": "uniform_n10_k3_t0",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.560774,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0208,
+        "selector_gaps": {
+          "farthest_point": 14.3762,
+          "submodular": 23.933,
+          "dpp": 39.803,
+          "mmr": 39.5179,
+          "random": 44.666
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t1",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.185949,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0215,
+        "selector_gaps": {
+          "farthest_point": 1.4695,
+          "submodular": 26.9826,
+          "dpp": 22.3722,
+          "mmr": 28.9776,
+          "random": 35.778
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t2",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.816123,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0122,
+        "selector_gaps": {
+          "farthest_point": 12.6958,
+          "submodular": 20.1485,
+          "dpp": 33.3594,
+          "mmr": 24.0683,
+          "random": 49.8724
+        }
+      },
+      {
+        "instance": "uniform_n10_k3_t3",
+        "distribution": "uniform",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 3.53316,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0079,
+        "selector_gaps": {
+          "farthest_point": 2.421,
+          "submodular": 2.421,
+          "dpp": 32.1273,
+          "mmr": 32.1273,
+          "random": 66.5751
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t0",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 4.627631,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0197,
+        "selector_gaps": {
+          "farthest_point": 0.1319,
+          "submodular": 2.7686,
+          "dpp": 27.5427,
+          "mmr": 29.0557,
+          "random": 34.5593
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t1",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 4.134652,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0175,
+        "selector_gaps": {
+          "farthest_point": 21.9367,
+          "submodular": 21.513,
+          "dpp": 28.4132,
+          "mmr": 38.0843,
+          "random": 43.2186
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t2",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 4.613306,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0355,
+        "selector_gaps": {
+          "farthest_point": 10.4664,
+          "submodular": 27.2756,
+          "dpp": 38.0315,
+          "mmr": 23.1408,
+          "random": 10.4664
+        }
+      },
+      {
+        "instance": "uniform_n12_k4_t3",
+        "distribution": "uniform",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 4.402966,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.023,
+        "selector_gaps": {
+          "farthest_point": 9.7184,
+          "submodular": 14.7476,
+          "dpp": 45.5969,
+          "mmr": 15.7273,
+          "random": 39.6535
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t0",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 5.441415,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0188,
+        "selector_gaps": {
+          "farthest_point": 7.7157,
+          "submodular": 46.8031,
+          "dpp": 34.7981,
+          "mmr": 27.4436,
+          "random": 45.3699
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t1",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 4.915686,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0154,
+        "selector_gaps": {
+          "farthest_point": 26.1403,
+          "submodular": 20.364,
+          "dpp": 34.353,
+          "mmr": 29.849,
+          "random": 35.6522
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t2",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 5.018964,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0188,
+        "selector_gaps": {
+          "farthest_point": 20.1045,
+          "submodular": 23.4311,
+          "dpp": 40.685,
+          "mmr": 25.2456,
+          "random": 36.7926
+        }
+      },
+      {
+        "instance": "uniform_n15_k4_t3",
+        "distribution": "uniform",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 5.400232,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0258,
+        "selector_gaps": {
+          "farthest_point": 14.3131,
+          "submodular": 27.2015,
+          "dpp": 25.443,
+          "mmr": 27.7605,
+          "random": 24.8462
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t0",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 10.515657,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0078,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 27.4541,
+          "dpp": 29.9911,
+          "mmr": 25.2466,
+          "random": 94.0312
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t1",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 13.556477,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0114,
+        "selector_gaps": {
+          "farthest_point": 3.9276,
+          "submodular": 14.8238,
+          "dpp": 8.1595,
+          "mmr": 0.0,
+          "random": 94.5511
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t2",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 10.521727,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0151,
+        "selector_gaps": {
+          "farthest_point": 5.8879,
+          "submodular": 7.1397,
+          "dpp": 12.752,
+          "mmr": 9.4347,
+          "random": 86.3061
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t3",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 14.627654,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0142,
+        "selector_gaps": {
+          "farthest_point": 0.871,
+          "submodular": 1.2389,
+          "dpp": 3.5641,
+          "mmr": 4.0281,
+          "random": 98.4317
+        }
+      },
+      {
+        "instance": "clustered_n10_k3_t4",
+        "distribution": "clustered",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 10.768441,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0163,
+        "selector_gaps": {
+          "farthest_point": 14.3867,
+          "submodular": 4.0399,
+          "dpp": 90.2704,
+          "mmr": 19.5988,
+          "random": 90.2704
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t0",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 12.903569,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0177,
+        "selector_gaps": {
+          "farthest_point": 1.5809,
+          "submodular": 2.7133,
+          "dpp": 9.1418,
+          "mmr": 0.2881,
+          "random": 92.6418
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t1",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 15.212951,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0231,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.0,
+          "dpp": 1.0043,
+          "mmr": 2.3405,
+          "random": 92.2549
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t2",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 14.768695,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0122,
+        "selector_gaps": {
+          "farthest_point": 1.0854,
+          "submodular": 0.0,
+          "dpp": 93.6394,
+          "mmr": 1.0854,
+          "random": 90.766
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t3",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 15.897525,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0153,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 91.4742,
+          "dpp": 96.5236,
+          "mmr": 4.2458,
+          "random": 91.8659
+        }
+      },
+      {
+        "instance": "clustered_n12_k4_t4",
+        "distribution": "clustered",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 16.349459,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0188,
+        "selector_gaps": {
+          "farthest_point": 8.3541,
+          "submodular": 8.3541,
+          "dpp": 14.9308,
+          "mmr": 13.9503,
+          "random": 94.7959
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t0",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 21.062641,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0153,
+        "selector_gaps": {
+          "farthest_point": 0.5855,
+          "submodular": 0.5855,
+          "dpp": 7.6355,
+          "mmr": 11.7678,
+          "random": 0.2443
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t1",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 14.446102,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0192,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.6591,
+          "dpp": 87.415,
+          "mmr": 3.1577,
+          "random": 2.3221
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t2",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 18.55077,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0425,
+        "selector_gaps": {
+          "farthest_point": 3.3105,
+          "submodular": 0.1738,
+          "dpp": 6.21,
+          "mmr": 4.0126,
+          "random": 8.5931
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t3",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 19.462863,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0253,
+        "selector_gaps": {
+          "farthest_point": 2.6572,
+          "submodular": 2.6572,
+          "dpp": 94.6968,
+          "mmr": 0.8398,
+          "random": 37.3353
+        }
+      },
+      {
+        "instance": "clustered_n15_k4_t4",
+        "distribution": "clustered",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 19.345387,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0392,
+        "selector_gaps": {
+          "farthest_point": 4.5967,
+          "submodular": 1.4954,
+          "dpp": 37.3354,
+          "mmr": 0.4788,
+          "random": 2.8729
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t0",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 31.305406,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0154,
+        "selector_gaps": {
+          "farthest_point": 7.6404,
+          "submodular": 10.5228,
+          "dpp": 76.4991,
+          "mmr": 6.7049,
+          "random": 75.3215
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t1",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 33.03758,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0153,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 3.0591,
+          "dpp": 82.1289,
+          "mmr": 7.6665,
+          "random": 69.134
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t2",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 32.525486,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0074,
+        "selector_gaps": {
+          "farthest_point": 10.3117,
+          "submodular": 17.0862,
+          "dpp": 78.4448,
+          "mmr": 3.5803,
+          "random": 74.8761
+        }
+      },
+      {
+        "instance": "hierarchical_n10_k3_t3",
+        "distribution": "hierarchical",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 33.267422,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0069,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 13.6526,
+          "dpp": 69.3321,
+          "mmr": 4.3444,
+          "random": 69.3321
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t0",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 10.629234,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0201,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 3.2989,
+          "dpp": 46.4033,
+          "mmr": 16.7382,
+          "random": 27.5738
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t1",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 10.974687,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0194,
+        "selector_gaps": {
+          "farthest_point": 4.9491,
+          "submodular": 12.7858,
+          "dpp": 36.5029,
+          "mmr": 10.1213,
+          "random": 12.7858
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t2",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 12.098862,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.018,
+        "selector_gaps": {
+          "farthest_point": 22.2304,
+          "submodular": 37.2837,
+          "dpp": 36.9731,
+          "mmr": 0.0,
+          "random": 36.9731
+        }
+      },
+      {
+        "instance": "hierarchical_n12_k4_t3",
+        "distribution": "hierarchical",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 11.419021,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0128,
+        "selector_gaps": {
+          "farthest_point": 9.5677,
+          "submodular": 22.978,
+          "dpp": 24.3958,
+          "mmr": 0.0,
+          "random": 73.4866
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t0",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 12.677573,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0292,
+        "selector_gaps": {
+          "farthest_point": 6.7299,
+          "submodular": 46.4069,
+          "dpp": 34.0757,
+          "mmr": 28.4563,
+          "random": 40.1078
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t1",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 9.684636,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0245,
+        "selector_gaps": {
+          "farthest_point": 9.7565,
+          "submodular": 24.7273,
+          "dpp": 27.8832,
+          "mmr": 24.0562,
+          "random": 42.7586
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t2",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 11.445771,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0286,
+        "selector_gaps": {
+          "farthest_point": 19.2681,
+          "submodular": 22.2284,
+          "dpp": 42.0328,
+          "mmr": 24.2005,
+          "random": 52.7668
+        }
+      },
+      {
+        "instance": "hierarchical_n15_k5_t3",
+        "distribution": "hierarchical",
+        "n": 15,
+        "k": 5,
+        "optimal_value": 13.011478,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0312,
+        "selector_gaps": {
+          "farthest_point": 11.5409,
+          "submodular": 38.0024,
+          "dpp": 40.6501,
+          "mmr": 25.8385,
+          "random": 11.3313
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t0",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 8.599465,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0106,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 20.7006,
+          "dpp": 47.0202,
+          "mmr": 15.6014,
+          "random": 3.3919
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t1",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 8.085812,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0082,
+        "selector_gaps": {
+          "farthest_point": 20.5091,
+          "submodular": 1.7815,
+          "dpp": 59.6173,
+          "mmr": 8.9704,
+          "random": 59.6173
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t2",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 8.562707,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0073,
+        "selector_gaps": {
+          "farthest_point": 10.5063,
+          "submodular": 0.0,
+          "dpp": 82.4457,
+          "mmr": 11.7075,
+          "random": 10.5063
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t3",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 7.201557,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0177,
+        "selector_gaps": {
+          "farthest_point": 6.0493,
+          "submodular": 6.078,
+          "dpp": 89.5073,
+          "mmr": 21.9443,
+          "random": 34.6289
+        }
+      },
+      {
+        "instance": "adversarial_n10_k3_t4",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 7.869362,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0109,
+        "selector_gaps": {
+          "farthest_point": 5.4605,
+          "submodular": 3.5355,
+          "dpp": 44.9189,
+          "mmr": 16.0641,
+          "random": 42.5671
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t0",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 5.79339,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.013,
+        "selector_gaps": {
+          "farthest_point": 0.0242,
+          "submodular": 0.0242,
+          "dpp": 20.9488,
+          "mmr": 0.0,
+          "random": 36.9973
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t1",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 7.388737,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0122,
+        "selector_gaps": {
+          "farthest_point": 16.7525,
+          "submodular": 16.7525,
+          "dpp": 81.3048,
+          "mmr": 0.0,
+          "random": 13.6019
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t2",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 5.932547,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0206,
+        "selector_gaps": {
+          "farthest_point": 5.3971,
+          "submodular": 35.6799,
+          "dpp": 5.3971,
+          "mmr": 10.0301,
+          "random": 10.0301
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t3",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 6.906797,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0152,
+        "selector_gaps": {
+          "farthest_point": 13.8632,
+          "submodular": 28.1849,
+          "dpp": 30.4506,
+          "mmr": 28.9372,
+          "random": 28.1849
+        }
+      },
+      {
+        "instance": "adversarial_n10_k4_t4",
+        "distribution": "adversarial",
+        "n": 10,
+        "k": 4,
+        "optimal_value": 6.367125,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0165,
+        "selector_gaps": {
+          "farthest_point": 5.5221,
+          "submodular": 29.9079,
+          "dpp": 21.4895,
+          "mmr": 14.5247,
+          "random": 18.67
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t0",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 8.671279,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0166,
+        "selector_gaps": {
+          "farthest_point": 8.4559,
+          "submodular": 9.5942,
+          "dpp": 33.3185,
+          "mmr": 6.1339,
+          "random": 85.258
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t1",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 5.944101,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0148,
+        "selector_gaps": {
+          "farthest_point": 20.4428,
+          "submodular": 22.3732,
+          "dpp": 22.4612,
+          "mmr": 8.6617,
+          "random": 75.9045
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t2",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 8.145846,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0269,
+        "selector_gaps": {
+          "farthest_point": 19.1797,
+          "submodular": 0.0,
+          "dpp": 32.6217,
+          "mmr": 18.2208,
+          "random": 76.9155
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t3",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 7.821676,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0208,
+        "selector_gaps": {
+          "farthest_point": 1.4484,
+          "submodular": 4.6807,
+          "dpp": 4.6807,
+          "mmr": 17.6725,
+          "random": 80.724
+        }
+      },
+      {
+        "instance": "adversarial_n12_k3_t4",
+        "distribution": "adversarial",
+        "n": 12,
+        "k": 3,
+        "optimal_value": 7.51566,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.02,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 1.4104,
+          "dpp": 5.2908,
+          "mmr": 5.0973,
+          "random": 88.3725
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t0",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 1.374306,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0171,
+        "selector_gaps": {
+          "farthest_point": 6.1494,
+          "submodular": 1.0483,
+          "dpp": 1.0483,
+          "mmr": 10.6505,
+          "random": 85.4094
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t1",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 1.432893,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0254,
+        "selector_gaps": {
+          "farthest_point": 10.1894,
+          "submodular": 4.1276,
+          "dpp": 6.4672,
+          "mmr": 10.1894,
+          "random": 79.6759
+        }
+      },
+      {
+        "instance": "stsb_n10_k3_t2",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 1.390343,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0082,
+        "selector_gaps": {
+          "farthest_point": 10.479,
+          "submodular": 9.1063,
+          "dpp": 13.7587,
+          "mmr": 23.9774,
+          "random": 71.0563
+        }
+      },
+      {
+        "instance": "paranmt_n10_k3_t0",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 0.982122,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0192,
+        "selector_gaps": {
+          "farthest_point": 1.0735,
+          "submodular": 0.0,
+          "dpp": 1.1528,
+          "mmr": 3.9367,
+          "random": 4.7905
+        }
+      },
+      {
+        "instance": "paranmt_n10_k3_t1",
+        "distribution": "realworld",
+        "n": 10,
+        "k": 3,
+        "optimal_value": 0.808411,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0079,
+        "selector_gaps": {
+          "farthest_point": 1.3804,
+          "submodular": 0.3539,
+          "dpp": 0.3098,
+          "mmr": 0.9953,
+          "random": 0.7836
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t0",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 1.228679,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0222,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 1.4786,
+          "dpp": 5.3164,
+          "mmr": 8.9346,
+          "random": 85.0978
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t1",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 1.294979,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.015,
+        "selector_gaps": {
+          "farthest_point": 5.5023,
+          "submodular": 6.426,
+          "dpp": 5.5023,
+          "mmr": 0.6282,
+          "random": 80.307
+        }
+      },
+      {
+        "instance": "stsb_n12_k4_t2",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 1.127814,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0253,
+        "selector_gaps": {
+          "farthest_point": 8.9201,
+          "submodular": 14.774,
+          "dpp": 14.774,
+          "mmr": 8.9201,
+          "random": 75.5217
+        }
+      },
+      {
+        "instance": "paranmt_n12_k4_t0",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 0.751561,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0244,
+        "selector_gaps": {
+          "farthest_point": 3.9104,
+          "submodular": 5.5621,
+          "dpp": 3.9104,
+          "mmr": 0.0,
+          "random": 93.4628
+        }
+      },
+      {
+        "instance": "paranmt_n12_k4_t1",
+        "distribution": "realworld",
+        "n": 12,
+        "k": 4,
+        "optimal_value": 1.044842,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0296,
+        "selector_gaps": {
+          "farthest_point": 1.6399,
+          "submodular": 2.412,
+          "dpp": 1.6399,
+          "mmr": 1.6399,
+          "random": 94.5209
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t0",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 1.329763,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0251,
+        "selector_gaps": {
+          "farthest_point": 6.4174,
+          "submodular": 3.1047,
+          "dpp": 12.0496,
+          "mmr": 7.9541,
+          "random": 70.1427
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t1",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 1.00322,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0291,
+        "selector_gaps": {
+          "farthest_point": 17.1052,
+          "submodular": 11.3106,
+          "dpp": 13.1744,
+          "mmr": 0.0,
+          "random": 80.7436
+        }
+      },
+      {
+        "instance": "stsb_n15_k4_t2",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 1.232238,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0156,
+        "selector_gaps": {
+          "farthest_point": 14.4997,
+          "submodular": 5.8107,
+          "dpp": 5.8107,
+          "mmr": 13.3734,
+          "random": 68.6698
+        }
+      },
+      {
+        "instance": "paranmt_n15_k4_t0",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 1.115486,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.026,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.0,
+          "dpp": 34.2255,
+          "mmr": 0.4054,
+          "random": 90.6247
+        }
+      },
+      {
+        "instance": "paranmt_n15_k4_t1",
+        "distribution": "realworld",
+        "n": 15,
+        "k": 4,
+        "optimal_value": 1.31295,
+        "optimal_status": "smt_optimal",
+        "solve_time": 0.0262,
+        "selector_gaps": {
+          "farthest_point": 0.0,
+          "submodular": 0.5186,
+          "dpp": 1.331,
+          "mmr": 1.3011,
+          "random": 94.8793
+        }
+      }
+    ]
+  },
+  "baseline_comparison": {
+    "divflow": {
+      "provides_certificates": true,
+      "certifies_exact_gap": true,
+      "objectives_certified": [
+        "sum_pairwise",
+        "min_pairwise",
+        "facility_location"
+      ],
+      "max_certified_n": 30
+    },
+    "numpy_random": {
+      "provides_certificates": false,
+      "certifies_exact_gap": false
+    },
+    "sklearn_dpp": {
+      "provides_certificates": false,
+      "certifies_exact_gap": false
+    },
+    "huggingface_diverse_beam": {
+      "provides_certificates": false,
+      "certifies_exact_gap": false
+    },
+    "mmr_standard": {
+      "provides_certificates": false,
+      "certifies_exact_gap": false
+    },
+    "vendi_score": {
+      "provides_certificates": false,
+      "certifies_exact_gap": false
+    }
+  },
+  "n_instances_generated": 69,
+  "n_certified": 138,
+  "n_skipped": 0
+}
