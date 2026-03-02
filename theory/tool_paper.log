@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 FEB 2026 21:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  1 MAR 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,7 +563,7 @@ LaTeX Warning: No \author given.
 
 {/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 147.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 143.
 
 
 [2]
@@ -575,11 +575,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.319 
+l.325 
       ]
 
 [5]
-Overfull \hbox (9.19456pt too wide) in paragraph at lines 460--473
+Overfull \hbox (9.19456pt too wide) in paragraph at lines 480--493
 []\OT1/cmr/m/n/10.95 The ex-pec-ta-tion fol-lows from sym-me-try: un-der in-de-
 pen-dence, $[]((\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
 x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 M[]\OT1/cmr
@@ -589,35 +589,38 @@ x[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 M[]\OT1/cmr
  []
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
-(Font)              using `OT1/cmr/m/sc' instead on input line 477.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
-(Font)              using `OT1/cmr/m/sc' instead on input line 478.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
-(Font)              using `OT1/cmr/m/sc' instead on input line 481.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
-(Font)              using `OT1/cmr/m/sc' instead on input line 481.
-
-
 
 [6]
 
-[7
+LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
+(Font)              using `OT1/cmr/m/sc' instead on input line 497.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
+(Font)              using `OT1/cmr/m/sc' instead on input line 498.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
+(Font)              using `OT1/cmr/m/sc' instead on input line 501.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
+(Font)              using `OT1/cmr/m/sc' instead on input line 501.
+
+
+
+[7]
+
+[8
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.578 \begin{itemize}[nosep]
-                            ]
+l.649 \item \textbf
+                   {Variation of Information (VI):}]
 
-[8]
-Overfull \hbox (5.30995pt too wide) in paragraph at lines 703--708
+[9]
+Overfull \hbox (5.30995pt too wide) in paragraph at lines 723--728
 [][]\OT1/cmr/bx/n/10.95 Theorem 7.1 \OT1/cmr/m/n/10.95 (Lat-tice struc-ture of 
 $\OMS/cmsy/m/n/10.95 M\OML/cmm/m/it/10.95 =   \OMS/cmsy/m/n/10.95 ^^X[]$\OT1/cm
 r/m/n/10.95 )\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 The quo-tient $\OMS/cm
@@ -630,101 +633,109 @@ sy/m/n/10.95 M\OML/cmm/m/it/10.95 =   \OMS/cmsy/m/n/10.95 ^^X[]$ \OT1/cmr/m/it/
 
 
 
-[9]
-
 [10
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.801 \end{proposition}
-                       ]
+l.802 \end{equation}
+                    ]
+Overfull \hbox (0.67368pt too wide) in paragraph at lines 845--849
+[]\OT1/cmr/bx/n/10.95 Recommendation\OT1/cmr/m/n/10.95 : When re-port-ing EPD, 
+al-ways state the ker-nel type and band-width method.
+ []
+
+
 
 [11]
-Underfull \hbox (badness 1748) in paragraph at lines 924--924
+
+[12]
+Underfull \hbox (badness 1748) in paragraph at lines 1004--1004
 []\OT1/cmr/m/n/10.95 Table 6: []Text di-ver-sity of se-lected sub-sets ($\OML/c
 mm/m/it/10.95 k \OT1/cmr/m/n/10.95 = 20$ from 300 texts). Val-ues from
  []
 
 
 
-[12
+[13
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.983 \end{enumerate}
-                     
+l.1059 \item \textbf
+                    {Phase 1}: For each group $g$, select $\text{min}_g$ rep...
+
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.983 \end{enumerate}
-                     ]
+l.1059 \item \textbf
+                    {Phase 1}: For each group $g$, select $\text{min}_g$ rep...
+]
 
-[13
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1089 
+l.1156 
        
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1089 
+l.1156 
        ]
 
-[14
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1130 \item \textbf
-                    {Entropy bias correction} (10 tests): Miller--Madow corr...
-
+l.1208 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.9}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1130 \item \textbf
-                    {Entropy bias correction} (10 tests): Miller--Madow corr...
-]
+l.1208 
+       ]
 
-[15]
+[16]
 No file tool_paper.bbl.
 
 
-[16]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1335.
-
-
 [17]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1376.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1376.
-
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 1432.
 
 
 [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1436.
+(hyperref)                removing `math shift' on input line 1473.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1436.
+(hyperref)                removing `math shift' on input line 1473.
 
 
 
 [19]
-Overfull \hbox (57.21054pt too wide) in paragraph at lines 1530--1534
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1533.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1533.
+
+
+
+[20]
+
+[21]
+Overfull \hbox (57.21054pt too wide) in paragraph at lines 1627--1631
 []\OT1/cmr/m/n/10.95 We ver-ify this con-struc-tion pro-gram-mat-i-cally in \OT
 1/cmtt/m/n/10.95 test[]distributional.py::TestTightnessConstruction\OT1/cmr/m/n
 /10.95 ,
@@ -732,76 +743,76 @@ Overfull \hbox (57.21054pt too wide) in paragraph at lines 1530--1534
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1561.
+(hyperref)                removing `math shift' on input line 1658.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1561.
+(hyperref)                removing `math shift' on input line 1658.
 
 
 
-[20]
+[22]
 
-[21
+[23
 pdfTeX warning (ext4): destination with the same identifier (name{table.10}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1641 
+l.1738 
        
 pdfTeX warning (ext4): destination with the same identifier (name{table.11}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1641 
+l.1738 
        ]
 
-[22
+[24
 pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1712 \item G
+l.1809 \item G
               roup 1 (25\%): 50 points, spread across a wider region
 pdfTeX warning (ext4): destination with the same identifier (name{table.13}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1712 \item G
+l.1809 \item G
               roup 1 (25\%): 50 points, spread across a wider region
 pdfTeX warning (ext4): destination with the same identifier (name{table.14}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1712 \item G
+l.1809 \item G
               roup 1 (25\%): 50 points, spread across a wider region]
 
-[23]
+[25]
 
-[24]
+[26]
 
-[25
+[27
 pdfTeX warning (ext4): destination with the same identifier (name{table.15}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1841 \end{document}
+l.1941 \end{document}
                      ] (./tool_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `tool_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 1CEDA049FA2DB4182166ED0E1AD99109;9816.
+(rerunfilecheck)             Checksum: D8530AC15203361342CCD7C354979366;10048.
  ) 
 Here is how much of TeX's memory you used:
- 13420 strings out of 474662
- 206672 string characters out of 5751110
- 621987 words of memory out of 5000000
- 36080 multiletter control sequences out of 15000+600000
+ 13443 strings out of 474662
+ 206944 string characters out of 5751110
+ 622142 words of memory out of 5000000
+ 36086 multiletter control sequences out of 15000+600000
  573676 words of font info for 91 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,11n,79p,547b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,547b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/halleyyoung/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jkna
 ppen/ec/tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1
@@ -821,17 +832,16 @@ texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/lo
 cal/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
 r/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
-/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on tool_paper.pdf (25 pages, 382861 bytes).
+/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on tool_paper.pdf (27 pages, 383172 bytes).
 PDF statistics:
- 728 PDF objects out of 1000 (max. 8388607)
- 646 compressed objects within 7 object streams
- 197 named destinations out of 1000 (max. 500000)
- 457 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 753 PDF objects out of 1000 (max. 8388607)
+ 671 compressed objects within 7 object streams
+ 214 named destinations out of 1000 (max. 500000)
+ 465 words of extra memory for PDF output out of 10000 (max. 10000000)
 
