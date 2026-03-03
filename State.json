@@ -1,8 +1,8 @@
 {
   "version": 4,
   "phase": "ideation",
-  "problem_slug": "diversity-decoding-arena",
-  "problem_dir": "pipeline_output/diversity-decoding-arena",
+  "problem_slug": "diversity-decoding",
+  "problem_dir": "pipeline_output/diversity-decoding",
   "proposals": {},
   "active_proposals": [],
   "abandoned_proposals": [],
@@ -13,8 +13,8 @@
     {
       "at": "2026-02-22T14:38:03Z",
       "event": "problem_crystallized",
-      "slug": "diversity-decoding-arena",
-      "dir": "pipeline_output/diversity-decoding-arena"
+      "slug": "diversity-decoding",
+      "dir": "pipeline_output/diversity-decoding"
     }
   ],
   "last_error": null,

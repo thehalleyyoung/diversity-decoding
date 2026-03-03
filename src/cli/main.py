@@ -2931,7 +2931,7 @@ def build_parser() -> ArenaArgumentParser:
               %(prog)s config show
               %(prog)s config set default.seed 123
 
-            Documentation: https://github.com/diversity-decoding-arena
+            Documentation: https://github.com/diversity-decoding
         """),
     )
     _add_global_arguments(parser)

@@ -799,7 +799,7 @@ def main():
 
     total_time = round(time.time() - t_total, 2)
     output = {
-        "project": "diversity-decoding-arena",
+        "project": "diversity-decoding",
         "model": "GPT-2 124M (HuggingFace Transformers)",
         "total_time_sec": total_time,
         "seed": SEED,

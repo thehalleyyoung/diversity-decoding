@@ -1,0 +1,5 @@
+{"response": "Machine learning is a subset of artificial intelligence that enables systems to learn from data.", "role": "assistant", "conversation_id": "c1"}
+{"response": "ML algorithms identify patterns in data to make predictions without explicit programming.", "role": "assistant", "conversation_id": "c2"}
+{"response": "At its core, machine learning trains statistical models on datasets to generalize to new inputs.", "role": "assistant", "conversation_id": "c3"}
+{"response": "Think of machine learning as teaching computers by example rather than by rules.", "role": "assistant", "conversation_id": "c4"}
+{"response": "Machine learning uses mathematical optimization to find the best model parameters from training data.", "role": "assistant", "conversation_id": "c5"}

@@ -1,5 +1,5 @@
 {
-  "project": "diversity-decoding-arena",
+  "project": "diversity-decoding",
   "description": "Maps every paper claim to its proof or artifact. All experimental claims verified from final JSON result files. Theoretical claims proved in tool_paper.tex and verified computationally. Tests in test_pathb.py (77 pass) and test_distributional.py.",
   "artifacts": {
     "theorem_41_verification": "experiments/final_results/theorem_41_verification.json",

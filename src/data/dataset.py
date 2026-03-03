@@ -53,7 +53,7 @@ class DomainType(Enum):
 class DatasetConfig:
     """Full configuration for dataset construction."""
 
-    name: str = "diversity-decoding-arena"
+    name: str = "diversity-decoding"
     version: str = "1.0.0"
     description: str = "Benchmark dataset for diversity decoding evaluation"
     domains: List[str] = field(default_factory=lambda: list(DOMAINS))

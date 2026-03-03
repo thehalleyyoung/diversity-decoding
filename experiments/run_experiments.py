@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Experiment runner for diversity-decoding-arena.
+"""Experiment runner for diversity-decoding.
 
 Run from implementation/ directory:
     PYTHONPATH=. python experiments/run_experiments.py
@@ -444,7 +444,7 @@ def main():
 
     elapsed = round(time.time() - t0, 2)
     output = {
-        "project": "diversity-decoding-arena",
+        "project": "diversity-decoding",
         "total_time_sec": elapsed,
         "n_experiments": len(results),
         "n_passed": sum(1 for r in results if r["pass"]),

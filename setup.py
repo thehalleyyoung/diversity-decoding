@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="diversity-decoding-arena",
+    name="diversity-decoding",
     version="0.1.0",
     description="Diversity metric taxonomy and decoding algorithm evaluation for text generation",
     long_description=open("README.md").read(),

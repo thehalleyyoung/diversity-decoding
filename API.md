@@ -434,9 +434,9 @@ Module-level convenience function for running benchmarks.
 
 ---
 
-## 8. JSONL & HuggingFace JSON Input
+## 8. JSONL, HuggingFace JSON, CSV & Parquet Input
 
-`src/io/jsonl_loader.py`
+`src/io/jsonl_loader.py` · `src/io/csv_loader.py`
 
 ### `load_texts_jsonl(path: str, text_field: str = None) -> List[str]`
 
@@ -448,13 +448,21 @@ Load texts from HuggingFace-style JSON: `[{"text": ...}, ...]` or `{"data": [{"t
 
 ### `load_texts_auto(path: str, text_field: str = None) -> List[str]`
 
-Auto-detect format by file extension (`.jsonl` → JSONL, `.json` → HF JSON, else plain text).
+Auto-detect format by file extension (`.jsonl` → JSONL, `.json` → HF JSON, `.csv` → CSV, `.parquet` → Parquet, else plain text).
+
+### `load_csv(path: str, text_column: str = 'text', delimiter: str = ',') -> Union[List[str], Dict[str, List[str]]]`
+
+Load texts from a CSV file. Auto-detects text column from: `text`, `output`, `response`, `content`, `generation`, `completion`, `sentence`. If a `group`, `config`, or `model` column exists, returns a dict keyed by group name; otherwise returns a flat list.
+
+### `load_parquet(path: str, text_column: str = 'text') -> Union[List[str], Dict[str, List[str]]]`
+
+Load texts from a Parquet file. Requires `pyarrow` or `pandas`. Same auto-detection and grouping logic as `load_csv`.
 
 ### CLI Flags
 
 | Flag | Command | Description |
 |------|---------|-------------|
-| `--file` | `divflow metrics` | Input file (`.jsonl`, `.json`, or plain text — auto-detected) |
-| `--text-field` | `divflow metrics` | Custom JSON field name for text extraction |
-| `--input-format` | `diversity_taxonomy.py` | Force input format: `json` or `jsonl` (default: auto-detect) |
-| `--text-field` | `diversity_taxonomy.py` | Custom JSON field name for text extraction |
+| `--file` | `divflow metrics` | Input file (`.jsonl`, `.json`, `.csv`, `.parquet`, or plain text — auto-detected) |
+| `--text-field` | `divflow metrics` | Custom column/field name for text extraction |
+| `--input-format` | `diversity_taxonomy.py` | Force input format: `json`, `jsonl`, `csv`, or `parquet` (default: auto-detect) |
+| `--text-field` | `diversity_taxonomy.py` | Custom column/field name for text extraction |

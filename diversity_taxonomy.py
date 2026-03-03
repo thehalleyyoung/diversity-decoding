@@ -262,7 +262,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__
     )
-    parser.add_argument('--input', '-i', required=True, help='Input JSON file with generations')
+    parser.add_argument('--input', '-i', required=True, help='Input JSON/JSONL file with generations')
     parser.add_argument('--output', '-o', default=None, help='Output JSON file (default: stdout)')
     parser.add_argument('--metrics', '-m', default='all',
                         help='Comma-separated metric names or "all" (default: all)')
@@ -270,11 +270,48 @@ def main():
                         help='|tau| threshold for cluster identification (default: 0.7)')
     parser.add_argument('--format', '-f', choices=['table', 'json'], default='table',
                         help='Output format (default: table)')
+    parser.add_argument('--input-format', choices=['json', 'jsonl', 'csv', 'parquet'], default=None,
+                        help='Input format (default: auto-detect from extension)')
+    parser.add_argument('--text-field', default=None,
+                        help='JSON field name for text (JSONL input only)')
     args = parser.parse_args()
 
     # Load data
-    with open(args.input) as f:
-        data = json.load(f)
+    fmt = args.input_format
+    if fmt is None:
+        # Auto-detect from extension
+        lower = args.input.lower()
+        if lower.endswith('.jsonl'):
+            fmt = 'jsonl'
+        elif lower.endswith('.csv'):
+            fmt = 'csv'
+        elif lower.endswith('.parquet'):
+            fmt = 'parquet'
+        else:
+            fmt = 'json'
+
+    if fmt == 'jsonl':
+        from src.io.jsonl_loader import load_texts_jsonl
+        texts = load_texts_jsonl(args.input, text_field=args.text_field)
+        data = {"default": texts}
+    elif fmt == 'csv':
+        from src.io.csv_loader import load_csv
+        result = load_csv(args.input, text_column=args.text_field or 'text')
+        data = result if isinstance(result, dict) else {"default": result}
+    elif fmt == 'parquet':
+        from src.io.csv_loader import load_parquet
+        result = load_parquet(args.input, text_column=args.text_field or 'text')
+        data = result if isinstance(result, dict) else {"default": result}
+    else:
+        with open(args.input) as f:
+            raw = json.load(f)
+        # Support HuggingFace JSON: list or {"data": [...]}
+        if isinstance(raw, list) or (isinstance(raw, dict) and "data" in raw and not all(isinstance(v, list) for v in raw.values())):
+            from src.io.jsonl_loader import load_texts_hf_json
+            texts = load_texts_hf_json(args.input, text_field=args.text_field)
+            data = {"default": texts}
+        else:
+            data = raw
 
     if not isinstance(data, dict):
         print("Error: Input must be a JSON object with config names as keys", file=sys.stderr)

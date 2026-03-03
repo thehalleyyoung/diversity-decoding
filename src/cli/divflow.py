@@ -28,8 +28,8 @@ def cmd_metrics(args):
     from src.cross_model_analysis import METRIC_FUNCTIONS
 
     if args.file:
-        with open(args.file) as f:
-            texts = [line.strip() for line in f if line.strip()]
+        from src.io.jsonl_loader import load_texts_auto
+        texts = load_texts_auto(args.file, text_field=args.text_field)
     elif args.texts:
         texts = args.texts
     else:
@@ -196,7 +196,10 @@ def main():
     # metrics
     p_m = sub.add_parser('metrics', help='Compute diversity metrics on texts')
     p_m.add_argument('--texts', nargs='+', help='Input texts')
-    p_m.add_argument('--file', type=str, help='File with one text per line')
+    p_m.add_argument('--file', type=str,
+                     help='File with texts (.jsonl, .json, .csv, .parquet, or plain text)')
+    p_m.add_argument('--text-field', type=str, default=None,
+                     help='JSON field name containing text (for JSONL/JSON input)')
 
     # select
     p_s = sub.add_parser('select', help='Select diverse subset')

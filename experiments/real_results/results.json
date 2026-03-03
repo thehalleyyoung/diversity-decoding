@@ -1,5 +1,5 @@
 {
-  "project": "diversity-decoding-arena",
+  "project": "diversity-decoding",
   "model": "GPT-2 124M (HuggingFace Transformers)",
   "total_time_sec": 1254.09,
   "seed": 42,

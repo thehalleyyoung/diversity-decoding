@@ -131,4 +131,4 @@ Each algorithm family receives 3–5 hyperparameter configurations varying the p
 
 **Why no human evaluation:** The arena answers *structural* questions (metric correlations, Pareto dominance, algorithm-task interactions) that are inherently quantitative. Human evaluation adds noise, cost, and irreproducibility without improving the answers to these questions. This is not a limitation—it is a design principle aligned with the arena's purpose as a reproducible scientific instrument.
 
-Slug: diversity-decoding-arena
+Slug: diversity-decoding

@@ -473,7 +473,7 @@
       "time": 0.012037992477416992,
       "result": {
         "status": "skipped",
-        "reason": "cannot import name 'FairDiversitySelector' from 'src.fair_diversity' (/Users/halleyyoung/Documents/div/mathdivergence/pipeline_output/diversity-decoding-arena/implementation/src/fair_diversity.py)"
+        "reason": "cannot import name 'FairDiversitySelector' from 'src.fair_diversity' (/Users/halleyyoung/Documents/div/mathdivergence/pipeline_output/diversity-decoding/implementation/src/fair_diversity.py)"
       }
     }
   },
