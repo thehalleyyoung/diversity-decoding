@@ -15,3 +15,14 @@ target/
 # Python cache
 __pycache__/
 *.pyc
+
+# Reviews, critiques, and critique-triages (auto-generated)
+**/review_*
+**/reviews/
+**/critiques.json
+**/critique_triage.json
+**/critique_*.md
+**/critique_*.json
+**/critique_responses.json
+**/reviewer_persona_cache*.json
+
